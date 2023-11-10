@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+use App\http\Controllers\HomeController;
+use App\http\Controllers\SocialiteController;
+use App\http\Controllers\FormationProf;
+use App\http\Controllers\ExperinceProf;
+use App\http\Controllers\DisponibleProf;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+
+
+
+/* Route::get('/',[HomeController::class,'welcome']); */
+Auth::routes([
+    'verify'    =>true,
+]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome']);
+
+Route::get('auth/google'          ,[SocialiteController::class,'redirectToGoogle']);
+Route::get('auth/google/callback' ,[SocialiteController::class,'handGoogleCallback']);
+Route::get('professeur/StepByStep',function()
+{
+    return view('Step.index');
+});
+Route::get('/prof/{name}/{id}',function()
+{
+    return view('Profile.index');
+});
+Route::get('ShowProfileProf',[HomeController::class,'ShowProfile']);
+
+Route::post('StoreData',[HomeController::class,'Store']);

@@ -1,0 +1,138 @@
+*{
+    font-family: opensans;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 0px;
+    border-style: none none solid;
+}
+
+.form-control:focus {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 0px;
+    border-style: none none solid;
+    box-shadow: none;
+
+}
+
+
+.forgetPassword{
+    float: left;
+    text-decoration: none;
+    margin-left: -25px;
+}
+
+.btn-primary{
+  font-size: 18px;
+  font-family: opensans;
+  text-transform: initial;
+  border-radius: 0;
+}
+
+.btn-google{
+    font-size: 18px ;
+    font-family: opensans;
+    text-transform: initial;
+    border-radius: 0;
+    border-color: #dadada;
+    width: 100%;
+  height: 50px;
+}
+.fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+.divLine{
+    display: flex;
+    align-items: center;
+}
+.line{
+    flex: 1;
+    border-top: 1px solid gray;
+}
+.text{
+    padding: 0 10px; /* Adjust the padding as needed */
+    color: gray;
+}
+
+
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 14px !important;
+    height: 13px;
+    float: left;
+}
+
+
+.form-group {
+    margin: 10px 0;
+    position: relative;
+}
+
+
+
+.form-group i.fa-user {
+    position: absolute;
+    left: 10px; /* Adjust the left value as needed */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form-group i.fa-lock {
+    position: absolute;
+    left: 10px; /* Adjust the left value as needed */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form-group .fa-eye {
+    position: absolute;
+    right: 10px; /* Adjust the right value as needed */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    text-indent: 30px;
+}
+
+.form-group .show-password {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#error-alert{
+    list-style: none;
+}
