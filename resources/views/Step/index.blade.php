@@ -116,13 +116,7 @@
                                                 <label  >Date de naissance </label>
                                                 <input name="datenaissance" type="date" class="form-control" >
                                             </div>
-                                            <div class="form-group">
-                                                <label >Pays </label>
-                                                <div class=" niceCountryInputSelector @error('pays') is-invalid @enderror"  data-selectedcountry="US" data-showspecial="false" data-showflags="true" data-i18nall="All selected"
-                                                    data-i18nnofilter="No selection" data-i18nfilter="Filter" data-onchangecallback="onChangeCallbackpaysProf" >
-                                                </div>
-                                                <input type="text" name="paysProf" id="pays" hidden>
-                                            </div>
+                                        
                                             <div class="form-group">
                                                 <label >Telephone </label>
                                                 <input placeholder="Entrer votre numero de telephone "name="phone" id="phone" type="text"  class="form-control" placeholder="Telephone">
@@ -147,21 +141,21 @@
                                                         <div class="panel-body panelBodyFormation">
                                                             <div class="row">
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
-                                                                    <label>Dernier diplome</label>
+                                                                    <label>Dernier diplôme</label>
                                                                     <input type="text" class="form-control" name="diplome[]"/>
                                                                 </div>
                                                                 <div class=" form-group -sm-4 col-md-4 col-xl-4">
-                                                                    <label>Spécialisé</label>
+                                                                    <label>Spécialité</label>
                                                                     <input type="text" class="form-control" name="Specialise[]"/>
                                                                 </div>
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
-                                                                    <label>Annee d'obtention</label>
-                                                                    <input type="text" class="form-control" name="annee[]"/>
+                                                                    <label>Année d'obtention</label>
+                                                                    <input type="date" class="form-control" name="annee[]"/>
                                                                 </div>
                                                             </div>
                                                             <div class="row" style="margin-bottom: 20px">
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
-                                                                    <label>Ecole</label>
+                                                                    <label>Lycée / Université </label>
                                                                     <input type="text" class="form-control" name="ecole[]"/>
                                                                 </div>
                                                                 <div class="form-group  col-sm-4 col-md-4 col-xl-4">
@@ -177,7 +171,7 @@
                                                             <hr style="width: 80%">
                                                             <span class="SpanAddFormation">
                                                                 <i class="fa-solid fa-plus"></i>
-                                                                Ajoute formation
+                                                                Ajouter 
                                                             </span>
 
                                                         </div>
@@ -195,11 +189,11 @@
                                                         <div class="panel-body panelBodyExperience">
                                                             <div class="row">
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
-                                                                    <label>Poste</label>
+                                                                    <label>Filière</label>
                                                                     <input type="text" class="form-control" name="poste[]"/>
                                                                 </div>
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
-                                                                    <label>Entreprise</label>
+                                                                    <label>Lycée / Université </label>
                                                                     <input type="text" class="form-control" name="entreprise[]"/>
                                                                 </div>
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
@@ -224,7 +218,7 @@
                                                             <hr style="width: 80%">
                                                             <span class="SpanAddExperience">
                                                                 <i class="fa-solid fa-plus"></i>
-                                                                Ajoute Experience
+                                                                Ajouter
                                                             </span>
                                                         </div>
                                                     </div>
@@ -243,6 +237,22 @@
                                                                     Vous pouvez rajouter les résultats et/ou les retours de vos élèves.
                                                                     Cette présentation sera affichée sur votre profil.</label>
                                                                 <textarea class="form-control" name="" id="" rows="3"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingfour">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapseThree">
+                                                            Certification   </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
+                                                        <div class="panel-body">
+                                                            <div class="form-group">
+                                                            <label for="">Attestation de travail </label>
+                                                                <input type="file" id="attestation" name="attestation">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -271,12 +281,12 @@
                             </div>
                             <div class="wizard-footer height-wizard">
                                 <div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
-                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
+                                    <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Suivant' />
+                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Valider' />
                                 </div>
 
                                 <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Précedent' />
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -288,9 +298,9 @@
                                             <h4 class="modal-title">Confirmer la sauvegarde</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Êtes-vous sûr de vouloir sauvegarder ces données?&hellip;</p>
+                                            <p>Acceptez-vous nos conditions générales ? Cette question est requise *</p>
                                             <input type="checkbox" id="confirmCheckbox">
-                                            <label for="confirmCheckbox">Je confirme que je veux procéder .</label>
+                                            <label for="confirmCheckbox">J'accepte </label>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
@@ -568,21 +578,19 @@
 
                     if (startHour24 < finHour24) {
                     } else if (startHour24 === finHour24) {
-                        $(this).val('');
                         Swal.fire({
                             icon    : "error",
                             title   : "Oops...",
                             text    : "L'heure de fin est égale à l'heure de début!",
                         });
-
-                    } else {
                         $(this).val('');
+                    } else {
                         Swal.fire({
                             icon    : "error",
                             title   : "Oops...",
                             text    : "heure de fin est plus petite que heure de début!",
                         });
-
+                        $(this).val('');
                     }
                 });
 

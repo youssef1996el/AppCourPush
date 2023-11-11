@@ -42,3 +42,17 @@ Route::get('/prof/{name}/{id}',function()
 Route::get('ShowProfileProf',[HomeController::class,'ShowProfile']);
 
 Route::post('StoreData',[HomeController::class,'Store']);
+
+Route::get('spaces/index',function()
+{
+    return view('Spaces.index');
+});
+Route::get('profile/admin',function()
+{
+    return view('profile.admin');
+});
+
+Route::get('profile/eleve',function()
+{
+    return view('profile.eleve');
+});

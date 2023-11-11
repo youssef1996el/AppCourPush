@@ -115,39 +115,39 @@ $(document).ready(function () {
 
 
         if (emailProfesseurValue === '') {
-            setError(emailProfesseur, 'Email is required');
+            setError(emailProfesseur, 'L\'adresse email est requise');
         } else if (!isValidEmailProfesseur(emailProfesseurValue)) {
-            setError(emailProfesseur, 'Provide a valid email address');
+            setError(emailProfesseur, 'Veuillez fournir une adresse email valide');
         } else {
             setSuccess(emailProfesseur);
         }
 
         if(nomProfesseurValue === '') {
 
-            setError(nomProfesseur, 'nom is required');
+            setError(nomProfesseur, 'Nom est requis');
         } else {
             setSuccess(nomProfesseur);
         }
 
         if(prenomProfesseurValue === '') {
 
-            setError(prenomProfesseur, 'prenom is required');
+            setError(prenomProfesseur, 'Prenom est requis');
         } else {
             setSuccess(prenomProfesseur);
         }
 
         if(passwordProfesseurValue === '') {
-            setError(passwordProfesseur, 'Password is required');
+            setError(passwordProfesseur, 'Mot de passe est requis');
         } else if (passwordProfesseurValue.length < 8 ) {
-            setError(passwordProfesseur, 'Password must be at least 8 character.')
+            setError(passwordProfesseur, 'Mot de passe doit contenir au moins 8 caractères')
         } else {
             setSuccess(passwordProfesseur);
         }
 
         if(confirmpasswordProfesseurValue === '') {
-            setError(confirmpasswordProfesseur, 'confirm Password is required');
+            setError(confirmpasswordProfesseur, 'Confirmation de mot de passe est requis');
         } else if (confirmpasswordProfesseurValue.length < 8 ) {
-            setError(confirmpasswordProfesseur, ' confirm Password must be at least 8 character.')
+            setError(confirmpasswordProfesseur, 'Mot de passe doit contenir au moins 8 caractères')
         } else {
             setSuccess(confirmpasswordProfesseur);
         }
@@ -171,46 +171,46 @@ $(document).ready(function () {
         const paysValue                 = pays.val().trim();
 
         if (emailEleveValue === '') {
-            setError(emailEleve, 'Email is required');
+            setError(emailEleve, 'L\'adresse email est requise');
         } else if (!isValidEmail(emailEleveValue)) {
-            setError(emailEleve, 'Provide a valid email address');
+            setError(emailEleve, 'Veuillez fournir une adresse email valide');
         } else {
             setSuccess(emailEleve);
         }
 
         if(passwordEleveValue === '') {
-            setError(passwordEleve, 'Password is required');
+            setError(passwordEleve, 'Mot de pass est requis');
         } else if (passwordEleveValue.length < 8 ) {
-            setError(passwordEleve, 'Password must be at least 8 character.')
+            setError(passwordEleve, 'Mot de passe doit contenir au moins 8 caractères')
         } else {
             setSuccess(passwordEleve);
         }
 
         if(ConfirmpasswordEleveValue === '') {
-            setError(confirmPasswordEleve, 'Password is required');
+            setError(confirmPasswordEleve, 'Confirmation de mot de passe est requis');
         } else if (ConfirmpasswordEleveValue.length < 8 ) {
-            setError(confirmPasswordEleve, 'Password must be at least 8 character.')
+            setError(confirmPasswordEleve, 'Mot de passe doit contenir au moins 8 caractères')
         } else {
             setSuccess(confirmPasswordEleve);
         }
 
         if(nomEleveValue === '') {
 
-            setError(nomEleve, 'nom is required');
+            setError(nomEleve, 'Nom est requis');
         } else {
             setSuccess(nomEleve);
         }
 
         if(paysValue === '') {
 
-            setError(pays, 'pays is required');
+            setError(pays, 'Pays est requis');
         } else {
             setSuccess(pays);
         }
 
         if(prenomEleveValue === '') {
 
-            setError(prenomEleve, 'prenom is required');
+            setError(prenomEleve, 'Prenom est requis');
         } else {
             setSuccess(prenomEleve);
         }
@@ -259,12 +259,14 @@ $(document).ready(function () {
    {
         if($(this).val() !== passwordEleveCheck)
         {
-            console.log('password is not coorect');
+            console.log('Le mot de passe n\'est pas correct');
             $('.checkPassword').css({
                 'display': 'block',
-                'color'  : 'red'
+                'color'  : 'red',
+                'font-size':'14px '
+                
             });
-            $('.checkPassword').text('password is not coorect')
+            $('.checkPassword').text('Le mot de passe n\'est pas correct')
         }
         else
         {
@@ -283,46 +285,14 @@ $(document).ready(function () {
 
             $('.checkPassword').css({
                 'display': 'block',
-                'color'  : 'red'
+                'color'  : 'red',
+                'font-size':'14px '
             });
-            $('.checkPassword').text('password is not coorect')
+            $('.checkPassword').text('Le mot de passe n\'est pas correct')
         }
         else
         {
             $('.checkPassword').css('display', 'none');
         }
    });
-
-
-   /******************************************************************** Password ******************************/
-    const passwordInput = document.querySelector("#passwordEleve");
-    const requirementList = document.querySelectorAll(".requirement-list li");
-
-
-    const requirements = [
-        { regex: /.{8,}/, index: 0 },
-        { regex: /[0-9]/, index: 1 },
-        { regex: /[a-z]/, index: 2 },
-        { regex: /[^A-Za-z0-9]/, index: 3 },
-        { regex: /[A-Z]/, index: 4 },
-    ]
-
-    passwordInput.addEventListener("keyup", (e) => {
-        requirements.forEach(item => {
-
-            const isValid = item.regex.test(e.target.value);
-            const requirementItem = requirementList[item.index];
-
-
-            if (isValid) {
-                requirementItem.classList.add("valid");
-                requirementItem.firstElementChild.className = "fa-solid fa-check";
-            } else {
-                requirementItem.classList.remove("valid");
-                requirementItem.firstElementChild.className = "fa-solid fa-circle";
-            }
-        });
-    });
-
-
 });

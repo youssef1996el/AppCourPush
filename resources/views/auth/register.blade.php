@@ -65,20 +65,9 @@
                         <div class="form-group mb-4 input-control">
                             <input type="password" name="password" placeholder="Mot de passe" id="passwordEleve" class="form-control @error('password') is-invalid @enderror" />
                             <i class="fa-solid fa-eye" id="test"></i>
-                            <style>
-                                #test
-                                {
-                                    right: 18px;
-  top: 8%;
-  font-size: 1.2rem;
-  color: #999;
-  cursor: pointer;
-  position: absolute;
-  transform: translateY(-50%);
-                                }
-                            </style>
+                         
                             <div class="error ErrorValidation"></div>
-                            <div class="content">
+                            <!--div class="content">
                                 <ul class="requirement-list">
                                   <li>
                                     <i class="fa-solid fa-circle"></i>
@@ -101,7 +90,7 @@
                                     <span>Au moins 1 lettre majuscule (A...Z)</span>
                                   </li>
                                 </ul>
-                              </div>
+                              </div-->
 
 
                             <label class="form-label sr-only" for="loginPassword">Mot de passe</label>
@@ -196,7 +185,7 @@
                         <!-- Confirme Password input -->
                         <div class="form-group mb-4">
                             <input id="confirmpasswordProfesseur" type="password"  placeholder ="Confirmer votre Mot de passe"  class="form-control confirmpasswordProfesseur" name="password_confirmation"  autocomplete="new-password">
-                            <div class="error ErrorValidation" style="color: red"></div>
+                            <div class="error ErrorValidation" style="color: red ;font-size:14px"></div>
                             <div class="checkPassword" style="display: none"></div>
                             <label for="password-confirm" class="form-label sr-only">{{ __('Confirm Password') }}</label>
                         </div>

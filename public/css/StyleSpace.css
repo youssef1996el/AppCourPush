@@ -1,0 +1,55 @@
+.form-group input{
+  width: 90%;
+  margin-left: 18px;
+}
+.nav{
+    margin-bottom: -22px !important;
+    margin-left: -16px;
+}
+.form-group input:focus{
+    width: 90%;
+    margin-left: 18px;
+  }
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: white;
+    font-size: 18px;
+    background:#0d6efd;
+    border-radius: 0;
+    height: 53px;
+    font-weight: bold;
+
+}
+.nav-pills .nav-link:hover {
+    font-size: 18px;
+    border-radius: 0;
+    color: white;
+    background:#0a53be;
+    height: 53px;
+   
+
+}
+.nav-pills .nav-link {
+    font-size: 18px;
+    border-radius: 0;
+    height: 53px;
+    color: #514e4e;
+    background-color: lightgray;
+    
+
+}
+.niceCountryInputMenu {
+    width: 90%;
+    margin-left: 18px;
+}
+
+.niceCountryInputMenuFilter {
+    width: 90%;
+    margin-left: 18px;
+}
+.niceCountryInputMenuDropdownContent {
+
+    width: 90%;
+    margin-left: 18px;
+  }
+
