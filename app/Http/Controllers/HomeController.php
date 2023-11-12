@@ -112,13 +112,6 @@ class HomeController extends Controller
             $disponibilityByDay[$item1->jour] = $item1;
         } */
 
-
-
-
-
-
-
-
         return view('Profile.show')
         ->with('FormationProf',$FormationProf)
         ->with('ExperinceProf',$ExperinceProf)
@@ -126,6 +119,91 @@ class HomeController extends Controller
         ->with('DataProf',$DataProf)
         ->with('disponibilityByDay',$disponibilityByDay);
     }
+
+
+    function getDatesForDays()
+    {
+        $dayMapping = [
+            'lundi' => 'Monday',
+            'mardi' => 'Tuesday',
+            'mercredi' => 'Wednesday',
+            'jeudi' => 'Thursday',
+            'vendredi' => 'Friday',
+            'samedi' => 'Saturday',
+            'dimanche' => 'Sunday',
+        ];
+
+        $DisponibleProf = DB::select('select jour, debut, fin from disponibleprof where iduser = ?', [Auth::user()->id]);
+
+        $englishDays = collect($DisponibleProf)->pluck('jour')->map(function ($day) use ($dayMapping) {
+            return $dayMapping[strtolower($day)] ?? $day;
+        })->unique()->values()->toArray();
+
+        $validDayNames = $englishDays;
+
+        $currentYear = Carbon::now()->year;
+
+        $dayDates = collect(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+            ->filter(function ($dayName) use ($validDayNames) {
+                return in_array($dayName, $validDayNames);
+            })
+            ->mapWithKeys(function ($dayName) use ($currentYear) {
+                $date = Carbon::now()->startOfWeek();
+
+                while ($date->format('l') !== $dayName) {
+                    $date->addDay();
+                }
+
+                while ($date->year !== $currentYear) {
+                    $date->addYear();
+                }
+
+                $date->month(Carbon::now()->month);
+                return [$dayName => $date->format('y-m-d')];
+            });
+
+
+
+        return $dayDates;
+    }
+   public function GetAvailableProf(Request $request)
+   {
+        $dayMapping = [
+            'Lundi' => 'Monday',
+            'Mardi' => 'Tuesday',
+            'Mercredi' => 'Wednesday',
+            'Jeudi' => 'Thursday',
+            'Vendredi' => 'Friday',
+            'Samedi' => 'Saturday',
+            'Dimanche' => 'Sunday',
+        ];
+        $dateResults = $this->getDatesForDays();
+        $dates = [];
+        $dateResults->each(function ($formattedDate, $dayName) use (&$dates) {
+            $dates[$dayName] = $formattedDate;
+        });
+        $DisponibleProf = DB::select('select jour, debut, fin from disponibleprof where iduser = ?', [Auth::user()->id]);
+
+        foreach ($DisponibleProf as &$dispo) {
+            $dispo->jour = $dayMapping[$dispo->jour];
+        }
+
+        foreach ($DisponibleProf as &$disponible) {
+
+            if (array_key_exists($disponible->jour, $dates)) {
+
+                $disponible->date = $dates[$disponible->jour];
+            }
+        }
+
+
+        return response()->json([
+            'statut'    =>200,
+            'data'      =>$DisponibleProf
+        ]);
+   }
+
+
 
 
 }

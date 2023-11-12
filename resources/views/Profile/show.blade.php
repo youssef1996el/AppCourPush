@@ -2,6 +2,9 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('css/StyleShowProfile.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
 <div class="container mt-5">
     <div class="row" style="margin-top:8rem">
         <div class="col-sm-12 col-md-3 col-xl-3 ">
@@ -173,6 +176,10 @@
                                         </div>
                                     @endforeach
                                 </div>
+                                <div class="container">
+
+                                    <div id="calendar"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -311,6 +318,106 @@
         </div>
     </div>
 </div>
+<style>
+    .available-event {
+        background-color: #4CAF50; /* Green */
+        color: #fff;
+    }
 
+    .course-event {
+        background-color: #F0D75A; /* Yellow */
+        color: #000;
+    }
+
+    /* .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    } */
+
+    h1 {
+        color: #007BFF;
+    }
+    </style>
+    <script>
+        $(document).ready(function ()
+        {
+            $.ajax({
+                type    : "get",
+                url     : "{{url('GetAvailableProf')}}",
+                dataType: "json",
+                success: function (response)
+                {
+                    if(response.statut == 200)
+                    {
+
+
+                        var calendarEl = $('#calendar');
+                        var calendar = new FullCalendar.Calendar(calendarEl[0],
+                        {
+                            initialView: 'timeGridWeek',
+                            headerToolbar:
+                            {
+                                left: '',
+                                center: '',
+                                right: ''
+                            },
+                            events: response.data.map(function (value) {
+                                var startDate = "20" + value.date + "T" + value.debut + ":00";
+                                var endDate = "20" + value.date + "T" + value.fin + ":00";
+                                return {
+                                    title       : 'Available',
+                                    start       : startDate,
+                                    end         : endDate,
+                                    className   : 'available-event'
+                                };
+                            }),
+                        /*  events:
+                            [
+
+                                {
+                                    title: 'Available',
+                                    start: '2023-11-11T07:00:00',
+                                    end: '2023-11-11T17:00:00',
+                                    className: 'available-event'
+                                },
+                                {
+                                    title: 'Course',
+                                    start: '2023-11-12T09:00:00',
+                                    end: '2023-11-12T12:00:00',
+                                    className: 'course-event'
+                                },
+                                {
+                                    title: 'Available',
+                                    start: '2023-11-08T09:00:00',
+                                    end: '2023-11-08T17:00:00',
+                                    className: 'available-event'
+                                }
+                            ], */
+                            eventTimeFormat:
+                            {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                meridiem: 'short'
+                            },
+                            slotLabelFormat: {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                omitZeroMinute: false,
+                                meridiem: 'short'
+                            },
+                            locale: 'fr',
+                            dayHeaderFormat: { weekday: 'long' }
+                        });
+                        calendar.render();
+                    }
+                }
+            });
+        });
+    </script>
 
 @endsection

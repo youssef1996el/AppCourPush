@@ -108,6 +108,7 @@
                                                     <img src="{{asset('image/default-avatar.png')}}" class="picture-src" id="wizardPicturePreview" title=""/>
                                                     <input type="file" id="wizard-picture" name="image">
                                                 </div>
+                                                <div class="error"></div>
                                                 <h6>choisir une photo</h6>
                                             </div>
                                         </div>
@@ -115,11 +116,13 @@
                                             <div class="form-group">
                                                 <label  >Date de naissance </label>
                                                 <input name="datenaissance" type="date" class="form-control" >
+                                                <div class="error"></div>
                                             </div>
-                                        
+
                                             <div class="form-group">
                                                 <label >Telephone </label>
                                                 <input placeholder="Entrer votre numero de telephone "name="phone" id="phone" type="text"  class="form-control" placeholder="Telephone">
+                                                <div class="error"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +174,7 @@
                                                             <hr style="width: 80%">
                                                             <span class="SpanAddFormation">
                                                                 <i class="fa-solid fa-plus"></i>
-                                                                Ajouter 
+                                                                Ajouter
                                                             </span>
 
                                                         </div>
@@ -191,16 +194,19 @@
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
                                                                     <label>Filière</label>
                                                                     <input type="text" class="form-control" name="poste[]"/>
+                                                                    <div class="error"></div>
                                                                 </div>
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
                                                                     <label>Lycée / Université </label>
                                                                     <input type="text" class="form-control" name="entreprise[]"/>
+                                                                    <div class="error"></div>
                                                                 </div>
                                                                 <div class=" form-group col-sm-4 col-md-4 col-xl-4">
                                                                     <label>Pays</label>
                                                                     <div class="niceCountryInputSelector selectPaysExperience @error('pays') is-invalid @enderror"  data-selectedcountry="US" data-showspecial="false" data-showflags="true" data-i18nall="All selected"
                                                                         data-i18nnofilter="No selection" data-i18nfilter="Filter" data-onchangecallback="onChangeCallbackpaysExperience" >
                                                                         <input type="text"  name="paysExperience[]" class="paysExperience " hidden>
+                                                                        <div class="error"></div>
                                                                     </div>
 
                                                                 </div>
@@ -209,10 +215,12 @@
                                                                 <div class="form-group  col-sm-6 col-md-6 col-xl-6">
                                                                     <label>Du</label>
                                                                     <input type="date" class="form-control" name="du[]"/>
+                                                                    <div class="error"></div>
                                                                 </div>
                                                                 <div class="form-group col-sm-6 col-md-6 col-xl-6">
                                                                     <label>Au</label>
                                                                     <input type="date" class="form-control" name="au[]"/>
+                                                                    <div class="error"></div>
                                                                 </div>
                                                             </div>
                                                             <hr style="width: 80%">
@@ -231,12 +239,13 @@
                                                         </h4>
                                                     </div>
                                                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                        <div class="panel-body">
+                                                        <div class="panel-body panelBodyMethode">
                                                             <div class="form-group">
                                                                 <label for="">Plus votre description sera détaillée, plus vous aurez de chances d'avoir des élèves.
                                                                     Vous pouvez rajouter les résultats et/ou les retours de vos élèves.
                                                                     Cette présentation sera affichée sur votre profil.</label>
-                                                                <textarea class="form-control" name="" id="" rows="3"></textarea>
+                                                                <textarea class="form-control" name="methode" id="" rows="3"></textarea>
+                                                                <div class="error"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -249,10 +258,11 @@
                                                         </h4>
                                                     </div>
                                                     <div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
-                                                        <div class="panel-body">
+                                                        <div class="panel-body panelBodyAttestation">
                                                             <div class="form-group">
                                                             <label for="">Attestation de travail </label>
                                                                 <input type="file" id="attestation" name="attestation">
+                                                                <div class="error"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -332,6 +342,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
+<style>
+    .error
+    {
+        color: red;
+    }
+</style>
     <script>
 
 
@@ -401,30 +417,35 @@
                 var divAppendExperience = `<div class="custom-form-section">
                                                 <div class="row">
                                                     <div class="col-sm-4 col-md-4 col-xl-4">
-                                                        <label>Poste</label>
+                                                        <label>Filière</label>
                                                         <input type="text" class="form-control" name="poste[]"/>
+                                                        <div class="error"></div>
                                                     </div>
                                                     <div class="col-sm-4 col-md-4 col-xl-4">
-                                                        <label>Entreprise</label>
+                                                        <label>Lycée / Université</label>
                                                         <input type="text" class="form-control" name="entreprise[]"/>
+                                                        <div class="error"></div>
                                                     </div>
                                                     <div class="col-sm-4 col-md-4 col-xl-4">
                                                         <label>Pays</label>
                                                         <div class="niceCountryInputSelector selectPaysExperience @error('pays') is-invalid @enderror"  data-selectedcountry="US" data-showspecial="false" data-showflags="true" data-i18nall="All selected"
                                                             data-i18nnofilter="No selection" data-i18nfilter="Filter" data-onchangecallback="onChangeCallbackpaysExperience" >
                                                             <input type="text"  class="paysExperience" name="paysExperience[]" hidden>
+                                                            <div class="error"></div>
                                                         </div>
 
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm-6 col-md-6 col-xl-6">
+                                                    <div class="form-group col-sm-6 col-md-6 col-xl-6">
                                                         <label>Du</label>
                                                         <input type="date" class="form-control" name="du[]"/>
+                                                        <div class="error"></div>
                                                     </div>
-                                                    <div class="col-sm-6 col-md-6 col-xl-6">
+                                                    <div class="form-group col-sm-6 col-md-6 col-xl-6">
                                                         <label>Au</label>
                                                         <input type="date" class="form-control" name="au[]"/>
+                                                        <div class="error"></div>
                                                     </div>
                                                 </div>
                                                 <hr style="width: 80%">
@@ -474,13 +495,52 @@
             }
             $(document).on('mouseleave','.selectPaysFormation',function(e)
             {
-                $(this).find('.paysFormation').val(paysFormation);
+                var name = $(this).find('.niceCountryInputMenuCountryFlag').next('span').text();
+                var countryMatches = name.match(/([^\s]+) \(([^)]+)\)/g);
+                var countryName = '';
+                if (countryMatches) {
+
+                    countryMatches.some(function (match) {
+                        var parts = match.split(" ");
+                        countryName = parts[0];
+                        var arabicName = parts.slice(1).join(" ");
+
+                        return true;
+                    });
+                    if(countryName !=="Afghanistan")
+                    {
+                        countryName = countryName.replace(/Afghanistan$/, '');
+                    }
+
+
+                }
+
+                $(this).find('.paysFormation').val(countryName);
+
             });
 
             $(document).on('mouseleave','.selectPaysExperience',function(e)
             {
-                console.log(paysExperince);
-                $(this).find('.paysExperience').val(paysExperince);
+                var name = $(this).find('.niceCountryInputMenuCountryFlag').next('span').text();
+                var countryMatches = name.match(/([^\s]+) \(([^)]+)\)/g);
+                var countryName = '';
+                if (countryMatches) {
+
+                    countryMatches.some(function (match) {
+                        var parts = match.split(" ");
+                        countryName = parts[0];
+                        var arabicName = parts.slice(1).join(" ");
+
+                        return true;
+                    });
+                    if(countryName !=="Afghanistan")
+                    {
+                        countryName = countryName.replace(/Afghanistan$/, '');
+                    }
+
+
+                }
+                $(this).find('.paysExperience').val(countryName);
             });
 
 

@@ -4,15 +4,21 @@ $(document).ready(function () {
     const password = $('#password');
 
     form.on('submit', function (e) {
-        console.log(10);
+
         e.preventDefault();
-
-        if (!isErrorDisplayed(email) && !isErrorDisplayed(password)) {
-
-            this.submit();
-        } else {
-            // Execute console.log(2) when there are validation errors
+        if(email.val() == "")
+        {
+            validateInputs();
         }
+        else if(password.val() == "")
+        {
+            validateInputs();
+        }
+        else
+        {
+            this.submit();
+        }
+
 
         if (validateInputs()) {
         }

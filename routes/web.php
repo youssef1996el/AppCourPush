@@ -56,3 +56,5 @@ Route::get('profile/eleve',function()
 {
     return view('profile.eleve');
 });
+
+Route::get('GetAvailableProf',[HomeController::class,'GetAvailableProf']);
