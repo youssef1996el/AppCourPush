@@ -172,12 +172,13 @@
                                                                 </div>
                                                             </div>
                                                             <hr style="width: 80%">
-                                                            <span class="SpanAddFormation">
-                                                                <i class="fa-solid fa-plus"></i>
-                                                                Ajouter
-                                                            </span>
+
 
                                                         </div>
+                                                        <span class="SpanAddFormation" style="display: flex;width: 80px;margin-bottom:10px">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            Ajouter
+                                                        </span>
                                                     </div>
                                                 </div>
                                                 <div class="panel panel-default">
@@ -224,11 +225,12 @@
                                                                 </div>
                                                             </div>
                                                             <hr style="width: 80%">
-                                                            <span class="SpanAddExperience">
-                                                                <i class="fa-solid fa-plus"></i>
-                                                                Ajouter
-                                                            </span>
+
                                                         </div>
+                                                        <span class="SpanAddExperience" style="display: flex;width: 80px;margin-bottom:10px">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                            Ajouter
+                                                        </span>
                                                     </div>
                                                 </div>
                                                 <div class="panel panel-default">
@@ -385,13 +387,8 @@
                                                 </div>
                                                 <hr style="width: 80%">
                                                 <div class="row">
-                                                    <div class="col-sm-6 col-md-6 col-xl-6">
-                                                        <span class="SpanAddFormation">
-                                                            <i class="fa-solid fa-plus"></i>
-                                                            Ajoute formation
-                                                        </span>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-6 col-xl-6 text-right">
+
+                                                    <div class="col-sm-12 col-md-12 col-xl-12 text-right justify-content-end">
                                                         <span class="SpanSuppFormation">
                                                             <i class="fa-solid fa-x"></i>
                                                             Supprimer
@@ -450,13 +447,8 @@
                                                 </div>
                                                 <hr style="width: 80%">
                                                 <div class="row">
-                                                    <div class="col-sm-6 col-md-6 col-xl-6">
-                                                        <span class="SpanAddExperience">
-                                                            <i class="fa-solid fa-plus"></i>
-                                                            Ajoute Experience
-                                                        </span>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-6 col-xl-6 text-right">
+
+                                                    <div class="col-sm-12 col-md-12 col-xl-12 text-right justify-content-end">
                                                         <span class="SpanSuppExperience">
                                                             <i class="fa-solid fa-x"></i>
                                                             Supprimer

@@ -34,7 +34,7 @@ Route::get('auth/google/callback' ,[SocialiteController::class,'handGoogleCallba
 Route::get('professeur/StepByStep',function()
 {
     return view('Step.index');
-});
+})/* ->middleware('verified') */;
 Route::get('/prof/{name}/{id}',function()
 {
     return view('Profile.index');

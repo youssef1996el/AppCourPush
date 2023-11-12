@@ -29,6 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
@@ -38,6 +39,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+
+
         $this->middleware('guest');
     }
 
@@ -109,8 +112,9 @@ class RegisterController extends Controller
 
     protected function registered( $user)
     {
+
         if ($user->role_name === 'professeur') {
-            return redirect('professeur/StepByStep'); // Change this to the actual route for professeurs.
+            return redirect('professeur/StepByStep');
         }
 
         return redirect($this->redirectPath());

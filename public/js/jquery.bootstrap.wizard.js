@@ -24,10 +24,12 @@ var bootstrapWizardCreate = function(element, options) {
 
 	this.rebindClick = function(selector, fn)
 	{
+
 		selector.unbind('click', fn).bind('click', fn);
 	}
 
 	this.fixNavigationButtons = function() {
+
 		// Get the current active tab
 		if(!$activeTab.length) {
 			// Select first one
@@ -51,6 +53,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.next = function(e) {
+
         var panelActive = $('.tab-pane.active').attr('id');
         var inputs = $('.tab-pane.active').find('input');
         var hasError = false;
@@ -196,6 +199,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.first = function(e) {
+
 		if($settings.onFirst && typeof $settings.onFirst === 'function' && $settings.onFirst($activeTab, $navigation, obj.firstIndex())===false){
 			return false;
 		}
@@ -208,6 +212,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 	};
 	this.last = function(e) {
+
 		if($settings.onLast && typeof $settings.onLast === 'function' && $settings.onLast($activeTab, $navigation, obj.lastIndex())===false){
 			return false;
 		}
@@ -219,39 +224,50 @@ var bootstrapWizardCreate = function(element, options) {
 		$navigation.find(baseItemSelector + ':eq('+obj.navigationLength()+') a').tab('show');
 	};
 	this.currentIndex = function() {
+
 		return $navigation.find(baseItemSelector).index($activeTab);
 	};
 	this.firstIndex = function() {
+
 		return 0;
 	};
 	this.lastIndex = function() {
+
 		return obj.navigationLength();
 	};
 	this.getIndex = function(e) {
+
 		return $navigation.find(baseItemSelector).index(e);
 	};
 	this.nextIndex = function() {
+
 		return $navigation.find(baseItemSelector).index($activeTab) + 1;
 	};
 	this.previousIndex = function() {
+
 		return $navigation.find(baseItemSelector).index($activeTab) - 1;
 	};
 	this.navigationLength = function() {
+
 		return $navigation.find(baseItemSelector).length - 1;
 	};
 	this.activeTab = function() {
+
 		return $activeTab;
 	};
 	this.nextTab = function() {
+
 		return $navigation.find(baseItemSelector + ':eq('+(obj.currentIndex()+1)+')').length ? $navigation.find(baseItemSelector + ':eq('+(obj.currentIndex()+1)+')') : null;
 	};
 	this.previousTab = function() {
+
 		if(obj.currentIndex() <= 0) {
 			return null;
 		}
 		return $navigation.find(baseItemSelector + ':eq('+parseInt(obj.currentIndex()-1)+')');
 	};
 	this.show = function(index) {
+
 		if (isNaN(index)) {
 			return element.find(baseItemSelector + ' a[href=#' + index + ']').tab('show');
 		}
@@ -260,18 +276,23 @@ var bootstrapWizardCreate = function(element, options) {
 		}
 	};
 	this.disable = function(index) {
+
 		$navigation.find(baseItemSelector + ':eq('+index+')').addClass('disabled');
 	};
 	this.enable = function(index) {
+
 		$navigation.find(baseItemSelector + ':eq('+index+')').removeClass('disabled');
 	};
 	this.hide = function(index) {
+
 		$navigation.find(baseItemSelector + ':eq('+index+')').hide();
 	};
 	this.display = function(index) {
+
 		$navigation.find(baseItemSelector + ':eq('+index+')').show();
 	};
 	this.remove = function(args) {
+
 		var $index = args[0];
 		var $removeTabPane = typeof args[1] != 'undefined' ? args[1] : false;
 		var $item = $navigation.find(baseItemSelector + ':eq('+$index+')');
@@ -287,6 +308,114 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	var innerTabClick = function (e) {
+        var panelActive = $('.tab-pane.active').attr('id');
+        var inputs = $('.tab-pane.active').find('input');
+        var hasError = false;
+        $('.error').empty();
+        if(panelActive === 'about')
+        {
+            inputs.each(function(){
+                var inputType= $(this).attr('type');
+                var inputValue = $(this).val();
+                var inputLabel = $(this).closest('.form-group').find('label').text();
+                var inputName = $(this).attr('name');
+                if(inputType === "file")
+                {
+                    if(!$(this).prop('files').length)
+                    {
+                        $(this).siblings(".error").text("this field is "+ inputName +" required");
+                        $('.picture-container').find('.error').text("this field is "+ inputName +" required");
+                        hasError = true;
+                    }
+                }
+                else
+                {
+                    if(inputValue === '')
+                    {
+                        $(this).next('.error').text("this field is "+ inputLabel +" required");
+                        if(inputLabel  !== undefined)
+                        {
+                            hasError = true;
+                        }
+                    }
+                }
+            });
+            if(hasError)
+            {
+                return false;
+            }
+        }
+        else if (panelActive === 'account') {
+            var inputsThisPanel = $('.tab-pane.active').find('.panelBodyExperience').find('input');
+            var inputsThisAttestation = $('.tab-pane.active').find('.panelBodyAttestation').find('input');
+            var textaria = $('.tab-pane.active').find('.panelBodyMethode').find('textarea');
+            $(".error").empty();
+            inputsThisPanel.each(function ()
+            {
+                var inputValue = $(this).val();
+                var inputName = $(this).attr("name");
+                var inputLabel = $(this).closest('.form-group').find('label').text();
+                if (inputValue === "")
+                {
+                    if (inputName !== undefined)
+                    {
+                        if ($(this).is('[type="date"]')) {
+
+                            //$(this).closest('.form-group').find(".error").text("This field is " + inputName.replace(/\[.*?\]/g, '') + " required");
+                            $(this).closest('.form-group').find(".error").text("This field is " + inputLabel + " required");
+                        }
+                        else
+                        {
+                            if($(this).is('.paysExperience'))
+                            {
+                                $(this).next('.error').css({
+                                    'position': 'absolute',
+                                    'margin-top':'40px'
+                                });
+                                //$(this).next(".error").text("This field is " + inputName.replace(/\[.*?\]/g, '') + " required");
+                                $(this).next(".error").text("This field is " + inputLabel + " required");
+                            }
+                            else
+                            {
+                                //$(this).next(".error").text("This field is " + inputName.replace(/\[.*?\]/g, '') + " required");
+                                $(this).next(".error").text("This field is " + inputLabel + " required");
+                            }
+                        }
+                        hasError = true;
+                    }
+                }
+            });
+            textaria.each(function()
+            {
+                var textariaValue = $(this).val();
+                var inputName = $(this).attr('name');
+                if(textariaValue === "")
+                {
+                    if(inputName !== undefined)
+                    {
+                        $(this).next(".error").text("This field is " + inputName.replace(/\[.*?\]/g, '') + " required");
+                        hasError=true;
+                    }
+                }
+            });
+            inputsThisAttestation.each(function()
+            {
+                var inputType= $(this).attr('type');
+                var inputName = $(this).attr('name');
+                if(inputType === "file")
+                {
+                    if(!$(this).prop('files').length)
+                    {
+                        $(this).siblings(".error").text("this field is "+ inputName +" required");
+                        $('.panelBodyAttestation').find('.error').text("this field is "+ inputName +" required");
+                        hasError = true;
+                    }
+                }
+            });
+            if (hasError) {
+                return false;
+            }
+        }
 		// Get the index of the clicked tab
 		var clickedIndex = $navigation.find(baseItemSelector).index($(e.currentTarget).parent(baseItemSelector));
 		if($settings.onTabClick && typeof $settings.onTabClick === 'function' && $settings.onTabClick($activeTab, $navigation, obj.currentIndex(), clickedIndex)===false){

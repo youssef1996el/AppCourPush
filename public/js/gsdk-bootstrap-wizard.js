@@ -3,13 +3,13 @@
  =========================================================
  * Bootstrap Wizard - v1.1.1
  =========================================================
- 
+
  * Product Page: https://www.creative-tim.com/product/bootstrap-wizard
  * Copyright 2017 Creative Tim (http://www.creative-tim.com)
  * Licensed under MIT (https://github.com/creativetimofficial/bootstrap-wizard/blob/master/LICENSE.md)
- 
+
  =========================================================
- 
+
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
 
@@ -48,6 +48,7 @@ $(document).ready(function(){
         'previousSelector': '.btn-previous',
 
         onNext: function(tab, navigation, index) {
+
         	var $valid = $('.wizard-card form').valid();
         	if(!$valid) {
         		$validator.focusInvalid();
@@ -88,6 +89,7 @@ $(document).ready(function(){
         },
 
         onTabShow: function(tab, navigation, index) {
+
             var $total = navigation.find('li').length;
             var $current = index+1;
 
@@ -134,6 +136,7 @@ $(document).ready(function(){
     });
 
     $('[data-toggle="wizard-radio"]').click(function(){
+
         wizard = $(this).closest('.wizard-card');
         wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
         $(this).addClass('active');
@@ -142,6 +145,7 @@ $(document).ready(function(){
     });
 
     $('[data-toggle="wizard-checkbox"]').click(function(){
+
         if( $(this).hasClass('active')){
             $(this).removeClass('active');
             $(this).find('[type="checkbox"]').removeAttr('checked');
