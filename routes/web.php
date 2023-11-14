@@ -58,3 +58,11 @@ Route::get('profile/eleve',function()
 });
 
 Route::get('GetAvailableProf',[HomeController::class,'GetAvailableProf']);
+
+
+
+/********************* dashboard */
+Route::get('Dashboard',function()
+{
+    return view('Dashboard.index');
+});
