@@ -24,103 +24,87 @@
 
                     @endif
                     <h3 class="mb-2" >Complétez votre inscription </h3>
-                    <p>
-                        Pour compléter votre compte,  nous avons besoin de savoir si vous êtes un professeur ou bien un élève . </p>
-                    <form method="POST" action="" id="form">
-                        @csrf
-
-                        <div class="form-group mb-4 input-control" style="width: 94%;
-  margin-left: 12px;" >
-                            <input id="email" placeholder="Email" type="email" class="form-control " name="email"  autofocus autocomplete="off">
-                            <div class="error"></div>
-
-                            <label class="sr-only form-label" for="typeEmailX-2">Email</label>
-                        </div>
-                        <ul class="nav nav-pills nav-justified mb-3 " id="ex1" role="tablist" style="" >
+                    <p>Pour compléter votre compte,  nous avons besoin de savoir si vous êtes un professeur ou bien un élève . </p>
+                    <div class="form-group mb-4 input-control" style="width: 94%;margin-left: 12px;" >
+                        {{-- <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off"> --}}
+                        <div class="error"></div>
+                        <label class="sr-only form-label" for="typeEmailX-2">Email</label>
+                    </div>
+                    <ul class="nav nav-pills nav-justified mb-3 " id="ex1" role="tablist" style="" >
                         <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                            <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
                             aria-controls="pills-login" aria-selected="true">élève</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                            <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
                             aria-controls="pills-register" aria-selected="false">professeur</a>
                         </li>
-                       </ul>
-                    </div>
+                    </ul>
+                </div>
                      <!-- Pills content -->
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                    @if($errors->any())
-                        <div class="alert alert-danger" id="error-alert">
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <form method="POST" action="{{ route('register') }}" id="formEleve">
-                        @csrf
-
-                        <!-- Nom input -->
-                        <div class="form-group mb-4 input-control">
-                            <input type="text" id="nomEleve"  placeholder="Nom complet" class="form-control"  name="nom"/>
-
-                            <label class="form-label sr-only" for="loginName">Nom complet</label>
-                        </div>
-                    
-                      
-                            
-                        <!-- pays input -->
-                        <div class="form-group mb-4 input-control">
-                            <label class="form-label" for="loginName" style="margin-left: 30px;">Pays</label>
-                            <div class="niceCountryInputSelector "  data-selectedcountry="US" data-showspecial="false" data-showflags="true" data-i18nall="All selected"
-                                data-i18nnofilter="No selection" data-i18nfilter="Filter" data-onchangecallback="onChangeCallback" class="form-control"  >
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                        @if($errors->any())
+                            <div class="alert alert-danger" id="error-alert">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
+                        @endif
+                        <form method="POST" action="{{ route('LoginWithGoogle') }}" id="formEleve">
+                            @csrf
+                            <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off">
+                            <!-- Nom input -->
+                            <div class="form-group mb-4 input-control">
+                                <input type="text" id="nomEleve"  placeholder="Nom complet" class="form-control" value="{{$name}}"  name="nom"/>
 
-                            <input type="text" name="pays" id="pays" hidden>
+                                <label class="form-label sr-only" for="loginName">Nom complet</label>
+                            </div>
+                            <!-- pays input -->
+                            <div class="form-group mb-4 input-control">
+                                <label class="form-label" for="loginName" style="margin-left: 30px;">Pays</label>
+                                <div class="niceCountryInputSelector "  data-selectedcountry="US" data-showspecial="false" data-showflags="true" data-i18nall="All selected"
+                                    data-i18nnofilter="No selection" data-i18nfilter="Filter"{{--  data-onchangecallback="onChangeCallback" --}} class="form-control"  >
+                                    <input type="text" name="pays" id="pays" hidden>
+                                </div>
+                                <div class="error"></div>
 
-                        </div>
-                        <input type="text" value="eleve" name="role_name" hidden>
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary  mb-5 mt-3 " style="float: right; margin-right: 16px;"  ><i class="fas fa-arrow-circle-right    "></i></button>
+                            </div>
+                            <input type="text" value="eleve" name="role_name" hidden>
+                            <input type="text" value="{{$idUser}}" name="idUser" hidden>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary  mb-5 mt-3 " style="float: right; margin-right: 16px;"  ><i class="fas fa-arrow-circle-right    "></i></button>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                        @if($errors->any())
+                            <div class="alert alert-danger" id="error-alert">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form method="POST" action="{{ route('LoginWithGoogle') }}" id="formProfesseur">
+                            @csrf
 
-                       
-                      
-
-                    </form>
+                            <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off">
+                            <!-- Nom input -->
+                            <div class="form-group mb-4 input-control">
+                                <input type="text" id="nomProfesseur" placeholder="Nom complet" class="form-control @error('nom') is-invalid @enderror" value="{{$name}}" name="nom"/>
+                                <label class="form-label sr-only" for="registerName">Nom complet</label>
+                            </div>
+                            <input type="text" name="role_name" value="professeur" hidden>
+                            <input type="text" value="{{$idUser}}" name="idUser" hidden>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary  mb-5 mt-3 " style="float: right; margin-right: 16px;"  ><i class="fas fa-arrow-circle-right    "></i></button>
+                        </form>
+                    </div>
                 </div>
-                <div class="tab-pane" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                    @if($errors->any())
-                        <div class="alert alert-danger" id="error-alert">
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <form method="POST" action="{{ route('register') }}" id="formProfesseur">
-                        @csrf
 
-
-                        <!-- Nom input -->
-                        <div class="form-group mb-4 input-control">
-                            <input type="text" id="nomProfesseur" placeholder="Nom complet" class="form-control @error('nom') is-invalid @enderror" name="nom"/>
-                            <label class="form-label sr-only" for="registerName">Nom complet</label>
-                        </div>
-             
-                        <input type="text" name="role_name" value="professeur" hidden>
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary  mb-5 mt-3 " style="float: right; margin-right: 16px;"  ><i class="fas fa-arrow-circle-right    "></i></button>
-                       
-                     
-
-                   
-                    </form>
-                </div>
-            </div>
-            
 
         </div>
     </div>
@@ -128,9 +112,9 @@
 
 
                   </form>
-                
 
-                  
+
+
 
 
                 </div>
@@ -139,21 +123,63 @@
           </div>
         </div>
       </section>
- 
+
 </div>
 <script>
-      function onChangeCallback(ctr){
+     /*  function onChangeCallback(ctr){
             console.log("The country was changed: " + ctr);
             document.getElementById('pays').value = ctr;
-        }
+        } */
 
         $(document).ready(function () {
+            $('#formEleve').on('submit',function()
+            {
+
+
+                var pays = $('#pays').val();
+
+                if(pays === '')
+                {
+
+                    $(this).find('.error').css('color','red').text('pays is required');
+
+                    return false;
+                }
+                else
+                {
+
+                    $(this).submit();
+                    return true;
+                }
+            })
             $(".niceCountryInputSelector").each(function(i,e){
                 new NiceCountryInput(e).init();
             });
-
-
         });
+
+        $(document).on('mouseleave','.niceCountryInputSelector',function(e)
+            {
+                var name = $(this).find('.niceCountryInputMenuCountryFlag').next('span').text();
+                var countryMatches = name.match(/([^\s]+) \(([^)]+)\)/g);
+                var countryName = '';
+                if (countryMatches) {
+
+                    countryMatches.some(function (match) {
+                        var parts = match.split(" ");
+                        countryName = parts[0];
+                        var arabicName = parts.slice(1).join(" ");
+
+                        return true;
+                    });
+                    if(countryName !=="Afghanistan")
+                    {
+                        countryName = countryName.replace(/Afghanistan$/, '');
+                    }
+
+
+                }
+                $(this).find('#pays').val(countryName);
+            });
 </script>
 
 @endsection

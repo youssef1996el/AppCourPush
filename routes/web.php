@@ -31,6 +31,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome']);
 
 Route::get('auth/google'          ,[SocialiteController::class,'redirectToGoogle']);
 Route::get('auth/google/callback' ,[SocialiteController::class,'handGoogleCallback']);
+Route::post('LoginWithGoogle'     ,[SocialiteController::class,'LoginWithGoogle'])->name('LoginWithGoogle');
 Route::get('professeur/StepByStep',function()
 {
     return view('Step.index');
