@@ -66,3 +66,11 @@ Route::get('Dashboard',function()
 {
     return view('Dashboard.index');
 });
+
+Route::get('Dashboard/cours',function()
+{
+    return view('Dashboard.cours');
+});
+
+
+

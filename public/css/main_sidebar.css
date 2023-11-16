@@ -377,6 +377,7 @@ body {
 	color: #fff;
 	transition: all 0.3s;
 	border-right: 1px solid #e6ecf5;
+	min-height: 100vh;
 }
 
 #sidebar.active {
@@ -916,4 +917,8 @@ a, a:hover, a:focus {
 .widget-tiles .tile p {
 	color: #666;
 	font-weight: normal;
+}
+
+.notif{
+	margin-left: 360px;
 }

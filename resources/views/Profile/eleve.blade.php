@@ -4,8 +4,9 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('css/StyleEleve.css')}}">
 
-<div class="container ">
-    <h1>Bienvenue , Nom !</h1>
+<div class="container">
+<div class="containerEleve">   
+<h1>Bienvenue , Nom !</h1>
 
 <div class="card text-left">
 
@@ -78,7 +79,7 @@
 </div>
 </div>
 </div>
-
+</div>
 
 
 
