@@ -157,7 +157,7 @@
             });
         });
 
-        $(document).on('mouseleave','.niceCountryInputSelector',function(e)
+        $(document).on('click','.niceCountryInputSelector',function(e)
             {
                 var name = $(this).find('.niceCountryInputMenuCountryFlag').next('span').text();
                 var countryMatches = name.match(/([^\s]+) \(([^)]+)\)/g);
