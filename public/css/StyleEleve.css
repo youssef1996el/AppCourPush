@@ -16,3 +16,18 @@
 .container{
     margin-top: 10%;
 }
+.form-inline {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    margin-right: 10px;
+  }
+
+.searchSpace{
+    background-color:white;
+    border:1px solid gray;
+    margin-bottom: 16px;
+    border-radius: 6px;
+}
