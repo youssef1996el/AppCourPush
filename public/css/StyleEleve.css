@@ -2,7 +2,7 @@
     font-size: 3em;
 
     display: flex;
-  
+
     justify-content: center;
     margin-top: 46px;
 }
@@ -12,6 +12,10 @@
 }
 .card:hover{
     background-color: lightgray;
+}
+
+.WelcomeEleve{
+    margin-top: 10%;
 }
 
 .form-inline {
@@ -28,8 +32,4 @@
     border:1px solid gray;
     margin-bottom: 16px;
     border-radius: 6px;
-}
-
-.containerEleve{
-    margin-top: 90px;
 }
