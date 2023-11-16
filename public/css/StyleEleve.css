@@ -13,15 +13,17 @@
 .card:hover{
     background-color: lightgray;
 }
+
 .WelcomeEleve{
     margin-top: 10%;
 }
+
 .form-inline {
     display: flex;
     justify-content: space-between;
   }
 
-  .form-group {
+.form-group {
     margin-right: 10px;
   }
 
