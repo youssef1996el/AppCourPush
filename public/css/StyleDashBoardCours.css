@@ -1,0 +1,300 @@
+.cssbuttons-io-button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.7em 1.4em 0.7em 1.1em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    float: right;
+  }
+
+  .cssbuttons-io-button svg {
+    margin-right: 6px;
+  }
+
+  .cssbuttons-io-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+  }
+
+  .cssbuttons-io-button:active {
+    box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+  }
+
+
+
+  .buttonTrashCours  {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .svgIcon {
+    width: 12px;
+    transition-duration: .3s;
+  }
+
+  .svgIcon path {
+    fill: white;
+  }
+
+  .buttonTrashCours:hover {
+    background-color: rgb(255, 69, 69);
+  }
+
+  .buttonTrashCours:hover .svgIcon {
+    width: 50px;
+    transition-duration: .3s;
+    transform: translateY(60%);
+  }
+
+  .buttonTrashCours::before {
+    position: absolute;
+    top: -20px;
+    content: "Delete";
+    color: white;
+    transition-duration: .3s;
+    font-size: 2px;
+    background-color: rgb(255, 69, 69);
+  }
+
+  .buttonTrashCours:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(30px);
+    transition-duration: .3s;
+  }
+
+
+  #TableCours
+  {
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  }
+  #TableCours thead tr
+  {
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+     /*  background-color : #009879; */
+      color:#fff;
+      text-align: left;
+  }
+  #TableCours tbody tr:last-of-type
+  {
+      border-bottom: 2px solid #009879;
+  }
+
+
+
+
+
+
+
+  .Send {
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+    color: white;
+    padding: 0.8em 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
+
+  .Send:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .Send:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .Send span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+  }
+
+  .Send svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+  }
+
+  .Send .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+  }
+
+  .Send:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .Send:hover svg {
+    transform: rotate(45deg);
+  }
+
+
+
+  .sectiontablecours::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+
+  .sectiontablecours::-webkit-scrollbar-thumb {
+    /* background: linear-gradient(to bottom right, #4d7fff 0%, #1a56ff 100%); */
+    background: linear-gradient(to bottom right, #4dc7d9 0%,#66a6ff 100%);
+    border-radius: 5px;
+  }
+
+
+  .sectiontablecours::-webkit-scrollbar-track {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+  }
+
+
+
+  .success {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 250px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: rgb(236, 101, 101);
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+    margin-top: 5px;
+  }
+
+  .success__icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-2px);
+    margin-right: 8px;
+  }
+
+  .success__icon path {
+    fill: #393A37;
+  }
+
+  .success__title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #ebf1dd;
+  }
+
+  .success__close {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid black;
+    margin-left: auto;
+  }
+
+  .success__close path {
+    fill: #393A37;
+   position: absolute;
+  }
+
+  .buttonEditCours
+  {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    position: relative;
+  }
+  .buttonEditCours:hover {
+    background-color: rgb(255, 69, 69);
+
+  }
+
+  .buttonEditCours:hover .svgIcon {
+    width: 50px;
+
+    transition-duration: .3s;
+    transform: translateY(60%);
+  }
+
+  .buttonEditCours::before {
+    position: absolute;
+    top: -20px;
+    content: "Edit";
+    color: white;
+    transition-duration: .3s;
+    font-size: 2px;
+
+    background-color: rgb(255, 69, 69);
+  }
+
+  .buttonEditCours:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(30px);
+    transition-duration: .3s;
+  }
+
+
+  #TableListCour
+  {
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  }
+  #TableListCour thead tr
+  {
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+     /*  background-color : #009879; */
+      color:#fff;
+      text-align: left;
+  }
+  #TableListCour tbody tr:last-of-type
+  {
+      border-bottom: 2px solid #009879;
+  }

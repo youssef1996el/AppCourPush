@@ -10,12 +10,14 @@
     <title>Admin</title>
     <link href="{{asset('css/bootstrap_sidebar.css')}}" rel="stylesheet">
     <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class="d-flex flex-column h-100">
 	<div id="page">
 
-		<div class="wrapper">
+		<div class="wrapper g-0">
 
 			<nav id="sidebar" class="active">
 
@@ -43,11 +45,11 @@
 					<li><a href="loginregister.html"><i
 							class="data-feather theme-item" data-feather="users"></i> <span
 							class="data-feather theme-item"> Login</span></a></li>
-				
+
 					</li>
 				</ul>
 
-			
+
 
 			</nav>
 
@@ -80,10 +82,10 @@
 											class="data-feather theme-item" data-feather="home"></i> <span
 											class="theme-item">Home </span></a>
 									</div></li>
-							
+
 
 								</div>
-							
+
                                 <div class="notif">
 								<li class="nav-item dropdown nav-dropdown"><a
 									class="nav-item nav-link dropdown-toggle text-secondary notification"
@@ -331,15 +333,15 @@
         </main>
 
 
-		
+
 
 			</div>
 
 		</div>
 	</div>
 
-	
-	
+
+
 
 </body>
 

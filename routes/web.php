@@ -7,6 +7,8 @@ use App\http\Controllers\SocialiteController;
 use App\http\Controllers\FormationProf;
 use App\http\Controllers\ExperinceProf;
 use App\http\Controllers\DisponibleProf;
+use App\http\Controllers\CoursController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +34,13 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome']);
 Route::get('auth/google'          ,[SocialiteController::class,'redirectToGoogle']);
 Route::get('auth/google/callback' ,[SocialiteController::class,'handGoogleCallback']);
 Route::post('LoginWithGoogle'     ,[SocialiteController::class,'LoginWithGoogle'])->name('LoginWithGoogle');
+
+/****************************************Start Cours DashBorad **************************************/
+Route::post('StoreCours'          ,[CoursController::class,'StoreCours']);
+Route::get('GetTableCour'         ,[CoursController::class,'GetTableCour']);
+Route::post('EditCour'          ,[CoursController::class,'EditCour']);
+/****************************************End Cours DashBorad ****************************************/
+
 Route::get('professeur/StepByStep',function()
 {
     return view('Step.index');
