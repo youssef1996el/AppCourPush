@@ -19,7 +19,7 @@
         <span>Ajouter un cours</span>
     </button>
     <div class="msg mt-3"></div>
-    <div class="w-100" style="display: inline-flex;">
+    {{-- <div class="w-100" style="display: inline-flex;">
         <div class="w-75">
             <div class="sectiontablecours" style=" overflow: auto;max-height: 310px">
                 <table class="table table-striped "  id="TableCours">
@@ -39,8 +39,8 @@
             </div>
         </div>
 
-    </div>
-    <button class="Send mt-2" >
+    </div> --}}
+    {{-- <button class="Send mt-2" >
         <div class="svg-wrapper-1">
             <div class="svg-wrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -50,7 +50,7 @@
             </div>
         </div>
         <span>Send</span>
-    </button>
+    </button> --}}
     <div class="row mt-4">
         <div class="col-sm-12 col-md-12 col-xl-12">
             <table class="table table-striped" id="TableListCour">
@@ -91,7 +91,40 @@
 	</div>
 </div>
 
+{{-- Modal Add cour --}}
+<div class="modal fade" id="ModalAddCour" aria-labelledby="settingsModalTitle" aria-hidden="true" tabindex="-1">
+	<div class="modal-dialog modal-dialog-settings ">
+		<div class="modal-content">
+			<div class="modal-header text-center">
+				<h5 class="modal-title" id="exampleModalLabel">Ajouter un cours</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+                <div class="float-end">
+                    <button class="btn btn-success" id="BtnAddCourTwo">Ajouter cour</button>
+                </div>
+                <div class="sectiontablecours mt-5 card p-2 shadow" style=" overflow: auto;max-height: 310px;">
+                    <table class="table"  id="TableCours">
+                        <tbody>
+                        </tbody>
 
+                    </table>
+                    <button class="Send mt-2 w-25" >
+                        <div class="svg-wrapper-1">
+                            <div class="svg-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <span>Send</span>
+                    </button>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script>
     var storeCoursUrl = "{{ url('StoreCours') }}";

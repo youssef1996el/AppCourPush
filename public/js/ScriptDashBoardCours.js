@@ -90,11 +90,15 @@ $(document).ready(function ()
     $('#BtnAddRowCours').on('click',function()
     {
 
-        $('#TableCours').find('tbody').append('<tr>\
+        $('#ModalAddCour').modal("show");
+        var lenghtTableCour =$('#TableCours tbody tr').length;
+        if(lenghtTableCour == 0)
+        {
+            $('#TableCours').find('tbody').append('<tr>\
                                                     <td>\
                                                         <input type="text" class="form-control" placeholder="Veuillez entrer le nom du cours">\
                                                     </td>\
-                                                    <td>\
+                                                    <td >\
                                                         <button class="buttonTrashCours">\
                                                             <svg viewBox="0 0 448 512" class="svgIcon">\
                                                                 <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>\
@@ -102,7 +106,24 @@ $(document).ready(function ()
                                                         </button>\
                                                     </td>\
                                             <tr>');
+        }
 
+
+    });
+    $('#BtnAddCourTwo').on('click',function()
+    {
+        $('#TableCours').find('tbody').append('<tr>\
+                                                    <td>\
+                                                        <input type="text" class="form-control" placeholder="Veuillez entrer le nom du cours">\
+                                                    </td>\
+                                                    <td >\
+                                                        <button class="buttonTrashCours">\
+                                                            <svg viewBox="0 0 448 512" class="svgIcon">\
+                                                                <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>\
+                                                            </svg>\
+                                                        </button>\
+                                                    </td>\
+                                            <tr>');
     });
 
     $('.Send').on('click', function()
@@ -156,7 +177,8 @@ $(document).ready(function ()
                             if (response.problematic_titles.length > 0)
                             {
                                 $.each(response.problematic_titles, function (index, value) {
-                                    (function (item) {
+                                    (function (item)
+                                    {
                                         var alertDiv = $('<div class="success">\
                                                             <div class="success__icon">\
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none">\
@@ -171,17 +193,33 @@ $(document).ready(function ()
                                                             </div>\
                                                         </div>');
                                        /*  var alertDiv = $('<div class="alert alert-danger">' + item + '</div>'); */
-                                        $('.divContentForError').append(alertDiv);
+                                       /*  $('.divContentForError').append(alertDiv); */
+                                        Swal.fire({
+                                            icon    : "error",
+                                            title   : "Oops...",
+                                            text    : '=> cour '+item +' déja existe',
+                                          });
                                         setTimeout(function () {
                                             alertDiv.fadeOut('slow');
                                         }, 6000);
                                     })(value);
-
+                                    $('#ModalAddCour').modal("hide");
+                                    GetTableCour();
+                                    $('#TableCours tbody tr ').each(function() {
+                                        var inputValue = $(this).find('td:eq(0) input');
+                                        inputValue.val("");
+                                    });
                                 });
                             }
                             else
                             {
-                                $('.msg').addClass('alert alert-success').text('Ajouter avec succès');
+                                $('.msg').addClass('alert alert-success').text('Ajouter avec succès').delay(4000).fadeOut('slow');
+                                $('#ModalAddCour').modal("hide");
+                                GetTableCour();
+                                $('#TableCours tbody tr ').each(function() {
+                                    var inputValue = $(this).find('td:eq(0) input');
+                                    inputValue.val("");
+                                });
 
                             }
 
