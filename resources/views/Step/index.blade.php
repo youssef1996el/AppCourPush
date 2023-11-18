@@ -95,6 +95,7 @@
                                 <ul>
                                     <li><a href="#about" data-toggle="tab">A propos</a></li>
                                     <li><a href="#account" data-toggle="tab">Votre Parcours</a></li>
+                                    <li><a href="#cours" data-toggle="tab">Cours</a></li>
                                     <li><a href="#address" data-toggle="tab">Disponibilte</a></li>
                                 </ul>
                             </div>
@@ -272,6 +273,45 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="tab-pane" id="cours">
+                                    <div class="row">
+                                        <h4 class="info-text"> Quelles sont les cours dans lesquelles vous pouvez aider des élèves ? </h4>
+                                     
+                                        <div id="checklist" style="margin-left: 70px; width: 82%; max-height:100px ;overflow:auto" >
+                                            <div class="checkboxes">
+                                                <input id="01" type="checkbox" name="r" value="1" checked="">
+                                                <label for="01">BreadBreadBreadBreadBreadvvBread</label>
+                                            </div>
+                                            <div class="checkboxes">
+                                                <input id="02" type="checkbox" name="r" value="2">
+                                                <label for="02">Cheese</label>
+                                            </div>
+                                            <div class="checkboxes">
+                                                <input id="03" type="checkbox" name="r" value="3">
+                                                <label for="03">Coffee</label>
+                                            </div>
+                                          
+                                            </div>
+                                        
+                                      
+                                    </div>
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                        // Add event listener to each checkbox
+                                        document.querySelectorAll('.checkboxes input[type="checkbox"]').forEach(function(checkbox) {
+                                            // Set initial state based on checkbox checked property
+                                            var parentDiv = checkbox.closest('.checkboxes');
+                                            parentDiv.classList.toggle('checked', checkbox.checked);
+                                            parentDiv.classList.toggle('unchecked', !checkbox.checked);
+
+                                            // Add event listener for change event
+                                            checkbox.addEventListener('change', function() {
+                                                parentDiv.classList.toggle('checked', this.checked);
+                                                parentDiv.classList.toggle('unchecked', !this.checked);
+                                            });
+                                        });
+                                    </script>
                                 </div>
                                 <div class="tab-pane" id="address">
                                     <h4 class="info-text">Quelles sont vos disponibilités pour donner des cours ? </h4>
@@ -650,5 +690,26 @@
 
 
   </script>
+<script>
+    function displaySelectedOption() {
+        // Get the selected option value
+        var selectedOption = document.getElementById("optionSelect").value;
+
+        // Display the selected option in the card
+        var card = document.getElementById("selectedOptionCard");
+        var selectedList = document.getElementById("selectedOptionList");
+
+        if (selectedOption) {
+            card.style.display = "block";
+
+            // Create a new list item for the selected option
+            var listItem = document.createElement("li");
+            listItem.textContent = selectedOption;
+
+            // Append the list item to the list
+            selectedList.appendChild(listItem);
+        }
+    }
+</script>
 
 </html>
