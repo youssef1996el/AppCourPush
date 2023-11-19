@@ -91,7 +91,8 @@ var bootstrapWizardCreate = function(element, options) {
                 return false;
             }
         }
-        else if (panelActive === 'account') {
+        else if (panelActive === 'account')
+        {
             var inputsThisPanel = $('.tab-pane.active').find('.panelBodyExperience').find('input');
             var inputsThisAttestation = $('.tab-pane.active').find('.panelBodyAttestation').find('input');
             var textaria = $('.tab-pane.active').find('.panelBodyMethode').find('textarea');
@@ -158,6 +159,38 @@ var bootstrapWizardCreate = function(element, options) {
                     }
                 }
             });
+            if (hasError) {
+                return false;
+            }
+        }
+        else if(panelActive === 'cours')
+        {
+            var checkedCour = $('.tab-pane.active').find('.checkCour:checked');
+
+            $(".error").empty();
+            if (checkedCour.length === 0) {
+                var coursError = $('.cours-error');
+                coursError.text("Sélectionnez au moins un cours");
+                coursError.css({
+                    'color': 'red',
+                    'width': '-webkit-fill-available',
+                    'background-color': '#f2dede',
+                    'border-color': '#ebccd1',
+                    'padding': '15px',
+                    'margin-bottom': '20px',
+                    'border': '1px solid transparent',
+                    'border-radius': '4px'
+                });
+                hasError = true;
+
+
+                coursError.show(); // Ensure the element is visible before setting the timeout
+
+                setTimeout(function () {
+                    coursError.hide();
+                }, 6000);
+            }
+
             if (hasError) {
                 return false;
             }
@@ -345,7 +378,8 @@ var bootstrapWizardCreate = function(element, options) {
                 return false;
             }
         }
-        else if (panelActive === 'account') {
+        else if (panelActive === 'account')
+        {
             var inputsThisPanel = $('.tab-pane.active').find('.panelBodyExperience').find('input');
             var inputsThisAttestation = $('.tab-pane.active').find('.panelBodyAttestation').find('input');
             var textaria = $('.tab-pane.active').find('.panelBodyMethode').find('textarea');
@@ -416,7 +450,39 @@ var bootstrapWizardCreate = function(element, options) {
                 return false;
             }
         }
-		// Get the index of the clicked tab
+        else if(panelActive === 'cours')
+        {
+            var checkedCour = $('.tab-pane.active').find('.checkCour:checked');
+
+            $(".error").empty();
+            if (checkedCour.length === 0) {
+                var coursError = $('.cours-error');
+                coursError.text("Sélectionnez au moins un cours");
+                coursError.css({
+                    'color': 'red',
+                    'width': '-webkit-fill-available',
+                    'background-color': '#f2dede',
+                    'border-color': '#ebccd1',
+                    'padding': '15px',
+                    'margin-bottom': '20px',
+                    'border': '1px solid transparent',
+                    'border-radius': '4px'
+                });
+                hasError = true;
+
+
+                coursError.show(); // Ensure the element is visible before setting the timeout
+
+                setTimeout(function () {
+                    coursError.hide();
+                }, 6000);
+            }
+
+            if (hasError) {
+                return false;
+            }
+        }
+
 		var clickedIndex = $navigation.find(baseItemSelector).index($(e.currentTarget).parent(baseItemSelector));
 		if($settings.onTabClick && typeof $settings.onTabClick === 'function' && $settings.onTabClick($activeTab, $navigation, obj.currentIndex(), clickedIndex)===false){
 			return false;

@@ -8,6 +8,8 @@ use App\http\Controllers\FormationProf;
 use App\http\Controllers\ExperinceProf;
 use App\http\Controllers\DisponibleProf;
 use App\http\Controllers\CoursController;
+use App\http\Controllers\Auth\ForgotPasswordController;
+use App\http\Controllers\ProfesseurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,15 +43,26 @@ Route::get('GetTableCour'         ,[CoursController::class,'GetTableCour']);
 Route::post('EditCour'          ,[CoursController::class,'EditCour']);
 /****************************************End Cours DashBorad ****************************************/
 
-Route::get('professeur/StepByStep',function()
-{
-    return view('Step.index');
-})/* ->middleware('verified') */;
+/***************************************** Rest Password *********************************************/
+Route::get('forget-password'        , [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password'       , [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+Route::get('reset-password/{token}' , [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password'        , [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+/***************************************** End Rest Password  *****************************************/
+
+
+/******************************************* Professeur  ***************************************************/
+Route::get('professeur/StepByStep' ,[ProfesseurController::class,'StepByStep'])->name('professeur/StepByStep');
+Route::get('ShowProfileProf'       ,[ProfesseurController::class,'ShowProfile'])->name('ShowProfileProf');
+/******************************************* End Professeur *************************************************/
+
+
+
 Route::get('/prof/{name}/{id}',function()
 {
     return view('Profile.index');
 });
-Route::get('ShowProfileProf',[HomeController::class,'ShowProfile']);
+
 
 Route::post('StoreData',[HomeController::class,'Store']);
 
@@ -65,7 +78,7 @@ Route::get('profile/admin',function()
 Route::get('profile/eleve',function()
 {
     return view('profile.eleve');
-});
+})->name('profile/eleve');
 
 Route::get('GetAvailableProf',[HomeController::class,'GetAvailableProf']);
 

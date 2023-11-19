@@ -277,41 +277,18 @@
                                 <div class="tab-pane" id="cours">
                                     <div class="row">
                                         <h4 class="info-text"> Quelles sont les cours dans lesquelles vous pouvez aider des élèves ? </h4>
-                                     
-                                        <div id="checklist" style="margin-left: 70px; width: 82%; max-height:100px ;overflow:auto" >
-                                            <div class="checkboxes">
-                                                <input id="01" type="checkbox" name="r" value="1" checked="">
-                                                <label for="01">BreadBreadBreadBreadBreadvvBread</label>
-                                            </div>
-                                            <div class="checkboxes">
-                                                <input id="02" type="checkbox" name="r" value="2">
-                                                <label for="02">Cheese</label>
-                                            </div>
-                                            <div class="checkboxes">
-                                                <input id="03" type="checkbox" name="r" value="3">
-                                                <label for="03">Coffee</label>
-                                            </div>
-                                          
-                                            </div>
-                                        
-                                      
-                                    </div>
-                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                    <script>
-                                        // Add event listener to each checkbox
-                                        document.querySelectorAll('.checkboxes input[type="checkbox"]').forEach(function(checkbox) {
-                                            // Set initial state based on checkbox checked property
-                                            var parentDiv = checkbox.closest('.checkboxes');
-                                            parentDiv.classList.toggle('checked', checkbox.checked);
-                                            parentDiv.classList.toggle('unchecked', !checkbox.checked);
 
-                                            // Add event listener for change event
-                                            checkbox.addEventListener('change', function() {
-                                                parentDiv.classList.toggle('checked', this.checked);
-                                                parentDiv.classList.toggle('unchecked', !this.checked);
-                                            });
-                                        });
-                                    </script>
+                                        <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
+                                            @foreach ($Cours as $index => $cour)
+                                                <div class="checkboxes">
+                                                    <input id="checkbox{{$index}}" type="checkbox" class="checkCour" name="courProf[]" value="{{$cour->id}}" >
+                                                    <label for="checkbox{{$index}}">{{$cour->title}}</label>
+                                                </div>
+                                            @endforeach
+                                            <div class="cours-error "></div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="tab-pane" id="address">
                                     <h4 class="info-text">Quelles sont vos disponibilités pour donner des cours ? </h4>
@@ -392,7 +369,16 @@
 </style>
     <script>
 
+            document.querySelectorAll('.checkboxes .checkCour').forEach(function(checkbox) {
 
+                var parentDiv = checkbox.closest('.checkboxes');
+                parentDiv.classList.toggle('checked', checkbox.checked);
+                parentDiv.classList.toggle('unchecked', !checkbox.checked);
+                checkbox.addEventListener('change', function() {
+                    parentDiv.classList.toggle('checked', this.checked);
+                    parentDiv.classList.toggle('unchecked', !this.checked);
+                });
+            });
 
             $(document).on('click', '.SpanAddFormation', function()
             {

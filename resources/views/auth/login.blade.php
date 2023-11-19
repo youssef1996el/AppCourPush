@@ -43,7 +43,7 @@
                         </div>
                         <!-- Checkbox -->
                         <div class="form-check mt-5 mb-4"  >
-                    <a href="#"class="forgetPassword" >Mot de passe oublié ?</a>
+                    <a href="{{ route('forget.password.get') }}"class="forgetPassword" >Mot de passe oublié ?</a>
                     </div>
 
 

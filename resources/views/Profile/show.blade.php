@@ -180,6 +180,23 @@
 
                                     <div id="calendar"></div>
                                 </div>
+
+                            </div>
+                            <div class="container">
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom du Cours</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($CourProf as $cour)
+                                            <tr>
+                                                <td>{{$cour->title}}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
