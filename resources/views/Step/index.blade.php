@@ -109,8 +109,9 @@
                                                     <img src="{{asset('image/default-avatar.png')}}" class="picture-src" id="wizardPicturePreview" title=""/>
                                                     <input type="file" id="wizard-picture" name="image">
                                                 </div>
-                                                <div class="error"></div>
+                                                
                                                 <h6>choisir une photo</h6>
+                                                <div class="error"></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -121,9 +122,10 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label >Telephone </label>
-                                                <input placeholder="Entrer votre numero de telephone "name="phone" id="phone" type="text"  class="form-control" placeholder="Telephone">
-                                                <div class="error"></div>
+                                             
+                                                <label for="phone">Phone Number:</label>
+<input type="tel" id="phone" name="phone" maxlength="13" placeholder="(+212) XXX-XXXX" oninput="formatPhoneNumber(this)" required>
+                    
                                             </div>
                                         </div>
                                     </div>
@@ -710,6 +712,8 @@
             selectedList.appendChild(listItem);
         }
     }
+
+
 </script>
 
 </html>

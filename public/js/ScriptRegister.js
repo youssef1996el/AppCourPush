@@ -295,4 +295,21 @@ $(document).ready(function () {
             $('.checkPassword').css('display', 'none');
         }
    });
+ 
+ 
+    
+    const passwordInputIds = ["passwordEleve", "ConfirmPasswordEleve", "passwordProfesseur", "ConfirmPasswordProfesseur"];
+    const passwordInputs = passwordInputIds.map(id => document.getElementById(id)).filter(Boolean);
+    const togglePasswordButton = document.getElementById("eye");
+    
+    togglePasswordButton.addEventListener("click", function () {
+        passwordInputs.forEach(function (passwordInput) {
+            const type = passwordInput.getAttribute("type");
+            passwordInput.setAttribute("type", type === "password" ? "text" : "password");
+        });
+    
+        // Toggle the eye icon
+        togglePasswordButton.classList.toggle("fa-eye");
+        togglePasswordButton.classList.toggle("fa-eye-slash");
+    });
 });

@@ -25,12 +25,8 @@
                     @endif
                     <h3 class="mb-2" >Complétez votre inscription </h3>
                     <p>Pour compléter votre compte,  nous avons besoin de savoir si vous êtes un professeur ou bien un élève . </p>
-                    <div class="form-group mb-4 input-control" style="width: 94%;margin-left: 12px;" >
-                        {{-- <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off"> --}}
-                        <div class="error"></div>
-                        <label class="sr-only form-label" for="typeEmailX-2">Email</label>
-                    </div>
-                    <ul class="nav nav-pills nav-justified mb-3 " id="ex1" role="tablist" style="" >
+                   
+                    <ul class="nav nav-pills nav-justified mb-3 " id="ex1" role="tablist"  >
                         <li class="nav-item" role="presentation">
                             <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
                             aria-controls="pills-login" aria-selected="true">élève</a>
@@ -55,10 +51,14 @@
                         @endif
                         <form method="POST" action="{{ route('LoginWithGoogle') }}" id="formEleve">
                             @csrf
-                            <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off">
+                            <div class="form-group mb-4 input-control" >
+                                <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off" disabled>
+
+                                <label class="sr-only form-label" for="typeEmailX-2">Email</label>
+                            </div>
                             <!-- Nom input -->
-                            <div class="form-group mb-4 input-control">
-                                <input type="text" id="nomEleve"  placeholder="Nom complet" class="form-control" value="{{$name}}"  name="nom"/>
+                            <div class="form-group mb-4 input-control" >
+                                <input type="text" id="nomEleve"  placeholder="Nom complet" class="form-control" value="{{$name}}"  name="nom" disabled/>
 
                                 <label class="form-label sr-only" for="loginName">Nom complet</label>
                             </div>
@@ -91,10 +91,11 @@
                         <form method="POST" action="{{ route('LoginWithGoogle') }}" id="formProfesseur">
                             @csrf
 
-                            <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off">
-                            <!-- Nom input -->
+                            <div class="form-group mb-4 input-control" >
+                                <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off" disabled>
+                            </div>                            <!-- Nom input -->
                             <div class="form-group mb-4 input-control">
-                                <input type="text" id="nomProfesseur" placeholder="Nom complet" class="form-control @error('nom') is-invalid @enderror" value="{{$name}}" name="nom"/>
+                                <input type="text" id="nomProfesseur" placeholder="Nom complet" class="form-control @error('nom') is-invalid @enderror" value="{{$name}}" name="nom" disabled/>
                                 <label class="form-label sr-only" for="registerName">Nom complet</label>
                             </div>
                             <input type="text" name="role_name" value="professeur" hidden>
@@ -141,7 +142,7 @@
                 if(pays === '')
                 {
 
-                    $(this).find('.error').css('color','red').text('pays is required');
+                    $(this).find('.error').css('color','red').text('pays est requis');
 
                     return false;
                 }
@@ -181,5 +182,12 @@
                 $(this).find('#pays').val(countryName);
             });
 </script>
+<style>
+    .error{
+    margin-left: 20px;
+    margin-top: 6px;
+    }
+    
+</style>
 
 @endsection

@@ -139,3 +139,22 @@
             margin-left: -16px;
            
         }
+
+
+        .form-group i.fa-eye {
+            color: gray;
+          }
+
+          .nav-pills .nav-link {
+            font-size: 18px;
+            border-radius: 0;
+            height: 53px;
+            color: #514e4e;
+            background-color: lightgray;
+            
+        
+        }
+
+        .fa-eye-slash{
+            color: black;
+        }

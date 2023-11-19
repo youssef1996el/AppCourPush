@@ -64,33 +64,10 @@
                         <!-- Password input -->
                         <div class="form-group mb-4 input-control">
                             <input type="password" name="password" placeholder="Mot de passe" id="passwordEleve" class="form-control @error('password') is-invalid @enderror" />
-                            <i class="fa-solid fa-eye" id="test"></i>
+                            <i class="fa-solid fa-eye show-password" id="eye" ></i>
                          
                             <div class="error ErrorValidation"></div>
-                            <!--div class="content">
-                                <ul class="requirement-list">
-                                  <li>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <span>Au moins 8 caractères</span>
-                                  </li>
-                                  <li>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <span>Au moins 1 chiffre (0...9)</span>
-                                  </li>
-                                  <li>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <span>Au moins 1 lettre minuscule (a...z)</span>
-                                  </li>
-                                  <li>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <span>Au moins 1 symbole spécial (!...$)</span>
-                                  </li>
-                                  <li>
-                                    <i class="fa-solid fa-circle"></i>
-                                    <span>Au moins 1 lettre majuscule (A...Z)</span>
-                                  </li>
-                                </ul>
-                              </div-->
+                            
 
 
                             <label class="form-label sr-only" for="loginPassword">Mot de passe</label>
@@ -98,6 +75,7 @@
                         <!-- Confirme Password input -->
                         <div class="form-group mb-4 input-control">
                             <input  id="confirmPasswordEleve" type="password" placeholder="Confirmer votre mot de passe" class="form-control" name="password_confirmation"  autocomplete="new-password">
+                            <i class="fa-solid fa-eye show-password" id="eye" ></i>
                             <div class="error ErrorValidation"></div>
                             <div class="checkPassword" style="display: none"></div>
                             <label for="password-confirm" class="sr-only form-label">{{ __('Confirm Password') }}</label>
@@ -177,6 +155,8 @@
                         <!-- Password input -->
                         <div class="form-group mb-4 input-control">
                             <input type="password" id="passwordProfesseur"  placeholder ="Mot de passe "  class="form-control @error('password') is-invalid @enderror" name="password" />
+                            <i class="fa-solid fa-eye show-password" id="eye" ></i>
+
                             <div class="error ErrorValidation"></div>
 
                             <label class="form-label sr-only" for="registerPassword">Password</label>
@@ -184,10 +164,13 @@
 
                         <!-- Confirme Password input -->
                         <div class="form-group mb-4">
-                            <input id="confirmpasswordProfesseur" type="password"  placeholder ="Confirmer votre Mot de passe"  class="form-control confirmpasswordProfesseur" name="password_confirmation"  autocomplete="new-password">
+                            <input id="confirmpasswordProfesseur" type="password"  placeholder ="Confirmer votre mot de passe"  class="form-control confirmpasswordProfesseur" name="password_confirmation"  autocomplete="new-password">
+                            <i class="fa-solid fa-eye show-password" id="eye" ></i>
+
                             <div class="error ErrorValidation" style="color: red ;font-size:14px"></div>
                             <div class="checkPassword" style="display: none"></div>
                             <label for="password-confirm" class="form-label sr-only">{{ __('Confirm Password') }}</label>
+                           
                         </div>
 
 
@@ -334,12 +317,8 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-  </script>
-<style>
-    .nav-pills .nav-link.active, .nav-pills .show>.nav-link
-    {
-        font-size: 20px;
-    }
 
-</style>
+
+  </script>
+
 @endsection
