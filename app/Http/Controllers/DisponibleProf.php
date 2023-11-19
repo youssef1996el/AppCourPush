@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 class DisponibleProf extends Controller
 {
     public function Store(Request $request)
@@ -30,6 +31,10 @@ class DisponibleProf extends Controller
                 DB::table('disponibleprof')->insert($DataSava);
             }
         }
+
+        $response = App::call('App\Http\Controllers\CoursProf@Store', [
+            'request' => $request
+        ]);
 
 
 
