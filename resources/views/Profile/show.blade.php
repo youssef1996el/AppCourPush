@@ -5,7 +5,7 @@
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
-<body >
+
 <div class="container mt-5">
     <div class="row" style="margin-top:8rem">
         <!--div class="col-sm-12 col-md-3 col-xl-3 ">
@@ -44,7 +44,7 @@
                                 <div class="card" style="background-color:aliceblue ;width: 350px; margin-left: 16px;">
                                 
                                     <div class="text-center" >
-                                        <img src="{{asset($DataProf[0]->image)}}" alt=""  srcset="" style="border: 2px solid white;">
+                                        <img class="profileimg" src="{{asset($DataProf[0]->image)}}" alt=""  srcset="" style="border: 2px solid white;">
                                         <h2 style="font-size: 28px;" >{{$DataProf[0]->nom}}</h2>
                                         <h4 style="font-size: 20px;color: gray;">work</h4>
                                         <h4 style="font-size: 20px;color: gray;">experience</h4>
@@ -336,7 +336,7 @@
                                         </div>
                                     @endforeach
                                 </div-->
-                                <div class="container">
+                                <div class="container-calendrier">
 
                                     <div id="calendar"></div>
                                 </div>
