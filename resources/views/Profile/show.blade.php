@@ -1,12 +1,12 @@
-@extends('Dashboard.index')
-@section('navsidebar')
+@extends('Professeur.Sidebar')
+@section('navsidebarProf')
 <link rel="stylesheet" href="{{asset('css/StyleShowProfile.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
-<body >
-<div class="container mt-5">
+
+<div class="container mt-5" >
     <div class="row" style="margin-top:8rem">
         <!--div class="col-sm-12 col-md-3 col-xl-3 ">
             <div class="card">
@@ -42,16 +42,16 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-xl-6">
                                 <div class="card" style="background-color:aliceblue ;width: 350px; margin-left: 16px;">
-                                
+
                                     <div class="text-center" >
-                                        <img src="{{asset($DataProf[0]->image)}}" alt=""  srcset="" style="border: 2px solid white;">
+                                        <img src="{{asset($DataProf[0]->image)}}" alt="" class="test"  srcset="" style="border: 2px solid white;">
                                         <h2 style="font-size: 28px;" >{{$DataProf[0]->nom}}</h2>
                                         <h4 style="font-size: 20px;color: gray;">work</h4>
                                         <h4 style="font-size: 20px;color: gray;">experience</h4>
                                     </div>
 
                                     <div class="card-body">
-                                    
+
                                         <!--div class="form-group">
                                             <label for="" class="form-label">First name</label>
                                             <input type="text" class="form-control" value="{{$DataProf[0]->nom}}">
@@ -72,16 +72,16 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6">
-                           
+
                             <div class="card" style="background-color:aliceblue">
-                                
+
                                 <h5 class="card-title " style="font-family: Gabriola, Times, serif ;font-weight: 700;
                                 margin-left: 22px;
                                 margin-top: 10px;
                                 font-size: 30px;
                                 margin-bottom: -4px;">Formation</h5>
                                 <hr style="color:#7e9db8;">
-                                      
+
                                         <div class="timeline" >
                                             @foreach ($FormationProf as $key => $item)
                                                 <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
@@ -100,7 +100,7 @@
                                     <p>Software Inc.</p>
                                 </div>
                             </div>
-                           
+
                         </li>
                         <li class="timeline-item" >
                             <div class="timeline-element">
@@ -116,9 +116,9 @@
                                     <p>Software Inc.</p>
                                 </div>
                             </div>
-                           
+
                         </li>
-                       
+
                         <style>
                             /*.ListFormation .box{
                                 position: relative;
@@ -207,7 +207,7 @@
                                 position:relative;
                                 transition:0.2s linear;
                             }
-                           
+
                             .timeline .timeline-content::after{
                                 content:'';
                                 width:0;
@@ -218,13 +218,13 @@
                                 transition:0.2s linear;
 
                             }
-                          
+
                             .timeline .timeline-content::after{
                                 border-right-color: #8080804d;
                                 border-width: 14px;
                                 margin: -61px 0px;
                             }
-                          
+
                             .timeline .timeline-content p{
                                max-height:0;
                                color:transparent;
@@ -238,20 +238,20 @@
                                 padding: 8px 110px 42px 4px;
                                 background-color: #8080804d;
                                 margin-left: 2px;
-                               
+
                             }
                             .timeline .timeline-item:hover .circle{
                                 background:white;
 
                             }
-                          
+
                             .timeline .timeline-item:hover .timeline-content p{
                                 max-height:200px;
                                 color:black;
                                 margin-left: 6px;
-                                
+
                             }
-                          
+
 
 
 
@@ -343,12 +343,12 @@
 
                            </div>
                             <div class="container">
-                          
+
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-xl-6">
                                 <div class="card" style="background-color:aliceblue">
-                                
+
                                 <h5 class="card-title " style="font-family: Gabriola, Times, serif ;font-weight: 700;
                                 margin-left: 22px;
                                 margin-top: 10px;
@@ -356,20 +356,20 @@
                                 margin-bottom: -4px;">Les cours</h5>
                                 <hr style="color:#7e9db8;">
                                     <div class="card-body">
-                                    
+
                                     @foreach ($CourProf as $cour)
-                                            
+
                                                 <p style="background-color: white;
   width: 100px;
   text-align: center;
   padding: 10px 0px;
   cursor: pointer;
   border-radius: 24px;">{{$cour->title}}</p>
-                                            
+
                                         @endforeach
                                     </div>
                                 </div>
-                         
+
                         </div>
                     </div>
                 </div>
@@ -507,7 +507,7 @@
         </div>
     </div>
 </div>
-                        </body>
+
 <style>
     .available-event {
         background-color: #4CAF50; /* Green */
@@ -519,15 +519,7 @@
         color: #000;
     }
 
-    /* .container {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        text-align: center;
-    } */
+
 
     h1 {
         color: #007BFF;
@@ -609,6 +601,6 @@
             });
         });
     </script>
-  
+
 
 @endsection

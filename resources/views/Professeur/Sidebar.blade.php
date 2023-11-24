@@ -31,7 +31,7 @@
 				<ul class="list-unstyled components text-secondary">
 					<li><a href="index.html"><i
 							class="data-feather theme-item" data-feather="home"></i> <span
-							class="theme-item"> Dashboard</span></a></li>
+							class="theme-item"> Dashboard Prof</span></a></li>
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
 					<li><a href="{{ url('professeurs') }}"><i
@@ -305,7 +305,6 @@
 
 	<script src="{{asset('js/feather.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-	<script src="{{asset('js/Chart.min.js')}}"></script>
 	<script src="{{asset('js/script_sidebar.js')}}"></script>
 
 
@@ -318,7 +317,7 @@
 	</script>
 
 <main class="py-4" style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background;background-size:cover">
-            @yield('navsidebar')
+            @yield('navsidebarProf')
         </main>
 
 
