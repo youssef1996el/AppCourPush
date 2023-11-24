@@ -31,12 +31,22 @@
 				<ul class="list-unstyled components text-secondary">
 					<li><a href="index.html"><i
 							class="data-feather theme-item" data-feather="home"></i> <span
-							class="theme-item"> Dashboard</span></a></li>
+							class="theme-item"> Dashboard Prof</span></a></li>
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
-					<li><a href="{{ url('professeurs') }}"><i
-							class="data-feather theme-item" data-feather="pie-chart"></i> <span
-							class="theme-item"> Professeurs</span></a></li>
+					<li class="lastChildORginList">
+                            <div class="dropdown">
+                                <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-regular fa-user"></i>
+                                    Profile
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <li><a class="dropdown-item" href="#" id="ShowFormation">Formation</a></li>
+                                  <li><a class="dropdown-item" href="#" id="ShowExperience">Expérience</a></li>
+                                  <li><a class="dropdown-item" href="#" id="ShowDisponoble">Disponibilité</a></li>
+                                </ul>
+                            </div>
+                    </li>
 					<li><a href="components.html"><i
 							class="data-feather theme-item" data-feather="grid"></i> <span
 							class="theme-item"> Eleves</span></a></li>
@@ -305,7 +315,6 @@
 
 	<script src="{{asset('js/feather.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-	<script src="{{asset('js/Chart.min.js')}}"></script>
 	<script src="{{asset('js/script_sidebar.js')}}"></script>
 
 
@@ -318,7 +327,7 @@
 	</script>
 
 <main class="py-4" style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background;background-size:cover">
-            @yield('navsidebar')
+            @yield('navsidebarProf')
         </main>
 
 

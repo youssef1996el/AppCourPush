@@ -1,40 +1,15 @@
-@extends('Dashboard.index')
-@section('navsidebar')
+@extends('Professeur.Sidebar')
+@section('navsidebarProf')
 <link rel="stylesheet" href="{{asset('css/StyleShowProfile.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
 
+
 <div class="container mt-5">
     <div class="row" style="margin-top:8rem">
-        <!--div class="col-sm-12 col-md-3 col-xl-3 ">
-            <div class="card">
-                <div class="card-body" style="height: 13rem">
-                    <ul class="listProfile">
-                        <li >
-                            <a href="#" >
-                                <i class="fa-solid fa-gauge-high"></i>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="lastChildORginList">
-                            <div class="dropdown">
-                                <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-regular fa-user"></i>
-                                    Profile
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <li><a class="dropdown-item" href="#" id="ShowFormation">Formation</a></li>
-                                  <li><a class="dropdown-item" href="#" id="ShowExperience">Expérience</a></li>
-                                  <li><a class="dropdown-item" href="#" id="ShowDisponoble">Disponibilité</a></li>
-                                </ul>
-                              </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div-->
+   
         <div class="col-sm-12 col-md-9 col-xl-9">
             <div class="divProfile">
                 <div class="card  " >
@@ -42,16 +17,18 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-xl-6">
                                 <div class="card" style="background-color:aliceblue ;width: 350px; margin-left: 16px;">
-                                
+
                                     <div class="text-center" >
+
                                         <img class="profileimg" src="{{asset($DataProf[0]->image)}}" alt=""  srcset="" style="border: 2px solid white;">
+         
                                         <h2 style="font-size: 28px;" >{{$DataProf[0]->nom}}</h2>
                                         <h4 style="font-size: 20px;color: gray;">work</h4>
                                         <h4 style="font-size: 20px;color: gray;">experience</h4>
                                     </div>
 
                                     <div class="card-body">
-                                    
+
                                         <!--div class="form-group">
                                             <label for="" class="form-label">First name</label>
                                             <input type="text" class="form-control" value="{{$DataProf[0]->nom}}">
@@ -72,190 +49,33 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6">
-                           
-                            <div class="card" style="background-color:aliceblue">
-                                
-                                <h5 class="card-title " style="font-family: Gabriola, Times, serif ;font-weight: 700;
-                                margin-left: 22px;
-                                margin-top: 10px;
-                                font-size: 30px;
-                                margin-bottom: -4px;">Formation</h5>
+
+                            <div class="card" >
+
+                                <h5 class="card-title "> Formation</h5>
                                 <hr style="color:#7e9db8;">
-                                      
                                         <div class="timeline" >
                                             @foreach ($FormationProf as $key => $item)
                                                 <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
                                                 <ul class="list-unstyled ">
-                        <li class="timeline-item" >
-                            <div class="timeline-element">
-                                <!--span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                                <p>{{ $item->pays }}</p>
-                                <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
-                                <p>{{ $item->ecole }} </p-->
-                                <a href="#">Web Designer</a>
-                                <span class="date">jan 2021</span>
-                                <span class="pays">Morocco</span>
-                                <span class="circle"></span>
-                                <div class="timeline-content">
-                                    <p>Software Inc.</p>
-                                </div>
-                            </div>
-                           
-                        </li>
-                        <li class="timeline-item" >
-                            <div class="timeline-element">
-                                <!--span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                                <p>{{ $item->pays }}</p>
-                                <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
-                                <p>{{ $item->ecole }} </p-->
-                                <a  href="#">Web Designer</a>
-                                <span class="date">jan 2021</span>
-                                <span class="pays">Morocco</span>
-                                <span class="circle"></span>
-                                <div class="timeline-content">
-                                    <p>Software Inc.</p>
-                                </div>
-                            </div>
-                           
-                        </li>
+                                                    <li class="timeline-item" >
+                                                        <div class="timeline-element">
+                                                            <!--span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                            <p>{{ $item->pays }}</p>
+                                                            <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
+                                                            <p>{{ $item->ecole }} </p-->
+                                                            <a href="#">Web Designer</a>
+                                                            <span class="date">jan 2021</span>
+                                                            <span class="pays">Morocco</span>
+                                                            <span class="circle"></span>
+                                                            <div class="timeline-content">
+                                                                <p>Software Inc.</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
+
                        
-                        <style>
-                            /*.ListFormation .box{
-                                position: relative;
-                                padding: 10px;
-                                border: 1px solid aliceblue;
-                                background-color: white;
-                                cursor: pointer;
-                                transition: all 0.4s;
-                                margin-bottom: 20px;
-                                margin-left: 12px;
-                            }
-                            .ListFormation .box:hover{
-                                box-shadow:0px 3px 12px 0px gray;
-                                border:1px solid white;
-
-                            }
-                            .ListFormation .box::before{
-
-                              content:'';
-                              position:absolute;
-                              width:16px;
-                              height:16px;
-                              border-radius:50%;
-                              right:calc(100% +22px);
-                              top:0;
-                              background-color:black;
-                              border:2px solid white;
-
-                            }*/
-                            .timeline{
-                                width: 1200px;
-                                margin: -38px auto;
-                            }
-                            .timeline ul{
-                                margin-left: 90px;
-                                padding-left: 22px;
-                                border-left: 4px solid gray;
-                            }
-                            .timeline li{
-                                margin: 40px 0;
-                                position:relative;
-
-                            }
-                            .timeline a{
-                                text-decoration: none;
-                                font-size: 22px;
-                                color: #343232;
-                                top: 20px;
-                                z-index: 2;
-                                transition: 0.2s linear;
-                                font-weight: 700;
-                            }
-                            .timeline .date{
-                                position: absolute;
-                                top: 50%;
-                                left: -102px;
-                                margin-top: -20px;
-                                font-size: 16px;
-                                color: gray;
-                            }
-                            .timeline .pays{
-                                position: absolute;
-                                top: 90%;
-                                left: -102px;
-                                margin-top: -20px;
-                                font-size: 14px;
-                                color: gray;
-                                font-style: italic;
-                            }
-                            .timeline .circle{
-                                position: absolute;
-                                top: 50%;
-                                left: -34px;
-                                margin-top: -10px;
-                                width: 20px;
-                                height: 20px;
-                                background: aliceblue;
-                                border: 2px solid gray;
-                                border-radius: 50%;
-                            }
-                            .timeline .timeline-content{
-                                max-height:20px;
-                                padding:50px 20p 0 20px;
-                                border:2px solid transparent;
-                                border-radius:10px;
-                                position:relative;
-                                transition:0.2s linear;
-                            }
-                           
-                            .timeline .timeline-content::after{
-                                content:'';
-                                width:0;
-                                height:0;
-                                position: absolute;
-                                right:100%;
-                                border:solid transparent;
-                                transition:0.2s linear;
-
-                            }
-                          
-                            .timeline .timeline-content::after{
-                                border-right-color: #8080804d;
-                                border-width: 14px;
-                                margin: -61px 0px;
-                            }
-                          
-                            .timeline .timeline-content p{
-                               max-height:0;
-                               color:transparent;
-                               margin-bottom:15px;
-                               transition:0.2s linear;
-
-                            }
-                            .timeline .timeline-item:hover a{
-                                transform: translateX(42px);
-                                border: 1px solid #8080804d;
-                                padding: 8px 110px 42px 4px;
-                                background-color: #8080804d;
-                                margin-left: 2px;
-                               
-                            }
-                            .timeline .timeline-item:hover .circle{
-                                background:white;
-
-                            }
-                          
-                            .timeline .timeline-item:hover .timeline-content p{
-                                max-height:200px;
-                                color:black;
-                                margin-left: 6px;
-                                
-                            }
-                          
-
-
-
-                        </style>
 
                                                 </div>
                                             @endforeach
@@ -267,7 +87,7 @@
                                     </div>
                                 </div>
 
-                                <!--div class="card mt-3" >
+                                <div class="card mt-3" >
                                     <div class="card-body">
 
                                         <h5 class="card-title text-center border border-secondary shadow rounded-3 fs-2" style="font-family: Gabriola, Times, serif">Expérience</h5>
@@ -307,8 +127,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div-->
-                        <!--div class="row">
+                        </div>
+                        <div class="row">
                             <div class="col-sm-12 col-md-12-col-xl-12">
                                 <h5 class="card-title text-center border border-secondary shadow rounded-3 fs-2 mt-2" style="font-family: Gabriola, Times, serif">Disponibilités du professeur</h5>
                                 <div class="ClassDisponible">
@@ -335,7 +155,7 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                </div-->
+                                </div>
                                 <div class="container-calendrier">
 
                                     <div id="calendar"></div>
@@ -343,33 +163,24 @@
 
                            </div>
                             <div class="container">
-                          
+
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-xl-6">
-                                <div class="card" style="background-color:aliceblue">
-                                
-                                <h5 class="card-title " style="font-family: Gabriola, Times, serif ;font-weight: 700;
-                                margin-left: 22px;
-                                margin-top: 10px;
-                                font-size: 30px;
-                                margin-bottom: -4px;">Les cours</h5>
+                                <div class="card" >
+
+                                <h5 class="card-title " >Les cours</h5>
                                 <hr style="color:#7e9db8;">
                                     <div class="card-body">
-                                    
+
                                     @foreach ($CourProf as $cour)
-                                            
-                                                <p style="background-color: white;
-  width: 100px;
-  text-align: center;
-  padding: 10px 0px;
-  cursor: pointer;
-  border-radius: 24px;">{{$cour->title}}</p>
-                                            
+
+                                                <p class="cours-titre">{{$cour->title}}</p>
+
                                         @endforeach
                                     </div>
                                 </div>
-                         
+
                         </div>
                     </div>
                 </div>
@@ -507,7 +318,7 @@
         </div>
     </div>
 </div>
-                        </body>
+
 <style>
     .available-event {
         background-color: #4CAF50; /* Green */
@@ -519,15 +330,7 @@
         color: #000;
     }
 
-    /* .container {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        text-align: center;
-    } */
+
 
     h1 {
         color: #007BFF;
@@ -609,6 +412,6 @@
             });
         });
     </script>
-  
+
 
 @endsection
