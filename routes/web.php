@@ -95,5 +95,9 @@ Route::get('Dashboard/cours',function()
     return view('Dashboard.cours');
 });
 
+Route::get('professeurs',function()
+{
+    return view('Dashboard.professeur');
+});
 
 

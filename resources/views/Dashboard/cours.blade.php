@@ -8,60 +8,54 @@
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 <div class="container mt-4">
-    <h2 style="display:inline">Liste des cours</h2>
-	{{-- <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addCourseModal" style="float: right;">
-                <i class="fas fa-plus "></i> Ajouter un cours
-    </button> --}}
-    <button class="cssbuttons-io-button" id="BtnAddRowCours">
+
+    <div class="row ">
+        <div class="col-sm-12 col-md-12 col-xl-12">
+        <h2 class="mb-3" style="padding-left: 12px;font-family: times;">Liste des cours </h2>
+        <button class="btn" id="BtnAddRowCours">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
             <path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
         </svg>
         <span>Ajouter un cours</span>
-    </button>  
-    <div class="msg mt-3"></div>
-    {{-- <div class="w-100" style="display: inline-flex;">
-        <div class="w-75">
-            <div class="sectiontablecours" style=" overflow: auto;max-height: 310px">
-                <table class="table table-striped "  id="TableCours">
-                    <thead>
-                        <tr>
-                            <th>Nom du cours</th>
-                            <th>Actions </th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                    <tfoot></tfoot>
-                </table>
-            </div>
-        </div>
-        <div class="w-25 ">
-            <div style="margin-left:5px" class="divContentForError">
-            </div>
-        </div>
+       </button>  
+       
+       <div class="input-wrapper">
+        <input class="input-box" type="text" placeholder="Rechercher sur un cours ..">
+        <span class="underline"></span>
+      </div>
+       <table class="table align-middle mb-0 bg-white" style="margin-top: 20px;width: 60%;margin-left: 100px; ">
+        <thead class="bg-light " style="border-bottom-color:white">
+          <tr>
+            <th>Nom du cours</th>
+            <th style="width: 30%; text-align: center;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
 
-    </div> --}}
-    {{-- <button class="Send mt-2" >
-        <div class="svg-wrapper-1">
-            <div class="svg-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                </svg>
-            </div>
-        </div>
-        <span>Send</span>
-    </button> --}}
-    <div class="row mt-4">
-        <div class="col-sm-12 col-md-12 col-xl-12">
-            <table class="table table-striped" id="TableListCour">
-                <thead>
-                    <tr>
-                        <th>Nom du cours</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+                <td>
+                  <p class="fw-normal mb-1">Consultant</p>
+                </td>
+                <td style="text-align:center">
+                  <button
+                          type="button"
+                          class="btn btn-link btn-rounded btn-sm fw-bold"
+                          data-mdb-ripple-color="dark"
+                          >
+                    Editer
+                  </button>
+                  <button
+                          type="button"
+                          class="btn btn-link btn-rounded btn-sm fw-bold"
+                          data-mdb-ripple-color="dark"
+                          >
+                    Supprimer
+                  </button>
+                </td>
+            </tr>
+        
+        </tbody>
+</table>
         </div>
     </div>
 </div>

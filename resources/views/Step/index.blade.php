@@ -18,7 +18,8 @@
 
 
 </head>
-<body >
+ <body  style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background;background-size:cover">
+
     <nav class="navbar navbar-default  " role="navigation">
         <div class="container">
 

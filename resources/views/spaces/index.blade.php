@@ -52,13 +52,13 @@
                         <form method="POST" action="{{ route('LoginWithGoogle') }}" id="formEleve">
                             @csrf
                             <div class="form-group mb-4 input-control" >
-                                <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off" disabled>
+                                <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off" readonly="readonly">
 
                                 <label class="sr-only form-label" for="typeEmailX-2">Email</label>
                             </div>
                             <!-- Nom input -->
                             <div class="form-group mb-4 input-control" >
-                                <input type="text" id="nomEleve"  placeholder="Nom complet" class="form-control" value="{{$name}}"  name="nom" disabled/>
+                                <input type="text" id="nomEleve"  placeholder="Nom complet" class="form-control" value="{{$name}}"  name="nom" readonly="readonly"/>
 
                                 <label class="form-label sr-only" for="loginName">Nom complet</label>
                             </div>
@@ -92,10 +92,10 @@
                             @csrf
 
                             <div class="form-group mb-4 input-control" >
-                                <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off" disabled>
+                                <input id="email" placeholder="Email" type="email" class="form-control " name="email" value="{{$Email}}"  autofocus autocomplete="off" readonly="readonly">
                             </div>                            <!-- Nom input -->
                             <div class="form-group mb-4 input-control">
-                                <input type="text" id="nomProfesseur" placeholder="Nom complet" class="form-control @error('nom') is-invalid @enderror" value="{{$name}}" name="nom" disabled/>
+                                <input type="text" id="nomProfesseur" placeholder="Nom complet" class="form-control @error('nom') is-invalid @enderror" value="{{$name}}" name="nom" readonly="readonly"/>
                                 <label class="form-label sr-only" for="registerName">Nom complet</label>
                             </div>
                             <input type="text" name="role_name" value="professeur" hidden>

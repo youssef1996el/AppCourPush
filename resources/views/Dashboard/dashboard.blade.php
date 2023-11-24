@@ -31,7 +31,7 @@
 							class="theme-item"> Dashboard</span></a></li>
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
-					<li><a href="charts.html"><i
+					<li><a href="{{ url('professeurs') }}"><i
 							class="data-feather theme-item" data-feather="pie-chart"></i> <span
 							class="theme-item"> Professeurs</span></a></li>
 					<li><a href="components.html"><i

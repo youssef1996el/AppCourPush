@@ -12,6 +12,7 @@
     <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -33,7 +34,7 @@
 							class="theme-item"> Dashboard</span></a></li>
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
-					<li><a href="charts.html"><i
+					<li><a href="{{ url('professeurs') }}"><i
 							class="data-feather theme-item" data-feather="pie-chart"></i> <span
 							class="theme-item"> Professeurs</span></a></li>
 					<li><a href="components.html"><i
@@ -73,20 +74,10 @@
 						</button>
 
 						<div class="collapse navbar-collapse mx-1" id="navbarsExample04">
-							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-								<div class="home">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0" style="display:none">
+							
 
-								<li class="nav-item"><div class="nav-dropdown">
-										<a class="nav-item nav-link active text-secondary py-0"
-											aria-current="page" href="index.html"><i
-											class="data-feather theme-item" data-feather="home"></i> <span
-											class="theme-item">Home </span></a>
-									</div></li>
-
-
-								</div>
-
-                                <div class="notif">
+                                <div class="notif" >
 								<li class="nav-item dropdown nav-dropdown"><a
 									class="nav-item nav-link dropdown-toggle text-secondary notification"
 									href="#" id="navbarDropdownmailAlert" role="button"
@@ -158,18 +149,10 @@
 									</ul></li>
 
 							</ul>
-							<div id="navSearchForm" class="mx-1">
-								<form action="#" class="search-form py-0">
-									<input type="text" placeholder="Search">
-									<button type="submit">
-										<i class="data-feather navbar-search-icon"
-											data-feather="search"></i>
-									</button>
-								</form>
-							</div>
+						
 
 
-							<div class="usermenu">
+							<div class="usermenu ml-auto" >
 								<div class="nav-dropdown py-0">
 									<a href="#"
 										class="nav-item nav-link dropdown-toggle text-secondary py-0"
@@ -328,7 +311,7 @@
 		});
 	</script>
 
-<main class="py-4">
+<main class="py-4" style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background;background-size:cover">
             @yield('navsidebar')
         </main>
 
