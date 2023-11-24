@@ -10,6 +10,7 @@ use App\http\Controllers\DisponibleProf;
 use App\http\Controllers\CoursController;
 use App\http\Controllers\Auth\ForgotPasswordController;
 use App\http\Controllers\ProfesseurController;
+use App\http\Controllers\EleveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ Route::post('LoginWithGoogle'     ,[SocialiteController::class,'LoginWithGoogle'
 /****************************************Start Cours DashBorad **************************************/
 Route::post('StoreCours'          ,[CoursController::class,'StoreCours']);
 Route::get('GetTableCour'         ,[CoursController::class,'GetTableCour']);
-Route::post('EditCour'          ,[CoursController::class,'EditCour']);
+Route::post('EditCour'            ,[CoursController::class,'EditCour']);
 /****************************************End Cours DashBorad ****************************************/
 
 /***************************************** Rest Password *********************************************/
@@ -56,6 +57,10 @@ Route::get('professeur/StepByStep' ,[ProfesseurController::class,'StepByStep'])-
 Route::get('ShowProfileProf'       ,[ProfesseurController::class,'ShowProfile'])->name('ShowProfileProf');
 /******************************************* End Professeur *************************************************/
 
+/******************************************** Eleve *********************************************************/
+Route::get('profile/eleve'            ,[EleveController::class,'index'])->name('profile/eleve');
+Route::get('GetpProfesseur'           ,[EleveController::class,'GetpProfesseur']);
+/******************************************** End Eleve  ****************************************************/
 
 
 Route::get('/prof/{name}/{id}',function()
@@ -75,10 +80,7 @@ Route::get('profile/admin',function()
     return view('profile.admin');
 });
 
-Route::get('profile/eleve',function()
-{
-    return view('profile.eleve');
-})->name('profile/eleve');
+
 
 Route::get('GetAvailableProf',[HomeController::class,'GetAvailableProf']);
 
@@ -88,7 +90,7 @@ Route::get('GetAvailableProf',[HomeController::class,'GetAvailableProf']);
 Route::get('Dashboard',function()
 {
     return view('Dashboard.index');
-});
+})->name('Dashboard');
 
 Route::get('Dashboard/cours',function()
 {
