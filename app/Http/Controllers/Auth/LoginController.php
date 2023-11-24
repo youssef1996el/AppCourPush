@@ -61,5 +61,10 @@ class LoginController extends Controller
             }
 
         }
+        if(Auth::user()->role_name === 'Admin')
+        {
+            $this->redirectTo = route('Dashboard');
+            return $this->redirectTo;
+        }
     }
 }
