@@ -1,5 +1,6 @@
 $(document).ready(function ()
 {
+
     var dataTableInitialized = false;
     GetTableCour();
     function GetTableCour()
@@ -23,12 +24,16 @@ $(document).ready(function ()
                                 'print'
                             ],
                             "ordering": false,
-                            "lengthMenu": false,
+                            "lengthMenu": [3],
+
                             "select": {
                                 "style": "single"
                             },
+                            "info": false,
                             "language":
                             {
+                                "search": "_INPUT_",
+                                "searchPlaceholder": "Recherche...",
                                 "sInfo": "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments",
                                 "sInfoEmpty": "Affichage de l'élément 0 à 0 sur 0 élément",
                                 "sInfoFiltered": "(filtré à partir de _MAX_ éléments au total)",
@@ -57,6 +62,7 @@ $(document).ready(function ()
                                     }
                                 }
                             },
+
                         });
                     }
                     else
@@ -67,15 +73,17 @@ $(document).ready(function ()
                     dataTable.clear();
                     $.each(response.data, function (index, value)
                     {
-                        var buttonEdit = '<button class="buttonEditCours" data-value='+value.id+'>\
-                                                <svg viewBox="0 0 576 512" class="svgIcon">\
-                                                    <path fill="currentColor" d="M549.65 73.65l-51.62-51.62c-18.75-18.75-49.14-18.75-67.88 0L93.74 361.74 10.1 465.38c-9.37 9.37-9.37 24.57 0 33.94l47.99 47.99c9.37 9.37 24.57 9.37 33.94 0L427.26 180.74 549.65 73.65c18.75-18.75 18.75-49.14 0-67.89zM409.47 24.04L24.04 409.47c-4.69 4.69-7.3 10.98-7.3 17.64s2.61 12.95 7.3 17.64l47.99 47.99c4.69 4.69 10.98 7.3 17.64 7.3s12.95-2.61 17.64-7.3L409.47 58.31c9.76-9.76 9.76-25.59 0-35.35-9.75-9.76-25.58-9.76-35.35 0z"></path>\
-                                                </svg>\
-                                            </button>';
+
+                        var buttonEdit =    `<button type="button" class="btn btn-link buttonEditCours" data-mdb-ripple-color="dark" data-value=`+value.id+`>
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </button>`;
+                        var buttonTrash=    `<button type="button" class="btn btn-link " data-mdb-ripple-color="dark" data-value=`+value.id+`>
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>`;
 
                         dataTable.row.add([
                             value.title,
-                            buttonEdit,
+                            buttonEdit + ' ' + buttonTrash,
                         ]);
                         dataTable.draw();
                     });
@@ -85,6 +93,9 @@ $(document).ready(function ()
 
         });
     }
+
+
+
 
 
     $('#BtnAddRowCours').on('click',function()
@@ -112,54 +123,49 @@ $(document).ready(function ()
     });
     $('#BtnAddCourTwo').on('click',function()
     {
-        $('#TableCours').find('tbody').append('<tr>\
-                                                    <td>\
-                                                        <input type="text" class="form-control" placeholder="Veuillez entrer le nom du cours">\
-                                                    </td>\
-                                                    <td >\
-                                                        <button class="buttonTrashCours">\
-                                                            <svg viewBox="0 0 448 512" class="svgIcon">\
-                                                                <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>\
-                                                            </svg>\
-                                                        </button>\
-                                                    </td>\
-                                            <tr>');
+
+        $('.sectiontablecours .form-group:last').after('<div class="form-group" >\
+                                            <div class="row">\
+                                                <div class="col-10">\
+                                                    <input name="cours" type="text" class="form-control cour" style="width: 95% !important" placeholder="Ajouter un cours" >\
+                                                </div>\
+                                                <div class="col-2">\
+                                                    <button class="buttonTrashCours " >\
+                                                        <svg viewBox="0 0 448 512" class="svgIcon">\
+                                                            <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>\
+                                                        </svg>\
+                                                    </button>\
+                                                </div>\
+                                            </div>\
+                                        </div>');
+
     });
 
     $('.Send').on('click', function()
     {
-        var lengthTableCours = $('#TableCours tbody tr').length;
-        var tbody = $('#TableCours').find('tbody');
+        var cours = [];
 
-        var tbodyHtml = '';
 
-        tbody.find('tr').each(function() {
-            tbodyHtml += $(this).html();
+        $('.cour').each(function () {
+            cours.push($(this).val());
         });
 
-
-        if(tbodyHtml.trim() === '')
+        if(cours.length == 1)
         {
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "La table de cours est vide!",
-            });
-            return false;
+            if(cours == "")
+            {
+                Swal.fire({
+                    icon    : "error",
+                    title   : "Oops...",
+                    text    : 'Vous n\'avez saisi aucune cour',
+                  });
+                return 0;
+            }
+
+
         }
         else
         {
-            var title = [];
-            $('#TableCours tbody tr ').each(function() {
-                var inputValue = $(this).find('td:eq(0) input').val();
-
-                if (typeof inputValue !== 'undefined' && inputValue !=='') {
-                    title.push(inputValue);
-                }
-            });
-
-            if(title.length > 0)
-            {
                 var url = storeCoursUrl;
                 $.ajax({
                     type: "post",
@@ -167,7 +173,7 @@ $(document).ready(function ()
                     headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
                     data:
                     {
-                        cours : title
+                        cours : cours
                     },
                     dataType: "json",
                     success: function (response)
@@ -192,8 +198,7 @@ $(document).ready(function ()
                                                                 </svg>\
                                                             </div>\
                                                         </div>');
-                                       /*  var alertDiv = $('<div class="alert alert-danger">' + item + '</div>'); */
-                                       /*  $('.divContentForError').append(alertDiv); */
+
                                         Swal.fire({
                                             icon    : "error",
                                             title   : "Oops...",
@@ -205,37 +210,29 @@ $(document).ready(function ()
                                     })(value);
                                     $('#ModalAddCour').modal("hide");
                                     GetTableCour();
-                                    $('#TableCours tbody tr ').each(function() {
-                                        var inputValue = $(this).find('td:eq(0) input');
-                                        inputValue.val("");
-                                    });
+                                    $('.sectiontablecours .form-group:get(0)').remove();
                                 });
                             }
                             else
                             {
+                                var widthContainer = $('.widthContainer').width();
+                                $('.msg').css('width',widthContainer+'px');
                                 $('.msg').addClass('alert alert-success').text('Ajouter avec succès').delay(4000).fadeOut('slow');
                                 $('#ModalAddCour').modal("hide");
-                                GetTableCour();
-                                $('#TableCours tbody tr ').each(function() {
-                                    var inputValue = $(this).find('td:eq(0) input');
-                                    inputValue.val("");
-                                });
-
+                                $('.sectiontablecours .form-group:get(0)').remove();
                             }
 
                         }
                     }
                 });
-
-            }
-
-
         }
+
+
 
     });
     $(document).on('click','.buttonTrashCours',function()
     {
-        $(this).closest('tr').remove();
+        $(this).closest('.form-group').remove();
     });
 
     $(document).on('click','.success__close path',function(){

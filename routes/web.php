@@ -102,4 +102,10 @@ Route::get('professeurs',function()
     return view('Dashboard.professeur');
 });
 
+Route::get('eleves',function()
+{
+    return view('Dashboard.eleve');
+});
+
+
 
