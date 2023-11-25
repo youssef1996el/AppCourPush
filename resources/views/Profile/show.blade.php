@@ -7,9 +7,9 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
 
 
-<div class="container mt-5">
-    <div class="row" style="margin-top:8rem">
-   
+<div class="container mt-5" >
+    <div class="row" style="margin-top:8rem;">
+
         <div class="col-sm-12 col-md-9 col-xl-9">
             <div class="divProfile">
                 <div class="card  " >
@@ -21,7 +21,7 @@
                                     <div class="text-center" >
 
                                         <img class="profileimg" src="{{asset($DataProf[0]->image)}}" alt=""  srcset="" style="border: 2px solid white;">
-         
+
                                         <h2 style="font-size: 28px;" >{{$DataProf[0]->nom}}</h2>
                                         <h4 style="font-size: 20px;color: gray;">work</h4>
                                         <h4 style="font-size: 20px;color: gray;">experience</h4>
@@ -29,7 +29,7 @@
 
                                     <div class="card-body">
 
-                                        <!--div class="form-group">
+                                        <div class="form-group">
                                             <label for="" class="form-label">First name</label>
                                             <input type="text" class="form-control" value="{{$DataProf[0]->nom}}">
 
@@ -44,7 +44,7 @@
 
                                             <label for="" class="form-label">téléphone</label>
                                             <input type="text" class="form-control" value="{{$DataProf[0]->telephone}}" autocomplete="off">
-                                        </div-->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
 
                                                     </li>
 
-                       
+
 
                                                 </div>
                                             @endforeach

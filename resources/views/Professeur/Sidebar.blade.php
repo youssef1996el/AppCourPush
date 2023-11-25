@@ -305,42 +305,37 @@
 							href="#">Clients</a> <a href="#">Contact</a>
 					</div>
 				</div>
-				<div id="loading" class="spinner-border text-primary align-middle"
-		role="status"></div>
+				<div id="loading" class="spinner-border text-primary align-middle" role="status"></div>
 
-	<button class="btn btn-sm btn-primary rounded-circle"
-		onclick="scrollToTopFunction()" id="scrollToTop" title="Scroll to top">
-		<i data-feather="arrow-up-circle"></i>
-	</button>
+                <button class="btn btn-sm btn-primary rounded-circle"
+                    onclick="scrollToTopFunction()" id="scrollToTop" title="Scroll to top">
+                    <i data-feather="arrow-up-circle"></i>
+                </button>
 
-	<script src="{{asset('js/feather.min.js')}}"></script>
-	<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-	<script src="{{asset('js/script_sidebar.js')}}"></script>
+                <script src="{{asset('js/feather.min.js')}}"></script>
+                <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+                <script src="{{asset('js/script_sidebar.js')}}"></script>
 
-
-
-
-	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function(event) {
-			feather.replace();
-		});
-	</script>
-
-<main class="py-4" style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background;background-size:cover">
-            @yield('navsidebarProf')
-        </main>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
+                <script type="text/javascript">
+                    document.addEventListener("DOMContentLoaded", function(event) {
+                        feather.replace();
+                    });
+                </script>
 
-
+                <main class="py-4" style="background-image:url('{{asset('image/25099.jpg')}}');
+                                            height:90vh;
+                                            background-repeat: no-repeat;
+                                            background-position:center;
+                                            background-size:cover;
+                                            ">
+                    @yield('navsidebarProf')
+                </main>
 			</div>
-
 		</div>
 	</div>
-
-
-
-
 </body>
 
 </html>
