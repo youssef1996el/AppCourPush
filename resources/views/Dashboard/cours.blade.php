@@ -11,7 +11,7 @@
 
     <div class="row ">
         <div class="col-sm-12 col-md-12 col-xl-12">
-        <h2 class="mb-3" style="padding-left: 12px;font-family: times;">Liste des cours </h2>
+        <h2 class="mb-3" style="padding-left: 12px;">Liste des cours </h2>
         <button class="btn" id="BtnAddRowCours">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
             <path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
@@ -23,10 +23,10 @@
         <input class="input-box" type="text" placeholder="Rechercher sur un cours ..">
         <span class="underline"></span>
       </div>
-       <table class="table align-middle mb-0 bg-white" style="margin-top: 20px;width: 60%;margin-left: 100px; ">
-        <thead class="bg-light " style="border-bottom-color:white">
+       <table class="table-primary align-middle mb-0 bg-white " style="margin-top: 20px;width: 60%;margin-left: 100px; ">
+        <thead class=" " style="border-bottom-color:white">
           <tr>
-            <th>Nom du cours</th>
+            <th style="text-indent:18px" >Nom du cours</th>
             <th style="width: 30%; text-align: center;">Actions</th>
           </tr>
         </thead>
@@ -36,20 +36,20 @@
                 <td>
                   <p class="fw-normal mb-1">Consultant</p>
                 </td>
-                <td style="text-align:center">
+                <td style="text-align:center ; text-decoration:none">
                   <button
                           type="button"
-                          class="btn btn-link btn-rounded btn-sm fw-bold"
+                          class="btn btn-link "
                           data-mdb-ripple-color="dark"
                           >
-                    Editer
+                          <i class="fa-regular fa-pen-to-square"></i>
                   </button>
                   <button
                           type="button"
-                          class="btn btn-link btn-rounded btn-sm fw-bold"
+                          class="btn btn-link "
                           data-mdb-ripple-color="dark"
                           >
-                    Supprimer
+                          <i class="fa-solid fa-trash"></i>
                   </button>
                 </td>
             </tr>
@@ -94,16 +94,24 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-                <div class="float-end">
-                    <button class="btn btn-success" id="BtnAddCourTwo">Ajouter cour</button>
-                </div>
-                <div class="sectiontablecours mt-5 card p-2 shadow" style=" overflow: auto;max-height: 310px;">
+                
+                <div class="sectiontablecours mt-1 card p-2 shadow" style=" overflow: auto;max-height: 310px;">
                     <table class="table"  id="TableCours">
                         <tbody>
                         </tbody>
-
+                       
                     </table>
-                    <button class="Send mt-2 w-25" >
+                    <!--div class="form-group">
+                    <input name="cours" type="text" class="form-control" placeholder="Ajouter un cours" >
+                    </div>
+                    <div class="float-start">
+                    <button type="button" class="item button" id="BtnAddCourTwo">
+                        <span class="button__text">Ajouter</span>
+                        <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+                    </button-->
+                             <button class="btn btn-success" id="BtnAddCourTwo">Ajouter cours</button> 
+                    </div>
+                    <button class="Send mt-2 w-25 " >
                         <div class="svg-wrapper-1">
                             <div class="svg-wrapper">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -112,7 +120,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <span>Send</span>
+                        <span >Envoyer</span>
                     </button>
                 </div>
 			</div>

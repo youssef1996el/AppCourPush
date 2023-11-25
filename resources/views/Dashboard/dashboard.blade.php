@@ -21,8 +21,7 @@
 
 				<div class="sidebar-header text-center">
 
-					<img src="{{asset('image/leaf.svg')}}" alt="logo" class="app-logo">
-					<h4 class="sidebar-title theme-item">AVNI</h4>
+					<h4 class="sidebar-title theme-item">LOGO</h4>
 				</div>
 
 				<ul class="list-unstyled components text-secondary">
@@ -60,9 +59,8 @@
 							class="btn btn-light py-0">
 							<i data-feather="menu"></i> <span></span>
 						</button>
-						<img src="{{asset('image/leaf.svg')}}" alt="logo"
 							class="app-logo theme-item mx-2 navbrandarea1">
-						<h4 class="sidebar-title theme-item mt-2 navbrandarea2">AVNI</h4>
+						<h4 class="sidebar-title theme-item mt-2 navbrandarea2">LOGO</h4>
 						<button class="navbar-toggler py-0" type="button"
 							data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
 							aria-controls="navbarsExample04" aria-expanded="false"

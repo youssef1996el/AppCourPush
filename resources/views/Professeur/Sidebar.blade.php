@@ -24,32 +24,19 @@
 
 				<div class="sidebar-header text-center">
 
-					<img src="{{asset('image/leaf.svg')}}" alt="logo" class="app-logo">
-					<h4 class="sidebar-title theme-item">AVNI</h4>
+					<h4 class="sidebar-title theme-item">LOGO</h4>
 				</div>
 
 				<ul class="list-unstyled components text-secondary">
 					<li><a href="index.html"><i
 							class="data-feather theme-item" data-feather="home"></i> <span
-							class="theme-item"> Dashboard Prof</span></a></li>
+							class="theme-item"> Dashboard</span></a></li>
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
-					<li class="lastChildORginList">
-                            <div class="dropdown">
-                                <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-regular fa-user"></i>
-                                    Profile
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <li><a class="dropdown-item" href="#" id="ShowFormation">Formation</a></li>
-                                  <li><a class="dropdown-item" href="#" id="ShowExperience">Expérience</a></li>
-                                  <li><a class="dropdown-item" href="#" id="ShowDisponoble">Disponibilité</a></li>
-                                </ul>
-                            </div>
-                    </li>
-					<li><a href="components.html"><i
-							class="data-feather theme-item" data-feather="grid"></i> <span
-							class="theme-item"> Eleves</span></a></li>
+					<li><a href="{{ url('professeurs') }}"><i class="fa-solid fa-user-tie"></i>
+					   <span class="theme-item"> Professeurs</span></a></li>
+					<li><a href="{{ url('eleves') }}"><i class="fa-solid fa-users"></i>
+					   <span class="theme-item"> Eleves</span></a></li>
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
 							class="theme-item"> Extras</span></a></li>
@@ -64,7 +51,7 @@
 
 			</nav>
 
-			<div id="bodywrapper" class="container-fluid showhidetoggle">
+			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background-size:cover">
 
 				<nav class="navbar navbar-expand-md navbar-white bg-white py-0"
 					aria-label="navbarexample" id="navbar">
@@ -73,9 +60,9 @@
 							class="btn btn-light py-0">
 							<i data-feather="menu"></i> <span></span>
 						</button>
-						<img src="{{asset('image/leaf.svg')}}" alt="logo"
-							class="app-logo theme-item mx-2 navbrandarea1">
-						<h4 class="sidebar-title theme-item mt-2 navbrandarea2">AVNI</h4>
+						<div  
+							class="app-logo theme-item mx-2 navbrandarea1"></div>
+						<h4 style="margin-left: -26px;" class="sidebar-title theme-item mt-2 navbrandarea2">LOGO</h4>
 						<button class="navbar-toggler py-0" type="button"
 							data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
 							aria-controls="navbarsExample04" aria-expanded="false"
@@ -315,6 +302,7 @@
 
 	<script src="{{asset('js/feather.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+	<script src="{{asset('js/Chart.min.js')}}"></script>
 	<script src="{{asset('js/script_sidebar.js')}}"></script>
 
 
@@ -326,7 +314,7 @@
 		});
 	</script>
 
-<main class="py-4" style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background;background-size:cover">
+<main class="py-4" >
             @yield('navsidebarProf')
         </main>
 

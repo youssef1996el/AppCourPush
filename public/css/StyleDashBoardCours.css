@@ -113,14 +113,14 @@
     font-size: 18px;
     background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
     color: white;
-    padding: 0.8em 1.2em;
+    padding: 5px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+  
     border: none;
     border-radius: 25px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s;
+    margin-left: 74%;
   }
 
   .Send:hover {
@@ -135,7 +135,7 @@
 
   .Send span {
     display: block;
-    margin-left: 0.4em;
+    margin-left: -6px;
     transition: all 0.3s;
   }
 
@@ -359,9 +359,131 @@ float: right;
 }
 
 .container{
-
-  background-color: #80808052;
+  background-color: #ffffff63;
   padding: 20px 30px 42px 20px;
   width: 950px;
   border-radius: 14px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+*{
+  font-family: times;
+}
+
+thead{
+  background-color: #74a8d5;
+  color: white;
+ 
+}
+.table{
+  color: #74a8d5 !important;
+}
+tbody{
+  color:black;
+ 
+  text-indent:16px
+}
+.btn{
+  text-decoration: none;
+}
+
+.fa-trash{
+  color: #db3939;
+}
+.fa-trash:hover{
+   color: #ff4242;;
+}
+
+.form-group {
+  margin: 10px 0;
+  position: relative;
+  margin-bottom: 20px;
+}
+.form-group input {
+  width: 78%;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 0px;
+  border-style: solid;
+}
+
+.form-control:focus {
+  width: 78%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 0px;
+  box-shadow: none;
+
+}
+
+.item {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #34974d;
+  background-color: #3aa856;
+}
+
+.item, .button__icon, .button__text {
+  transition: all 0.3s;
+}
+
+.item .button__text {
+  transform: translateX(30px);
+  color: #fff;
+  font-weight: 600;
+  margin-left: -4px;
+}
+
+.item .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 40px;
+  width: 40px;
+  background-color: #34974d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item .svg {
+  width: 30px;
+  stroke: #fff;
+}
+
+.item:hover {
+  background: #34974d;
+}
+
+.item:hover .button__text {
+  color: transparent;
+}
+
+.item:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.item:active .button__icon {
+  background-color: #2e8644;
+}
+
+.item:active {
+  border: 1px solid #2e8644;
+}
+.modal-body {
+  
+  padding: 0px 20px 10px 20px;
+}
+
+nav{
+  height: 70px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+
+th, td {
+  padding: 10px; /* Adjust the value as needed */
+
 }

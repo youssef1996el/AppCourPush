@@ -1,0 +1,42 @@
+*{
+    font-family: times;
+  }
+.container{
+    background-color: #ffffff63;
+    padding: 20px 30px 42px 20px;
+    width: 950px;
+    border-radius: 14px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
+
+  thead{
+    background-color: #74a8d5;
+    color: white;
+    text-align: center;
+   
+  }
+ 
+  tbody{
+    color:black;
+   
+    text-indent:16px
+  }
+  .btn{
+    text-decoration: none;
+  }
+
+  .table-primary{
+      padding: 10px;
+      
+  }
+  th, td {
+    padding: 10px; /* Adjust the value as needed */
+  
+  }
+  
+  .fa-trash{
+    color: #db3939;
+  }
+  .fa-trash:hover{
+     color: #ff4242;;
+  }
