@@ -96,21 +96,21 @@
 			<div class="modal-body">
                 
                 <div class="sectiontablecours mt-1 card p-2 shadow" style=" overflow: auto;max-height: 310px;">
-                    <table class="table"  id="TableCours">
+                   <!--  <table class="table"  id="TableCours">
                         <tbody>
                         </tbody>
                        
-                    </table>
-                    <!--div class="form-group">
+                    </table> -->
+                    <div class="form-group">
                     <input name="cours" type="text" class="form-control" placeholder="Ajouter un cours" >
                     </div>
                     <div class="float-start">
                     <button type="button" class="item button" id="BtnAddCourTwo">
                         <span class="button__text">Ajouter</span>
                         <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
-                    </button-->
-                             <button class="btn btn-success" id="BtnAddCourTwo">Ajouter cours</button> 
-                    </div>
+                    </button>
+<!--                              <button class="btn btn-success" id="BtnAddCourTwo">Ajouter cours</button> 
+ -->                    </div>
                     <button class="Send mt-2 w-25 " >
                         <div class="svg-wrapper-1">
                             <div class="svg-wrapper">
