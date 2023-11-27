@@ -44,4 +44,10 @@ $(document).ready(function () {
             }
         },
     });
+
+    $('.BtnView').on('click',function()
+    {
+
+        $('#ModalView').modal("show");
+    });
 });

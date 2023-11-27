@@ -64,6 +64,7 @@ Route::get('GetpProfesseur'           ,[EleveController::class,'GetpProfesseur']
 /******************************************** End Eleve  ****************************************************/
 /******************************************** Start Dashboard Admin ***********************************************/
 Route::get('professeurs'              ,[AdminController::class,'professeurs'])->name('professeurs');
+Route::get('eleves'                   ,[AdminController::class,'eleves'])->name('eleves');
 /******************************************** End Dashboard Admin ***********************************************/
 
 Route::get('/prof/{name}/{id}',function()
@@ -100,10 +101,7 @@ Route::get('Dashboard/cours',function()
     return view('Dashboard.cours');
 });
 
-/* Route::get('professeurs',function()
-{
-    return view('Dashboard.professeur');
-}); */
+
 
 Route::get('eleves',function()
 {
