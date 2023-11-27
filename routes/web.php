@@ -11,6 +11,7 @@ use App\http\Controllers\CoursController;
 use App\http\Controllers\Auth\ForgotPasswordController;
 use App\http\Controllers\ProfesseurController;
 use App\http\Controllers\EleveController;
+use App\http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +62,9 @@ Route::get('ShowProfileProf'       ,[ProfesseurController::class,'ShowProfile'])
 Route::get('profile/eleve'            ,[EleveController::class,'index'])->name('profile/eleve');
 Route::get('GetpProfesseur'           ,[EleveController::class,'GetpProfesseur']);
 /******************************************** End Eleve  ****************************************************/
-
+/******************************************** Start Dashboard Admin ***********************************************/
+Route::get('professeurs'              ,[AdminController::class,'professeurs'])->name('professeurs');
+/******************************************** End Dashboard Admin ***********************************************/
 
 Route::get('/prof/{name}/{id}',function()
 {
@@ -97,10 +100,10 @@ Route::get('Dashboard/cours',function()
     return view('Dashboard.cours');
 });
 
-Route::get('professeurs',function()
+/* Route::get('professeurs',function()
 {
     return view('Dashboard.professeur');
-});
+}); */
 
 Route::get('eleves',function()
 {

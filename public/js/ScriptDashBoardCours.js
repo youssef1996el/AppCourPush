@@ -124,7 +124,7 @@ $(document).ready(function ()
     $('#BtnAddCourTwo').on('click',function()
     {
 
-        $('.sectiontablecours .form-group:last').after('<div class="form-group" >\
+        $('.sectiontablecours .form-group:last').after('<div class="form-group appendCour" >\
                                             <div class="row">\
                                                 <div class="col-10">\
                                                     <input name="cours" type="text" class="form-control cour" style="width: 95% !important" placeholder="Ajouter un cours" >\
@@ -210,16 +210,19 @@ $(document).ready(function ()
                                     })(value);
                                     $('#ModalAddCour').modal("hide");
                                     GetTableCour();
-                                    $('.sectiontablecours .form-group:get(0)').remove();
+                                    $('.sectiontablecours .appendCour').remove();
+                                    $('.cour').val("");
                                 });
                             }
                             else
                             {
                                 var widthContainer = $('.widthContainer').width();
                                 $('.msg').css('width',widthContainer+'px');
-                                $('.msg').addClass('alert alert-success').text('Ajouter avec succès').delay(4000).fadeOut('slow');
+                                $('.msg').addClass('alert alert-success').text('Ajouter avec succès').delay(6000).fadeOut('slow');
                                 $('#ModalAddCour').modal("hide");
-                                $('.sectiontablecours .form-group:get(0)').remove();
+                                GetTableCour();
+                                $('.sectiontablecours .appendCour').remove();
+                                $('.cour').val("");
                             }
 
                         }

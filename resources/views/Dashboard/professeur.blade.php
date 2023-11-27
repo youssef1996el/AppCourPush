@@ -18,7 +18,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              {{-- <tr>
                 <td>
                   <div class="d-flex align-items-center">
                     <img
@@ -57,7 +57,7 @@
                           >
                           <i class="fa-solid fa-eye"></i>
                   </button>
-                  
+
                   <button
                           type="button"
                           class="btn btn-link "
@@ -67,8 +67,39 @@
 
                   </button>
                 </td>
-              </tr>
-            
+              </tr> --}}
+              @foreach ($listProfesseur as $item)
+                    <tr>
+                        <td>
+                            <div class="d-felx align-items-center">
+                                <img src="{{asset($item->image)}}" class="rounded-circle" style="width:45px;height: 45px;" alt="">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">{{$item->name}}</p>
+                                    <p class="text-muted mb-0">{{$item->email}}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">Consultant</p>
+                            <p class="text-muted mb-0">Finance</p>
+                        </td>
+                        <td>
+                            <span class="">Active</span>
+                        </td>
+                        <td>
+                            <span class="">Junior</span>
+                        </td>
+                        <td>non verifie</td>
+                        <td>
+                            <button type="button" class="btn btn-link" data-mdb-ripple-color="dark">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                            <button type="button" class="btn btn-link " data-mdb-ripple-color="dark" >
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
           </table>
         </div>

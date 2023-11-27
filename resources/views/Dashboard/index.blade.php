@@ -60,7 +60,7 @@
 							class="btn btn-light py-0">
 							<i data-feather="menu"></i> <span></span>
 						</button>
-						<div  
+						<div
 							class="app-logo theme-item mx-2 navbrandarea1"></div>
 						<h4 style="margin-left: -26px;" class="sidebar-title theme-item mt-2 navbrandarea2">LOGO</h4>
 						<button class="navbar-toggler py-0" type="button"
@@ -152,22 +152,43 @@
 								<div class="col-6 ">
 									<div class="usermenu ">
 										<div class="nav-dropdown py-0 ">
-											<a href="#"class="nav-item nav-link dropdown-toggle text-secondary py-0 float-end"  id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-												<img class="theme-item user-avatar" src="{{asset(Auth::user()->image)}}" alt="User image">
-												 <span class="theme-item"> {{ Auth::user()->name }}</span>
-												 <i class="theme-item" data-feather="chevron-down"></i>
+											<a href="#"class="nav-item nav-link dropdown-toggle text-secondary py-0 float-end ImgProfile"  id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <img class="theme-item user-avatar " src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt="User image">
+												 {{-- <span class="theme-item"> {{ Auth::user()->name }}</span> --}}
+												 {{-- <i class="theme-item" data-feather="chevron-down"></i> --}}
 											</a>
-											<ul class="dropdown-menu dropdown-menu-end"
-												aria-labelledby="navbarDropdown3">
-												<li><a href="profile.html" class="dropdown-item mt-2"><i
-														class="data-feather" data-feather="user"></i> Profile</a></li>
-												<li><a href="#" class="dropdown-item mt-2"><i
-														class="data-feather" data-feather="mail"></i> Messages</a></li>
-												<li><a href="#" class="dropdown-item mt-2"
-													data-bs-toggle="modal" data-bs-target="#settingsModal"><i
-														class="data-feather" data-feather="settings"></i> Settings</a></li>
-												<li><a href="#" class="dropdown-item mt-2"><i
-														class="data-feather" data-feather="log-out"></i> Logout</a></li>
+											<ul class="dropdown-menu dropdown-menu-end menuUsers" aria-labelledby="navbarDropdown3">
+                                                <div>
+                                                    <h5 class="text-uppercase text-center text-secondary">{{ Auth::user()->name }}</h5>
+                                                </div>
+                                                <hr>
+												<li>
+                                                    <a href="profile.html" class="dropdown-item mt-2">
+                                                        <i class="data-feather" data-feather="user"></i>
+                                                        Profile
+                                                    </a>
+                                                </li>
+												<li>
+                                                    <a href="#" class="dropdown-item mt-2">
+                                                        <i class="data-feather" data-feather="mail"></i>
+                                                        Messages
+                                                    </a>
+                                                </li>
+												<li>
+                                                    <a href="#" class="dropdown-item mt-2" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                                        <i class="data-feather" data-feather="settings"></i>
+                                                        Settings
+                                                    </a>
+                                                </li>
+												<li>
+                                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item mt-2">
+                                                        <i class="data-feather" data-feather="log-out"></i>
+                                                        Logout
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </li>
 											</ul>
 										</div>
 									</div>
@@ -308,13 +329,13 @@
 
 
 
-	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function(event) {
-			feather.replace();
-		});
-	</script>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function(event) {
+                feather.replace();
+            });
+        </script>
 
-<main class="py-4" >
+        <main class="py-4" >
             @yield('navsidebar')
         </main>
 
