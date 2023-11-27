@@ -11264,5 +11264,33 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.ImgProfile
+{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.ImgProfile img
+{
+    position: absolute;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.03);
+}
+.menuUsers::before
+{
+    content: '';
+    position: absolute;
+    background: #f3f6f9;
+    transform: rotate(45deg);
+    width: 13px;
+    height: 13px;
+    top: -5px;
+    right: 45px;
 
+}
 /*# sourceMappingURL=bootstrap.css.map */

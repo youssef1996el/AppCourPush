@@ -12,7 +12,7 @@
 	<link href="{{asset('css/Navbar.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/bootstrap_sidebar.css')}}" rel="stylesheet">
-    <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet"> 
+    <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,6 +21,7 @@
 </head>
 
 <body class="d-flex flex-column h-100">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<div id="page">
 
 		<div class="wrapper g-0">
@@ -45,7 +46,7 @@
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
 							class="theme-item"> Extras</span></a></li>
-					
+
 				</ul>
 
 
@@ -60,7 +61,7 @@
 							class="btn btn-light py-0">
 							<i data-feather="menu"></i> <span></span>
 						</button>
-						<div  
+						<div
 							class="app-logo theme-item mx-2 navbrandarea1"></div>
 						<h4 style="margin-left: -26px;" class="sidebar-title theme-item mt-2 navbrandarea2">LOGO</h4>
 						<button class="navbar-toggler py-0" type="button"
@@ -152,22 +153,43 @@
 								<div class="col-6 ">
 									<div class="usermenu ">
 										<div class="nav-dropdown py-0 ">
-											<a href="#"class="nav-item nav-link dropdown-toggle text-secondary py-0 float-end"  id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-												<img class="theme-item user-avatar" src="{{asset(Auth::user()->image)}}" alt="User image">
-												 <span class="theme-item"> {{ Auth::user()->name }}</span>
-												 <i class="theme-item" data-feather="chevron-down"></i>
+											<a href="#"class="nav-item nav-link dropdown-toggle text-secondary py-0 float-end ImgProfile"  id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <img class="theme-item user-avatar " src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt="User image">
+												 {{-- <span class="theme-item"> {{ Auth::user()->name }}</span> --}}
+												 {{-- <i class="theme-item" data-feather="chevron-down"></i> --}}
 											</a>
-											<ul class="dropdown-menu dropdown-menu-end"
-												aria-labelledby="navbarDropdown3">
-												<li><a href="profile.html" class="dropdown-item mt-2"><i
-														class="data-feather" data-feather="user"></i> Profile</a></li>
-												<li><a href="#" class="dropdown-item mt-2"><i
-														class="data-feather" data-feather="mail"></i> Messages</a></li>
-												<li><a href="#" class="dropdown-item mt-2"
-													data-bs-toggle="modal" data-bs-target="#settingsModal"><i
-														class="data-feather" data-feather="settings"></i> Settings</a></li>
-												<li><a href="#" class="dropdown-item mt-2"><i
-														class="data-feather" data-feather="log-out"></i> Logout</a></li>
+											<ul class="dropdown-menu dropdown-menu-end menuUsers" aria-labelledby="navbarDropdown3">
+                                                <div>
+                                                    <h5 class="text-uppercase text-center text-secondary">{{ Auth::user()->name }}</h5>
+                                                </div>
+                                                <hr>
+												<li>
+                                                    <a href="profile.html" class="dropdown-item mt-2">
+                                                        <i class="data-feather" data-feather="user"></i>
+                                                        Profile
+                                                    </a>
+                                                </li>
+												<li>
+                                                    <a href="#" class="dropdown-item mt-2">
+                                                        <i class="data-feather" data-feather="mail"></i>
+                                                        Messages
+                                                    </a>
+                                                </li>
+												<li>
+                                                    <a href="#" class="dropdown-item mt-2" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                                        <i class="data-feather" data-feather="settings"></i>
+                                                        Settings
+                                                    </a>
+                                                </li>
+												<li>
+                                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item mt-2">
+                                                        <i class="data-feather" data-feather="log-out"></i>
+                                                        Logout
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </li>
 											</ul>
 										</div>
 									</div>
@@ -308,56 +330,11 @@
 
 
 
-	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function(event) {
-			feather.replace();
-		});
-	</script>
-
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Function to set the active item
-        function setActiveItem(index) {
-            var lis = document.querySelectorAll('#sidebar li');
-            lis.forEach(function(li, i) {
-                if (i === index) {
-                    li.classList.add('active');
-                } else {
-                    li.classList.remove('active');
-                }
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function(event) {
+                feather.replace();
             });
-        }
-
-        // Get the current URL to determine the active item dynamically
-        var currentURL = window.location.href;
-        
-        // Define your URL patterns and corresponding index
-        var urlPatterns = [
-            { pattern: 'index.html', index: 0 },
-            { pattern: 'Dashboard/cours', index: 1 },
-            { pattern: 'professeurs', index: 2 },
-            { pattern: 'eleves', index: 3 },
-            { pattern: 'extras.html', index: 4 }
-        ];
-
-        // Determine the active index based on the current URL
-        var activeIndex = 0; // Default to the first item
-        urlPatterns.forEach(function(pattern) {
-            if (currentURL.includes(pattern.pattern)) {
-                activeIndex = pattern.index;
-            }
-        });
-
-        // Set the active item
-        setActiveItem(activeIndex);
-
-        // Add Feather icons to the dynamically added icons
-        feather.replace();
-    });
-</script>
-
-
+        </script>
 
 <main class="py-4" >
             @yield('navsidebar')

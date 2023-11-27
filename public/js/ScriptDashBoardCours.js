@@ -124,7 +124,7 @@ $(document).ready(function ()
     $('#BtnAddCourTwo').on('click',function()
     {
 
-        $('.sectiontablecours .form-group:last').after('<div class="form-group" >\
+        $('.sectiontablecours .form-group:last').after('<div class="form-group appendCour" >\
                                             <div class="row">\
                                                 <div class="col-10">\
                                                     <input name="cours" type="text" class="form-control cour" style="width: 95% !important" placeholder="Ajouter un cours" >\
@@ -141,95 +141,73 @@ $(document).ready(function ()
 
     });
 
-    $('.Send').on('click', function()
-    {
-        var cours = [];
 
+    $('.Send').on('click', function () {
+        var cours = $('.cour').map(function () {
+            return $(this).val();
+        }).get();
 
-        $('.cour').each(function () {
-            cours.push($(this).val());
-        });
-
-        if(cours.length == 1)
-        {
-            if(cours == "")
-            {
-                Swal.fire({
-                    icon    : "error",
-                    title   : "Oops...",
-                    text    : 'Vous n\'avez saisi aucune cour',
-                  });
-                return 0;
-            }
-
-
+        if (cours.length === 0) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: 'Vous n\'avez saisi aucune cours',
+            });
+            return;
         }
-        else
-        {
-                var url = storeCoursUrl;
-                $.ajax({
-                    type: "post",
-                    url: url,
-                    headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
-                    data:
-                    {
-                        cours : cours
-                    },
-                    dataType: "json",
-                    success: function (response)
-                    {
-                        if(response.status == 200)
-                        {
-                            if (response.problematic_titles.length > 0)
-                            {
-                                $.each(response.problematic_titles, function (index, value) {
-                                    (function (item)
-                                    {
-                                        var alertDiv = $('<div class="success">\
-                                                            <div class="success__icon">\
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none">\
-                                                                    <path fill-rule="evenodd" fill="#393a37" d="m12 1c-6.075 0-11 4.925-11 11s4.925 11 11 11 11-4.925 11-11-4.925-11-11-11zm4.768 9.14c.0878-.1004.1546-.21726.1966-.34383.0419-.12657.0581-.26026.0477-.39319-.0105-.13293-.0475-.26242-.1087-.38085-.0613-.11844-.1456-.22342-.2481-.30879-.1024-.08536-.2209-.14938-.3484-.18828s-.2616-.0519-.3942-.03823c-.1327.01366-.2612.05372-.3782.1178-.1169.06409-.2198.15091-.3027.25537l-4.3 5.159-2.225-2.226c-.1886-.1822-.4412-.283-.7034-.2807s-.51301.1075-.69842.2929-.29058.4362-.29285.6984c-.00228.2622.09851.5148.28067.7034l3 3c.0983.0982.2159.1748.3454.2251.1295.0502.2681.0729.4069.0665.1387-.0063.2747-.0414.3991-.1032.1244-.0617.2347-.1487.3236-.2554z" clip-rule="evenodd"></path>\
-                                                                </svg>\
-                                                            </div>\
-                                                            <div class="success__title">'+item+'</div>\
-                                                            <div class="success__close">\
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20">\
-                                                                    <path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path>\
-                                                                </svg>\
-                                                            </div>\
-                                                        </div>');
 
-                                        Swal.fire({
-                                            icon    : "error",
-                                            title   : "Oops...",
-                                            text    : '=> cour '+item +' déja existe',
-                                          });
-                                        setTimeout(function () {
-                                            alertDiv.fadeOut('slow');
-                                        }, 6000);
-                                    })(value);
-                                    $('#ModalAddCour').modal("hide");
-                                    GetTableCour();
-                                    $('.sectiontablecours .form-group:get(0)').remove();
-                                });
-                            }
-                            else
-                            {
-                                var widthContainer = $('.widthContainer').width();
-                                $('.msg').css('width',widthContainer+'px');
-                                $('.msg').addClass('alert alert-success').text('Ajouter avec succès').delay(4000).fadeOut('slow');
-                                $('#ModalAddCour').modal("hide");
-                                $('.sectiontablecours .form-group:get(0)').remove();
-                            }
+        var url = storeCoursUrl;
+        $.ajax({
+            type: "post",
+            url: url,
+            headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+            data: { cours: cours },
+            dataType: "json",
+            success: function (response) {
+                if (response.status === 200) {
+                    var problematicTitles = response.problematic_titles;
+                    if (problematicTitles.length > 0) {
+                        $.each(problematicTitles, function (index, value) {
+                            var alertDiv = $('<div class="success">\
+                                                <div class="success__icon">\
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none">\
+                                                        <path fill-rule="evenodd" fill="#393a37" d="your_svg_path_here"></path>\
+                                                    </svg>\
+                                                </div>\
+                                                <div class="success__title">' + value + '</div>\
+                                                <div class="success__close">\
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20">\
+                                                        <path fill="#393a37" d="your_svg_path_here"></path>\
+                                                    </svg>\
+                                                </div>\
+                                            </div>');
 
-                        }
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: '=> cour ' + value + ' déja existe',
+                            });
+                            setTimeout(function () {
+                                alertDiv.fadeOut('slow');
+                            }, 6000);
+                        });
+                    } else {
+                        var widthContainer = $('.widthContainer').width();
+                        $('.msg').css('width', widthContainer + 'px')
+                            .addClass('alert alert-success')
+                            .text('Ajouter avec succès')
+                            .delay(6000).fadeOut('slow');
                     }
-                });
-        }
 
-
-
+                    $('#ModalAddCour').modal("hide");
+                    GetTableCour();
+                    $('.sectiontablecours .appendCour').remove();
+                    $('.cour').val("");
+                }
+            }
+        });
     });
+
     $(document).on('click','.buttonTrashCours',function()
     {
         $(this).closest('.form-group').remove();
@@ -244,6 +222,7 @@ $(document).ready(function ()
     {
         idCour = $(this).attr('data-value');
         $('#TitleCourShow').text($(this).closest('tr').find('td:eq(0)').text());
+        $('.TitleEdit').val("").attr("placeholder",$(this).closest('tr').find('td:eq(0)').text());
         $('#ModalEditCours').modal('show');
     });
 
