@@ -1,6 +1,6 @@
 @extends('Dashboard.index')
 @section('navsidebar')
-<link rel="stylesheet" href="{{asset('css/StyleprofesseurDash.css')}}">
+<link rel="stylesheet" href="{{asset('css/StyleProfesseurDash.css')}}">
 
 <div class="container mt-4">
     <div class="row ">

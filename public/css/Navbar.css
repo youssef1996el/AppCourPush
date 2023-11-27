@@ -1,0 +1,35 @@
+#bodywrapper>.navbar {
+	/*     padding: 0 1.5rem; */
+	/*     min-height: 54px; */
+	border-bottom: 1px solid rgba(101, 109, 119, .16) !important;
+	height: 69px;
+}
+
+/* for compact view ONLY */
+.container>.navbar-expand-md {
+	border: 1px solid #6c757d;;
+	border-radius: 20px;
+}
+
+/* 	navbar related */
+.navbar-nav li:hover>ul.dropdown-menu {
+	display: block;
+}
+
+.navbar-app-logo {
+	width: 20px;
+	height: 35px;
+	border: 1px solid #73AD21;
+	/* 	border-radius: 50%; */
+	/* 	background: #2196F3; */
+	/* 	padding: 5px; */
+}
+
+.navbar-search-icon {
+	position: relative;
+	width: 16px;
+	height: 16px;
+	top: -12px;
+	left: 20px;
+	right: 0px;
+}

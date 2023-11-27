@@ -1,14 +1,14 @@
 @extends('Dashboard.index')
 @section('navsidebar')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="{{asset('css/StyleDashBoardCours.css')}}">
+<link rel="stylesheet" href="{{asset('css/StyleCours.css')}}">
 
 <script src="{{asset('js/ScriptDashBoardCours.js')}}"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 <div class="msg" style="margin: auto"></div>
-<div class="container mt-5 widthContainer">
+<div class="container mt-2 widthContainer">
 
     <div class="row ">
 
@@ -22,11 +22,7 @@
                 <span>Ajouter un cours</span>
             </button>
 
-            {{-- <div class="input-wrapper">
-                <input id="searchInput" class="input-box" type="text" placeholder="Rechercher sur un cours ..">
-                <span class="underline"></span>
-            </div> --}}
-            <table id="TableListCour" class="table-primary align-middle mb-0 bg-white " style="margin-top: 20px;width: 60%;margin-left: 100px; ">
+            <table id="TableListCour" class="table-primary align-middle mb-0 bg-white " style="margin-top: 10px;width: 60%;margin-left: 100px; ">
                 <thead class=" " style="border-bottom-color:white" >
                     <tr>
                         <th style="text-indent:18px" >Nom du cours</th>
@@ -45,7 +41,7 @@
 	<div class="modal-dialog modal-dialog-ModalEditCours">
 		<div class="modal-content">
 			<div class="modal-header text-center">
-				<h5 class="modal-title text-uppercase" id="exampleModalLabel">Modifier cour
+				<h5 class="modal-title text-uppercase" id="exampleModalLabel">Modifier cours
                     <span id="TitleCourShow" class="text-uppercase" style="color: #57b9e9;"></span>
                 </h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -53,14 +49,14 @@
 			<div class="modal-body">
                 <div class="row">
                     <div class="form-group">
-                        <label for="">Nom du cour :</label>
+                        <label for="">Nom du cours :</label>
                         <input type="text" class="form-control TitleEdit">
                         <div class="error"></div>
                     </div>
                 </div>
 			</div>
             <div class="modal-footer">
-                <button class="btn btn-success BtnUpDateCours">UpDate</button>
+                <button class="btn btn-success BtnUpDateCours">Editer</button>
             </div>
 		</div>
 	</div>
@@ -77,13 +73,11 @@
 			<div class="modal-body">
 
                 <div class="sectiontablecours mt-1 card p-2 shadow" style=" overflow: auto;max-height: 310px;">
-                   {{-- <table class="table"  id="TableCours">
-                        <tbody>
-                        </tbody>
-                    </table> --}}
+              
                     <div class="form-group">
                         <input name="cours" type="text" class="form-control cour" placeholder="Ajouter un cours" >
                     </div>
+                    
 
 
 

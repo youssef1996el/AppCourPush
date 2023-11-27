@@ -95,19 +95,12 @@
   }
   #TableCours thead tr
   {
-    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+      background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
      /*  background-color : #009879; */
       color:#fff;
       text-align: left;
   }
-  /* #TableCours tbody tr:last-of-type
-  {
-      border-bottom: 2px solid #009879;
-  } */
-
-
-
-
+ 
 
 
 
@@ -248,7 +241,6 @@
   }
   #TableListCour thead tr
   {
-    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
       color:#fff;
       text-align: left;
   }
@@ -276,44 +268,8 @@ float: right;
   color: white;
 
 }
-.input-wrapper {
-  position: relative;
-  width: 200px;
 
-  margin-left: 100px;
 
-}
-
-.input-box {
-  font-size: 16px;
-  padding: 6px 0;
-  border: none;
-  border-bottom: 2px solid #74a8d5;
-  color: black;
-  width: 100%;
-  background-color: transparent;
-  transition: border-color 0.3s ease-in-out;
-}
-
-.underline {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: black;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-.input-box:focus {
-  border-color: black;
-  outline: none;
-}
-
-.input-box:focus + .underline {
-  transform: scaleX(1);
-}
 
 .container{
   background-color: #ffffff63;
@@ -431,27 +387,45 @@ th, td {
     float: left;
     margin-bottom: 8px;
     margin-left:91px;
+  
 }
-    #TableListCour_filter label
+#TableListCour_filter label
     {
-        font-size: 0;
+        font-size: 14px;
     }
 
+#TableListCour_filter input{
+    width: 300px;
+    padding: 10px;  
+    border: none;
+    appearance: none;
+    border-radius: 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-bottom: 1.5px solid darkgray;
+    background: transparent;
+
+}
 #TableListCour_filter input[type="search"]:focus
 {
-    padding: 0px;
+    padding: 8px;
     color: #212529;
     background-color: #fff;
     border-color: #86b7fe;
-    border-radius: 4px;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-radius: 0px;
+    width: 300px;
+    padding: 10px;
+    border-bottom: 1.5px solid #86b7fe;
+    box-shadow: none;
+    background-color: transparent;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     /* border-radius: 50% !important; */
     padding: 0.5em 0.3em !important;
  }
+ input::placeholder{
+     font-size: 14px;
 
+ }
 
  /* styling of Input */
  
@@ -480,3 +454,62 @@ th, td {
   background-color: #fcfcfc;
 
 }
+
+tbody .even{
+    background: #f1f8ff  !important;
+}
+
+
+/* pagination */
+.dataTables_paginate{
+  display: flex;
+  justify-content: center;
+}
+
+
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin-right:10rem !important;
+    white-space: nowrap;
+    justify-content: flex-end;
+  }
+
+.page-link {
+    position: relative;
+    display: block;
+    color: #5382ab;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 20px;
+  }
+
+  .page-link:hover {
+    z-index: 2;
+    color: #5382ab;
+    background-color: white;
+  }
+
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #5382ab;
+    border-color: #5382ab;
+  }
+
+
+
+  
+  
+
+  .btn-success {
+    color: #fff;
+    background-color: #3aa856;
+    border-color: #3aa856;
+  }
+
+  .btn-success:hover {
+    color: #fff;
+    background-color: #34974d;
+    border-color: #34974d;
+  }
