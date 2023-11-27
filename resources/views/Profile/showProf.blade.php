@@ -60,29 +60,10 @@
                                                 <ul class="list-unstyled ">
                                                     <li class="timeline-item" >
                                                         <div class="timeline-element">
-                                                            {{-- <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                            <!--span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
                                                             <p>{{ $item->pays }}</p>
                                                             <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
-                                                            <p>{{ $item->ecole }} </p> --}}
-                                                            <a href="#">Web Designer</a>
-                                                            <span class="date">jan 2021</span>
-                                                            <span class="pays">Morocco</span>
-                                                            <span class="circle"></span>
-                                                            <div class="timeline-content">
-                                                                <p>Software Inc.</p>
-                                                            </div>
-                                                        </div>
-
-                                                    </li>
-
-
-
-                                                    <li class="timeline-item" >
-                                                        <div class="timeline-element">
-                                                            {{-- <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                                                            <p>{{ $item->pays }}</p>
-                                                            <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
-                                                            <p>{{ $item->ecole }} </p> --}}
+                                                            <p>{{ $item->ecole }} </p-->
                                                             <a href="#">Web Designer</a>
                                                             <span class="date">jan 2021</span>
                                                             <span class="pays">Morocco</span>

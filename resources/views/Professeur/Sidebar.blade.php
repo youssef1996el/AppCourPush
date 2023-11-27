@@ -12,7 +12,7 @@
 	<link href="{{asset('css/Navbar.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/bootstrap_sidebar.css')}}" rel="stylesheet">
-    <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet">
+    <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -46,7 +46,11 @@
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
 							class="theme-item"> Extras</span></a></li>
+<<<<<<< HEAD
+					
+=======
 
+>>>>>>> eea3e16dcfbe6d04d8ca0089e440ac891160cfeb
 				</ul>
 
 
@@ -335,6 +339,51 @@
                 feather.replace();
             });
         </script>
+
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to set the active item
+        function setActiveItem(index) {
+            var lis = document.querySelectorAll('#sidebar li');
+            lis.forEach(function(li, i) {
+                if (i === index) {
+                    li.classList.add('active');
+                } else {
+                    li.classList.remove('active');
+                }
+            });
+        }
+
+        // Get the current URL to determine the active item dynamically
+        var currentURL = window.location.href;
+        
+        // Define your URL patterns and corresponding index
+        var urlPatterns = [
+            { pattern: 'index.html', index: 0 },
+            { pattern: 'Dashboard/cours', index: 1 },
+            { pattern: 'professeurs', index: 2 },
+            { pattern: 'eleves', index: 3 },
+            { pattern: 'extras.html', index: 4 }
+        ];
+
+        // Determine the active index based on the current URL
+        var activeIndex = 0; // Default to the first item
+        urlPatterns.forEach(function(pattern) {
+            if (currentURL.includes(pattern.pattern)) {
+                activeIndex = pattern.index;
+            }
+        });
+
+        // Set the active item
+        setActiveItem(activeIndex);
+
+        // Add Feather icons to the dynamically added icons
+        feather.replace();
+    });
+</script>
+
+
 
 <main class="py-4" >
             @yield('navsidebarProf')
