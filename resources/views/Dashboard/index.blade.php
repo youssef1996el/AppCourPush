@@ -8,14 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" type="image/x-icon"  href="{{asset('image/leaf.svg')}}">
     <title>Admin</title>
+	<link href="{{asset('css/Sidebar.css')}}" rel="stylesheet">
+	<link href="{{asset('css/Navbar.css')}}" rel="stylesheet">
+
     <link href="{{asset('css/bootstrap_sidebar.css')}}" rel="stylesheet">
     <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 
 <body class="d-flex flex-column h-100">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<div id="page">
 
 		<div class="wrapper g-0">
@@ -29,7 +35,7 @@
 
 				<ul class="list-unstyled components text-secondary">
 					<li><a href="index.html"><i
-							class="data-feather theme-item" data-feather="home"></i> <span
+							class="data-feather theme-item"  data-feather="home"></i> <span
 							class="theme-item"> Dashboard</span></a></li>
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
@@ -40,11 +46,7 @@
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
 							class="theme-item"> Extras</span></a></li>
-					<li><a href="loginregister.html"><i
-							class="data-feather theme-item" data-feather="users"></i> <span
-							class="data-feather theme-item"> Login</span></a></li>
 
-					</li>
 				</ul>
 
 
@@ -53,8 +55,7 @@
 
 			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background-size:cover">
 
-				<nav class="navbar navbar-expand-md navbar-white bg-white py-0"
-					aria-label="navbarexample" id="navbar">
+				<nav class="navbar navbar-expand-md  bg-white py-0" aria-label="navbarexample" id="navbar" >
 					<div class="container-fluid">
 						<button type="button" id="sidebarCollapse"
 							class="btn btn-light py-0">
@@ -335,7 +336,7 @@
             });
         </script>
 
-        <main class="py-4" >
+<main class="py-4" >
             @yield('navsidebar')
         </main>
 

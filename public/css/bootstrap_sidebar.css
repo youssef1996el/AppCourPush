@@ -3916,6 +3916,8 @@ textarea.form-control-lg {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  height: 70px;
+  box-shadow: 0 4px 2px -2px gray;
 }
 
 .nav-link {
