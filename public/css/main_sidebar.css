@@ -393,7 +393,7 @@ body {
 		margin-right: 0px;
 		/*background: linear-gradient(90deg, rgb(178, 211, 244) 0%, rgb(198, 222, 247) 0%) !important;*/
 		background-image:url('image/25099.jpg');
-		height:100vh;
+		height:100%;
 		background-repeat: no-repeat;
 		background-position:center;
 		background-size:cover

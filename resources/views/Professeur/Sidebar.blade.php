@@ -46,18 +46,13 @@
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
 							class="theme-item"> Extras</span></a></li>
-<<<<<<< HEAD
-					
-=======
-
->>>>>>> eea3e16dcfbe6d04d8ca0089e440ac891160cfeb
 				</ul>
 
 
 
 			</nav>
 
-			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');height:100vh;background-repeat: no-repeat;background-position:center;background-size:cover">
+			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');height:100%;background-repeat: no-repeat;background-position:center;background-size:cover">
 
 				<nav class="navbar navbar-expand-md  bg-white py-0" aria-label="navbarexample" id="navbar" >
 					<div class="container-fluid">
