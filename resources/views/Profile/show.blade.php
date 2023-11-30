@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-        <div class="row " hidden>
+        <div class="row " >
         <div id="divCours" class="col-4">
         <div class="card cardCours" >
             <h4 class="title-card">Les cours </h4>

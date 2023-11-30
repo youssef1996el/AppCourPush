@@ -39,7 +39,7 @@ class ProfesseurController extends Controller
             $hours = $diff->h + $diff->i / 60;
 
             $item1->calculhour = $hours;
-            if($item1->calculhour <=2)
+           /*  if($item1->calculhour <=2)
             {
                 $item1->heightdisponible = '20px';
                 $item1->heightNoDisponible ='80px';
@@ -63,7 +63,7 @@ class ProfesseurController extends Controller
             {
                 $item1->heightdisponible = '100px';
                 $item1->heightNoDisponible ='0px';
-            }
+            } */
             $disponibilityByDay[$item1->jour] = $item1;
         }
 
