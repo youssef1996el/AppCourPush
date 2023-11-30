@@ -211,14 +211,7 @@
        transition:0.2s linear;
 
     }
-    /* .timeline .timeline-item:hover a{
-        transform: translateX(42px);
-        border: 1px solid #8080804d;
-        padding: 8px 110px 42px 4px;
-        background-color: #8080804d;
-        margin-left: 2px;
 
-    } */
     .timeline .timeline-item:hover a {
         transform: translateX(42px);
         border: 1px solid #8080804d;

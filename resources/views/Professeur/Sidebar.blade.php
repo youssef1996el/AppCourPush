@@ -12,7 +12,7 @@
 	<link href="{{asset('css/Navbar.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/bootstrap_sidebar.css')}}" rel="stylesheet">
-    <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet"> 
+    <link href="{{asset('css/main_sidebar.css')}}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -46,11 +46,7 @@
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
 							class="theme-item"> Extras</span></a></li>
-<<<<<<< HEAD
-					
-=======
 
->>>>>>> eea3e16dcfbe6d04d8ca0089e440ac891160cfeb
 				</ul>
 
 
@@ -159,10 +155,9 @@
 										<div class="nav-dropdown py-0 ">
 											<a href="#"class="nav-item nav-link dropdown-toggle text-secondary py-0 float-end ImgProfile"  id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <img class="theme-item user-avatar " src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt="User image">
-												 {{-- <span class="theme-item"> {{ Auth::user()->name }}</span> --}}
-												 {{-- <i class="theme-item" data-feather="chevron-down"></i> --}}
+
 											</a>
-											<ul class="dropdown-menu dropdown-menu-end menuUsers" aria-labelledby="navbarDropdown3">
+											<ul class="dropdown-menu dropdown-menu-end menuUsers " aria-labelledby="navbarDropdown3">
                                                 <div>
                                                     <h5 class="text-uppercase text-center text-secondary">{{ Auth::user()->name }}</h5>
                                                 </div>
@@ -195,6 +190,9 @@
                                                     </form>
                                                 </li>
 											</ul>
+                                            <style>
+
+                                            </style>
 										</div>
 									</div>
 								</div>
@@ -357,7 +355,7 @@
 
         // Get the current URL to determine the active item dynamically
         var currentURL = window.location.href;
-        
+
         // Define your URL patterns and corresponding index
         var urlPatterns = [
             { pattern: 'index.html', index: 0 },

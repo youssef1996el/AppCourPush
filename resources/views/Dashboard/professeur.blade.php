@@ -23,7 +23,7 @@
               @foreach ($listProfesseur as $item)
                     <tr>
                         <td>
-                            <div class="d-felx align-items-center">
+                            <div class="d-flex align-items-center">
                                 <img src="{{asset($item->image)}}" class="rounded-circle" style="width:45px;height: 45px;" alt="">
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">{{$item->name}}</p>
@@ -43,7 +43,7 @@
                         </td>
                         <td>non verifie</td>
                         <td>
-                            <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark">
+                            <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}}>
                                 <i class="fa-solid fa-eye"></i>
                             </button>
 
@@ -62,15 +62,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                   <div class="col-sm-12 col-md-3 col-xl-3">
-                    <div class="card bg-light cardProfile">
 
-                        <img class="img" src="{{asset('/storage/images/prof/1700399723.png')}}" />
-                            <span class="text-uppercase text-black">El hamra youssef</span>
-                            <p class=" text-secondary text-center" style="font-size: 14px">Developper Full Stack</p>
-                            <p class="text-secondary text-center">34ans</p>
-                            <p class="info text-black">I’m Walter, a multidisciplinary designer who focuses on telling my clients’ stories visually, through enjoyable and meaningful experiences. I specialize in responsive websites and functional user interfaces.</p>
+                <div class="row">
+
+                   <div class="col-sm-12 col-md-3 col-xl-3">
+                        <div class="card bg-light cardProfile shadow-sm">
+
+                            <img class="img" id="imageProfesseur"  />
+                                <span class="text-uppercase text-black">El hamra youssef</span>
+                                <p class=" text-secondary text-center" style="font-size: 14px">Developper Full Stack</p>
+                                <p class="text-secondary text-center">34ans</p>
+                                <p class="info text-black">I’m Walter, a multidisciplinary designer who focuses on telling my clients’ stories visually, through enjoyable and meaningful experiences. I specialize in responsive websites and functional user interfaces.</p>
                           {{--   <div class="share">
                                 <a href="">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -98,108 +100,110 @@
                    {{--  <img src="{{asset('/storage/images/prof/1700399723.png')}}" class="rounded-circle d-flex align-items-center" width="120px" he alt=""> --}}
                    </div>
                    <div class="col-sm-12 col-md-9 col-xl-9">
-                        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+
+                        <nav class="navbar navbar-expand-sm navbar-light bg-light shadow-sm">
                             <div class="container-fluid">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
                                     aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarID">
-                                    <div class="navbar-nav">
-                                        <a class="nav-link active" aria-current="page" href="#">Prfole</a>
-                                        <a class="nav-link active" aria-current="page" href="#">Formation</a>
-                                        <a class="nav-link " aria-current="page" href="#">Ex</a>
-                                        <a class="nav-link " aria-current="page" href="#">cours / disp</a>
-                                        <a class="nav-link " aria-current="page" href="#">cer</a>
-
+                                    <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link active text-uppercase" aria-current="page" href="#" data-target="CardProfile">Profile</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="CardFormation">Formation</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="Cardexperience">expérience</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="CardCoursAndDispo">cours / disponible</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="Cardcertification">certification</a>
+                                        </li>
                                     </div>
                                 </div>
                             </div>
                         </nav>
-                        <div class="card mt-3 p-5 CardProfile" hidden>
+                        <div class="divLoading" style="display: none">
+                            <div class="newtons-cradle">
+                                <div class="newtons-cradle__dot"></div>
+                                <div class="newtons-cradle__dot"></div>
+                                <div class="newtons-cradle__dot"></div>
+                                <div class="newtons-cradle__dot"></div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3 p-4 CardProfile" style="height: 18rem">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="">Nom c</label>
-                                        <input type="text" class="form-control" disabled>
-                                        <label for="">Email</label>
-                                        <input type="text" class="form-control" disabled>
+                                        <label for="" class="text-uppercase">Nom complet</label>
+                                        <input type="text" class="form-control nameProfesseur" disabled>
+                                        <label for="" class="text-uppercase">Email</label>
+                                        <input type="text" class="form-control emailProfesseur" disabled>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="">Date naissance</label>
-                                        <input type="text" class="form-control" disabled>
-                                        <label for="">Téléphone</label>
-                                        <input type="text" class="form-control" disabled>
+                                        <label for="" class="text-uppercase">Date naissance</label>
+                                        <input type="text" class="form-control datenaissanceProfesseur" disabled>
+                                        <label for="" class="text-uppercase">Téléphone</label>
+                                        <input type="text" class="form-control telephoneProfesseur" disabled>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card mt-3 p-5 CardFormation" hidden>
-                            <div style=""> {{-- DivScroll --}}
-
-                            </div>
-                            {{-- foreach --}}
-                            <div class="row">
-                                <div class="col-4">
-                                    <label for="">D Diplome</label>
-                                    <input type="text" class="form-control" disabled>
-                                </div>
-                                <div class="col-4">
-                                    <label for="">Spe</label>
-                                    <input type="text" class="form-control" disabled>
-                                </div>
-                                <div class="col-4">
-                                    <label for="">Annee</label>
-                                    <input type="text" class="form-control" disabled>
-                                </div>
-                                <div class="col-6">
-                                    <label for="">Lycee</label>
-                                    <input type="text" class="form-control" disabled>
-                                </div>
-                                <div class="col-6">
-                                    <label for="">Pays</label>
-                                    <input type="text" class="form-control" disabled>
-                                </div>
+                        <div class="card mt-3 p-4 CardFormation" style="display: none;height: 18rem">
+                            {{-- append --}}
+                        </div>
+                        <div class="card mt-3 p-4 Cardexperience" style="display: none;height: 18rem">
+                            <div class="InforCardexperience" style="min-height:100px;overflow-y:auto;overflow-x:hidden">
+                                {{-- append --}}
                             </div>
                         </div>
-                        <div class="card mt-3 p-5 CardCoursAndDispo" hidden>
-                            <div style=""> {{-- DivScroll --}}
-
-                            </div>
-                            {{-- foreach --}}
+                        <div class="card mt-3 p-2 CardCoursAndDispo" style="display: none;height: 18rem">
                             <div class="row">
                                 <div class="col-4">
-                                    <label for="">Cours</label>
-                                    <input type="text" class="form-control" disabled>
+                                    <label for="" class="text-uppercase">Cours</label>
+                                    <div style=" " class="divScrollCours">
+                                        {{-- DivScroll cour --}}
+                                        <div class="InfoCours" >
+                                            <button class="buttonCours">
+                                                Button
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-8">
-                                    <label for="">Disp</label>
-                                    <input type="text" class="form-control" disabled>
+                                    <label for="" class="text-uppercase">disponible</label>
+                                    <div class="ClassDisponible">
+
+                                    </div>
+
                                 </div>
 
                             </div>
                         </div>
 
-                        <div class="card mt-3 p-5 CardCer" >
+                        <div class="card mt-3 p-4 Cardcertification" style="display: none">
                            <iframe src="" width="100%" height="100%" frameborder="0"></iframe>
                             <div class="radio-input">
                                 <input value="value-1" name="value-radio" id="value-1" type="radio">
                                 <label for="value-1">Non 1</label>
                                 <input value="value-2" name="value-radio" id="value-2" type="radio">
                                 <label for="value-2">oui 2</label>
-
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-success">SAve</button>
+                            <div class="modal-footer">
+                                <button class="btn btn-success">SAve</button>
+                            </div>
                         </div>
                    </div>
                 </div>
             </div>
-
-
             </div>
         </div>
     </div>
@@ -207,5 +211,8 @@
 </div>
 
 <script src="{{asset('js/ScriptDahsboardProfesseur.js')}}"></script>
-
+<script>
+    var urlViewProfesseur = "{{url('view/professeur')}}";
+    var scrimage          ='{{ asset("") }}';
+</script>
 @endsection()

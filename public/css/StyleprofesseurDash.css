@@ -181,4 +181,237 @@
       transform: translateX(0);
     }
   }
+/************************ */
+.nav-item
+{
+    margin-right: 2rem;
+}
+.navbar-light .navbar-nav .nav-link.active
+{
+    color: rgba(0, 0, 255, .7);
+    border: 1px solid;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,255,.2);
+    border-radius: 20px;
+}
+/******************************** */
+.newtons-cradle {
+    --uib-size: 50px;
+    --uib-speed: 1.2s;
+    --uib-color: #474554;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--uib-size);
+    height: var(--uib-size);
+    margin: auto;
+    margin-top: 7rem;
+
+
+
+   }
+
+   .newtons-cradle__dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    transform-origin: center top;
+   }
+
+   .newtons-cradle__dot::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 25%;
+    border-radius: 50%;
+    background-color: var(--uib-color);
+   }
+
+   .newtons-cradle__dot:first-child {
+    animation: swing var(--uib-speed) linear infinite;
+   }
+
+   .newtons-cradle__dot:last-child {
+    animation: swing2 var(--uib-speed) linear infinite;
+   }
+
+   @keyframes swing {
+    0% {
+     transform: rotate(0deg);
+     animation-timing-function: ease-out;
+    }
+
+    25% {
+     transform: rotate(70deg);
+     animation-timing-function: ease-in;
+    }
+
+    50% {
+     transform: rotate(0deg);
+     animation-timing-function: linear;
+    }
+   }
+
+   @keyframes swing2 {
+    0% {
+     transform: rotate(0deg);
+     animation-timing-function: linear;
+    }
+
+    50% {
+     transform: rotate(0deg);
+     animation-timing-function: ease-out;
+    }
+
+    75% {
+     transform: rotate(-70deg);
+     animation-timing-function: ease-in;
+    }
+   }
+
+   /*************************** */
+   .buttonCours {
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #030303;
+    cursor: pointer;
+    background-color: #a0d8f2;
+    transition: all 0.2s ease;
+    margin: 5px 5px 5px 19px;
+
+  }
+
+  .buttonCours:active {
+    transform: scale(0.96);
+  }
+
+  .button:before,
+  .button:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+  }
+
+  .buttonCours:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+      10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+  }
+
+  @keyframes greentopBubbles {
+    0% {
+      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+        40% 90%, 55% 90%, 70% 90%;
+    }
+
+    50% {
+      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+        50% 50%, 65% 20%, 90% 30%;
+    }
+
+    100% {
+      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+        50% 40%, 65% 10%, 90% 20%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }
+
+  .buttonCours:hover::after {
+    bottom: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 50% 0%;
+    animation: greenbottomBubbles 0.6s ease;
+  }
+
+  @keyframes greenbottomBubbles {
+    0% {
+      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+        70% -10%, 70% 0%;
+    }
+
+    50% {
+      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+        105% 0%;
+    }
+
+    100% {
+      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+        110% 10%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }
+  /******************* */
+  .ContentDisponible
+    {
+        width: 12%;
+        margin: 10px 1px 0px 7px;
+        border: 1px solid gray;
+        display: inline-block;
+        text-align: center !important;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        min-height: 11rem;
+        background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
+        background-size: 8.76px 11.63px;
+        flex-grow: 1;
+    }
+    .Days
+    {
+        border-bottom: 2px solid gray !important;
+        border-bottom-width: 10px;
+        box-shadow: rgba(4, 226, 208, 0.35);
+        border-radius: 50px;
+        margin-top: 5px;
+        color: black;
+        font-family:Gabriola, Times, serif;
+        font-size:20px;
+        white-space: nowrap;
+
+    }
+    .ClassDisponible
+    {
+        background: #F0f1f3;
+        width:100%;
+        margin:15px 0px;
+        min-height: 13rem;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35)
+    }
+    .divScrollCours
+    {
+        background: #F0f1f3;
+        margin:15px 0px;
+        border-radius: 20px;
+        min-height: 13rem;
+        overflow-x: hidden;
+        overflow-y: auto !important;
+    }
 
