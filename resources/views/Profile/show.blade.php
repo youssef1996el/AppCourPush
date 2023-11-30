@@ -14,7 +14,7 @@
               <img class="card-img-top" src="{{asset($DataProf[0]->image)}}" alt="Profile image"  srcset="" style="border: 2px solid white;">
               <h2 class="name">{{$DataProf[0]->nom}}</h2>
               <h4 >Prof d'arabe</h4>
-              <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> 3 ans d'expérience</h4>                           
+              <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> 3 ans d'expérience</h4>
               <div class="card-body" >
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
@@ -34,7 +34,7 @@
                           data-mdb-ripple-color="dark"
                           >
                           <i class="fa-regular fa-envelope"></i>
-                          
+
                 </button>
               </div>
             </div>
@@ -111,19 +111,24 @@
         </div>
     </div>
         <div class="row " >
-        <div id="divCours" class="col-4">
-        <div class="card cardCours" >
-            <h4 class="title-card">Les cours </h4>
-            <hr style="color:gray ; width:100%">
-              <div class="card-body">
-              <h4 class="card-title" hidden>Selectionner un cours</h4>
-                <p class="card-cours">BodyBodyBodyBodyBodyBody</p>
-                <p class="card-cours">Body</p>
-                <p class="card-cours">BodyBody</p>
-                <p class="card-cours">BodyBodyBodyBody</p>
-              </div>
+            <div id="divCours" class="col-4">
+                <div class="card cardCours" >
+                    <h4 class="title-card">Les cours </h4>
+                    <hr style="color:gray ; width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title" hidden>Selectionner un cours</h4>
+                            <div class="divScrollCours" >
+                                <p class="card-cours">BodyBodyBodyBodyBodyBody</p>
+                                <p class="card-cours">Body</p>
+                                <p class="card-cours">BodyBody</p>
+                                <p class="card-cours">BodyBodyBodyBody</p>
+                            </div>
+
+
+
+                        </div>
+                </div>
             </div>
-        </div>
         <div id="divDispo" class="col-8">
         <div class="card cardDispo text-left">
             <h4 class="title-card">Disponibilite de professeur </h4>
@@ -154,11 +159,11 @@
                                         </div>
                                     @endforeach
                                 </div>
-               </div> 
+               </div>
             </div>
         </div>
-        </div>  
-        
+        </div>
+
     </div>
 </div>
 

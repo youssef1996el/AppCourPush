@@ -9,6 +9,7 @@
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
+
 #divProfile .card-text{
 font-size: 16px;
 }
@@ -35,7 +36,7 @@ font-size: 16px;
 #divProfile h4{
     font-size: 20px;
     color: #686868;
-    
+
 }
 
 #divProfile .fa-briefcase{
@@ -51,22 +52,33 @@ font-size: 16px;
   padding: 12px 0px 26px 14px;
 }
 .card-cours {
+
     background: white;
     padding: 14px;
-    display: flex;
+    display: inline-block;
     border-radius: 10px;
     border: 1px solid gray;
+
+}
+.card-cours p{
+    margin-right: 10px;
+}
+.card-cours p:last-child {
+    margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
 }
 .card-cours:hover {
     background: #b1b1b1;
-    padding: 14px;
-    display: inline;
-    border-radius: 10px;
+
     border: 1px solid #b1b1b1;
     color: white;
     cursor: pointer;
 }
-
+.divScrollCours
+{
+    overflow-y: auto;
+    overflow-x:hidden;
+    max-height:140px
+}
 .fc .fc-scrollgrid-liquid {
     height: 100%;
     background: white;
