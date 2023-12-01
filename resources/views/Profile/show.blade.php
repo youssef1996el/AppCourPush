@@ -40,100 +40,83 @@
             </div>
         </div>
         <div id="divFormation&Exp" class="col-7">
-        <div class="card cardFormation" >
-        <h5 class="title-card "> Formation</h5>
-        <hr style="color:gray ; width:100%">
+            <div class="card cardFormation" >
+                <h4 class="title-card "> Formation</h4>
+                <hr style="color:gray ; width:100%">
+                    <div class="card-body timeline" >
 
-
-            <div class="card-body timeline" >
-
-                        <ul class="list-unstyled ">
-                            @foreach ($FormationProf as $key => $item)
-                                <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
-                                    <li class="timeline-item" >
-                                        <div class="timeline-element">
-                                            <a href="#">Web Designer</a>
-                                            <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                                            <span class="pays">{{ $item->pays }}</span>
-                                            <span class="circle"></span>
-                                            <div class="timeline-content">
-                                                <p>Software Inc.</p>
-                                            </div>
-                                            {{--   <p></p> --}}
-                                            {{--  <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
-                                                <p>{{ $item->ecole }} </p> --}}
-                                            {{--  <a href="#">Web Designer</a>
-                                                <span class="date">jan 2021</span>
-                                                <span class="pays">Morocco</span>
-                                                <span class="circle"></span>
-                                                <div class="timeline-content">
-                                                    <p>Software Inc.</p>
-                                                </div> --}}
+                                <ul class="list-unstyled ">
+                                    @foreach ($FormationProf as $key => $item)
+                                        <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
+                                            <li class="timeline-item" >
+                                                <div class="timeline-element">
+                                                    <a href="#">Web Designer</a>
+                                                    <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                    <span class="pays">{{ $item->pays }}</span>
+                                                    <span class="circle"></span>
+                                                    <div class="timeline-content">
+                                                        <p>Software Inc.</p>
+                                                    </div>
+                                        
+                                                </div>
+                                            </li>
+                                            
                                         </div>
-                                    </li>
-                                </div>
-                            @endforeach
-                        </ul>
+                                    @endforeach
+                                </ul>
+                    </div>
 
-
-            </div>
-
-        <div class="show" >
-            <button id="showMoreFormation" class="btn showMore">Voir plus</button>
-            <button id="showFirstItemFormation" class="btn showLess hidden">Voir moins</button>
-            </div>
-        </div>
-    </div>
-    <div class="card cardExperience" >
-        <h5 class="title-card "> Experience</h5>
-        <hr style="color:gray ; width:100%">
-            <div class="card-body timeline" >
-            @foreach ($FormationProf as $key => $item)
-                <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
-                <ul class="list-unstyled ">
-                    <li class="timeline-item" >
-                        <div class="timeline-element">
-                            <!--span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                            <p>{{ $item->pays }}</p>
-                            <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
-                            <p>{{ $item->ecole }} </p-->
-                            <a href="#">Web Designer</a>
-                            <span class="date">jan 2021</span>
-                            <span class="pays">Morocco</span>
-                            <span class="circle"></span>
-                            <div class="timeline-content">
-                                <p>Software Inc.</p>
-                            </div>
-                        </div>
-
-                    </li>
-                </ul>
-
-
+                <div class="show" hidden >
+                    <button id="showMoreFormation" class="btn showMore">Voir plus</button>
+                    <button id="showFirstItemFormation" class="btn showLess hidden">Voir moins</button>
                 </div>
-            @endforeach
-        </div>
-        <div class="show" >
-            <button id="showMoreFormation" class="btn showMore">Voir plus</button>
-            <button id="showFirstItemFormation" class="btn showLess hidden">Voir moins</button>
             </div>
-        </div>
-    </div>
-        <div class="row " >
+            <!-- Experience -->
+            <div class="card cardExperience" >
+                <h4 class="title-card "> Experience</h4>
+                <hr style="color:gray ; width:100%">
+                    <div class="card-body timeline" >
+
+                                <ul class="list-unstyled ">
+                                    @foreach ($FormationProf as $key => $item)
+                                        <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
+                                            <li class="timeline-item" >
+                                                <div class="timeline-element">
+                                                    <a href="#">Web Designer</a>
+                                                    <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                    <span class="pays">{{ $item->pays }}</span>
+                                                    <span class="circle"></span>
+                                                    <div class="timeline-content">
+                                                        <p>Software Inc.</p>
+                                                    </div>
+                                        
+                                                </div>
+                                            </li>
+                                            
+                                        </div>
+                                    @endforeach
+                                </ul>
+                    </div>
+
+                <div class="show" hidden >
+                    <button id="showMoreExperience" class="btn showMore">Voir plus</button>
+                    <button id="showFirstItemExperience" class="btn showLess hidden">Voir moins</button>
+                </div>
+            </div>
+        </div>     
+
+        <div class="row mt-4" >
             <div id="divCours" class="col-4">
                 <div class="card cardCours" >
                     <h4 class="title-card">Les cours </h4>
                     <hr style="color:gray ; width:100%">
                         <div class="card-body">
-                            <h4 class="card-title" hidden>Selectionner un cours</h4>
-                            <div class="divScrollCours" >
+                        <div class="divScrollCours" >
                                 <p class="card-cours">BodyBodyBodyBodyBodyBody</p>
                                 <p class="card-cours">Body</p>
                                 <p class="card-cours">BodyBody</p>
                                 <p class="card-cours">BodyBodyBodyBody</p>
                             </div>
-
-
 
                         </div>
                 </div>

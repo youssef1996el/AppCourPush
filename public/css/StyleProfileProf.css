@@ -49,16 +49,14 @@ font-size: 16px;
 }
 
 #divCours .card-body{
-  padding: 12px 0px 26px 14px;
-}
+    padding: 0px 0px 0px 4px;}
 .card-cours {
 
     background: white;
-    padding: 14px;
+    padding: 8px;
     display: inline-block;
-    border-radius: 10px;
-    border: 1px solid gray;
-
+    border-radius: 0px;
+    border: 1px solid #bdbbbb;
 }
 .card-cours p{
     margin-right: 10px;
@@ -67,16 +65,15 @@ font-size: 16px;
     margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
 }
 .card-cours:hover {
-    background: #b1b1b1;
-
-    border: 1px solid #b1b1b1;
-    color: white;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    color: #4f4e4e;
     cursor: pointer;
 }
 .divScrollCours
 {
     overflow-y: auto;
-    overflow-x:hidden;
+    overflow-x:auto;
     max-height:140px
 }
 .fc .fc-scrollgrid-liquid {
@@ -269,18 +266,16 @@ font-size: 16px;
 .showMore:hover{
 
     background-color: white;
-    color: #86b3db;;
+    color: #86b3db;
     border: 1px solid #86b3db;;
 
 }
 .showLess:hover{
 
     background-color: white;
-    color: #86b3db;;
+    color: #86b3db;
     border: 1px solid #86b3db;;
 
 }
 
-.show{
-    margin: 10px 50px;
-}
+

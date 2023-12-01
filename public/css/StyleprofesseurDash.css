@@ -43,7 +43,7 @@
   /*************************** */
   .cardProfile {
     width: 17em;
-    height: 22.5em;
+    height: auto;
 
     transition: 1s ease-in-out;
     clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
@@ -53,6 +53,7 @@
 
     display: flex;
     flex-direction: column;
+    padding: 14px 8px 12px 8px;
   }
 
   .cardProfile span {
@@ -61,6 +62,10 @@
     text-align: center;
     display: block;
     font-size: 1em;
+    margin-top: 14px;
+  }
+  .cardProfile .text-secondary {
+    font-size: 14px;
   }
 
   .cardProfile .info {
@@ -68,16 +73,17 @@
     color: white;
     display: block;
     text-align: center;
-    font-size: 0.72em;
-    margin: 1em;
+    font-size: 14px;
+    margin: 16px 6px;
   }
 
   .cardProfile .img {
-    width: 4.8em;
-    height: 4.8em;
+    width: 120px;
+    height: 120px;
     background: white;
-    border-radius: 15px;
+    border-radius: 50%;
     margin: auto;
+    border: 1px solid gray;
   }
 
   .cardProfile .share {
@@ -97,23 +103,31 @@
   }
 
   .cardProfile button {
-    padding: 0.8em 1.7em;
-    display: block;
-    margin: auto;
-    border-radius: 25px;
     border: none;
     font-weight: bold;
-    background: #ffffff;
+    background:transparent ;
     color: #6395c0;
     transition: .4s ease-in-out;
   }
 
-  .cardProfile button:hover {
-    background: red;
-    color: white;
-    cursor: pointer;
+
+  .cardProfile .button-container {
+    display: flex;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
   }
 
+  /* *********************** */
+  .form-group{
+    margin-bottom: 30px;
+  }
+  label {
+    margin-bottom: 10px;
+  }
+  .form-control {
+    border-radius: 0px;
+  }
   /************************ */
   .radio-input {
     display: flex;
@@ -122,6 +136,7 @@
     font-size: 16px;
     font-weight: 600;
     color: white;
+    justify-content: end;
   }
 
   .radio-input input[type="radio"] {
@@ -132,8 +147,8 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #212121;
+    border: 1px solid #74a8d5;
+    background-color: #6395c0;
     border-radius: 5px;
     margin-right: 12px;
     cursor: pointer;
@@ -162,9 +177,9 @@
   }
 
   .radio-input input[type="radio"]:checked + label {
-    background-color: royalblue;
+    background-color: #306fa6;
     color: #fff;
-    border-color: rgb(129, 235, 129);
+    border-color: #306fa6;
     animation: radio-translate 0.5s ease-in-out;
   }
 
@@ -186,13 +201,16 @@
 {
     margin-right: 2rem;
 }
-.navbar-light .navbar-nav .nav-link.active
-{
-    color: rgba(0, 0, 255, .7);
-    border: 1px solid;
-    box-shadow: 2px 2px 2px 2px rgba(0,0,255,.2);
-    border-radius: 20px;
+.navbar-light .navbar-nav .nav-link.active {
+        color: #6395c0;
+        border: 1px solid;
+        box-shadow: 2px 2px 2px 2px #b0d1ee;
 }
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #74b4ec;
+  border-bottom: 2px solid #74b4ec;
+}
+
 /******************************** */
 .newtons-cradle {
     --uib-size: 50px;
@@ -415,3 +433,145 @@
         overflow-y: auto !important;
     }
 
+
+    /* table */
+    
+#tableListProfesseur_filter
+{
+    float: left;
+    margin-bottom: 8px;
+    margin-left:91px;
+  
+}
+
+#tableListProfesseur_filter input::placeholder{
+  font-size: 16px ;
+}
+
+
+#tableListProfesseur_filter label
+    {
+        font-size: 14px;
+    }
+
+#tableListProfesseur_filter input{
+    width: 300px;
+    padding: 10px;  
+    border: none;
+    appearance: none;
+    border-radius: 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-bottom: 1.5px solid darkgray;
+    background: transparent;
+
+}
+#tableListProfesseur_filter input[type="search"]:focus
+{
+    padding: 8px;
+    color: #888f96;
+    background-color: #fff;
+    border-color: #86b7fe;
+    border-radius: 0px;
+    width: 300px;
+    padding: 10px;
+    border-bottom: 1.5px solid #86b7fe;
+    box-shadow: none;
+    background-color: transparent;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    /* border-radius: 50% !important; */
+    padding: 0.5em 0.3em !important;
+ }
+
+
+ #tableListProfesseur
+ {
+     border-radius: 5px 5px 0 0;
+     overflow: hidden;
+     box-shadow: 0 0 20px rgba(0,0,0,0.15);
+     margin: auto;
+     width: 84%;
+ }
+ #tableListProfesseur thead tr
+ {
+     color:#fff;
+     text-align: left;
+ }
+
+/* pagination */
+.dataTables_paginate{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  
+  
+  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+      white-space: nowrap;
+    
+    }
+  
+  .page-link {
+      position: relative;
+      display: block;
+      color: #5382ab;
+      text-decoration: none;
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      border-radius: 20px;
+    }
+  
+    .page-link:hover {
+      z-index: 2;
+      color: #5382ab;
+      background-color: white;
+    }
+  
+    .page-item.active .page-link {
+      z-index: 3;
+      color: #fff;
+      background-color: #4479a7;
+      border-color: #4479a7;
+    }
+  
+  
+.CardFormation , .Cardexperience,.CardCoursAndDispo{
+    height: 392px !important;
+    overflow: auto;
+}
+
+.CardCoursAndDispo label{
+    margin-bottom: 0px;
+    margin-left: 14px;
+}
+.buttonCours {
+    position: relative;
+    padding: 8px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #030303;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.2s ease;
+    margin: 18px 5px 0px 10px;
+    border: 1px solid #c6c2c2;
+}
+
+.buttonCours:hover {
+    background: #a2a2a2;
+    border: 1px solid #e8e8e8;
+    color: white;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #3aa856;
+    border-color: #3aa856;
+  }
+
+  .btn-success:hover {
+    color: #fff;
+    background-color: #34974d;
+    border-color: #34974d;
+  }

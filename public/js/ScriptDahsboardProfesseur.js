@@ -79,24 +79,34 @@ $(document).ready(function () {
                         $('.CardFormation').append(` <div style="">
                                                         <div class="row">
                                                             <div class="col-4">
-                                                                <label for="" class="text-uppercase">diplôme</label>
-                                                                <input type="text" class="form-control" value=`+value.diplome+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">diplôme</label>
+                                                                    <input type="text" class="form-control" value=`+value.diplome+` disabled>
+                                                                </div>
+                                                            </div>        
+                                                            <div class="col-4">
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">spécialité</label>
+                                                                    <input type="text" class="form-control" value=`+value.specialise+` disabled>
+                                                                </div>
                                                             </div>
                                                             <div class="col-4">
-                                                                <label for="" class="text-uppercase">spécialisé</label>
-                                                                <input type="text" class="form-control" value=`+value.specialise+` disabled>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <label for="" class="text-uppercase">Année</label>
-                                                                <input type="text" class="form-control" value=`+value.annee+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">Année</label>
+                                                                    <input type="text" class="form-control" value=`+value.annee+` disabled>
+                                                                </div>       
                                                             </div>
                                                             <div class="col-6">
-                                                                <label for="" class="text-uppercase">Lycée</label>
-                                                                <input type="text" class="form-control" value=`+value.ecole+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">Lycée</label>
+                                                                    <input type="text" class="form-control" value=`+value.ecole+` disabled>
+                                                                </div> 
                                                             </div>
                                                             <div class="col-6">
-                                                                <label for="" class="text-uppercase">Pays</label>
-                                                                <input type="text" class="form-control" value=`+value.pays+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">Pays</label>
+                                                                    <input type="text" class="form-control" value=`+value.pays+` disabled>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>`);
@@ -104,24 +114,34 @@ $(document).ready(function () {
                     $.each(response.Experince, function (index, value) {
                         $('.Cardexperience .InforCardexperience').append(`<div class="row">
                                                             <div class="col-4">
-                                                                <label for="" class="text-uppercase">Filière</label>
-                                                                <input type="text" class="form-control" value=`+value.poste+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">Filière</label>
+                                                                    <input type="text" class="form-control" value=`+value.poste+` disabled>
+                                                                </div>
                                                             </div>
                                                             <div class="col-4">
-                                                                <label for="" class="text-uppercase">Lycée / Université </label>
-                                                                <input type="text" class="form-control" value=`+value.entreprise+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">Lycée / Université </label>
+                                                                    <input type="text" class="form-control" value=`+value.entreprise+` disabled>
+                                                                </div>
                                                             </div>
                                                             <div class="col-4">
-                                                                <label for="" class="text-uppercase">Pays</label>
-                                                                <input type="text" class="form-control" value=`+value.pays+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">Pays</label>
+                                                                    <input type="text" class="form-control" value=`+value.pays+` disabled>
+                                                                </div>
                                                             </div>
                                                             <div class="col-6">
-                                                                <label for="" class="text-uppercase">Du</label>
-                                                                <input type="text" class="form-control" value=`+value.du+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">Du</label>
+                                                                    <input type="text" class="form-control" value=`+value.du+` disabled>
+                                                                </div>
                                                             </div>
                                                             <div class="col-6">
-                                                                <label for="" class="text-uppercase">Au</label>
-                                                                <input type="text" class="form-control" value=`+value.au+` disabled>
+                                                                <div class="form-group">  
+                                                                    <label for="" class="text-uppercase">Au</label>
+                                                                    <input type="text" class="form-control" value=`+value.au+` disabled>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <hr style="width:80%;margin:15px auto">`)

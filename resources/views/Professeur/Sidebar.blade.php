@@ -37,10 +37,9 @@
 					<li><a href="index.html"><i
 							class="data-feather theme-item"  data-feather="home"></i> <span
 							class="theme-item"> Dashboard</span></a></li>
-					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
-							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
-					<li><a href="{{ url('professeurs') }}"><i class="fa-solid fa-user-tie"></i>
-					   <span class="theme-item"> Professeurs</span></a></li>
+
+					<li><a href="{{ url('ShowProfileProf') }}"><i class="fa-solid fa-user-tie"></i>
+					   <span class="theme-item">Profile</span></a></li>
 					<li><a href="{{ url('eleves') }}"><i class="fa-solid fa-users"></i>
 					   <span class="theme-item"> Eleves</span></a></li>
 					<li><a href="extras.html"><i

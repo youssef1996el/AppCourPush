@@ -381,6 +381,7 @@ th, td {
 
 }
 
+/* Table Cours */
 
 #TableListCour_filter
 {
@@ -389,6 +390,12 @@ th, td {
     margin-left:91px;
   
 }
+
+#TableListCour_filter input::placeholder{
+  font-size: 16px ;
+}
+
+
 #TableListCour_filter label
     {
         font-size: 14px;
@@ -408,7 +415,7 @@ th, td {
 #TableListCour_filter input[type="search"]:focus
 {
     padding: 8px;
-    color: #212529;
+    color: #888f96;
     background-color: #fff;
     border-color: #86b7fe;
     border-radius: 0px;
@@ -422,10 +429,7 @@ th, td {
     /* border-radius: 50% !important; */
     padding: 0.5em 0.3em !important;
  }
- input::placeholder{
-     font-size: 14px;
 
- }
 
  /* styling of Input */
  
@@ -513,3 +517,5 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     background-color: #34974d;
     border-color: #34974d;
   }
+
+ 

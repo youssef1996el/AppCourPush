@@ -335,6 +335,7 @@
                 feather.replace();
             });
         </script>
+		
 
 <main class="py-4" >
             @yield('navsidebar')
@@ -353,4 +354,46 @@
 
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to set the active item
+        function setActiveItem(index) {
+            var lis = document.querySelectorAll('#sidebar li');
+            lis.forEach(function(li, i) {
+                if (i === index) {
+                    li.classList.add('active');
+                } else {
+                    li.classList.remove('active');
+                }
+            });
+        }
+
+        // Get the current URL to determine the active item dynamically
+        var currentURL = window.location.href;
+        
+        // Define your URL patterns and corresponding index
+        var urlPatterns = [
+            { pattern: 'index.html', index: 0 },
+            { pattern: 'Dashboard/cours', index: 1 },
+            { pattern: 'professeurs', index: 2 },
+            { pattern: 'eleves', index: 3 },
+            { pattern: 'extras.html', index: 4 }
+        ];
+
+        // Determine the active index based on the current URL
+        var activeIndex = 0; // Default to the first item
+        urlPatterns.forEach(function(pattern) {
+            if (currentURL.includes(pattern.pattern)) {
+                activeIndex = pattern.index;
+            }
+        });
+
+        // Set the active item
+        setActiveItem(activeIndex);
+
+        // Add Feather icons to the dynamically added icons
+        feather.replace();
+    });
+</script>
 </html>

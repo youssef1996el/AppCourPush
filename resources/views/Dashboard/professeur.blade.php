@@ -7,7 +7,7 @@
     <div class="row ">
         <div class="col-sm-12 col-md-12 col-xl-12">
           <h2 style="padding-left: 12px;font-family: times;">Liste des professeurs </h2>
-          <table class="table-primary  align-middle mb-0 bg-white" id="tableListProfesseur" style="margin-top: 20px;width: 84%;margin-left: 26px;">
+          <table class="table-primary  align-middle mb-0 bg-white" id="tableListProfesseur">
             <thead class="" >
               <tr>
                 <th>Nom</th>
@@ -70,8 +70,8 @@
 
                             <img class="img" id="imageProfesseur"  />
                                 <span class="text-uppercase text-black">El hamra youssef</span>
-                                <p class=" text-secondary text-center" style="font-size: 14px">Developper Full Stack</p>
-                                <p class="text-secondary text-center">34ans</p>
+                                <p class="text-secondary text-center" style="margin-top: 12px;" >Developper Full Stack</p>
+                                <p class="text-secondary text-center">34 ans d'experience</p>
                                 <p class="info text-black">I’m Walter, a multidisciplinary designer who focuses on telling my clients’ stories visually, through enjoyable and meaningful experiences. I specialize in responsive websites and functional user interfaces.</p>
                           {{--   <div class="share">
                                 <a href="">
@@ -95,7 +95,23 @@
                                     </svg>
                                 </a>
                             </div> --}}
-                            <button><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                            <div class="button-container">
+                                <button
+                                            type="button"
+                                            class="btn btn-link"
+                                            data-mdb-ripple-color="dark"
+                                            >
+                                            <i class="fa-solid fa-phone"></i>
+                                </button>
+                                <button
+                                        type="button"
+                                        class="btn btn-link"
+                                        data-mdb-ripple-color="dark"
+                                        >
+                                        <i class="fa-regular fa-envelope"></i>
+
+                                </button>
+                            </div>
                       </div>
                    {{--  <img src="{{asset('/storage/images/prof/1700399723.png')}}" class="rounded-circle d-flex align-items-center" width="120px" he alt=""> --}}
                    </div>
@@ -137,37 +153,39 @@
                             </div>
                         </div>
 
-                        <div class="card mt-3 p-4 CardProfile" style="height: 18rem">
+                        <div class="card mt-3 p-5 CardProfile" style="height: 392px;">
                             <div class="row">
                                 <div class="col-6">
+                             
                                     <div class="form-group">
-                                        <label for="" class="text-uppercase">Nom complet</label>
-                                        <input type="text" class="form-control nameProfesseur" disabled>
                                         <label for="" class="text-uppercase">Email</label>
                                         <input type="text" class="form-control emailProfesseur" disabled>
                                     </div>
-                                </div>
-                                <div class="col-6">
                                     <div class="form-group">
                                         <label for="" class="text-uppercase">Date naissance</label>
                                         <input type="text" class="form-control datenaissanceProfesseur" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                               
+                                    <div class="form-group">  
                                         <label for="" class="text-uppercase">Téléphone</label>
                                         <input type="text" class="form-control telephoneProfesseur" disabled>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card mt-3 p-4 CardFormation" style="display: none;height: 18rem">
+                        <div class="card mt-3 p-4 CardFormation" style="display: none; ">
                             {{-- append --}}
                         </div>
-                        <div class="card mt-3 p-4 Cardexperience" style="display: none;height: 18rem">
-                            <div class="InforCardexperience" style="min-height:100px;overflow-y:auto;overflow-x:hidden">
+                        <div class="card mt-3 p-4 Cardexperience" style="display: none;">
+                            <div class="InforCardexperience" >
                                 {{-- append --}}
                             </div>
                         </div>
-                        <div class="card mt-3 p-2 CardCoursAndDispo" style="display: none;height: 18rem">
+                        <div class="card mt-3 p-4 CardCoursAndDispo" style="display: none; height: 392px;">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-3">
                                     <label for="" class="text-uppercase">Cours</label>
                                     <div style=" " class="divScrollCours">
                                         {{-- DivScroll cour --}}
@@ -178,7 +196,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-9">
                                     <label for="" class="text-uppercase">disponible</label>
                                     <div class="ClassDisponible">
 
@@ -193,12 +211,12 @@
                            <iframe src="" width="100%" height="100%" frameborder="0"></iframe>
                             <div class="radio-input">
                                 <input value="value-1" name="value-radio" id="value-1" type="radio">
-                                <label for="value-1">Non 1</label>
+                                <label for="value-1">Verifie</label>
                                 <input value="value-2" name="value-radio" id="value-2" type="radio">
-                                <label for="value-2">oui 2</label>
+                                <label for="value-2">Non verifie</label>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-success">SAve</button>
+                                <button class="btn btn-success">Enregistrer</button>
                             </div>
                         </div>
                    </div>
