@@ -43,32 +43,41 @@
         <div class="card cardFormation" >
         <h5 class="title-card "> Formation</h5>
         <hr style="color:gray ; width:100%">
+
+
             <div class="card-body timeline" >
-            @foreach ($FormationProf as $key => $item)
-                <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
-                <ul class="list-unstyled ">
-                    <li class="timeline-item" >
-                        <div class="timeline-element">
-                            <!--span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                            <p>{{ $item->pays }}</p>
-                            <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
-                            <p>{{ $item->ecole }} </p-->
-                            <a href="#">Web Designer</a>
-                            <span class="date">jan 2021</span>
-                            <span class="pays">Morocco</span>
-                            <span class="circle"></span>
-                            <div class="timeline-content">
-                                <p>Software Inc.</p>
-                            </div>
-                        </div>
 
-                    </li>
-                </ul>
+                        <ul class="list-unstyled ">
+                            @foreach ($FormationProf as $key => $item)
+                                <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
+                                    <li class="timeline-item" >
+                                        <div class="timeline-element">
+                                            <a href="#">Web Designer</a>
+                                            <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                            <span class="pays">{{ $item->pays }}</span>
+                                            <span class="circle"></span>
+                                            <div class="timeline-content">
+                                                <p>Software Inc.</p>
+                                            </div>
+                                            {{--   <p></p> --}}
+                                            {{--  <h5 class="mt-0 mb-1">{{ $item->diplome }} en {{ $item->specialise }}</h5>
+                                                <p>{{ $item->ecole }} </p> --}}
+                                            {{--  <a href="#">Web Designer</a>
+                                                <span class="date">jan 2021</span>
+                                                <span class="pays">Morocco</span>
+                                                <span class="circle"></span>
+                                                <div class="timeline-content">
+                                                    <p>Software Inc.</p>
+                                                </div> --}}
+                                        </div>
+                                    </li>
+                                </div>
+                            @endforeach
+                        </ul>
 
 
-                </div>
-            @endforeach
-        </div>
+            </div>
+
         <div class="show" >
             <button id="showMoreFormation" class="btn showMore">Voir plus</button>
             <button id="showFirstItemFormation" class="btn showLess hidden">Voir moins</button>
