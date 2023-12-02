@@ -60,12 +60,17 @@
   /* Background color when checked */
 }
 
-.unchecked {
+.unchecked:hover {
   background-color: white; /* Background color when unchecked */
-  border: 1px solid #676262;
-  color:#676262;
+  border: 1px solid #4e8ff0;
+  color:#4e8ff0;
   
   
+}
+.unchecked {
+  background-color: #ababab;
+  border: 1px solid #ababab;
+  color: white;
 }
   
   #checklist label {
