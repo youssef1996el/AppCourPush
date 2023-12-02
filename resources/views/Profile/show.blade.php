@@ -50,12 +50,13 @@
                                         <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
                                             <li class="timeline-item" >
                                                 <div class="timeline-element">
-                                                    <a href="#">Web Designer</a>
+                                                    <a href="#">{{ $item->diplome }} </a>
                                                     <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
                                                     <span class="pays">{{ $item->pays }}</span>
+                                                    
                                                     <span class="circle"></span>
                                                     <div class="timeline-content">
-                                                        <p>Software Inc.</p>
+                                                        <p>{{ $item->specialise }}</p>
                                                     </div>
                                         
                                                 </div>

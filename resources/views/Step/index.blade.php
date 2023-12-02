@@ -117,15 +117,19 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
+                                                <label  >Titre de votre annonce</label>
+                                                <input name="titre" type="text" class="form-control" placeholder="Ex: Professeur d'arabe" >
+                                                <div class="error"></div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label  >Date de naissance </label>
                                                 <input name="datenaissance" type="date" class="form-control" >
                                                 <div class="error"></div>
                                             </div>
 
                                             <div class="form-group">
-                                             
-                                                <label for="phone">Phone Number:</label>
-<input type="tel" id="phone" name="phone" maxlength="13" placeholder="(+212) XXX-XXXX" oninput="formatPhoneNumber(this)" required>
+                                                <label for="phone">Numero de telephone:</label>
+                                                <input type="tel" id="phone" name="phone" maxlength="13" placeholder="" oninput="formatPhoneNumber(this)" required>
                     
                                             </div>
                                         </div>
