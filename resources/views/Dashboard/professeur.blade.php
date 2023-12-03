@@ -32,16 +32,23 @@
                             </div>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">Consultant</p>
-                            <p class="text-muted mb-0">Finance</p>
+                            <p class="fw-normal mb-1 text-center">{{$item->title}}</p>
+                          {{--   <p class="text-muted mb-0">Finance</p> --}}
                         </td>
+
                         <td>
                             <span class="">Active</span>
                         </td>
-                        <td>
-                            <span class="">Junior</span>
-                        </td>
-                        <td>non verifie</td>
+                        @if ($item->numberExperince <= 3)
+                            <td>
+                                <span class="">Junior</span>
+                            </td>
+                        @else
+                            <td>
+                                <span class="">Professionnel</span>
+                            </td>
+                        @endif
+                        <td>{{$item->verification}}</td>
                         <td>
                             <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}}>
                                 <i class="fa-solid fa-eye"></i>
@@ -69,10 +76,10 @@
                         <div class="card bg-light cardProfile shadow-sm">
 
                             <img class="img" id="imageProfesseur"  />
-                                <span class="text-uppercase text-black">El hamra youssef</span>
-                                <p class="text-secondary text-center" style="margin-top: 12px;" >Developper Full Stack</p>
-                                <p class="text-secondary text-center">34 ans d'experience</p>
-                                <p class="info text-black">I’m Walter, a multidisciplinary designer who focuses on telling my clients’ stories visually, through enjoyable and meaningful experiences. I specialize in responsive websites and functional user interfaces.</p>
+                                <span class="text-uppercase text-black nameProfesseur"></span>
+                                <p class="text-secondary text-center titleProfesseur" style="margin-top: 12px;" ></p>
+                                <p class="text-secondary text-center numberExperince"></p>
+                                <p class="info text-black methodeProfesseur"></p>
                           {{--   <div class="share">
                                 <a href="">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -156,7 +163,7 @@
                         <div class="card mt-3 p-5 CardProfile" style="height: 392px;">
                             <div class="row">
                                 <div class="col-6">
-                             
+
                                     <div class="form-group">
                                         <label for="" class="text-uppercase">Email</label>
                                         <input type="text" class="form-control emailProfesseur" disabled>
@@ -167,8 +174,8 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                               
-                                    <div class="form-group">  
+
+                                    <div class="form-group">
                                         <label for="" class="text-uppercase">Téléphone</label>
                                         <input type="text" class="form-control telephoneProfesseur" disabled>
                                     </div>
@@ -208,15 +215,15 @@
                         </div>
 
                         <div class="card mt-3 p-4 Cardcertification" style="display: none">
-                           <iframe src="" width="100%" height="100%" frameborder="0"></iframe>
+                            <a target="_blank" id="FileCertification">Certification</a>
                             <div class="radio-input">
-                                <input value="value-1" name="value-radio" id="value-1" type="radio">
+                                <input value="Verifie" name="verification" id="value-1" type="radio">
                                 <label for="value-1">Verifie</label>
-                                <input value="value-2" name="value-radio" id="value-2" type="radio">
+                                <input value="Refuser" name="verification" id="value-2" type="radio">
                                 <label for="value-2">Non verifie</label>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-success">Enregistrer</button>
+                                <button class="btn btn-success BtnVerification" >Enregistrer</button>
                             </div>
                         </div>
                    </div>
@@ -226,11 +233,16 @@
         </div>
     </div>
 
+
+
+
 </div>
 
 <script src="{{asset('js/ScriptDahsboardProfesseur.js')}}"></script>
 <script>
     var urlViewProfesseur = "{{url('view/professeur')}}";
     var scrimage          ='{{ asset("") }}';
+    var scrCertification  ='{{ asset("") }}';
+    var verificationCertification = "{{url('verificationProf')}}"
 </script>
 @endsection()

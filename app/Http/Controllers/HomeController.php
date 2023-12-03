@@ -10,6 +10,7 @@ use Auth;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 use DateTime;
+
 class HomeController extends Controller
 {
     /**
@@ -40,17 +41,20 @@ class HomeController extends Controller
 
     public function Store(Request $request)
     {
-        //dd($request->all());
+
         $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
         $path = $request->file('image')->storeAs('images/prof',$fileName,'public');
         $requestDataImage['image'] = '/storage/'.$path;
         $UpdateDataProf = User::where('id','=',Auth::user()->id)->update([
             'image'             => $requestDataImage['image'],
             'datenaissance'     => $request->datenaissance,
-            'description'       => $request->description,
+            'description'       => $request->methode,
             'telephone'         => $request->phone,
-            'pays'              => $request->paysProf
+            'pays'              => $request->paysProf,
+            'title'             => $request->titre,
         ]);
+
+
         $response = App::call('App\Http\Controllers\FormationProf@Store', [
             'request' => $request
         ]);

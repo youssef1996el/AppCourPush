@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\CoursProfesseur;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\App;
 class CoursProf extends Controller
 {
    public function Store(Request $request)
@@ -24,5 +25,8 @@ class CoursProf extends Controller
                 DB::table('courprof')->insert($DataSava);
             }
         }
+        $response = App::call('App\Http\Controllers\certificationController@Store', [
+            'request' => $request
+        ]);
    }
 }

@@ -191,13 +191,22 @@ $(document).ready(function ()
                                 alertDiv.fadeOut('slow');
                             }, 6000);
                         });
-                    } else {
-                        var widthContainer = $('.widthContainer').width();
-                        $('.msg').css('width', widthContainer + 'px')
-                            .addClass('alert alert-success')
-                            .text('Ajouter avec succès')
-                            .delay(6000).fadeOut('slow');
                     }
+                    else {
+
+                        var widthContainer = $('.widthContainer').width();
+                        var msgElement = $('.msg');
+                        if (msgElement.length > 0) {
+                            msgElement.css('width', widthContainer + 'px')
+                                .addClass('alert alert-success')
+                                .text('Ajouter avec succès')
+                                .delay(6000)
+                                .fadeOut('slow', function () {
+                                    msgElement.css('width', '').removeClass('alert alert-success').text('').show();
+                                });
+                        }
+                    }
+
 
                     $('#ModalAddCour').modal("hide");
                     GetTableCour();

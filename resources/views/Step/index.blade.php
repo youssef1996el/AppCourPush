@@ -110,7 +110,7 @@
                                                     <img src="{{asset('image/default-avatar.png')}}" class="picture-src" id="wizardPicturePreview" title=""/>
                                                     <input type="file" id="wizard-picture" name="image">
                                                 </div>
-                                                
+
                                                 <h6>choisir une photo</h6>
                                                 <div class="error"></div>
                                             </div>
@@ -123,14 +123,14 @@
                                             </div>
                                             <div class="form-group">
                                                 <label  >Date de naissance </label>
-                                                <input name="datenaissance" type="date" class="form-control" >
+                                                <input name="datenaissance" type="date" class="form-control" id="DateNaissanceProf">
                                                 <div class="error"></div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="phone">Numero de telephone:</label>
                                                 <input type="tel" id="phone" name="phone" maxlength="13" placeholder="" oninput="formatPhoneNumber(this)" required>
-                    
+
                                             </div>
                                         </div>
                                     </div>
@@ -140,8 +140,8 @@
                                     <div class="row">
                                         <div class="col-sm-10 col-sm-offset-1">
                                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading" role="tab" id="headingOne">
+                                                <div class="panel panel-default" >
+                                                    <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                         <h4 class="panel-title">
                                                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                             Formation
@@ -189,8 +189,8 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                                <div class="panel panel-default" >
+                                                    <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                         <h4 class="panel-title">
                                                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                             Experience
@@ -241,8 +241,8 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading" role="tab" id="headingThree">
+                                                <div class="panel panel-default" >
+                                                    <div class="panel-heading" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                         <h4 class="panel-title">
                                                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                             Vos méthodes, vos expériences en cours de soutien et en pédagogie .   </a>
@@ -260,8 +260,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading" role="tab" id="headingfour">
+                                                <div class="panel panel-default" >
+                                                    <div class="panel-heading" role="tab" id="headingfour" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapseThree">
                                                         <h4 class="panel-title">
                                                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapseThree">
                                                             Certification   </a>
@@ -386,7 +386,8 @@
                     parentDiv.classList.toggle('unchecked', !this.checked);
                 });
             });
-
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById('DateNaissanceProf').setAttribute('max', today);
             $(document).on('click', '.SpanAddFormation', function()
             {
                 var DivAppendFormation = `  <div class="custom-form-section">

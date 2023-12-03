@@ -66,6 +66,7 @@ Route::get('GetpProfesseur'           ,[EleveController::class,'GetpProfesseur']
 Route::get('professeurs'              ,[AdminController::class,'professeurs'])->name('professeurs');
 Route::get('eleves'                   ,[AdminController::class,'eleves'])->name('eleves');
 Route::get('view/professeur'          ,[AdminController::class,'Viewprofesseur']);
+Route::post('verificationProf'        ,[AdminController::class,'verificationProf']);
 /******************************************** End Dashboard Admin ***********************************************/
 
 Route::get('/prof/{name}/{id}',function()

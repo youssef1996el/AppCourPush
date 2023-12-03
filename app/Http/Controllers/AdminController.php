@@ -10,12 +10,15 @@ use DB;
 use App\Models\DisponibleProfesseur;
 use Carbon\Carbon;
 use DateTime;
+use App\Models\CertificationProf;
 class AdminController extends Controller
 {
     public function professeurs()
     {
-        $listProfesseur = User::where('role_name','professeur')->get();
-
+        /* $listProfesseur = User::where('role_name','professeur')->get(); */
+        $listProfesseur = DB::select('select u.id,u.image,email,u.name,ifnull(u.title,"Vide") as title,u.verification,u.role_name,sum(TIMESTAMPDIFF(YEAR,du, au)) AS numberExperince
+        from users u ,experinceprof e where u.id = e.iduser and u.role_name= "professeur"
+        group by iduser');
         return view('Dashboard.professeur')->with('listProfesseur',$listProfesseur);
     }
 
@@ -27,9 +30,12 @@ class AdminController extends Controller
 
     public function Viewprofesseur(Request $request)
     {
-        $professeur = User::where('id',$request->id)->get();
-        $formation  = FormationProfesseur::where('iduser',$request->id)->get();
-        $Experince  = ExperinceProfesseur::where('iduser',$request->id)->get();
+        $professeur         = User::where('id',$request->id)->get();
+        $formation          = FormationProfesseur::where('iduser',$request->id)->get();
+        $Experince          = ExperinceProfesseur::where('iduser',$request->id)->get();
+        $CertificationProf  = CertificationProf::where('iduser',$request->id)->get();
+        $NumberExperince = DB::select('select sum(TIMESTAMPDIFF(YEAR,du, au)) AS numberExperince from experinceprof where iduser = ?',
+                                    [$request->id]);
         $CourProf   = DB::table('courprof')
                                 ->join('users','users.id','=','courprof.iduser')
                                 ->join('cours','cours.id','=','courprof.idcours')
@@ -57,13 +63,26 @@ class AdminController extends Controller
 
 
         return response()->json([
-            'status'       => 200,
-            'data'         => $professeur[0],
-            'formation'    => $formation,
-            'Experince'    => $Experince,
-            'CourProf'     => $CourProf,
-            'Disponible'   => $disponibilityByDay,
-            'image'        => $professeur[0]->image,
+            'status'            => 200,
+            'data'              => $professeur[0],
+            'formation'         => $formation,
+            'Experince'         => $Experince,
+            'CourProf'          => $CourProf,
+            'Disponible'        => $disponibilityByDay,
+            'image'             => $professeur[0]->image,
+            'NumberExperince'   => $NumberExperince[0]->numberExperince,
+            'CertificationProf' => $CertificationProf[0]->certification,
+            'idProf'            => $request->id,
+        ]);
+    }
+
+    public function verificationProf(Request $request)
+    {
+        $verification = User::where('id', $request->idprof)->update([
+            'verification'     => $request->verification
+        ]);
+        return response()->json([
+            'status'   => 200,
         ]);
     }
 

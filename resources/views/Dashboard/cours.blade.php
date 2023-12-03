@@ -73,11 +73,11 @@
 			<div class="modal-body">
 
                 <div class="sectiontablecours mt-1 card p-2 shadow" style=" overflow: auto;max-height: 310px;">
-              
+
                     <div class="form-group">
                         <input name="cours" type="text" class="form-control cour" placeholder="Ajouter un cours" >
                     </div>
-                    
+
 
 
 

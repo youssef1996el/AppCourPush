@@ -45,7 +45,7 @@ $(document).ready(function () {
         },
     });
 
-    $('.BtnView').on('click',function()
+    $(document).on('click', '.BtnView', function()
     {
 
         $.ajax({
@@ -63,11 +63,21 @@ $(document).ready(function () {
 
                     var Path = '';
                     var image = '';
+                    var PathCertification = '';
+                    var fileCertification = '';
                     Path = encodeURIComponent(response.image.slice(1));
                     image = scrimage + decodeURIComponent(Path);
+                    ///////// Certificate
+                    PathCertification = encodeURIComponent(response.CertificationProf.slice(1));
+                    fileCertification = scrCertification + decodeURIComponent(PathCertification);
+                    $('.BtnVerification').attr('data-value',response.idProf)
+                    $('#FileCertification').attr('href',fileCertification);
                     $('#imageProfesseur').attr('src',image);
                     $('#ModalView').modal("show");
-                    $('.nameProfesseur').val(response.data.name);
+                    $('.titleProfesseur').text(response.data.title);
+                    $('.nameProfesseur').text(response.data.name);
+                    $('.numberExperince').text(response.NumberExperince+' '+'ans d\'experience');
+                    $('.methodeProfesseur').text(response.data.description);
                     $('.emailProfesseur').val(response.data.email);
                     $('.datenaissanceProfesseur').val(response.data.datenaissance);
                     $('.telephoneProfesseur').val(response.data.telephone);
@@ -79,31 +89,31 @@ $(document).ready(function () {
                         $('.CardFormation').append(` <div style="">
                                                         <div class="row">
                                                             <div class="col-4">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">diplôme</label>
                                                                     <input type="text" class="form-control" value=`+value.diplome+` disabled>
                                                                 </div>
-                                                            </div>        
+                                                            </div>
                                                             <div class="col-4">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">spécialité</label>
                                                                     <input type="text" class="form-control" value=`+value.specialise+` disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="col-4">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">Année</label>
                                                                     <input type="text" class="form-control" value=`+value.annee+` disabled>
-                                                                </div>       
+                                                                </div>
                                                             </div>
                                                             <div class="col-6">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">Lycée</label>
                                                                     <input type="text" class="form-control" value=`+value.ecole+` disabled>
-                                                                </div> 
+                                                                </div>
                                                             </div>
                                                             <div class="col-6">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">Pays</label>
                                                                     <input type="text" class="form-control" value=`+value.pays+` disabled>
                                                                 </div>
@@ -114,31 +124,31 @@ $(document).ready(function () {
                     $.each(response.Experince, function (index, value) {
                         $('.Cardexperience .InforCardexperience').append(`<div class="row">
                                                             <div class="col-4">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">Filière</label>
                                                                     <input type="text" class="form-control" value=`+value.poste+` disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="col-4">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">Lycée / Université </label>
                                                                     <input type="text" class="form-control" value=`+value.entreprise+` disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="col-4">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">Pays</label>
                                                                     <input type="text" class="form-control" value=`+value.pays+` disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">Du</label>
                                                                     <input type="text" class="form-control" value=`+value.du+` disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
-                                                                <div class="form-group">  
+                                                                <div class="form-group">
                                                                     <label for="" class="text-uppercase">Au</label>
                                                                     <input type="text" class="form-control" value=`+value.au+` disabled>
                                                                 </div>
@@ -172,6 +182,7 @@ $(document).ready(function () {
                     });
 
 
+
                 }
             }
         });
@@ -196,5 +207,47 @@ $(document).ready(function () {
                 $('.' + targetCard).css('height','18rem');
             });
         }, 1000);
+    });
+
+    $('.BtnVerification').on('click',function()
+    {
+        if ($('input[name=verification]:checked').length > 0) {
+
+            var selectedValue = $('input[name=verification]:checked').val();
+
+            $.ajax({
+                type: "post",
+                url: verificationCertification,
+                headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+                data:
+                {
+                    verification : selectedValue,
+                    idprof       : $(this).attr('data-value'),
+                },
+                dataType: "json",
+                success: function (response)
+                {
+                    if(response.status == 200)
+                    {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Verification avec succès",
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(function() {
+                            location.reload();
+                        });
+                    }
+                }
+            });
+        }
+        else
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Veuillez sélectionner une vérification!",
+            });
+        }
     });
 });
