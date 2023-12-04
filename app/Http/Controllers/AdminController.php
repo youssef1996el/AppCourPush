@@ -86,4 +86,8 @@ class AdminController extends Controller
         ]);
     }
 
+    public function AdminDashboard()
+    {
+        return view('Dashboard.dashboard');
+    }
 }

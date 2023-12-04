@@ -34,7 +34,7 @@
 				</div>
 
 				<ul class="list-unstyled components text-secondary">
-					<li><a href="index.html"><i
+					<li><a href="{{url('Admin/Dashboard')}}"><i
 							class="data-feather theme-item"  data-feather="home"></i> <span
 							class="theme-item"> Dashboard</span></a></li>
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
@@ -335,7 +335,7 @@
                 feather.replace();
             });
         </script>
-		
+
 
 <main class="py-4" >
             @yield('navsidebar')
@@ -371,7 +371,7 @@
 
         // Get the current URL to determine the active item dynamically
         var currentURL = window.location.href;
-        
+
         // Define your URL patterns and corresponding index
         var urlPatterns = [
             { pattern: 'index.html', index: 0 },
