@@ -15,7 +15,7 @@ class AdminController extends Controller
 {
     public function professeurs()
     {
-        /* $listProfesseur = User::where('role_name','professeur')->get(); */
+        /* $listProfesseur  = User::where('role_name','professeur')->get(); */
         $listProfesseur = DB::select('select u.id,u.image,email,u.name,ifnull(u.title,"Vide") as title,u.verification,u.role_name,sum(TIMESTAMPDIFF(YEAR,du, au)) AS numberExperince
         from users u ,experinceprof e where u.id = e.iduser and u.role_name= "professeur"
         group by iduser');

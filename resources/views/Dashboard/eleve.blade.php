@@ -17,51 +17,35 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img
-                        src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-                        class="rounded-circle"
-                        alt=""
-                        style="width: 45px; height: 45px"
-                        />
-                    <div class="ms-3">
-                      <p class="fw-bold mb-1">Alex Ray</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                <p class="text-muted mb-0">alex.ray@gmail.com</p>
-                </td>
-                <td>
-                  <p class="fw-normal mb-1">Maroc</p>
-                </td>
-                <td>
-                  <span class=""
-                        >Active</span
-                    >
-                </td>
-             
-                <td>
-                  <button
-                          type="button"
-                          class="btn btn-link"
-                          data-mdb-ripple-color="dark"
-                          >
-                          <i class="fa-solid fa-eye"></i>
-                  </button>
-                  <button
-                          type="button"
-                          class="btn btn-link "
-                          data-mdb-ripple-color="dark"
-                          >
-                          <i class="fa-solid fa-trash"></i>
-
-                  </button>
-                </td>
-              </tr>
-            
+                @foreach ($listeleve as $item)
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="{{$item->image}}" class="rounded-circle" alt="" style="width: 45px; height: 45px" />
+                                <div class="ms-3">
+                                <p class="fw-bold mb-1">{{$item->name}}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="text-muted mb-0">{{$item->email}}</p>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">Maroc</p>
+                        </td>
+                        <td>
+                            <span class="">Active</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" >
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                            <button type="button" class="btn btn-link " data-mdb-ripple-color="dark">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
           </table>
         </div>

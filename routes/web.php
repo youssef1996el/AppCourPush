@@ -105,10 +105,10 @@ Route::get('Dashboard/cours',function()
 
 
 
-Route::get('eleves',function()
+/* Route::get('eleves',function()
 {
     return view('Dashboard.eleve');
-});
+}); */
 
 
 
