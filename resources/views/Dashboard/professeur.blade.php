@@ -3,6 +3,13 @@
 <link rel="stylesheet" href="{{asset('css/StyleProfesseurDash.css')}}">
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<div id="overlay">
+    <div class="three-body">
+        <div class="three-body__dot"></div>
+        <div class="three-body__dot"></div>
+        <div class="three-body__dot"></div>
+    </div>
+</div>
 <div class="container mt-4 widthContainer">
     <div class="row ">
         <div class="col-sm-12 col-md-12 col-xl-12">
@@ -135,7 +142,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link active text-uppercase" aria-current="page" href="#" data-target="CardProfile">Profile</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item" id="formationTab">
                                             <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="CardFormation">Formation</a>
                                         </li>
                                         <li class="nav-item">
@@ -215,7 +222,19 @@
                         </div>
 
                         <div class="card mt-3 p-4 Cardcertification" style="display: none">
-                            <a target="_blank" id="FileCertification">Certification</a>
+                           {{--  <a target="_blank" id="FileCertification">Certification</a> --}}
+
+                            <a class="button" id="FileCertification" target="_blank">
+
+                                <svg class="svg-icon" width="24" viewBox="0 0 24 24" height="24" fill="none">
+                                    <g stroke-width="2" stroke-linecap="round" stroke="#056dfa" fill-rule="evenodd" clip-rule="evenodd">
+                                        <path d="m3 7h17c.5523 0 1 .44772 1 1v11c0 .5523-.4477 1-1 1h-16c-.55228 0-1-.4477-1-1z"></path>
+                                        <path d="m3 4.5c0-.27614.22386-.5.5-.5h6.29289c.13261 0 .25981.05268.35351.14645l2.8536 2.85355h-10z"></path>
+                                    </g>
+                                </svg>
+
+                                <span class="lable">  Certification</span>
+                            </a>
                             <div class="radio-input">
                                 <input value="Verifie" name="verification" id="value-1" type="radio">
                                 <label for="value-1">Verifie</label>

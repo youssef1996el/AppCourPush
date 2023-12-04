@@ -199,7 +199,7 @@
 /************************ */
 .nav-item
 {
-    margin-right: 2rem;
+    margin-right: 1.75rem;
 }
 .navbar-light .navbar-nav .nav-link.active {
         color: #6395c0;
@@ -208,7 +208,7 @@
 }
 .navbar-light .navbar-nav .nav-link:hover {
     color: #74b4ec;
-  border-bottom: 2px solid #74b4ec;
+    border-bottom: 2px solid #74b4ec;
 }
 
 /******************************** */
@@ -435,13 +435,13 @@
 
 
     /* table */
-    
+
 #tableListProfesseur_filter
 {
     float: left;
     margin-bottom: 8px;
     margin-left:91px;
-  
+
 }
 
 #tableListProfesseur_filter input::placeholder{
@@ -456,7 +456,7 @@
 
 #tableListProfesseur_filter input{
     width: 300px;
-    padding: 10px;  
+    padding: 10px;
     border: none;
     appearance: none;
     border-radius: 0;
@@ -504,13 +504,13 @@
     justify-content: center;
     margin-top: 12px;
   }
-  
-  
+
+
   div.dataTables_wrapper div.dataTables_paginate ul.pagination {
       white-space: nowrap;
-    
+
     }
-  
+
   .page-link {
       position: relative;
       display: block;
@@ -521,21 +521,21 @@
       transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       border-radius: 20px;
     }
-  
+
     .page-link:hover {
       z-index: 2;
       color: #5382ab;
       background-color: white;
     }
-  
+
     .page-item.active .page-link {
       z-index: 3;
       color: #fff;
       background-color: #4479a7;
       border-color: #4479a7;
     }
-  
-  
+
+
 .CardFormation , .Cardexperience,.CardCoursAndDispo{
     height: 392px !important;
     overflow: auto;
@@ -575,3 +575,177 @@
     background-color: #34974d;
     border-color: #34974d;
   }
+
+  .hidden {
+    display: none;
+}
+/********************** */
+#FileCertification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px 8px 16px;
+    gap: 8px;
+    height: 40px;
+    width: 183px;
+    border: none;
+    background: #056bfa27;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .lable {
+    margin-top: 1px;
+    font-size: 19px;
+    line-height: 22px;
+    color: #056DFA;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+  }
+
+  #FileCertification:hover {
+    background: #056bfa49;
+  }
+
+  #FileCertification:hover .svg-icon {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(-8deg);
+    }
+
+    50% {
+      transform: rotate(0deg);
+    }
+
+    75% {
+      transform: rotate(8deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  /********************* */
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.09);
+   /*  display: flex; */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Set a high z-index to ensure it appears on top */
+}
+  .three-body {
+    --uib-size: 35px;
+    --uib-speed: 0.8s;
+    --uib-color: #5D3FD3;
+    position: relative;
+    display: inline-block;
+    height: var(--uib-size);
+    width: var(--uib-size);
+    animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
+   }
+
+   .three-body__dot {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+   }
+
+   .three-body__dot:after {
+    content: '';
+    position: absolute;
+    height: 0%;
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: var(--uib-color);
+    border-radius: 50%;
+   }
+
+   .three-body__dot:nth-child(1) {
+    bottom: 5%;
+    left: 0;
+    transform: rotate(60deg);
+    transform-origin: 50% 85%;
+   }
+
+   .three-body__dot:nth-child(1)::after {
+    bottom: 0;
+    left: 0;
+    animation: wobble1 var(--uib-speed) infinite ease-in-out;
+    animation-delay: calc(var(--uib-speed) * -0.3);
+   }
+
+   .three-body__dot:nth-child(2) {
+    bottom: 5%;
+    right: 0;
+    transform: rotate(-60deg);
+    transform-origin: 50% 85%;
+   }
+
+   .three-body__dot:nth-child(2)::after {
+    bottom: 0;
+    left: 0;
+    animation: wobble1 var(--uib-speed) infinite
+       calc(var(--uib-speed) * -0.15) ease-in-out;
+   }
+
+   .three-body__dot:nth-child(3) {
+    bottom: -5%;
+    left: 0;
+    transform: translateX(116.666%);
+   }
+
+   .three-body__dot:nth-child(3)::after {
+    top: 0;
+    left: 0;
+    animation: wobble2 var(--uib-speed) infinite ease-in-out;
+   }
+
+   @keyframes spin78236 {
+    0% {
+     transform: rotate(0deg);
+    }
+
+    100% {
+     transform: rotate(360deg);
+    }
+   }
+
+   @keyframes wobble1 {
+    0%,
+     100% {
+     transform: translateY(0%) scale(1);
+     opacity: 1;
+    }
+
+    50% {
+     transform: translateY(-66%) scale(0.65);
+     opacity: 0.8;
+    }
+   }
+
+   @keyframes wobble2 {
+    0%,
+     100% {
+     transform: translateY(0%) scale(1);
+     opacity: 1;
+    }
+
+    50% {
+     transform: translateY(66%) scale(0.65);
+     opacity: 0.8;
+    }
+   }
+
