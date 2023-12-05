@@ -67,7 +67,7 @@ Route::get('professeurs'              ,[AdminController::class,'professeurs'])->
 Route::get('eleves'                   ,[AdminController::class,'eleves'])->name('eleves');
 Route::get('view/professeur'          ,[AdminController::class,'Viewprofesseur']);
 Route::post('verificationProf'        ,[AdminController::class,'verificationProf']);
-Route::get('Admin/Dashboard'          ,[AdminController::class,'AdminDashboard']);
+Route::get('Admin/Dashboard'          ,[AdminController::class,'AdminDashboard'])->name('Admin/Dashboard');
 /******************************************** End Dashboard Admin ***********************************************/
 
 Route::get('/prof/{name}/{id}',function()

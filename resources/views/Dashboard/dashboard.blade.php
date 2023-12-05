@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12">
             <div class="container">
-                <h5>Dashboard</h5>
+                <h1 class="text-uppercase">Dashboard</h1>
                 <h3 class="text-primary">{{$name}}</h3>
             </div>
         </div>
@@ -17,12 +17,12 @@
     <div class="row mt-4">
         <div class="container">
             <div class="container">
-                <div class="card" style="background: transparent">
+                <div class="card shadow " style="background: transparent;border-radius: 20px">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-xl-6 p-4">
                                 <h3 class="text-primary" >Welcome back, your dashboard is ready !</h3>
-                                <p>Greate job your blabla bla jkhjhjkhjkhskkjsdlqqqqqqqqqqqqqqqqqqqqqqqqqq
+                                <p class="text-dark fs-2">Greate job your blabla bla jkhjhjkhjkhskkjsdlqqqqqqqqqqqqqqqqqqqqqqqqqq
                                     dfsffffffffffffffffffffffffffffffffffff
                                 </p>
                             </div>
@@ -49,69 +49,64 @@
 
                 <div class="row mt-4">
                     <div class="col-sm-12 col-md-3 col-xl-3">
-                        <div class="card">
+                        <div class="card shadow" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
                                     <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
                                     <h5 class="card-title mt-4" style="margin-left:10px;">Professeur</h5>
                                 </div>
                                 <h5>50</h5>
-
                             </div>
-
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-3 col-xl-3">
-                        <div class="card">
+                        <div class="card shadow" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
                                     <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
                                     <h5 class="card-title mt-4" style="margin-left:10px;">Eleve</h5>
                                 </div>
                                 <h5>50</h5>
-
                             </div>
-
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-3 col-xl-3">
-                        <div class="card">
+                        <div class="card shadow" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
                                     <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
                                     <h5 class="card-title mt-4" style="margin-left:10px;">test 1</h5>
                                 </div>
                                 <h5>50</h5>
-
                             </div>
-
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-3 col-xl-3">
-                        <div class="card">
+                        <div class="card" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
                                     <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
                                     <h5 class="card-title mt-4" style="margin-left:10px;">test 2</h5>
                                 </div>
                                 <h5>50</h5>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
 
                 <div class="row mt-4">
                     <div class="col-sm-12 col-md-6 col-xl-6">
-                        <div class="card">
+                        <div class="card" style="border-radius: 20px">
                             <div id="chartdiv"></div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-6">
-                        <div class="card">
+                        <div class="card shadow">
+                            <div class="bg-light text-primary p-3">
+                                <h3>inshalhe hada floas ki roz</h3>
+                            </div>
                             <div class="card-body">
-                                <h5 class="card-title bg-light text-primary p-2">Card title</h5>
+
                                 <div class="card-text">
                                     <div id="chartColumn"></div>
                                 </div>
