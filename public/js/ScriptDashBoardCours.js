@@ -163,8 +163,16 @@ $(document).ready(function ()
             headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
             data: { cours: cours },
             dataType: "json",
+            beforeSend: function () {
+                $('#overlay').css('display','flex');
+                $('#overlay').fadeIn();
+                $(this).prop("disabled",true);
+            },
             success: function (response) {
                 if (response.status === 200) {
+                    $('#overlay').css('display','flex');
+                    $('#overlay').fadeOut();
+                    $(this).prop("disabled",false);
                     var problematicTitles = response.problematic_titles;
                     if (problematicTitles.length > 0) {
                         $.each(problematicTitles, function (index, value) {
@@ -213,6 +221,25 @@ $(document).ready(function ()
                     $('.sectiontablecours .appendCour').remove();
                     $('.cour').val("");
                 }
+            },
+            error: function ()
+            {
+                $('#overlay').css('display', 'flex');
+                $('#overlay').fadeIn();
+                $(this).prop("disabled",false);
+                setTimeout(function () {
+
+                    $('#overlay').fadeOut();
+
+
+                    setTimeout(function () {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Quelque chose s'est mal passé!",
+                        });
+                    }, 500);
+                }, 1500);
             }
         });
     });

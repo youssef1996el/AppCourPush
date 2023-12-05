@@ -1,5 +1,12 @@
 @extends('Dashboard.index')
 @section('navsidebar')
+<div id="overlay">
+    <div class="three-body">
+        <div class="three-body__dot"></div>
+        <div class="three-body__dot"></div>
+        <div class="three-body__dot"></div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="{{asset('css/StyleCours.css')}}">
 

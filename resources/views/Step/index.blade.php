@@ -287,10 +287,14 @@
 
                                         <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
                                             @foreach ($Cours as $index => $cour)
-                                                <div class="checkboxes">
-                                                    <input id="checkbox{{$index}}" type="checkbox" class="checkCour" name="courProf[]" value="{{$cour->id}}" >
-                                                    <label for="checkbox{{$index}}">{{$cour->title}}</label>
-                                                </div>
+                                                <table>
+                                                    <tr>
+                                                        <div class="checkboxes">
+                                                            <input id="checkbox{{$index}}" type="checkbox" class="checkCour" name="courProf[]" value="{{$cour->id}}" >
+                                                            <label for="checkbox{{$index}}">{{$cour->title}}</label>
+                                                        </div>
+                                                    </tr>
+                                                </table>
                                             @endforeach
                                             <div class="cours-error "></div>
                                         </div>
