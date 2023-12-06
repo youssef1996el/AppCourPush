@@ -53,21 +53,21 @@
                                                     <a href="#">{{ $item->diplome }} </a>
                                                     <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
                                                     <span class="pays">{{ $item->pays }}</span>
-                                                    
+
                                                     <span class="circle"></span>
                                                     <div class="timeline-content">
                                                         <p>{{ $item->specialise }}</p>
                                                     </div>
-                                        
+
                                                 </div>
                                             </li>
-                                            
+
                                         </div>
                                     @endforeach
                                 </ul>
                     </div>
 
-                <div class="show" hidden >
+                <div class="show"  >
                     <button id="showMoreFormation" class="btn showMore">Voir plus</button>
                     <button id="showFirstItemFormation" class="btn showLess hidden">Voir moins</button>
                 </div>
@@ -90,10 +90,10 @@
                                                     <div class="timeline-content">
                                                         <p>Software Inc.</p>
                                                     </div>
-                                        
+
                                                 </div>
                                             </li>
-                                            
+
                                         </div>
                                     @endforeach
                                 </ul>
@@ -104,7 +104,7 @@
                     <button id="showFirstItemExperience" class="btn showLess hidden">Voir moins</button>
                 </div>
             </div>
-        </div>     
+        </div>
 
         <div class="row mt-4" >
             <div id="divCours" class="col-4">

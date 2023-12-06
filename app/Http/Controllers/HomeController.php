@@ -10,6 +10,8 @@ use Auth;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 use DateTime;
+use App\Notifications\RegisterNotification;
+use Illuminate\Support\Facades\Notification;
 
 class HomeController extends Controller
 {
@@ -36,11 +38,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        if (Auth::user()->role_name === 'professeur') {
+            return redirect('professeur/StepByStep');
+        }
+        else if(Auth::user()->role_name === 'eleve')
+        {
+           /*  return view('home'); */
+          /*  return route('profile/eleve'); */
+          return redirect('profile/eleve');
+        }
+
     }
 
     public function Store(Request $request)
     {
+
 
         $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
         $path = $request->file('image')->storeAs('images/prof',$fileName,'public');
@@ -53,7 +66,11 @@ class HomeController extends Controller
             'pays'              => $request->paysProf,
             'title'             => $request->titre,
         ]);
-
+        $users = User::where('role_name', 'Admin')->get();
+        $name  = Auth::user()->name;
+        $role_name = Auth::user()->role_name;
+        $iduser   = Auth::user()->id;
+        Notification::send($users,new RegisterNotification($name,$role_name,$iduser));
 
         $response = App::call('App\Http\Controllers\FormationProf@Store', [
             'request' => $request

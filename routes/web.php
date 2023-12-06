@@ -12,7 +12,7 @@ use App\http\Controllers\Auth\ForgotPasswordController;
 use App\http\Controllers\ProfesseurController;
 use App\http\Controllers\EleveController;
 use App\http\Controllers\AdminController;
-
+use Vinkla\Hashids\Facades\Hashids;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,6 +68,9 @@ Route::get('eleves'                   ,[AdminController::class,'eleves'])->name(
 Route::get('view/professeur'          ,[AdminController::class,'Viewprofesseur']);
 Route::post('verificationProf'        ,[AdminController::class,'verificationProf']);
 Route::get('Admin/Dashboard'          ,[AdminController::class,'AdminDashboard'])->name('Admin/Dashboard');
+Route::get('Admin/Profile'            ,[AdminController::class,'AdminProfile']);
+Route::get('ShowUsers/{id}'           ,[AdminController::class,'ShowUser']);
+
 /******************************************** End Dashboard Admin ***********************************************/
 
 Route::get('/prof/{name}/{id}',function()
