@@ -96,14 +96,24 @@
 
                 <div class="row mt-4">
                     <div class="col-sm-12 col-md-6 col-xl-6">
-                        <div class="card" style="border-radius: 20px">
-                            <div id="chartdiv"></div>
+                        <div class="card shadow">
+                            <div class="bg-light text-primary p-3">
+                                <h5>Nombre d'étudiants inscrits sur le site dans chaque pays</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <div id="chartMaps"></div>
+                                </div>
+                            </div>
                         </div>
+                       {{--  <div class="card" style="border-radius: 20px">
+                            <div id="chartMaps"></div>
+                        </div> --}}
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-6">
                         <div class="card shadow">
                             <div class="bg-light text-primary p-3">
-                                <h3>inshalhe hada floas ki roz</h3>
+                                <h4>inshalhe hada floas ki roz</h4>
                             </div>
                             <div class="card-body">
                                 <div class="card-text">
@@ -139,16 +149,25 @@
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
     <script src="{{asset('js/ScriptDashboardAmin.js')}}"></script>
 
     <script>
         var urlStartAndEnd = "{{url('getStartYearAndEnd')}}";
         var urlChartCountEleve = "{{url('GetChartEleveCount')}}";
-
+        var urlChartCountByCountry = "{{url('GetChartByCountry')}}";
+    </script>
+    <script>
 
 
     </script>
 
-
+<style>
+    #chartMaps {
+      width: 100%;
+      height: 500px
+    }
+    </style>
 
 @endsection

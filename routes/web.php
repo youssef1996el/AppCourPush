@@ -72,6 +72,7 @@ Route::get('Admin/Profile'            ,[AdminController::class,'AdminProfile']);
 Route::get('ShowUsers/{id}'           ,[AdminController::class,'ShowUser']);
 Route::get('getStartYearAndEnd'       ,[AdminController::class,'getStartYearAndEnd']);
 Route::get('GetChartEleveCount'       ,[AdminController::class,'getChartEleveCount']);
+Route::get('GetChartByCountry'        ,[AdminController::class,'GetChartByCountry']);
 
 /******************************************** End Dashboard Admin ***********************************************/
 
