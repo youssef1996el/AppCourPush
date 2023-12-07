@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Cours;
 use DateTime;
 use DB;
-use Auth;
+use Auth; 
 class ProfesseurController extends Controller
 {
     public function StepByStep()
@@ -25,7 +25,7 @@ class ProfesseurController extends Controller
         $DisponibleProf = DB::select('select jour,debut,fin from disponibleprof where iduser = ?',[Auth::user()->id]);
         $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
-
+        
         $disponibilityByDay = [];
         foreach ($day_names_fr as $item)
         {
@@ -67,7 +67,7 @@ class ProfesseurController extends Controller
             $disponibilityByDay[$item1->jour] = $item1;
         }
 
-
+         
         return view('Profile.show')
         ->with('FormationProf',$FormationProf)
         ->with('ExperinceProf',$ExperinceProf)

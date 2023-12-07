@@ -3,9 +3,6 @@
 
 <link rel="stylesheet" href="{{asset('css/StyleProfileProf.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
 
 <div class="container mt-4">
     <div class="row ">
@@ -79,12 +76,11 @@
                     <div class="card-body timeline" >
 
                                 <ul class="list-unstyled ">
-                                    @foreach ($FormationProf as $key => $item)
+                                    @foreach ($ExperinceProf as $key => $item)
                                         <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
                                             <li class="timeline-item" >
                                                 <div class="timeline-element">
                                                     <a href="#">Web Designer</a>
-                                                    <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
                                                     <span class="pays">{{ $item->pays }}</span>
                                                     <span class="circle"></span>
                                                     <div class="timeline-content">
@@ -99,12 +95,12 @@
                                 </ul>
                     </div>
 
-                <div class="show" hidden >
+                <div class="show"  >
                     <button id="showMoreExperience" class="btn showMore">Voir plus</button>
                     <button id="showFirstItemExperience" class="btn showLess hidden">Voir moins</button>
                 </div>
             </div>
-        </div>     
+        </div>      
 
         <div class="row mt-4" >
             <div id="divCours" class="col-4">
@@ -162,59 +158,6 @@
 
 
 
-<script>
-    $(document).ready(function () {
-        $.ajax({
-            type: "get",
-            url: "{{url('GetAvailableProf')}}",
-            dataType: "json",
-            success: function (response) {
-                if (response.statut == 200) {
-                    var calendarEl = $('#calendar');
-                    var calendar = new FullCalendar.Calendar(calendarEl[0], {
-                        initialView: 'timeGridWeek',
-                        headerToolbar: {
-                            left: '',
-                            center: '',
-                            right: ''
-                        },
-                        events: response.data.map(function (value) {
-                            var startDate = "20" + value.date + "T" + value.debut + ":00";
-                            var endDate = "20" + value.date + "T" + value.fin + ":00";
-                            return {
-                                title: 'Available',
-                                start: startDate,
-                                end: endDate,
-                                className: 'available-event'
-                            };
-                        }),
-                        eventTimeFormat: {
-                            hour: 'numeric',
-                            minute: '2-digit',
-                            meridiem: 'short'
-                        },
-                        slotLabelFormat: {
-                            hour: 'numeric',
-                            minute: '2-digit',
-                            omitZeroMinute: false,
-                            meridiem: 'short'
-                        },
-                        locale: 'fr',
-                        dayHeaderFormat: { weekday: 'long' },
-                        slotLaneClassNames: function (args) {
-                            // Apply a custom class to non-available slots
-                            if (args.isStart && !args.event) {
-                                return 'hide-column';
-                            }
-                            return '';
-                        }
-                    });
-                    calendar.render();
-                }
-            }
-        });
-    });
 
-    </script>
 
 @endsection
