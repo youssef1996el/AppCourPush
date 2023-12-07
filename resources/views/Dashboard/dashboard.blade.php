@@ -96,8 +96,8 @@
 
                 <div class="row mt-4">
                     <div class="col-sm-12 col-md-6 col-xl-6">
-                        <div class="card shadow">
-                            <div class="bg-light text-primary p-3">
+                        <div class="card shadow" style="border-radius: 20px">
+                            <div class="bg-light text-primary p-3" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
                                 <h5>Nombre d'étudiants inscrits sur le site dans chaque pays</h5>
                             </div>
                             <div class="card-body">
@@ -111,8 +111,8 @@
                         </div> --}}
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-6">
-                        <div class="card shadow">
-                            <div class="bg-light text-primary p-3">
+                        <div class="card shadow" style="border-radius: 20px">
+                            <div class="bg-light text-primary p-3" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
                                 <h4>inshalhe hada floas ki roz</h4>
                             </div>
                             <div class="card-body">
@@ -123,10 +123,10 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-xl-12">
-                        <div class="card shadow">
+                        <div class="card shadow" style="border-radius: 20px">
                             <div class="bg-light text-primary p-3">
-                                <div class="row  bg-light text-primary p-3">
-                                    <div class="col-sm-6 col-md-6 col-xl-6 ">
+                                <div class="row bg-light text-primary p-3" >
+                                    <div class="col-sm-6 col-md-6 col-xl-6 " >
                                         <h3>Chart Count Eleve created</h3>
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-xl-6 ">
