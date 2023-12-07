@@ -70,6 +70,8 @@ Route::post('verificationProf'        ,[AdminController::class,'verificationProf
 Route::get('Admin/Dashboard'          ,[AdminController::class,'AdminDashboard'])->name('Admin/Dashboard');
 Route::get('Admin/Profile'            ,[AdminController::class,'AdminProfile']);
 Route::get('ShowUsers/{id}'           ,[AdminController::class,'ShowUser']);
+Route::get('getStartYearAndEnd'       ,[AdminController::class,'getStartYearAndEnd']);
+Route::get('GetChartEleveCount'       ,[AdminController::class,'getChartEleveCount']);
 
 /******************************************** End Dashboard Admin ***********************************************/
 

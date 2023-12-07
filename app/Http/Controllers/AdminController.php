@@ -90,7 +90,14 @@ class AdminController extends Controller
 
     public function AdminDashboard()
     {
-        return view('Dashboard.dashboard');
+        $professeurActive = DB::table('users')
+                            ->join('experinceprof','experinceprof.iduser','=','users.id')
+                            ->where('users.verification','=','Verifie')
+                            ->count();
+        $Eleve            = User::where('role_name','eleve')->count();
+
+        return view('Dashboard.dashboard', compact('professeurActive', 'Eleve'));
+
     }
 
     public function AdminProfile()
@@ -119,8 +126,39 @@ class AdminController extends Controller
 
         return view('Dashboard.ShowUsers')->with('data', $data)
         ->with('role_name',$userProfesseurOrEleve[0]->role_name);
+    }
 
+    public function getStartYearAndEnd()
+    {
+        $YearStart = DB::select("select max(year(created_at)) as yearEnd, min(year(created_at)) as yearStart from users");
+        return response()->json([
+            'status'       => 200,
+            'yearStart'    => $YearStart[0]->yearStart,
+            'yearend'      => $YearStart[0]->yearEnd,
+        ]);
+    }
+    public function GetChartEleveCount(Request $request)
+    {
 
+        $GetChartEleveCount = DB::select("SELECT months.month_name AS month,COALESCE(COUNT(users.created_at), 0) AS user_count
+                                FROM (SELECT 1 AS month, 'January' AS month_name UNION SELECT 2, 'February' UNION SELECT 3,
+                                     'March' UNION SELECT 4, 'April' UNION SELECT 5, 'May' UNION SELECT 6, 'June' UNION SELECT 7,
+                                     'July' UNION SELECT 8, 'August' UNION SELECT 9, 'September' UNION SELECT 10, 'October' UNION SELECT 11,
+                                     'November' UNION SELECT 12, 'December') AS months
+                                LEFT JOIN
+                                    users AS users ON MONTH(users.created_at) = months.month AND YEAR(users.created_at) =?
+                                                            and users.role_name = 'eleve'
+                                GROUP BY
+                                    months.month, months.month_name
+                                ORDER BY
+                                    months.month;
+                                ",[$request->date]);
+
+       return response()->json([
+            'status'       => 200,
+            'data'    => $GetChartEleveCount,
+
+        ]);
     }
 
 }

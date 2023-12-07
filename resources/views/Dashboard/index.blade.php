@@ -89,7 +89,10 @@
 										    <li class="nav-item dropdown nav-dropdown">
                                                 <a class="nav-item nav-link dropdown-toggle text-secondary notification" href="#" id="navbarDropdownmailAlert" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                      <i class="data-feather theme-item" data-feather="bell"></i>
-                                                     <badge class="badge bg-danger">{{auth()->user()->unreadNotifications->count()}}</badge>
+                                                     <div id="NotificationCount">
+                                                        <badge class="badge bg-danger">{{auth()->user()->unreadNotifications->count()}}</badge>
+                                                     </div>
+
                                                 </a>
 											    <ul class="dropdown-menu notification-menu" aria-labelledby="navbarDropdownmailAlert">
                                                     <li class="text-center">
@@ -99,24 +102,23 @@
                                                     @php
                                                         $url ='';
                                                     @endphp
-                                                    @foreach (auth()->user()->unreadNotifications as $notification)
-                                                    <li>
-                                                        @php
-                                                            $url = $notification->data['id'];
-                                                            $hashids = new Hashids\Hashids();
+                                                    <div id="unReadNotification">
+                                                        @foreach (auth()->user()->unreadNotifications as $notification)
+                                                        <li>
+                                                            @php
+                                                                $url = $notification->data['id'];
+                                                                $hashids = new Hashids\Hashids();
 
-                                                            $url = $hashids->encode($url);
-                                                        @endphp
-                                                        <a href="{{url('ShowUsers/'.$url)}}" class="dropdown-item custom-dropmenu mt-2 text-white bg-info">
-                                                            <i class="data-feather me-2" data-feather="user"></i>
-                                                            {{$notification->data['title']}}
-                                                        </a>
-                                                    </li>
-												  {{--   <div class="dropdown-divider"></div> --}}
-                                                    @endforeach
-
-
-
+                                                                $url = $hashids->encode($url);
+                                                            @endphp
+                                                            <a href="{{url('ShowUsers/'.$url)}}" class="dropdown-item custom-dropmenu mt-2 text-white bg-info">
+                                                                <i class="data-feather me-2" data-feather="user"></i>
+                                                                {{$notification->data['title']}}
+                                                            </a>
+                                                        </li>
+                                                        {{--   <div class="dropdown-divider"></div> --}}
+                                                        @endforeach
+                                                    </div>
 												    <div class="dropdown-divider"></div>
 												    <li class="text-center">
                                                         <a href="#" class="dropdown-item mt-2">
@@ -335,6 +337,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script>
+
     document.addEventListener("DOMContentLoaded", function() {
         // Function to set the active item
         function setActiveItem(index) {
