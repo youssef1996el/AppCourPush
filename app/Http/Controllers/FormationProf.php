@@ -17,7 +17,8 @@ class FormationProf extends Controller
         $annee      = $request->annee;
         $ecole      = $request->ecole;
         $pays       = $request->paysFormation;
-        if(!is_null($diplome))
+
+        if ($request->diplome[0] !== null)
         {
             for($i = 0 ; $i< count($diplome) ; $i++)
             {
@@ -34,6 +35,13 @@ class FormationProf extends Controller
                 ];
                 DB::table('formationprof')->insert($DataSava);
             }
+            $response = App::call('App\Http\Controllers\ExperinceProf@Store', [
+                'request' => $request
+            ]);
+
+        }
+        else
+        {
             $response = App::call('App\Http\Controllers\ExperinceProf@Store', [
                 'request' => $request
             ]);

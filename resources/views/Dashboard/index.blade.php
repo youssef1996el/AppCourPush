@@ -34,9 +34,18 @@
 				</div>
 
 				<ul class="list-unstyled components text-secondary">
-					<li><a href="{{url('Admin/Dashboard')}}"><i
+					<li>
+                        <a href="{{url('Admin/Dashboard')}}"><i
 							class="data-feather theme-item"  data-feather="home"></i> <span
-							class="theme-item"> Dashboard</span></a></li>
+							class="theme-item"> Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('Admin/Profile')}}"><i
+							class="data-feather theme-item"  data-feather="home"></i> <span
+							class="theme-item"> Profile</span>
+                        </a>
+                    </li>
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
 					<li><a href="{{ url('professeurs') }}"><i class="fa-solid fa-user-tie"></i>
@@ -74,80 +83,52 @@
 						<div class="collapse navbar-collapse mx-1" id="navbarsExample04" >
 							<div class="row  w-100">
 								<div class="col-6">
-									<ul class="navbar-nav me-auto mb-2 mb-lg-0" style="display:none">
-
-
+									<ul class="navbar-nav me-auto mb-2 mb-lg-0" >
 										<div class="notif" >
-										<li class="nav-item dropdown nav-dropdown"><a
-											class="nav-item nav-link dropdown-toggle text-secondary notification"
-											href="#" id="navbarDropdownmailAlert" role="button"
-											data-bs-toggle="dropdown" aria-expanded="false"> <i
-												class="data-feather theme-item" data-feather="bell"></i> <badge
-													class="badge bg-danger">12</badge></a>
-											<ul class="dropdown-menu notification-menu"
-												aria-labelledby="navbarDropdownmailAlert">
-												<li class="text-center"><i class="data-feather me-2"
-													data-feather="message-square"></i>Notifications</li>
-												<li><a href="#"
-													class="dropdown-item custom-dropmenu mt-2 text-white bg-info"><i
-														class="data-feather me-2" data-feather="user"></i> Lorem
-														ipsum dolor sit amet</a></li>
-												<div class="dropdown-divider"></div>
-												<li><a href="#"
-													class="dropdown-item custom-dropmenu mt-2 text-white bg-info"><i
-														class="data-feather me-2" data-feather="user"></i> Duis aute
-														irure dolor in reprehenderit</a></li>
-												<div class="dropdown-divider"></div>
-												<li><a href="#"
-													class="dropdown-item custom-dropmenu mt-2 text-white bg-info"><i
-														class="data-feather me-2" data-feather="user"></i> Excepteur
-														sint occaecat cupidatat</a></li>
-												<div class="dropdown-divider"></div>
-												<li><a href="#"
-													class="dropdown-item custom-dropmenu mt-2 text-white bg-info"><i
-														class="data-feather me-2" data-feather="user"></i> Aute
-														irure dolor in reprehenderit in</a></li>
-												<div class="dropdown-divider"></div>
-												<li class="text-center"><a href="#"
-													class="dropdown-item mt-2"><i class="data-feather me-2"
-														data-feather="list"></i> See All Notifications</a></li>
-											</ul></li>
-											</div>
-										<li class="nav-item dropdown nav-dropdown"><a
-											class="nav-item nav-link dropdown-toggle text-secondary notification"
-											href="#" id="navbarDropdownmail" role="button"
-											data-bs-toggle="dropdown" aria-expanded="false"> <i
-												class="data-feather theme-item" data-feather="mail"></i> <badge
-													class="badge bg-primary">23</badge></a>
-											<ul class="dropdown-menu notification-menu"
-												aria-labelledby="navbarDropdownmail">
-												<li class="text-center"><i class="data-feather me-2"
-													data-feather="mail"></i>Mails</li>
-												<li><a href="#"
-													class="dropdown-item custom-dropmenu mt-2 text-danger"><i
-														class="data-feather me-2" data-feather="mail"></i> Lorem
-														ipsum dolor sit amet</a></li>
-												<div class="dropdown-divider"></div>
-												<li><a href="#"
-													class="dropdown-item custom-dropmenu mt-2 text-danger"><i
-														class="data-feather me-2" data-feather="mail"></i> Duis aute
-														irure dolor in reprehenderit</a></li>
-												<div class="dropdown-divider"></div>
-												<li><a href="#"
-													class="dropdown-item custom-dropmenu mt-2 text-primary"><i
-														class="data-feather me-2" data-feather="mail"></i> Excepteur
-														sint occaecat cupidatat</a></li>
-												<div class="dropdown-divider"></div>
-												<li><a href="#"
-													class="dropdown-item custom-dropmenu mt-2 text-warning"><i
-														class="data-feather me-2" data-feather="mail"></i> Aute
-														irure dolor in reprehenderit in</a></li>
-												<div class="dropdown-divider"></div>
-												<li class="text-center"><a href="#"
-													class="dropdown-item mt-2"><i class="data-feather me-2"
-														data-feather="list"></i> See All Mails</a></li>
-											</ul></li>
 
+										    <li class="nav-item dropdown nav-dropdown">
+                                                <a class="nav-item nav-link dropdown-toggle text-secondary notification" href="#" id="navbarDropdownmailAlert" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                     <i class="data-feather theme-item" data-feather="bell"></i>
+                                                     <div id="NotificationCount">
+                                                        <badge class="badge bg-danger">{{auth()->user()->unreadNotifications->count()}}</badge>
+                                                     </div>
+
+                                                </a>
+											    <ul class="dropdown-menu notification-menu" aria-labelledby="navbarDropdownmailAlert">
+                                                    <li class="text-center">
+                                                        <i class="data-feather me-2" data-feather="message-square"></i>
+                                                        Notifications
+                                                    </li>
+                                                    @php
+                                                        $url ='';
+                                                    @endphp
+                                                    <div id="unReadNotification">
+                                                        @foreach (auth()->user()->unreadNotifications as $notification)
+                                                        <li>
+                                                            @php
+                                                                $url = $notification->data['id'];
+                                                                $hashids = new Hashids\Hashids();
+
+                                                                $url = $hashids->encode($url);
+                                                            @endphp
+                                                            <a href="{{url('ShowUsers/'.$url)}}" class="dropdown-item custom-dropmenu mt-2 text-white bg-info">
+                                                                <i class="data-feather me-2" data-feather="user"></i>
+                                                                {{$notification->data['title']}}
+                                                            </a>
+                                                        </li>
+                                                        {{--   <div class="dropdown-divider"></div> --}}
+                                                        @endforeach
+                                                    </div>
+												    <div class="dropdown-divider"></div>
+												    <li class="text-center">
+                                                        <a href="#" class="dropdown-item mt-2">
+                                                            <i class="data-feather me-2" data-feather="list"></i>
+                                                            See All Notifications
+                                                        </a>
+                                                    </li>
+											    </ul>
+                                            </li>
+										</div>
 									</ul>
 								</div>
 								<div class="col-6 ">
@@ -337,7 +318,7 @@
         </script>
 
 
-<main class="py-4" >
+        <main class="py-4" >
             @yield('navsidebar')
         </main>
 
@@ -356,6 +337,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script>
+
     document.addEventListener("DOMContentLoaded", function() {
         // Function to set the active item
         function setActiveItem(index) {

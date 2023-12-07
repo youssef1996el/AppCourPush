@@ -8,7 +8,9 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use App\Notifications\RegisterNotification;
+use Illuminate\Support\Facades\Notification;
+use DB;
 class RegisterController extends Controller
 {
     /*
@@ -96,6 +98,7 @@ class RegisterController extends Controller
     {
 
         $name = $data['nom'].' '.$data['prenom'];
+
         return User::create([
 
             'nom'               => $data['nom'],
@@ -113,8 +116,16 @@ class RegisterController extends Controller
     protected function registered( $user)
     {
 
-        if ($user->role_name === 'professeur') {
+        /* if ($user->role_name === 'professeur') {
             return redirect('professeur/StepByStep');
+        } */
+        if($user->role_name === 'eleve')
+        {
+            $users = User::where('role_name', 'Admin')->get();
+            $name = $user->nom.' '.$user->prenom;
+            $iduser   = DB::select('select id from users where email = ?',[$user->email]);
+            $iduser = (int)$iduser[0]->id;
+            Notification::send($users,new RegisterNotification($name,$user->role_name,$iduser));
         }
 
         return redirect($this->redirectPath());
