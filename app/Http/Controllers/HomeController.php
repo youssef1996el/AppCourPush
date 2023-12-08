@@ -22,7 +22,13 @@ class HomeController extends Controller
      */
     public function welcome()
     {
-        $listProf = User::where('role_name','professeur')->get();
+      /*   $listProf = User::where('role_name','professeur')->get(); */
+        $listProf = DB::table('users')
+        ->join('experinceprof','experinceprof.iduser','=','users.id')
+        ->where('users.verification','=','Verifie')
+        ->where('users.role_name','=','professeur')
+        ->select('users.name','users.image','users.description','users.telephone')
+        ->get();
 
         return view('welcome')->with('listProf',$listProf);
     }

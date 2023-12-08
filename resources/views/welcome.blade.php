@@ -219,51 +219,39 @@
             </div>
         </section>
         <section id="liste-profs" >
-    <div class="container mt-5 mb-5">
-        <div class="section-title" style="  font-size: 2.1875rem;
-    font-weight: 700;
-    line-height: 1.25;
-    margin: -.5rem 0;">
-            <h2>Notre sélection de professeurs pour des cours à distance </h2>
-        </div>
-
-        <div class="row no-gutters mt-5">
-          <div class="col-sm-12 col-md-4 col-xl-4">
-            <a href="#" style="text-decoration: none;
-  color: black;">
-            <div class="card" style="padding: 20px;
-  width: 92%;">
-              <div class="text-center">
-                <img class="card-img-top" style=" width: 45%;
-  border-radius: 50%;
-  border: 3px solid aliceblue; margin-left: 84px;" src="{{asset('image/prof.jpg')}}" alt="">
-              </div>
-                <div class="card-body" style="  padding: 0;
-    margin-top: 24px ;">
-                <h4 class="card-title text-center" style=" font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.3;">Douha</h4>
-                <p class="card-text" style=" font-size: 1rem;">+21277777770</p>
-                <p class="card-text" style=" font-size: 1rem; ">lorem lorem lorem lorem lorem lorem lorem lorem</p>
+            <div class="container mt-5 mb-5">
+                <div class="section-title" style="  font-size: 2.1875rem; font-weight: 700; line-height: 1.25; margin: -.5rem 0;">
+                    <h2>Notre sélection de professeurs pour des cours à distance </h2>
+                </div>
+                <div class="row no-gutters mt-5">
+                    @foreach ($listProf as $item)
+                        <div class="col-sm-12 col-md-4 col-xl-4">
+                            <a href="#" style="text-decoration: none;color: black;">
+                                <div class="card" style="padding: 20px;width: 92%;">
+                                    <div class="text-center">
+                                        <img class="card-img-top" style=" width: 45%; border-radius: 50%; border: 3px solid aliceblue; margin-left: 84px;" src="{{$item->image}}" alt="">
+                                    </div>
+                                    <div class="card-body" style="  padding: 0;margin-top: 24px ;">
+                                        <h4 class="card-title text-center" style=" font-size: 1.5rem;font-weight: 600;line-height: 1.3;">{{$item->name}}</h4>
+                                        <p class="card-text" style=" font-size: 1rem;">{{$item->telephone}}</p>
+                                        <p class="card-text" style=" font-size: 1rem; ">{{$item->description}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            </div>
-           </a>
-          </div>
-
-      </div>
-    </div>
-
-</section>
-
+        </section>
         <footer class="footer text-dark text-center py-2">
             <div class="container">
-             <hr>
-              <p>&copy;  Your Website Name</p>
-              <div class="social-icons">
-                <a href="https://www.facebook.com/yourfacebookprofile" target="_blank"><i class="fab fa-facebook  p-2 fa-xl"></i></a>
-                <a href="https://www.twitter.com/yourtwitterprofile" target="_blank"  ><i class="fab fa-twitter  p-2 fa-xl" ></i></a>
-                <a href="https://www.github.com/yourgithubprofile" target="_blank"><i class="fab fa-instagram  p-2 fa-xl" ></i></a>
-              </div>
+                <hr>
+                <p>&copy;  Your Website Name</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/yourfacebookprofile" target="_blank"><i class="fab fa-facebook  p-2 fa-xl"></i></a>
+                    <a href="https://www.twitter.com/yourtwitterprofile" target="_blank"  ><i class="fab fa-twitter  p-2 fa-xl" ></i></a>
+                    <a href="https://www.github.com/yourgithubprofile" target="_blank"><i class="fab fa-instagram  p-2 fa-xl" ></i></a>
+                </div>
             </div>
         </footer>
     </body>
