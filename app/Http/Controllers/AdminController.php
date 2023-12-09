@@ -415,14 +415,9 @@ class AdminController extends Controller
                 $chartWithCountryNames[] = $chartData;
             }
         }
-        $maxValue = DB::select("SELECT SUM(cnt) as total_count
-        FROM (
-            SELECT COUNT(*) as cnt
-            FROM users
-            WHERE role_name = 'eleve' AND pays IS NOT NULL
-            GROUP BY pays
-        ) AS counts");
-
+        $maxValue = DB::select("SELECT SUM(cnt) as total_count FROM (
+                    SELECT COUNT(*) as cnt FROM users WHERE role_name = 'eleve' AND pays IS NOT NULL
+                    GROUP BY pays) AS counts");
         return response()->json([
             'status'       => 200,
             'data'    => $chartWithCountryNames,

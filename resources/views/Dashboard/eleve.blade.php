@@ -7,7 +7,7 @@
     <div class="row ">
         <div class="col-sm-12 col-md-12 col-xl-12">
           <h2 style="padding-left: 12px;font-family: times;">Liste des élèves </h2>
-          <table class="table-primary  align-middle mb-0 bg-white" id="tableListEleve" style="margin-top: 20px;width: 84%;margin-left: 26px;">
+          <table class="table-primary  align-middle mb-0 bg-white w-100" id="tableListEleve" style="margin-top: 20px;width: 84%;">
             <thead class="">
               <tr>
                 <th>Nom</th>
@@ -37,7 +37,7 @@
                         <td>
                             <span class="">Active</span>
                         </td>
-                        <td>
+                        <td class="d-flex align-items-end">
                             <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" >
                                 <i class="fa-solid fa-eye"></i>
                             </button>

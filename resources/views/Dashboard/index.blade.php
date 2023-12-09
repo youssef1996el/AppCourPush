@@ -62,7 +62,7 @@
 
 			</nav>
 
-			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');height:100%;background-repeat: no-repeat;background-position:center;background-size:cover">
+			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');background-repeat: no-repeat;background-position:center;background-size:cover; object-fit: cover;">
 
 				<nav class="navbar navbar-expand-md  bg-white py-0" aria-label="navbarexample" id="navbar" >
 					<div class="container-fluid">

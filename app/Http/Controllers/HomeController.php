@@ -22,7 +22,6 @@ class HomeController extends Controller
      */
     public function welcome()
     {
-      /*   $listProf = User::where('role_name','professeur')->get(); */
         $listProf = DB::table('users')
         ->join('experinceprof','experinceprof.iduser','=','users.id')
         ->where('users.verification','=','Verifie')

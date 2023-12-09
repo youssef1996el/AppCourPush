@@ -33,3 +33,51 @@
     margin-bottom: 16px;
     border-radius: 6px;
 }
+.ContentTime
+{
+   /*  width: 62%; */
+    border:1px solid rgb(218, 218, 218);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    index:-1;
+}
+tbody, td, tfoot, th, thead, tr {
+    padding: 20px 0px;
+}
+.dropdownTime
+{
+    width: 70rem;
+}
+.line {
+  width: 100%;
+  text-align: center;
+  border-bottom: 0px solid #000;
+  line-height: 0.01em;
+  margin: 20px 0 20px;
+}
+
+.line img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.text {
+  background: #fff;
+  padding: 10px 10px;
+  font-size: 18px;
+}
+
+.container-hours {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.btn-row {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.dropdown.show .dropdown-menu {
+  width: auto;
+}

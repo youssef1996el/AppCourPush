@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use DB;
+use App\Models\Cours;
 class EleveController extends Controller
 {
     public function index()
     {
 
 
-
-        return view('profile.eleve');
+        $cours = Cours::all();
+        return view('profile.eleve')->with('cours', $cours);
     }
 
     public function GetpProfesseur()
