@@ -52,11 +52,13 @@ font-size: 16px;
     padding: 0px 0px 0px 4px;}
 .card-cours {
 
-    background: white;
+    background: #ffffff70;
     padding: 8px;
     display: inline-block;
     border-radius: 0px;
-    border: 1px solid #bdbbbb;
+    border: 1px solid #ffffff70;
+    color: black;
+
 }
 .card-cours p{
     margin-right: 10px;
@@ -65,9 +67,9 @@ font-size: 16px;
     margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
 }
 .card-cours:hover {
-    background: #e8e8e8;
-    border: 1px solid #e8e8e8;
-    color: #4f4e4e;
+    background: #7db8f7a8;
+    border: 1px solid #7db8f7a8;
+    color: white;
     cursor: pointer;
 }
 .divScrollCours
@@ -141,117 +143,82 @@ font-size: 16px;
   }
 
   /* //////////////////// */
-  .timeline{
-    width: 498px;
-    margin: -46px 6px;
+.timeline{
+    margin-top: -16px;
+    width: 100%;
+    max-height: 183px;
+    overflow-y: auto !important;
 }
-.timeline ul{
-    margin-left: 90px;
-    padding-left: 22px;
+.timeline::-webkit-scrollbar {
+    width: 2px; /* Set your desired width */
+}
+.timeline::-webkit-scrollbar-thumb {
+    background-color: #555; /* Set the color of the scrollbar thumb */
+}
+
+.timeline::-webkit-scrollbar-track {
+    background-color: #ddd; /* Set the color of the scrollbar track */
+}
+.second-section{
     border-left: 4px solid gray;
+    margin-left: -36px;
 }
-.timeline li{
-    margin: 40px 0;
-    position:relative;
+.timeline-content{
+    background-color: #ffffff70;
+    margin-left: 13px;
+    height: 74px;
+    padding: 6px 14px 30px 12px;
+}
+.ecole{
+    float: right;
+  color: gray;
+  font-size: 18px;
+
+  font-style: italic;
 
 }
-.timeline a{
-    text-decoration: none;
+.timeline-title{
     font-size: 22px;
-    color: #343232;
-    top: 20px;
-    z-index: 2;
-    transition: 0.2s linear;
-    font-weight: 700;
+    font-weight: bold;
+    text-transform: uppercase;
 }
-.timeline .date{
-    position: absolute;
-    top: 50%;
-    left: -102px;
-    margin-top: -20px;
-    font-size: 16px;
-    color: gray;
-}
-.timeline .pays{
-    position: absolute;
-    top: 90%;
-    left: -102px;
-    margin-top: -20px;
-    font-size: 14px;
-    color: gray;
+.pays{
+    margin-left: 30px;
     font-style: italic;
 }
-.timeline .circle{
-    position: absolute;
-    top: 50%;
-    left: -34px;
-    margin-top: -10px;
+.timeline-item::before{
+    content: '';
+    display: block;
     width: 20px;
     height: 20px;
-    background: aliceblue;
-    border: 2px solid gray;
     border-radius: 50%;
-}
-.timeline .timeline-content{
-    max-height:20px;
-    padding:50px 20p 0 20px;
-    border:2px solid transparent;
-    border-radius:10px;
-    position:relative;
-    transition:0.2s linear;
-}
-
-
-.timeline .timeline-item:hover .timeline-content::after {
+    background-color: white;
+    border: 3px solid gray;
+    position: absolute;
+    top: 29px; /* Adjust the top position relative to the parent */
+    left: 114px;
+    }
+.timeline-item::after{
     content: '';
     width: 0;
     height: 0;
-    position: absolute;
-    right: 100%;
-    border: solid transparent;
-    transition: 0.2s linear;
-    border-right-color: #8080804d;
+    border-style: solid;
     border-width: 14px;
-    margin: -61px 0px;
+    border-color: transparent #ffffff70 transparent transparent;
+    position: absolute;
+    top: 23px;
+    left: 123px;}
+
+    .timeline-item {
+        position: relative; /* Add relative positioning to the parent container */
+    }
+
+.timeline-dates{
+    color: #6f6b6b;
+    margin-left: -10px;
+    margin-top: 28px;
+    color: #6f6b6b;
 }
-
-
-
-.timeline .timeline-content p{
-   max-height:0;
-   color:transparent;
-   margin-bottom:15px;
-   transition:0.2s linear;
-
-}
-/* .timeline .timeline-item:hover a{
-    transform: translateX(42px);
-    border: 1px solid #8080804d;
-    padding: 8px 110px 42px 4px;
-    background-color: #8080804d;
-    margin-left: 2px;
-
-} */
-.timeline .timeline-item:hover a {
-    transform: translateX(42px);
-    border: 1px solid #8080804d;
-    padding: 8px 110px 42px 4px;
-    background-color: #8080804d;
-    margin-left: 2px;
-}
-.timeline .timeline-item:hover .circle{
-    background:white;
-
-}
-
-.timeline .timeline-item:hover .timeline-content p{
-    max-height:200px;
-    color:black;
-    margin-left: 6px;
-
-}
-
-
 /* button */
 
 .showMore , .showLess{
@@ -277,5 +244,6 @@ font-size: 16px;
     border: 1px solid #86b3db;;
 
 }
+
 
 

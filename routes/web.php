@@ -76,6 +76,12 @@ Route::get('GetChartByCountry'        ,[AdminController::class,'GetChartByCountr
 
 /******************************************** End Dashboard Admin ***********************************************/
 
+/********************************************* Stripe  ****************************************************/
+Route::get('Account/store/checkout',function()
+{
+    return view('Stripe.index');
+});
+/********************************************* End Stripe **************************************************/
 Route::get('/prof/{name}/{id}',function()
 {
     return view('Profile.index');
