@@ -284,8 +284,19 @@
                                 <div class="tab-pane" id="cours">
                                     <div class="row">
                                         <h4 class="info-text"> Quelles sont les cours dans lesquelles vous pouvez aider des élèves ? </h4>
+                               <!--          <div class="List-Courses">
+                                            <div class="input-cours">
+                                                <input placeholder="Ajouter des cours" type="text">
+                                                <button type="submit">Ajouter</button>
+                                            </div>
+                                            <div class="ListeCours">
 
-                                        <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
+                                            </div>
+                                        </div>
+                                         -->
+
+
+                                   <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
                                             @foreach ($Cours as $index => $cour)
                                                 <table>
                                                     <tr>
@@ -297,7 +308,7 @@
                                                 </table>
                                             @endforeach
                                             <div class="cours-error "></div>
-                                        </div>
+                                        </div> 
                                     </div>
 
                                 </div>
@@ -613,22 +624,32 @@
                     if ($('.divHours').find('div:contains(' + textToAppend + ')').length === 0)
                     {
                         var divToAppend = $('<div style="display: flex; align-items: center; padding: 20px;">' +
-                                                '<table style="width: 100%;">' +
-                                                    '<tr >' +
-                                                        '<th colspan="5" style="font-size: 26px;text-align: center;" class="nameDays">'+
-                                                            '<input type="text" value='+textToAppend+' name="days[]" style="border:none;text-align: center;"/>'+
-                                                        '</th>' +
-                                                    '</tr>' +
-                                                    '<tr>' +
-                                                        '<th><label for="start-time1" >Heure de début</label></th>' +
-                                                        '<th><input type="time" id="start-time1" class="heuredebut" name="heuredebut[]"></th>' +
-                                                        '<th><label for="start-time2" >Heure de fin</label></th>' +
-                                                        '<th><input type="time" id="start-time2" class="heurefin" name="heurefin[]"></th>' +
-                                                        '<th><i class="fa-solid fa-xmark" style="border: 1px solid gray; cursor: pointer; font-size: 30px; color: red; "></i></th>' +
-                                                    '</tr>' +
-                                                '</table>' +
-                                            '</div>'+
-                                            '<hr style="width:80%">');
+    '<table style="width: 100%;">' +
+        '<tr>' +
+            '<th colspan="6" style="font-size: 26px;text-align: center;" class="nameDays">' +
+                '<input type="text" value=' + textToAppend + ' name="days[]" style="border:none;text-align: center;"/>' +
+            '</th>' +
+        '</tr>' +
+        '<tr>' +
+            '<th><label for="day-type">Choisir un cours</label></th>' +
+            '<th>' +
+                '<select id="day-type" name="daytype[]" style="height: 26px; width: 136px;padding: 4px;background: transparent;border: 1px solid gray;">' +
+                    '<option value="work">Les cours</option>' +
+                    '<option value="weekend">Weekend</option>' +
+                    '<option value="holiday">Jour férié</option>' +
+                    '<option value="other">Autre</option>' +
+                '</select>' +
+            '</th>' +
+            '<th><label for="start-time1">Heure de début</label></th>' +
+            '<th><input type="time" id="start-time1" class="heuredebut" name="heuredebut[]"></th>' +
+            '<th><label for="start-time2">Heure de fin</label></th>' +
+            '<th><input type="time" id="start-time2" class="heurefin" name="heurefin[]"></th>' +
+            '<th><i class="fa-solid fa-xmark" style="border: 1px solid gray; cursor: pointer; font-size: 30px; color: red; "></i></th>' +
+        '</tr>' +
+    '</table>' +
+'</div>' +
+'<hr style="width:80%">');
+
 
 
                         var $divToAppend = $(divToAppend);

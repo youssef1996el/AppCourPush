@@ -12,6 +12,7 @@
 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
+ 
 
 body
 {
@@ -1223,3 +1224,50 @@ body
  a{
    text-decoration: none !important;
  }
+
+.List-Courses{
+     padding: 14px 46px 14px 46px;
+ }
+.input-cours {
+display: inline-block;
+position: relative;
+}
+
+.input-cours input[type="text"] {
+width: 400px;
+padding: 10px;
+border: none;
+border-radius: 0px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.input-cours:focus {
+border-color:pink;
+}
+
+
+.input-cours button[type="submit"] {
+background-color: #4e99e9;
+border: none;
+color: #fff;
+cursor: pointer;
+padding: 10px 20px;
+border-radius: 0px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+position: absolute;
+top: 0;
+right: 0;
+transition: .9s ease;
+}
+
+.input-cours button[type="submit"]:hover {
+transform: scale(1.1);
+color: rgb(255, 255, 255);
+background-color: #2890ff;
+}
+.ListCours{
+  background: #fbfafa;
+  height: 210px;
+  width: 100%;
+  margin-top: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
