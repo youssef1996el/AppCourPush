@@ -67,11 +67,10 @@ class ProfesseurController extends Controller
             $disponibilityByDay[$item1->jour] = $item1;
         }
 
-<<<<<<< HEAD
+
        /*  dd($ExperinceProf); */
-=======
+
          
->>>>>>> 3fc647ac09e251e6ad26d0c0aa0445deb8e90a8b
         return view('Profile.show')
         ->with('FormationProf',$FormationProf)
         ->with('ExperinceProf',$ExperinceProf)

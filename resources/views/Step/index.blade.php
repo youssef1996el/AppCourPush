@@ -284,7 +284,7 @@
                                 <div class="tab-pane" id="cours">
                                     <div class="row">
                                         <h4 class="info-text"> Quelles sont les cours dans lesquelles vous pouvez aider des élèves ? </h4>
-                                            <div class="List-Courses">
+                                          <!--   <div class="List-Courses">
                                                     <div class="input-cours">
                                                         <input placeholder="Ajouter des cours" type="text">
                                                         <button type="submit">Ajouter</button>
@@ -292,11 +292,11 @@
                                                     <div class="ListeCours">
 
                                                     </div>
-                                            </div>
+                                            </div> -->
                                                 
 
 
-                                        <!-- <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
+                                         <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
                                             @foreach ($Cours as $index => $cour)
                                                 <table>
                                                     <tr>
@@ -308,7 +308,7 @@
                                                 </table>
                                             @endforeach
                                             <div class="cours-error "></div>
-                                        </div>  -->
+                                        </div>  
                                     </div>
 
                                 </div>
