@@ -41,8 +41,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('Admin/Profile')}}"><i
-							class="data-feather theme-item"  data-feather="home"></i> <span
+                        <a href="{{url('Admin/Profile')}}"><i class="fa fa-user" aria-hidden="true"></i>
+							 <span
 							class="theme-item"> Profile</span>
                         </a>
                     </li>
@@ -62,7 +62,7 @@
 
 			</nav>
 
-			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');background-repeat: no-repeat;background-position:center;background-size:cover; object-fit: cover;">
+			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');height:100%;background-repeat: no-repeat;background-position:center;background-size:cover">
 
 				<nav class="navbar navbar-expand-md  bg-white py-0" aria-label="navbarexample" id="navbar" >
 					<div class="container-fluid">
@@ -357,10 +357,11 @@
         // Define your URL patterns and corresponding index
         var urlPatterns = [
             { pattern: 'index.html', index: 0 },
-            { pattern: 'Dashboard/cours', index: 1 },
-            { pattern: 'professeurs', index: 2 },
-            { pattern: 'eleves', index: 3 },
-            { pattern: 'extras.html', index: 4 }
+            { pattern: 'Admin/Profile', index: 1 },
+			{ pattern: 'Dashboard/cours', index: 2 },
+            { pattern: 'professeurs', index: 3 },
+            { pattern: 'eleves', index: 4 },
+            { pattern: 'extras.html', index: 5 }
         ];
 
         // Determine the active index based on the current URL

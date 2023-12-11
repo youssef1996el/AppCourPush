@@ -56,6 +56,9 @@ Route::post('reset-password'        , [ForgotPasswordController::class, 'submitR
 /******************************************* Professeur  ***************************************************/
 Route::get('professeur/StepByStep' ,[ProfesseurController::class,'StepByStep'])->name('professeur/StepByStep');
 Route::get('ShowProfileProf'       ,[ProfesseurController::class,'ShowProfile'])->name('ShowProfileProf');
+Route::post('StoreCoursProf'       ,[ProfesseurController::class,'StoreCoursProf']);
+Route::post('DestroyCoursProf'     ,[ProfesseurController::class,'DestroyCoursProf']);
+Route::get('getCoursByProf'     ,[ProfesseurController::class,'getCoursByProf']);
 /******************************************* End Professeur *************************************************/
 
 /******************************************** Eleve *********************************************************/

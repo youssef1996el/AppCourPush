@@ -8,6 +8,7 @@ use App\Models\Cours;
 use DateTime;
 use DB;
 use Auth;
+use App\Models\CoursProfesseur;
 class ProfesseurController extends Controller
 {
     public function StepByStep()
@@ -39,35 +40,10 @@ class ProfesseurController extends Controller
             $hours = $diff->h + $diff->i / 60;
 
             $item1->calculhour = $hours;
-           /*  if($item1->calculhour <=2)
-            {
-                $item1->heightdisponible = '20px';
-                $item1->heightNoDisponible ='80px';
-            }
-            else if($item1->calculhour <=4)
-            {
-                $item1->heightdisponible = '40px';
-                $item1->heightNoDisponible ='60px';
-            }
-            else if($item1->calculhour <=6)
-            {
-                $item1->heightdisponible = '60px';
-                $item1->heightNoDisponible ='40px';
-            }
-            else if($item1->calculhour <=8)
-            {
-                $item1->heightdisponible = '80px';
-                $item1->heightNoDisponible ='20px';
-            }
-            else
-            {
-                $item1->heightdisponible = '100px';
-                $item1->heightNoDisponible ='0px';
-            } */
+
             $disponibilityByDay[$item1->jour] = $item1;
         }
 
-       /*  dd($ExperinceProf); */
         return view('Profile.show')
         ->with('FormationProf',$FormationProf)
         ->with('ExperinceProf',$ExperinceProf)
@@ -76,4 +52,94 @@ class ProfesseurController extends Controller
         ->with('disponibilityByDay',$disponibilityByDay)
         ->with('CourProf',$CourProf);
     }
+
+    public function StoreCoursProf(Request $request)
+    {
+
+        try
+        {
+            $checkCoursIsExist = Cours::where('title',$request->nameCours)->count();
+            if($checkCoursIsExist == 0)
+            {
+                $Cours = Cours::create([
+                    'title'         => $request->nameCours,
+                    'iduser'        => Auth::user()->id,
+                ]);
+                $CoursProfesseur = CoursProfesseur::create([
+                    'idcours'       => $Cours->id,
+                    'iduser'        => Auth::user()->id,
+                ]);
+                $dataCoursProf = DB::table('cours')
+                ->join('courprof','courprof.idcours','cours.id')
+                ->where('courprof.iduser',Auth::user()->id)
+                ->select('cours.id','cours.title')
+                ->get();
+                return response()->json([
+                    'status'        => 200,
+                    'data'          => $dataCoursProf
+                ]);
+            }
+            else
+            {
+                $idCours = Cours::where('title',$request->nameCours)->select('id')->get();
+                $idCours = (int)$idCours[0]->id;
+                $checkCoursisExistProf = CoursProfesseur::where('idcours',$idCours)->count();
+                if($checkCoursisExistProf == 0)
+                {
+                    $CoursProfesseur = CoursProfesseur::create([
+                        'idcours'       => $idCours,
+                        'iduser'        => Auth::user()->id,
+                    ]);
+                }
+                else
+                {
+                    return response()->json([
+                        'status'       => 400,
+                    ]);
+                }
+                $dataCoursProf = DB::table('cours')
+                ->join('courprof','courprof.idcours','cours.id')
+                ->where('courprof.iduser',Auth::user()->id)
+                ->select('cours.id','cours.title')
+                ->get();
+                return response()->json([
+                    'status'        => 200,
+                    'data'          => $dataCoursProf
+                ]);
+            }
+        }
+        catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function DestroyCoursProf(Request $request)
+    {
+        try
+        {
+            $DeleteCoursProf = CoursProfesseur::where('idcours',$request->idCours)->delete();
+            return response()->json([
+                'status'        => 200,
+            ]);
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
+    }
+
+    public function getCoursByProf()
+    {
+        $dataCoursProf = DB::table('cours')
+        ->join('courprof','courprof.idcours','cours.id')
+        ->where('courprof.iduser',Auth::user()->id)
+        ->select('cours.id','cours.title')
+        ->get();
+        return response()->json([
+            'status'        => 200,
+            'data'          => $dataCoursProf
+        ]);
+    }
+
+
 }

@@ -165,11 +165,11 @@ var bootstrapWizardCreate = function(element, options) {
         }
         else if(panelActive === 'cours')
         {
-            var checkedCour = $('.tab-pane.active').find('.checkCour:checked');
+            var checkedCour = $('.tab-pane.active').find('#tags li');
 
             $(".error").empty();
             if (checkedCour.length === 0) {
-                var coursError = $('.cours-error');
+                var coursError = $('.errorCours');
                 coursError.text("Sélectionnez au moins un cours");
                 coursError.css({
                     'color': 'red',
@@ -452,11 +452,11 @@ var bootstrapWizardCreate = function(element, options) {
         }
         else if(panelActive === 'cours')
         {
-            var checkedCour = $('.tab-pane.active').find('.checkCour:checked');
-
+            var checkedCour = $('.tab-pane.active').find('#tags li');
+            console.log(checkedCour.length);
             $(".error").empty();
             if (checkedCour.length === 0) {
-                var coursError = $('.cours-error');
+                var coursError = $('.errorCours');
                 coursError.text("Sélectionnez au moins un cours");
                 coursError.css({
                     'color': 'red',

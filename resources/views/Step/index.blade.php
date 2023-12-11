@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/gsdk-bootstrap-wizard.css')}}">
     <link rel="stylesheet" href="{{asset('css/demo.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
@@ -129,7 +130,7 @@
 
                                             <div class="form-group">
                                                 <label for="phone">Numero de telephone:</label>
-                                                <input type="tel" id="phone" name="phone" maxlength="13" placeholder="" oninput="formatPhoneNumber(this)" required>
+                                                <input type="tel" id="phone" name="phone" maxlength="13" placeholder=""{{--  oninput="formatPhoneNumber(this)" --}} required>
 
                                             </div>
                                         </div>
@@ -284,20 +285,34 @@
                                 <div class="tab-pane" id="cours">
                                     <div class="row">
                                         <h4 class="info-text"> Quelles sont les cours dans lesquelles vous pouvez aider des élèves ? </h4>
-
-                                        <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
-                                            @foreach ($Cours as $index => $cour)
-                                                <table>
-                                                    <tr>
-                                                        <div class="checkboxes">
-                                                            <input id="checkbox{{$index}}" type="checkbox" class="checkCour" name="courProf[]" value="{{$cour->id}}" >
-                                                            <label for="checkbox{{$index}}">{{$cour->title}}</label>
+                                            <div class="List-Courses">
+                                                    <div class="input-cours">
+                                                        <input placeholder="Ajouter des cours" type="text" id="input-tag">
+                                                        <button type="button" id="AddCours" >Ajouter</button>
+                                                        <div class="errorCours"></div>
+                                                    </div>
+                                                    <div class="ListeCours">
+                                                        <div class="tags-input">
+                                                            <ul id="tags"></ul>
                                                         </div>
-                                                    </tr>
-                                                </table>
-                                            @endforeach
-                                            <div class="cours-error "></div>
-                                        </div>
+                                                    </div>
+                                            </div>
+
+
+
+                                            {{--  <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
+                                                    @foreach ($Cours as $index => $cour)
+                                                        <table>
+                                                            <tr>
+                                                                <div class="checkboxes">
+                                                                    <input id="checkbox{{$index}}" type="checkbox" class="checkCour" name="courProf[]" value="{{$cour->id}}" >
+                                                                    <label for="checkbox{{$index}}">{{$cour->title}}</label>
+                                                                </div>
+                                                            </tr>
+                                                        </table>
+                                                    @endforeach
+                                                    <div class="cours-error "></div>
+                                                </div>   --}}
                                     </div>
 
                                 </div>
@@ -377,8 +392,194 @@
     {
         color: red;
     }
+    .errorCours
+    {
+        color: red;
+    }
+    .ListeCours .tags-input {
+            display: inline-block;
+            position: relative;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            box-shadow: 2px 2px 5px #00000033;
+            width: 100%;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .ListeCours .tags-input ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ListeCours .tags-input li {
+            display: inline-block;
+            background-color: #f2f2f2;
+            color: #333;
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .ListeCours .tags-input input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .ListeCours .tags-input input[type="text"]:focus {
+            outline: none;
+        }
+
+        .ListeCours .tags-input .delete-button {
+            background-color: transparent;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            margin-left: 5px;
+        }
 </style>
     <script>
+            function GetCoursProfSession()
+            {
+                const $tags = $('#tags');
+                $tags.empty();
+                $.ajax({
+                    type: "get",
+                    url: "{{url('getCoursByProf')}}",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.status == 200) {
+                            $.each(response.data, function (index, value) {
+
+                                const $tag = $('<li></li>');
+
+
+                                $tag.text(value.title);
+
+
+                                $tag.append('<button type="button" class="delete-button" value=' + value.id + '>X</button>');
+
+
+                                $tags.append($tag);
+                            });
+                        }
+                    }
+                });
+            }
+
+            GetCoursProfSession();
+
+            const $tags = $('#tags');
+            const $input = $('#input-tag');
+            $('#AddCours').on('click',function(event)
+            {
+                event.preventDefault();
+                const $tag = $('<li></li>');
+                const tagContent = $input.val().trim();
+                if (tagContent !== '')
+                {
+                    $.ajax({
+                        type: "post",
+                        url: "{{url('StoreCoursProf')}}",
+                        headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+                        data:
+                        {
+                            nameCours : tagContent,
+                        },
+                        dataType: "json",
+                        success: function (response)
+                        {
+                            if(response.status == 200)
+                            {
+                                $.each(response.data, function (index, value)
+                                {
+                                    $tag.text(value.title);
+                                    $tag.append('<button type="button" class="delete-button" value='+value.id+'>X</button>');
+                                    $tags.append($tag);
+                                });
+                                $input.val('');
+                            }
+                            if(response.status == 400)
+                            {
+                                $('.errorCours').text('cours déja existe');
+                                $input.val('');
+                            }
+                        }
+                    });
+                }
+            });
+            $input.on('keydown', function (event) {
+                if (event.key === 'Enter')
+                {
+                    $('.errorCours').empty();
+                    event.preventDefault();
+                    const $tag = $('<li></li>');
+                    const tagContent = $input.val().trim();
+                    if (tagContent !== '')
+                    {
+                        $.ajax({
+                            type: "post",
+                            url: "{{url('StoreCoursProf')}}",
+                            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+                            data:
+                            {
+                                nameCours : tagContent,
+                            },
+                            dataType: "json",
+                            success: function (response)
+                            {
+                                if(response.status == 200)
+                                {
+                                    $.each(response.data, function (index, value)
+                                    {
+                                        $tag.text(value.title);
+                                        $tag.append('<button type="button" class="delete-button" value='+value.id+'>X</button>');
+                                        $tags.append($tag);
+
+                                    });
+                                    $input.val('');
+
+                                }
+                                if(response.status == 400)
+                                {
+                                    $('.errorCours').text('cours déja existe');
+                                    $input.val('');
+                                }
+                            }
+                        });
+
+                    }
+                }
+            });
+
+            $tags.on('click', '.delete-button', function ()
+            {
+                $.ajax({
+                    type: "post",
+                    url: "{{url('DestroyCoursProf')}}",
+                    headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+                    data:
+                    {
+                        idCours : $(this).attr('value'),
+                    },
+                    dataType: "json",
+                    success: function (response)
+                    {
+                        if(response.status == 200)
+                        {
+                            GetCoursProfSession();
+                            $(this).parent().remove();
+                        }
+                    }
+                });
+
+            });
 
             document.querySelectorAll('.checkboxes .checkCour').forEach(function(checkbox) {
 
@@ -613,22 +814,32 @@
                     if ($('.divHours').find('div:contains(' + textToAppend + ')').length === 0)
                     {
                         var divToAppend = $('<div style="display: flex; align-items: center; padding: 20px;">' +
-                                                '<table style="width: 100%;">' +
-                                                    '<tr >' +
-                                                        '<th colspan="5" style="font-size: 26px;text-align: center;" class="nameDays">'+
-                                                            '<input type="text" value='+textToAppend+' name="days[]" style="border:none;text-align: center;"/>'+
-                                                        '</th>' +
-                                                    '</tr>' +
-                                                    '<tr>' +
-                                                        '<th><label for="start-time1" >Heure de début</label></th>' +
-                                                        '<th><input type="time" id="start-time1" class="heuredebut" name="heuredebut[]"></th>' +
-                                                        '<th><label for="start-time2" >Heure de fin</label></th>' +
-                                                        '<th><input type="time" id="start-time2" class="heurefin" name="heurefin[]"></th>' +
-                                                        '<th><i class="fa-solid fa-xmark" style="border: 1px solid gray; cursor: pointer; font-size: 30px; color: red; "></i></th>' +
-                                                    '</tr>' +
-                                                '</table>' +
-                                            '</div>'+
-                                            '<hr style="width:80%">');
+    '<table style="width: 100%;">' +
+        '<tr>' +
+            '<th colspan="6" style="font-size: 26px;text-align: center;" class="nameDays">' +
+                '<input type="text" value=' + textToAppend + ' name="days[]" style="border:none;text-align: center;"/>' +
+            '</th>' +
+        '</tr>' +
+        '<tr>' +
+            '<th><label for="day-type">Choisir un cours</label></th>' +
+            '<th>' +
+                '<select id="day-type" name="daytype[]" style="height: 26px; width: 136px;padding: 4px;background: transparent;border: 1px solid gray;">' +
+                    '<option value="work">Les cours</option>' +
+                    '<option value="weekend">Weekend</option>' +
+                    '<option value="holiday">Jour férié</option>' +
+                    '<option value="other">Autre</option>' +
+                '</select>' +
+            '</th>' +
+            '<th><label for="start-time1">Heure de début</label></th>' +
+            '<th><input type="time" id="start-time1" class="heuredebut" name="heuredebut[]"></th>' +
+            '<th><label for="start-time2">Heure de fin</label></th>' +
+            '<th><input type="time" id="start-time2" class="heurefin" name="heurefin[]"></th>' +
+            '<th><i class="fa-solid fa-xmark" style="border: 1px solid gray; cursor: pointer; font-size: 30px; color: red; "></i></th>' +
+        '</tr>' +
+    '</table>' +
+'</div>' +
+'<hr style="width:80%">');
+
 
 
                         var $divToAppend = $(divToAppend);
