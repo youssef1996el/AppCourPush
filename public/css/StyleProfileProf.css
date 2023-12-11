@@ -44,7 +44,7 @@ font-size: 16px;
 }
 
 .title-card{
-  padding: 10px 0px 0px 26px;
+  padding: 10px 0px 12px 26px;
   font-size: 26px;
 }
 
@@ -143,50 +143,56 @@ font-size: 16px;
   }
 
   /* //////////////////// */
-.timeline{
+/*   .timeline {
     margin-top: -16px;
     width: 100%;
     max-height: 183px;
     overflow-y: auto !important;
 }
+
 .timeline::-webkit-scrollbar {
-    width: 2px; /* Set your desired width */
+    width: 2px;
 }
+
 .timeline::-webkit-scrollbar-thumb {
-    background-color: #555; /* Set the color of the scrollbar thumb */
+    background-color: #555;
 }
 
 .timeline::-webkit-scrollbar-track {
-    background-color: #ddd; /* Set the color of the scrollbar track */
+    background-color: #ddd;
 }
-.second-section{
+
+.second-section {
     border-left: 4px solid gray;
     margin-left: -36px;
 }
-.timeline-content{
+
+.timeline-content {
     background-color: #ffffff70;
     margin-left: 13px;
     height: 74px;
     padding: 6px 14px 30px 12px;
 }
-.ecole{
+
+.ecole {
     float: right;
-  color: gray;
-  font-size: 18px;
-
-  font-style: italic;
-
+    color: gray;
+    font-size: 18px;
+    font-style: italic;
 }
-.timeline-title{
+
+.timeline-title {
     font-size: 22px;
     font-weight: bold;
     text-transform: uppercase;
 }
-.pays{
+
+.pays {
     margin-left: 30px;
     font-style: italic;
 }
-.timeline-item::before{
+
+.timeline-item::before {
     content: '';
     display: block;
     width: 20px;
@@ -195,10 +201,11 @@ font-size: 16px;
     background-color: white;
     border: 3px solid gray;
     position: absolute;
-    top: 29px; /* Adjust the top position relative to the parent */
+    top: 29px;
     left: 114px;
-    }
-.timeline-item::after{
+}
+
+.timeline-item::after {
     content: '';
     width: 0;
     height: 0;
@@ -207,40 +214,124 @@ font-size: 16px;
     border-color: transparent #ffffff70 transparent transparent;
     position: absolute;
     top: 23px;
-    left: 123px;}
+    left: 123px;
+}
 
-    .timeline-item {
-        position: relative; /* Add relative positioning to the parent container */
-    }
+.timeline-item {
+    position: relative;
+}
 
-.timeline-dates{
+.timeline-dates {
     color: #6f6b6b;
     margin-left: -10px;
     margin-top: 28px;
     color: #6f6b6b;
-}
-/* button */
+} */
 
-.showMore , .showLess{
+/* Show/Hide button styling */
+.showMore, .showLess {
     text-transform: lowercase;
-    background-color: rgb(203, 224, 242);
+    background-color: #1685b8;
+    color: white;
+    border: 1px solid #1685b8;
+    margin-top: -50px;
+    margin-left: 30px;
+    border-radius: 0px;
+    border-radius: 0px;
+}
+
+.showMore:hover, .showLess:hover {
+    background-color: #1a475b;
+    color: white;
+    border: 1px solid #1a475b;
+}
+
+.timeline {
+    color: #fff;
+    padding: 30px 20px;
+    /* box-shadow:0px 0px 10px rgba(0,0,0,.5); */
+    margin-top: -30px;
+  }
+
+  .timeline ul {
+    list-style-type: none;
+    border-left: 4px solid #094a68;
+    padding: 10px 5px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .timeline ul li {
+    padding: 14px 20px 0px 20px;
+    position: relative;
+    cursor: pointer;
+    transition: .5s;
+    background: #a5c6e2;
+    margin-bottom: 10px;
+  }
+
+  .timeline ul li span {
+    display: inline-block;
+    background-color: #1685b8;
+    border-radius: 25px;
+    padding: 2px 5px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .timeline ul li .timeline-content h3 {
     color: black;
-    border: 1px solid aliceblue;
-    margin-top: 15px;
+    font-size: 26px;
+    padding-top: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
 
-}
+  .timeline ul li .timeline-content p {
+    padding: 5px 0px 0px 0px;
+    font-size: 18px;
+    color: #4a4848;
 
-.showMore:hover{
+    font-style: italic;
+  }
 
-    background-color: white;
-    color: #86b3db;
-    border: 1px solid #86b3db;;
+  .timeline ul li::before {
+    position: absolute;
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: #094a68;
+    border-radius: 50%;
+    left: -15px;
+    top: 28px;
+    transition: .5s;
+    border: 2px solid #a5c6e2;
+  }
 
-}
-.showLess:hover{
 
-    background-color: white;
-    color: #86b3db;
-    border: 1px solid #86b3db;;
+  .timeline ul li:hover {
+    background-color: #0d3b4f;
+  }
 
-}
+  .timeline ul li:hover .timeline-content h3{
+    color: #fff;
+    font-weight: bold;
+  }
+  .timeline ul li:hover .timeline-content p {
+    color: #d7f2ff;;
+  }
+
+  .timeline ul li:hover:before {
+    background-color: #3180b9;
+    box-shadow: 0px 0px 10px 2px #3180b9;
+  }
+  @media (max-width:300px){
+    .timeline{
+      width:100%;
+      padding:30px 5px 30px 10px;
+    }
+    .timeline ul li .timeline-content h3{
+      color:#34ace0;
+      font-size:15px;
+    }
+  }

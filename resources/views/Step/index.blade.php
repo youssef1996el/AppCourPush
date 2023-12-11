@@ -285,57 +285,22 @@
                                 <div class="tab-pane" id="cours">
                                     <div class="row">
                                         <h4 class="info-text"> Quelles sont les cours dans lesquelles vous pouvez aider des élèves ? </h4>
-                                          <!--   <div class="List-Courses">
-                                                    <div class="input-cours">
-                                                        <input placeholder="Ajouter des cours" type="text" id="input-tag">
-                                                        <button type="button" id="AddCours" >Ajouter</button>
-                                                        <div class="errorCours"></div>
-                                                    </div>
-                                                    <div class="ListeCours">
-                                                        <div class="tags-input">
-                                                            <ul id="tags"></ul>
-                                                        </div>
-                                                    </div>
-<<<<<<< HEAD
+                                        <div class="List-Courses">
+                                            <div class="input-cours">
+                                                <input placeholder="Ajouter des cours" type="text" id="input-tag">
+                                                <button type="button" id="AddCours" >Ajouter</button>
+                                                <div class="errorCours"></div>
                                             </div>
-
-
-
-                                            {{--  <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
-                                                    @foreach ($Cours as $index => $cour)
-                                                        <table>
-                                                            <tr>
-                                                                <div class="checkboxes">
-                                                                    <input id="checkbox{{$index}}" type="checkbox" class="checkCour" name="courProf[]" value="{{$cour->id}}" >
-                                                                    <label for="checkbox{{$index}}">{{$cour->title}}</label>
-                                                                </div>
-                                                            </tr>
-                                                        </table>
-                                                    @endforeach
-                                                    <div class="cours-error "></div>
-                                                </div>   --}}
-=======
-                                            </div> -->
-                                                
-
-
-                                         <div id="checklist" style="margin-left: 70px; width: 82%; max-height:200px ;overflow:auto" >
-                                            @foreach ($Cours as $index => $cour)
-                                                <table>
-                                                    <tr>
-                                                        <div class="checkboxes">
-                                                            <input id="checkbox{{$index}}" type="checkbox" class="checkCour" name="courProf[]" value="{{$cour->id}}" >
-                                                            <label for="checkbox{{$index}}">{{$cour->title}}</label>
-                                                        </div>
-                                                    </tr>
-                                                </table>
-                                            @endforeach
-                                            <div class="cours-error "></div>
-                                        </div>  
->>>>>>> 2056a21b3fe36adc5e7d765039304cc2dcdc4675
+                                            <div class="ListeCours">
+                                                <div class="tags-input">
+                                                    <ul id="tags"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
+
+                               {{--  </div> --}}
                                 <div class="tab-pane" id="address">
                                     <h4 class="info-text">Quelles sont vos disponibilités pour donner des cours ? </h4>
                                     <h5>Choisissez un maximum de créneaux que vous pourriez bloqué pour des cours avec (name website)</h5>

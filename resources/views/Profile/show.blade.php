@@ -59,107 +59,26 @@
                     <button id="showFirstItemFormation" class="btn showLess hidden">Voir moins</button>
                 </div>
             </div>
-           
-            <!-- Experience -->
-<<<<<<< HEAD
 
+            <!-- Experience -->
             <div class="card cardExperience" style="border-bottom:1px solid gray" >
                 <h4 class="title-card "style="border-bottom:1px solid gray"> Experience</h4>
-                 <div class="card-body timeline  ">
-                    <ul class="list-unstyled " id="ListExperince">
+                    <div class="timeline">
+                        <ul id="ListExperince">
                         @foreach ($ExperinceProf as $key => $item)
                             <div class="item" data-index="{{ $key }}" style="{{ $key > 0 ? 'display:none;' : '' }}">
-                                <li class="timeline-item">
-                                    <div class="row">
-                                        <div class="first-section col-4">
-                                            <div class="timeline-dates">
-                                                <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->du)->format('m/Y') }}<span style="padding-left: 4px;padding-right: 4px;">-</span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->au)->format('m/Y') }}</span>
-                                                <span class="pays">{{ $item->pays}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="second-section col-8">
-                                            <div class="timeline-content">
-                                                <h2 class="timeline-title">{{ $item->poste}}</h2>
-                                                <p class="ecole">{{ $item->entreprise}}</p>
-                                            </div>
-                                        </div>
+                                <li>
+                                    <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->du)->format('m/Y') }}<span style="padding-left: 4px;padding-right: 4px;">-</span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->au)->format('m/Y') }}</span>
+                                    <div class="timeline-content">
+                                    <h3>{{ $item->poste}}</h3>
+                                    <p>
+                                    {{ $item->entreprise}} /    {{ $item->pays}}</p>                                             </p>
                                     </div>
                                 </li>
                             </div>
                         @endforeach
-                    </ul>
-
-                </div>
-                                    {{-- <div class="timeline">
-=======
-            <div class="card cardExperience" style="border-bottom:1px solid gray" >
-                <h4 class="title-card "style="border-bottom:1px solid gray"> Experience</h4>
-
-                                    <div class="timeline">
->>>>>>> 2056a21b3fe36adc5e7d765039304cc2dcdc4675
-                                        <ul id="ListExperince">
-                                        @foreach ($ExperinceProf as $key => $item)
-                                            <div class="item" data-index="{{ $key }}" style="{{ $key > 0 ? 'display:none;' : '' }}">
-                                                <li>
-                                                    <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->du)->format('m/Y') }}<span style="padding-left: 4px;padding-right: 4px;">-</span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->au)->format('m/Y') }}</span>
-<<<<<<< HEAD
-
-                                                        <div class="card cardExperience" >
-                                                            <h4 class="title-card "> Experience</h4>
-                                                            <hr style="color:gray ; width:100%">
-                                                                <div class="card-body timeline" >
-
-                                                                            <ul class="list-unstyled ">
-                                                                                @foreach ($ExperinceProf as $key => $item)
-                                                                                    <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
-                                                                                        <li class="timeline-item" >
-                                                                                            <div class="timeline-element">
-                                                                                                <a href="#">Web Designer</a>
-                                                                                                <span class="pays">{{ $item->pays }}</span>
-                                                                                                <span class="circle"></span>
-
-                                                                                                <div class="timeline-content">
-                                                                                                <h3>{{ $item->poste}}</h3>
-                                                                                                <p>
-                                                                                                {{ $item->entreprise}} /    {{ $item->pays}}</p>                                             </p>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                        </div>
-                                                                                    @endforeach
-                                                                                    </ul>
-                                                                                </div>
-                                                                <div class="show">
-                                                                    <button id="showMoreExperience" class="btn showMore">Voir plus</button>
-                                                                    <button id="showFirstItemExperience" class="btn showLess " style="display: none">Voir moins</button>
-                                                                </div>
-
-                                                        </div>
-
-        </div>
-
-
-
-                <div class="show"  >
-                    <button id="showMoreExperience" class="btn showMore">Voir plus</button>
-                    <button id="showFirstItemExperience" class="btn showLess hidden">Voir moins</button>
-                </div>
-            </div> --}}
-
-        </div>
-
-        </div>
-
-=======
-                                                    <div class="timeline-content">
-                                                    <h3>{{ $item->poste}}</h3>
-                                                    <p>
-                                                    {{ $item->entreprise}} /    {{ $item->pays}}</p>                                             </p>
-                                                    </div>
-                                                </li>
-                                            </div>
-                                        @endforeach
-                                        </ul>
-                                    </div>
+                        </ul>
+                    </div>
                     <div class="show">
                         <button id="showMoreExperience" class="btn showMore">Voir plus</button>
                         <button id="showFirstItemExperience" class="btn showLess " style="display: none">Voir moins</button>
@@ -169,7 +88,6 @@
         </div>
 
         </div>
->>>>>>> 2056a21b3fe36adc5e7d765039304cc2dcdc4675
 
         <div class="row mt-4" >
             <div id="divCours" class="col-4">
