@@ -28,6 +28,7 @@
             </div>
         </div>
         <div id="divFormation&Exp" class="col-7">
+            <!-- Formation -->
             <div class="card cardFormation" >
                 <h4 class="title-card "> Formation</h4>
                 <hr style="color:gray ; width:100%">
@@ -58,31 +59,9 @@
                     <button id="showFirstItemFormation" class="btn showLess hidden">Voir moins</button>
                 </div>
             </div>
-            <!-- Formation -->
-  <!--           <div class="card cardFormation" style="border-bottom:1px solid gray" >
-                <h4 class="title-card "style="border-bottom:1px solid gray"> Formation</h4>
-                    <div class="timeline">
-                        <ul id="ListFormation">
-                        @foreach ($FormationProf as $key => $item)
-                            <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
-                                <li>
-                                    <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                                    <div class="timeline-content">
-                                    <h3>{{ $item->diplome}} en {{ $item->specialise }}</h3>
-                                    <p>
-                                    {{ $item->pays }}</p>                                             </p>
-                                    </div>
-                                </li>
-                            </div>
-                        @endforeach
-                        </ul>
-                    </div>
-                    <div class="show">
-                        <button id="showMoreExperience" class="btn showMore">Voir plus</button>
-                        <button id="showFirstItemExperience" class="btn showLess " style="display: none">Voir moins</button>
-                    </div>
-            </div> -->
+           
             <!-- Experience -->
+<<<<<<< HEAD
 
             <div class="card cardExperience" style="border-bottom:1px solid gray" >
                 <h4 class="title-card "style="border-bottom:1px solid gray"> Experience</h4>
@@ -112,11 +91,18 @@
 
                 </div>
                                     {{-- <div class="timeline">
+=======
+            <div class="card cardExperience" style="border-bottom:1px solid gray" >
+                <h4 class="title-card "style="border-bottom:1px solid gray"> Experience</h4>
+
+                                    <div class="timeline">
+>>>>>>> 2056a21b3fe36adc5e7d765039304cc2dcdc4675
                                         <ul id="ListExperince">
                                         @foreach ($ExperinceProf as $key => $item)
                                             <div class="item" data-index="{{ $key }}" style="{{ $key > 0 ? 'display:none;' : '' }}">
                                                 <li>
                                                     <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->du)->format('m/Y') }}<span style="padding-left: 4px;padding-right: 4px;">-</span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->au)->format('m/Y') }}</span>
+<<<<<<< HEAD
 
                                                         <div class="card cardExperience" >
                                                             <h4 class="title-card "> Experience</h4>
@@ -163,6 +149,27 @@
 
         </div>
 
+=======
+                                                    <div class="timeline-content">
+                                                    <h3>{{ $item->poste}}</h3>
+                                                    <p>
+                                                    {{ $item->entreprise}} /    {{ $item->pays}}</p>                                             </p>
+                                                    </div>
+                                                </li>
+                                            </div>
+                                        @endforeach
+                                        </ul>
+                                    </div>
+                    <div class="show">
+                        <button id="showMoreExperience" class="btn showMore">Voir plus</button>
+                        <button id="showFirstItemExperience" class="btn showLess " style="display: none">Voir moins</button>
+                    </div>
+            </div>
+
+        </div>
+
+        </div>
+>>>>>>> 2056a21b3fe36adc5e7d765039304cc2dcdc4675
 
         <div class="row mt-4" >
             <div id="divCours" class="col-4">
@@ -181,38 +188,36 @@
                 </div>
             </div>
         <div id="divDispo" class="col-8">
-        <div class="card cardDispo text-left">
-            <h4 class="title-card">Disponibilite de professeur </h4>
-            <hr style="color:gray ; width:100%">
-              <div class="card-body ">
-              <div class="ClassDisponible">
-                                    @foreach ($disponibilityByDay as $key => $data)
-                                        <div class="ContentDisponible">
-                                            <div class="Days">{{$key}}</div>
-                                            <div class="ClassCalculHeight" >
-
-                                                <div class="ClassTimeDisponible"  style="@if($data) color:#0c3c74;background:#00f8ff3b; @else '' @endif">
-                                                    <p >
-                                                        @if($data)
-                                                            <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                        @endif
-
-                                                        {{$data ? $data->debut : "Vide"}}
-                                                    </p>
-                                                    <p>
-                                                        @if($data)
-                                                            <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                        @endif
-                                                        {{$data ? $data->fin : 'Vide'}}
-                                                    </p>
-                                                </div>
-                                            </div>
+            <div class="card cardDispo text-left">
+                <h4 class="title-card">Disponibilite de professeur </h4>
+                <hr style="color:gray ; width:100%">
+                   <div class="card-body ">
+                        <div class="ClassDisponible">
+                        @foreach ($disponibilityByDay as $key => $data)
+                            <div class="ContentDisponible">
+                                <div class="Days">{{$key}}</div>
+                                    <div class="ClassCalculHeight" >
+                                        <div class="ClassTimeDisponible"  style="@if($data) color:#0c3c74;background:#00f8ff3b; @else '' @endif">
+                                            <p >
+                                                @if($data)
+                                                    <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                @endif
+                                                {{$data ? $data->debut : "Vide"}}
+                                            </p>
+                                            <p>
+                                                @if($data)
+                                                   <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                 @endif
+                                                {{$data ? $data->fin : 'Vide'}}
+                                            </p>
                                         </div>
-                                    @endforeach
+                                    </div>
                                 </div>
-               </div>
+                        @endforeach
+                       </div>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
 
     </div>
