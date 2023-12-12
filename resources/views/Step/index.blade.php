@@ -291,7 +291,7 @@
                                                 <button type="button" id="AddCours" >Ajouter</button>
                                                 <div class="errorCours"></div>
                                             </div>
-                                            <div class="ListeCours">
+                                            {{-- cours tags --}} <div class="ListeCours">
                                                 <div class="tags-input">
                                                     <ul id="tags"></ul>
                                                 </div>
@@ -381,7 +381,7 @@
     {
         color: red;
     }
-    .ListeCours .tags-input {
+    .tags-input {
             display: inline-block;
             position: relative;
             border: 1px solid #ccc;
@@ -394,13 +394,13 @@
             overflow-y: auto;
         }
 
-        .ListeCours .tags-input ul {
+        .tags-input ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .ListeCours .tags-input li {
+        .tags-input li {
             display: inline-block;
             background-color: #f2f2f2;
             color: #333;
@@ -410,18 +410,18 @@
             margin-bottom: 5px;
         }
 
-        .ListeCours .tags-input input[type="text"] {
+        .tags-input input[type="text"] {
             border: none;
             outline: none;
             padding: 5px;
             font-size: 14px;
         }
 
-        .ListeCours .tags-input input[type="text"]:focus {
+        .tags-input input[type="text"]:focus {
             outline: none;
         }
 
-        .ListeCours .tags-input .delete-button {
+        .tags-input .delete-button {
             background-color: transparent;
             border: none;
             color: #999;
@@ -440,7 +440,16 @@
                     dataType: "json",
                     success: function (response) {
                         if (response.status == 200) {
-                            $.each(response.data, function (index, value) {
+                            if(response.data.length == 0)
+                            {
+                                $('.tags-input').css('display','none');
+                            }
+                            else
+                            {
+                                $('.tags-input').css('display','block');
+                            }
+                            $.each(response.data, function (index, value)
+                            {
 
                                 const $tag = $('<li></li>');
 
@@ -482,6 +491,7 @@
                         {
                             if(response.status == 200)
                             {
+                                $('.tags-input').css('display','block');
                                 $.each(response.data, function (index, value)
                                 {
                                     $tag.text(value.title);
@@ -489,6 +499,7 @@
                                     $tags.append($tag);
                                 });
                                 $input.val('');
+
                             }
                             if(response.status == 400)
                             {
@@ -519,8 +530,10 @@
                             dataType: "json",
                             success: function (response)
                             {
+
                                 if(response.status == 200)
                                 {
+                                    $('.tags-input').css('display','block');
                                     $.each(response.data, function (index, value)
                                     {
                                         $tag.text(value.title);
@@ -794,50 +807,74 @@
                 $divHours.hide();
                 $('.day-item').on('click', function()
                 {
+
+                    var finalSelect = '';
                     var textToAppend = $(this).text();
-                    var $divHours = $('.divHours');
-                    if ($('.divHours').find('div:contains(' + textToAppend + ')').length === 0)
-                    {
-                        var divToAppend = $('<div style="display: flex; align-items: center; padding: 20px;">' +
-    '<table style="width: 100%;">' +
-        '<tr>' +
-            '<th colspan="6" style="font-size: 26px;text-align: center;" class="nameDays">' +
-                '<input type="text" value=' + textToAppend + ' name="days[]" style="border:none;text-align: center;"/>' +
-            '</th>' +
-        '</tr>' +
-        '<tr>' +
-            '<th><label for="day-type">Choisir un cours</label></th>' +
-            '<th>' +
-                '<select id="day-type" name="daytype[]" style="height: 26px; width: 136px;padding: 4px;background: transparent;border: 1px solid gray;">' +
-                    '<option value="work">Les cours</option>' +
-                    '<option value="weekend">Weekend</option>' +
-                    '<option value="holiday">Jour férié</option>' +
-                    '<option value="other">Autre</option>' +
-                '</select>' +
-            '</th>' +
-            '<th><label for="start-time1">Heure de début</label></th>' +
-            '<th><input type="time" id="start-time1" class="heuredebut" name="heuredebut[]"></th>' +
-            '<th><label for="start-time2">Heure de fin</label></th>' +
-            '<th><input type="time" id="start-time2" class="heurefin" name="heurefin[]"></th>' +
-            '<th><i class="fa-solid fa-xmark" style="border: 1px solid gray; cursor: pointer; font-size: 30px; color: red; "></i></th>' +
-        '</tr>' +
-    '</table>' +
-'</div>' +
-'<hr style="width:80%">');
-
-
-
-                        var $divToAppend = $(divToAppend);
-                        $divToAppend.find('.fa-xmark').on('click', function()
+                    $.ajax({
+                        type: "get",
+                        url: "{{url('getCoursByProf')}}",
+                        dataType: "json",
+                        success: function (response)
                         {
-                            $divToAppend.remove();
-                            if($divHours.find('div').length === 0) {
-                                $divHours.hide();
+                            if (response.status == 200)
+                            {
+                                finalSelect = '<select id="day-type" name="courByDate[]" style="height: 26px; width: 136px; padding: 4px; background: transparent; border: 1px solid gray;">';
+                                $.each(response.data, function (index, value) {
+                                    finalSelect += '<option value="' + value.id + '">' + value.title + '</option>';
+                                });
+                                finalSelect += '</select>';
+
+                                var $divHours = $('.divHours');
+                                if ($('.divHours').find('div:contains(' + textToAppend + ')').length === 0)
+                                {
+
+                                    var divToAppend = $('<div style="display: flex; align-items: center; padding: 20px;">' +
+                                                            '<table style="width: 100%;">' +
+                                                                '<tr>' +
+                                                                    '<th colspan="6" style="font-size: 26px;text-align: center;" class="nameDays">' +
+                                                                        '<input type="text" value=' + textToAppend + ' name="days[]" style="border:none;text-align: center;"/>' +
+                                                                    '</th>' +
+                                                                '</tr>' +
+                                                                '<tr>' +
+                                                                    '<th><label for="day-type">Choisir un cours</label></th>' +
+                                                                    '<th>' + finalSelect +'</th>' +
+                                                                    '<th><label for="start-time1">Heure de début</label></th>' +
+                                                                    '<th><input type="time" id="start-time1" class="heuredebut" name="heuredebut[]"></th>' +
+                                                                    '<th><label for="start-time2">Heure de fin</label></th>' +
+                                                                    '<th><input type="time" id="start-time2" class="heurefin" name="heurefin[]"></th>' +
+                                                                    '<th><i class="fa-solid fa-xmark" style="border: 1px solid gray; cursor: pointer; font-size: 30px; color: red; "></i></th>' +
+                                                                '</tr>' +
+                                                            '</table>' +
+                                                        '</div>' +
+                                                        '<hr style="width:80%">');
+
+
+
+                                    var $divToAppend = $(divToAppend);
+                                    $divToAppend.find('.fa-xmark').on('click', function()
+                                    {
+                                        $divToAppend.remove();
+                                        if($divHours.find('div').length === 0) {
+                                            $divHours.hide();
+                                        }
+                                    });
+                                    $divHours.append($divToAppend);
+                                    $divHours.show();
+                                }
                             }
-                        });
-                        $divHours.append($divToAppend);
-                        $divHours.show();
-                    }
+
+
+                        }
+                    });
+
+                });
+
+
+
+
+                $(document).on('input', '.heuredebut, .heurefin', function(e) {
+                    let hour = $(this).val().split(':')[0];
+                    $(this).val(`${hour}:00`);
                 });
 
                 function convertTo24Hour(time)

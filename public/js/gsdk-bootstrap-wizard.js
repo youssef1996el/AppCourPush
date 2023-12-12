@@ -198,6 +198,7 @@ function refreshAnimation($wizard, index){
         'transition': 'all 0.3s ease-out'
 
     });
+
 }
 
 function debounce(func, wait, immediate) {

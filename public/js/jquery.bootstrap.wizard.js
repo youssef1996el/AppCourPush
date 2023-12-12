@@ -108,7 +108,7 @@ var bootstrapWizardCreate = function(element, options) {
                     {
                         if ($(this).is('[type="date"]')) {
 
-                            //$(this).closest('.form-group').find(".error").text("This field is " + inputName.replace(/\[.*?\]/g, '') + " required");
+
                             $(this).closest('.form-group').find(".error").text("This field is " + inputLabel + " required");
                         }
                         else
@@ -119,12 +119,12 @@ var bootstrapWizardCreate = function(element, options) {
                                     'position': 'absolute',
                                     'margin-top':'40px'
                                 });
-                                //$(this).next(".error").text("This field is " + inputName.replace(/\[.*?\]/g, '') + " required");
+
                                 $(this).next(".error").text("This field is " + inputLabel + " required");
                             }
                             else
                             {
-                                //$(this).next(".error").text("This field is " + inputName.replace(/\[.*?\]/g, '') + " required");
+
                                 $(this).next(".error").text("This field is " + inputLabel + " required");
                             }
                         }
@@ -170,7 +170,7 @@ var bootstrapWizardCreate = function(element, options) {
             $(".error").empty();
             if (checkedCour.length === 0) {
                 var coursError = $('.errorCours');
-                coursError.text("Sélectionnez au moins un cours");
+                coursError.text("Ajoute au moins un cours");
                 coursError.css({
                     'color': 'red',
                     'width': '-webkit-fill-available',
@@ -184,7 +184,7 @@ var bootstrapWizardCreate = function(element, options) {
                 hasError = true;
 
 
-                coursError.show(); // Ensure the element is visible before setting the timeout
+                coursError.show();
 
                 setTimeout(function () {
                     coursError.hide();
@@ -196,7 +196,7 @@ var bootstrapWizardCreate = function(element, options) {
             }
         }
 
-		// If we clicked the last then dont activate this
+
 		if(element.hasClass('last')) {
 			return false;
 		}
@@ -205,7 +205,7 @@ var bootstrapWizardCreate = function(element, options) {
 			return false;
 		}
 
-		// Did we click the last button
+
 		$index = obj.nextIndex();
 		if($index > obj.navigationLength()) {
 		} else {
@@ -215,7 +215,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 	this.previous = function(e) {
 
-		// If we clicked the first then dont activate this
+
 		if(element.hasClass('first')) {
 			return false;
 		}
@@ -237,7 +237,7 @@ var bootstrapWizardCreate = function(element, options) {
 			return false;
 		}
 
-		// If the element is disabled then we won't do anything
+
 		if(element.hasClass('disabled')) {
 			return false;
 		}
@@ -457,7 +457,7 @@ var bootstrapWizardCreate = function(element, options) {
             $(".error").empty();
             if (checkedCour.length === 0) {
                 var coursError = $('.errorCours');
-                coursError.text("Sélectionnez au moins un cours");
+                coursError.text("Ajoute au moins un cours");
                 coursError.css({
                     'color': 'red',
                     'width': '-webkit-fill-available',
