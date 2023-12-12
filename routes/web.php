@@ -77,6 +77,11 @@ Route::get('ShowUsers/{id}'           ,[AdminController::class,'ShowUser']);
 Route::get('getStartYearAndEnd'       ,[AdminController::class,'getStartYearAndEnd']);
 Route::get('GetChartEleveCount'       ,[AdminController::class,'getChartEleveCount']);
 Route::get('GetChartByCountry'        ,[AdminController::class,'GetChartByCountry']);
+Route::get('CoursPaiement'            ,[AdminController::class,'CoursPaiement']);
+Route::get('fetchDataTypeCours'       ,[AdminController::class,'fetchDataTypeCours']);
+Route::post('StoreDataTypeCours'      ,[AdminController::class,'StoreDataTypeCours']);
+Route::get('GetTypeCours'             ,[AdminController::class,'GetTypeCours']);
+Route::post('UpdateDataTypeCourse'    ,[AdminController::class,'UpdateDataTypeCourse']);
 
 /******************************************** End Dashboard Admin ***********************************************/
 

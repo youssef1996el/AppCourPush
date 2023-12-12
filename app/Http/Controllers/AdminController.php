@@ -12,7 +12,8 @@ use Carbon\Carbon;
 use DateTime;
 use App\Models\CertificationProf;
 use Vinkla\Hashids\Facades\Hashids;
-
+use App\Models\TypeCours;
+use Auth;
 class AdminController extends Controller
 {
     public function professeurs()
@@ -423,6 +424,87 @@ class AdminController extends Controller
             'data'    => $chartWithCountryNames,
             'maxValue' =>$maxValue[0]->total_count
         ]);
+    }
+
+    public function CoursPaiement()
+    {
+        return view('Dashboard.CoursPaiement');
+    }
+
+    public function fetchDataTypeCours()
+    {
+        $ListTypeCours = TypeCours::all();
+        return response()->json([
+            'status'       => 200,
+            'data'         => $ListTypeCours,
+        ]);
+    }
+
+    public function StoreDataTypeCours(Request $request)
+    {
+        try
+        {
+            $checkTypeCoursIsExist =TypeCours::where('type',$request->type)->count();
+            if($checkTypeCoursIsExist == 0)
+            {
+                $TypeCours = TypeCours::create([
+                    'type'         => $request->type,
+                    'prix'         => $request->prix,
+                    'iduser'       => Auth::user()->id,
+                ]);
+
+                return response()->json([
+                    'status'       => 200,
+
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status'       => 400,
+                ]);
+            }
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
+    }
+
+    public function GetTypeCours(Request $request)
+    {
+        try
+        {
+            $TypeCours =  TypeCours::where('id',$request->id)->get();
+
+            return response()->json([
+                'status'       => 200,
+                'data'         => $TypeCours[0]
+
+            ]);
+        }
+         catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function UpdateDataTypeCourse(Request $request)
+    {
+
+        try
+        {
+            $updateTypeCours = TypeCours::where('id',$request->id)->update([
+
+                'prix'         => $request->prix,
+            ]);
+            return response()->json([
+                'status'       => 200,
+            ]);
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
     }
 
 }

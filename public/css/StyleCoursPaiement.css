@@ -1,0 +1,187 @@
+#BtnAddPrixCours {
+    background-color: #74a8d5;
+    border-radius: 20px;
+    float: right;
+    color: white;
+    width :300px;
+}
+       *{
+    font-family: times;
+  }
+.container{
+    background-color: #ffffff63;
+    padding: 20px 30px 42px 20px;
+    width: 950px;
+    border-radius: 14px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
+
+/* pagination */
+.dataTables_paginate{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+
+  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+      white-space: nowrap;
+
+    }
+
+  .page-link {
+      position: relative;
+      display: block;
+      color: #5382ab;
+      text-decoration: none;
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      border-radius: 20px;
+    }
+
+    .page-link:hover {
+      z-index: 2;
+      color: #5382ab;
+      background-color: white;
+    }
+
+    .page-item.active .page-link {
+      z-index: 3;
+      color: #fff;
+      background-color: #4479a7;
+      border-color: #4479a7;
+    }
+
+
+    .Send {
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+    color: white;
+    padding: 5px;
+    display: flex;
+        width: 115px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    /* margin-left: 74%; */
+  }
+
+  .Send:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .Send:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .Send span {
+    display: block;
+    margin-left: -6px;
+    transition: all 0.3s;
+  }
+
+  .Send svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+  }
+
+  .Send .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+  }
+
+  .Send:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .Send:hover svg {
+    transform: rotate(45deg);
+  }
+/***********/
+.ErrorTypeCours, .ErrorPrix {
+
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    margin-top: 5px;
+}
+/**************** Display Card data */
+.cardTypeCours {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 260px;
+    padding: 20px 1px;
+    margin: 10px 0;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(33,150,243,.4),0 4px 6px -4px rgba(33,150,243,.4);
+    border-radius: 10px;
+    background-color: #6B6ECC;
+    background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
+  }
+
+ .cardTypeCours .content {
+    padding: 20px;
+  }
+
+ .cardTypeCours .content .price {
+    color: white;
+    font-weight: 800;
+    font-size: 50px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
+  }
+
+  .cardTypeCours .content .description {
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .cardTypeCours .content .title {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.64);
+    margin-top: 10px;
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  .cardTypeCours button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: none;
+    outline: none;
+    color: rgb(255 255 255);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .75rem;
+    padding: 0.75rem 1.5rem;
+    background-color: rgb(33 150 243);
+    border-radius: 0.5rem;
+    width: 90%;
+    text-shadow: 0px 4px 18px #2c3442;
+  }
+
+

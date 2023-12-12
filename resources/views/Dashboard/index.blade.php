@@ -52,9 +52,14 @@
 					   <span class="theme-item"> Professeurs</span></a></li>
 					<li><a href="{{ url('eleves') }}"><i class="fa-solid fa-users"></i>
 					   <span class="theme-item"> Eleves</span></a></li>
-					<li><a href="extras.html"><i
-							class="data-feather theme-item" data-feather="globe"></i> <span
-							class="theme-item"> Extras</span></a></li>
+					<li>
+                        <a href="{{url('CoursPaiement')}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 1v22m5-18H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            <span class="theme-item"> Cours de paiement</span>
+                        </a>
+                    </li>
 
 				</ul>
 
@@ -62,7 +67,7 @@
 
 			</nav>
 
-			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');height:100%;background-repeat: no-repeat;background-position:center;background-size:cover">
+			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');background-repeat: no-repeat;background-position:center;background-size:cover">
 
 				<nav class="navbar navbar-expand-md  bg-white py-0" aria-label="navbarexample" id="navbar" >
 					<div class="container-fluid">
@@ -361,7 +366,7 @@
 			{ pattern: 'Dashboard/cours', index: 2 },
             { pattern: 'professeurs', index: 3 },
             { pattern: 'eleves', index: 4 },
-            { pattern: 'extras.html', index: 5 }
+            { pattern: 'CoursPaiement', index: 5 }
         ];
 
         // Determine the active index based on the current URL
