@@ -25,6 +25,14 @@ body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, a, td {
 	right: 4px;
     left: auto;
 }
+.notif{
+	padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 88%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
 
 .custom-dropmenu {
 /* 	background: #cce6ff; */
@@ -792,6 +800,3 @@ a, a:hover, a:focus {
 	font-weight: normal;
 }
 
-.notif{
-	margin-left: 360px;
-}

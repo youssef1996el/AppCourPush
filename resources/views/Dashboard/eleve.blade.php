@@ -12,7 +12,7 @@
               <tr>
                 <th>Nom</th>
                 <th>Email</th>
-                <th>Status</th>
+                <th>Pays</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
@@ -22,7 +22,7 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="{{$item->image}}" class="rounded-circle" alt="" style="width: 45px; height: 45px" />
+                                <img src="{{$item->image}}" class="rounded-circle" id="imgEleve" alt="" />
                                 <div class="ms-3">
                                 <p class="fw-bold mb-1">{{$item->name}}</p>
                                 </div>

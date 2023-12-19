@@ -1,12 +1,12 @@
 *{
-    font-family: times;
-  }
+  font-family: times;
+}
 .container{
-    background-color: #ffffff63;
-    padding: 36px 50px 60px 30px;
-    width: 950px;
-    border-radius: 14px;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  background-color: #ffffff63;
+  padding: 36px 50px 60px 30px;
+  width: 950px;
+  border-radius: 14px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 
@@ -14,324 +14,324 @@
 font-size: 16px;
 }
 #divProfile .card-body{
-    border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 .card{
-    background-color: #74a8d54f;
+  background-color: #74a8d54f;
 }
 #divProfile .card-img-top{
-    border: 2px solid white;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    display: block;
-    margin: 16px auto;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 16px auto;
 }
 
 #divProfile .name{
-    font-size: 1.5rem;
-    font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 #divProfile h4{
-    font-size: 20px;
-    color: #686868;
+  font-size: 20px;
+  color: #686868;
 
 }
 
 #divProfile .fa-briefcase{
-    color:black
+  color:black
 }
 
 .title-card{
-  padding: 10px 0px 12px 26px;
-  font-size: 26px;
+padding: 10px 0px 12px 26px;
+font-size: 26px;
 }
 
 #divCours .card-body{
-    padding: 0px 0px 0px 4px;}
+  padding: 8px 0px 0px 4px;}
 .card-cours {
 
-    background: #ffffff70;
-    padding: 8px;
-    display: inline-block;
-    border-radius: 0px;
-    border: 1px solid #ffffff70;
-    color: black;
+  background: #ffffff70;
+  padding: 8px;
+  display: inline-block;
+  border-radius: 0px;
+  border: 1px solid #ffffff70;
+  color: black;
 
 }
 .card-cours p{
-    margin-right: 10px;
+  margin-right: 10px;
 }
 .card-cours p:last-child {
-    margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
+  margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
 }
 .card-cours:hover {
-    background: #7db8f7a8;
-    border: 1px solid #7db8f7a8;
-    color: white;
-    cursor: pointer;
+  background: #7db8f7a8;
+  border: 1px solid #7db8f7a8;
+  color: white;
+  cursor: pointer;
 }
 .divScrollCours
 {
-    overflow-y: auto;
-    overflow-x:auto;
-    max-height:140px
+  overflow-y: auto;
+  overflow-x:auto;
+  max-height:140px
 }
 .fc .fc-scrollgrid-liquid {
-    height: 100%;
-    background: white;
-    margin-top: -46px;
-  }
+  height: 100%;
+  background: white;
+  margin-top: -46px;
+}
 
 
-  .ContentDisponible {
-    width: 80px;
-    margin: 18px -5px 0px 5px;
-    border: 1px solid gray;
-    display: inline-block;
-    text-align: center !important;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    min-height: 90px;
-    background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
-    background-size: 8.76px 11.63px;
-    flex-grow: 1;
-  }
-  .Days
-  {
-      border-bottom: 2px solid gray !important;
-      border-bottom-width: 10px;
-      box-shadow: rgba(4, 226, 208, 0.35);
-      border-radius: 50px;
-      margin-top: 5px;
-      color: black;
-      font-family:Gabriola, Times, serif;
-      font-size:22px;
-      white-space: nowrap;
+.ContentDisponible {
+  width: 80px;
+  margin: 18px -5px 0px 5px;
+  border: 1px solid gray;
+  display: inline-block;
+  text-align: center !important;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  min-height: 90px;
+  background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
+  background-size: 8.76px 11.63px;
+  flex-grow: 1;
+}
+.Days
+{
+    border-bottom: 2px solid gray !important;
+    border-bottom-width: 10px;
+    box-shadow: rgba(4, 226, 208, 0.35);
+    border-radius: 50px;
+    margin-top: 5px;
+    color: black;
+    font-family:Gabriola, Times, serif;
+    font-size:22px;
+    white-space: nowrap;
 
-  }
+}
 
-  #DivDispo .card-body{
-    width: 610px;
-    padding: 10px;
-    margin-top: -16px;
-  }
+#DivDispo .card-body{
+  width: 610px;
+  padding: 10px;
+  margin-top: -16px;
+}
 
-  .cardDispo{
-    width: 604px;
-  }
+.cardDispo{
+  width: 604px;
+}
 
-  .ClassDisponible {
-    background: #F0f1f3;
-    width: 594px;
-    min-height: 10px;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35);
-    margin-left: -12px;
-    height: 160px;
-    margin-top: -18px;
-  }
+.ClassDisponible {
+  background: #F0f1f3;
+  width: 594px;
+  min-height: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35);
+  margin-left: -12px;
+  height: 160px;
+  margin-top: -10px;
+}
 
-  .cardCours{
-    height: 257px;
-  }
+.cardCours{
+  height: 257px;
+}
 
-  .cardFormation, .cardExperience{
-    width: 520px;
-  }
+.cardFormation, .cardExperience{
+  width: 520px;
+}
 
-  /* //////////////////// */
+/* //////////////////// */
 /*   .timeline {
-    margin-top: -16px;
-    width: 100%;
-    max-height: 183px;
-    overflow-y: auto !important;
+  margin-top: -16px;
+  width: 100%;
+  max-height: 183px;
+  overflow-y: auto !important;
 }
 
 .timeline::-webkit-scrollbar {
-    width: 2px;
+  width: 2px;
 }
 
 .timeline::-webkit-scrollbar-thumb {
-    background-color: #555;
+  background-color: #555;
 }
 
 .timeline::-webkit-scrollbar-track {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .second-section {
-    border-left: 4px solid gray;
-    margin-left: -36px;
+  border-left: 4px solid gray;
+  margin-left: -36px;
 }
 
 .timeline-content {
-    background-color: #ffffff70;
-    margin-left: 13px;
-    height: 74px;
-    padding: 6px 14px 30px 12px;
+  background-color: #ffffff70;
+  margin-left: 13px;
+  height: 74px;
+  padding: 6px 14px 30px 12px;
 }
 
 .ecole {
-    float: right;
-    color: gray;
-    font-size: 18px;
-    font-style: italic;
+  float: right;
+  color: gray;
+  font-size: 18px;
+  font-style: italic;
 }
 
 .timeline-title {
-    font-size: 22px;
-    font-weight: bold;
-    text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .pays {
-    margin-left: 30px;
-    font-style: italic;
+  margin-left: 30px;
+  font-style: italic;
 }
 
 .timeline-item::before {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: white;
-    border: 3px solid gray;
-    position: absolute;
-    top: 29px;
-    left: 114px;
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid gray;
+  position: absolute;
+  top: 29px;
+  left: 114px;
 }
 
 .timeline-item::after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 14px;
-    border-color: transparent #ffffff70 transparent transparent;
-    position: absolute;
-    top: 23px;
-    left: 123px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14px;
+  border-color: transparent #ffffff70 transparent transparent;
+  position: absolute;
+  top: 23px;
+  left: 123px;
 }
 
 .timeline-item {
-    position: relative;
+  position: relative;
 }
 
 .timeline-dates {
-    color: #6f6b6b;
-    margin-left: -10px;
-    margin-top: 28px;
-    color: #6f6b6b;
+  color: #6f6b6b;
+  margin-left: -10px;
+  margin-top: 28px;
+  color: #6f6b6b;
 } */
 
 /* Show/Hide button styling */
 .showMore, .showLess {
-    text-transform: lowercase;
-    background-color: #1685b8;
-    color: white;
-    border: 1px solid #1685b8;
-    margin-top: -50px;
-    margin-left: 30px;
-    border-radius: 0px;
-    border-radius: 0px;
+  text-transform: lowercase;
+  background-color: #1685b8;
+  color: white;
+  border: 1px solid #1685b8;
+  margin-top: -42px;
+  margin-left: 30px;
+  border-radius: 0px;
+  border-radius: 0px;
 }
 
 .showMore:hover, .showLess:hover {
-    background-color: #1a475b;
-    color: white;
-    border: 1px solid #1a475b;
+  background-color: #1a475b;
+  color: white;
+  border: 1px solid #1a475b;
 }
 
 .timeline {
-    color: #fff;
-    padding: 30px 20px;
-    /* box-shadow:0px 0px 10px rgba(0,0,0,.5); */
-    margin-top: -30px;
-  }
+  color: #fff;
+  padding: 30px 20px;
+  /* box-shadow:0px 0px 10px rgba(0,0,0,.5); */
+  margin-top: -30px;
+}
 
-  .timeline ul {
-    list-style-type: none;
-    border-left: 4px solid #094a68;
-    padding: 10px 5px;
-    max-height: 200px;
-    overflow-y: auto;
-  }
+.timeline ul {
+  list-style-type: none;
+  border-left: 4px solid #094a68;
+  padding: 10px 5px;
+  max-height: 200px;
+  overflow-y: auto;
+}
 
-  .timeline ul li {
-    padding: 14px 20px 0px 20px;
-    position: relative;
-    cursor: pointer;
-    transition: .5s;
-    background: #a5c6e2;
-    margin-bottom: 10px;
-  }
+.timeline ul li {
+  padding: 14px 20px 0px 20px;
+  position: relative;
+  cursor: pointer;
+  transition: .5s;
+  background: #a5c6e2;
+  margin-bottom: 10px;
+}
 
-  .timeline ul li span {
-    display: inline-block;
-    background-color: #1685b8;
-    border-radius: 25px;
-    padding: 2px 5px;
-    font-size: 15px;
-    text-align: center;
-  }
+.timeline ul li span {
+  display: inline-block;
+  background-color: #1685b8;
+  border-radius: 25px;
+  padding: 2px 5px;
+  font-size: 15px;
+  text-align: center;
+}
 
-  .timeline ul li .timeline-content h3 {
-    color: black;
-    font-size: 26px;
-    padding-top: 5px;
-    font-weight: bold;
-    text-transform: capitalize;
-  }
+.timeline ul li .timeline-content h3 {
+  color: black;
+  font-size: 26px;
+  padding-top: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
 
-  .timeline ul li .timeline-content p {
-    padding: 5px 0px 0px 0px;
-    font-size: 18px;
-    color: #4a4848;
+.timeline ul li .timeline-content p {
+  padding: 5px 0px 0px 0px;
+  font-size: 18px;
+  color: #4a4848;
 
-    font-style: italic;
-  }
+  font-style: italic;
+}
 
-  .timeline ul li::before {
-    position: absolute;
-    content: '';
-    width: 16px;
-    height: 16px;
-    background-color: #094a68;
-    border-radius: 50%;
-    left: -15px;
-    top: 28px;
-    transition: .5s;
-    border: 2px solid #a5c6e2;
-  }
+.timeline ul li::before {
+  position: absolute;
+  content: '';
+  width: 18px;
+  height: 18px;
+  background-color: #094a68;
+  border-radius: 50%;
+  left: -5px;
+  top: -6px;
+  transition: .5s;
+  border: 2px solid #a5c6e2;
+}
 
 
-  .timeline ul li:hover {
-    background-color: #0d3b4f;
-  }
+.timeline ul li:hover {
+  background-color: #0d3b4f;
+}
 
-  .timeline ul li:hover .timeline-content h3{
-    color: #fff;
-    font-weight: bold;
-  }
-  .timeline ul li:hover .timeline-content p {
-    color: #d7f2ff;;
-  }
+.timeline ul li:hover .timeline-content h3{
+  color: #fff;
+  font-weight: bold;
+}
+.timeline ul li:hover .timeline-content p {
+  color: #d7f2ff;;
+}
 
-  .timeline ul li:hover:before {
-    background-color: #3180b9;
-    box-shadow: 0px 0px 10px 2px #3180b9;
+.timeline ul li:hover:before {
+  background-color: #3180b9;
+  box-shadow: 0px 0px 10px 2px #3180b9;
+}
+@media (max-width:300px){
+  .timeline{
+    width:100%;
+    padding:30px 5px 30px 10px;
   }
-  @media (max-width:300px){
-    .timeline{
-      width:100%;
-      padding:30px 5px 30px 10px;
-    }
-    .timeline ul li .timeline-content h3{
-      color:#34ace0;
-      font-size:15px;
-    }
+  .timeline ul li .timeline-content h3{
+    color:#34ace0;
+    font-size:15px;
   }
+}

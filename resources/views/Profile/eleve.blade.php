@@ -156,66 +156,58 @@
                     </div>
                     <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
                     <h5 class="text-secondary mt-4">{{ \Carbon\Carbon::now()->format('l, j M Y') }}</h5>
-                    <div class="card">
-                        <table class="table table-stripe" id="TableProfesseurIsActive">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="border border-danger">
-                                        <a href="#">17:00</a>
-                                    </td>
-                                    <td class="border border-danger">
-                                        <div class="d-flex align-items-center">
-                                            <img src="/storage/images/prof/1700399723.png" class="rounded-circle" style="width:70px;height: 70px;" alt="">
-                                            <div class="ms-3">
-                                                <div class="d-flex">
-                                                    <p class="fw-bold mb-1" style="margin-right: 8px;">name prof</p>
-                                                    <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1gslohp x1i64zmx x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
-                                                        <svg aria-label="Vérifié" class="x1lliihq x1n2onr6" fill="rgb(0, 149, 246)" height="18" role="img" viewBox="0 0 40 40" width="18">
-                                                            <title>Vérifié</title>
-                                                            <path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-
-                                                <p class="text-muted mb-0">5ans expérience</p>
-                                                <p class="text-muted mb-0">title</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="border border-danger">name cours</td>
-                                    <td class="border border-danger">
-
+                        
+                        <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
+                        <thead class="bg-light">
+                            <tr class="sr-only">
+                            <th>Time</th>
+                            <th>Name of the teacher</th>
+                            <th>Course</th>
+                            <th>Group/Particular</th>
+                            <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td class="">
+                                <a href="#">17:00</a>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="/storage/images/prof/1700399723.png" class="rounded-circle" style="width: 45px; height: 45px; " alt="">
                                         <div class="ms-3">
-
-                                            <p class="text-muted mb-0">Cours particulier</p>
-                                            <p class="text-muted mb-0">Un enseignant sera attribué</p>
-                                        </div>
-                                    </td>
-                                    <td class="border border-danger">
-                                        <div class="d-flex align-items-center">
-
-                                            <div class="ms-3">
-                                                <div class="d-flex">
-                                                    <button type="submit" class="btn btn-primary" style="margin: 0px 19px">Reserver</button>
-                                                    <button type="submit" class="btn btn-secondary">Details</button>
-                                                </div>
+                                        <p class="fw-bold mb-1" style="display:inline;">name prof</p>
+                                            <div style="display:inline;" class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1gslohp x1i64zmx x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
+                                                <svg aria-label="Vérifié" class="x1lliihq x1n2onr6" fill="rgb(0, 149, 246)" height="18" role="img" viewBox="0 0 40 40" width="18">
+                                                <title>Vérifié</title>
+                                                <path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path>
+                                                </svg>
                                             </div>
+                                            <p class="text-muted mb-0">5ans expérience</p>
+                                            <p class="text-muted mb-0">title</p>
                                         </div>
+                                </div>
+                            </td>
+                            <td>nom de cours</td>
+                            <td>
+                                <p class="text-muted mb-0">Cours particulier</p>
+                                <p class="text-muted mb-0">Un enseignant sera attribué</p>
+                            </td>
+                        
+                            <td class="buttonsRD">
+                                <button type="button" class="btn  btn-primary reserver">
+                                Resever
+                                </button>
+                                <button type="button" class="btn  details">
+                                Details
+                                </button>
+                            </td>
+                            </tr>
+                           
+                            
+                        </tbody>
+                    </table>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                     {{-- <div class="DivProfActive CardProfesseur"></div>
                     <div class="pagination mt-3"></div> --}}
                     {{-- <form action="/submit" method="post" class="form-inline">

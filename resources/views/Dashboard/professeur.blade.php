@@ -17,8 +17,8 @@
           <table class="table-primary  align-middle mb-0 bg-white" id="tableListProfesseur">
             <thead class="" >
               <tr>
-                <th>Nom</th>
-                <th>Titre</th>
+                <th>Nom </th>
+                <th>Titre </th>
                 <th>Status</th>
                 <th>Position</th>
                 <th>Verification</th>
@@ -31,16 +31,15 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="{{asset($item->image)}}" class="rounded-circle" style="width:45px;height: 45px;" alt="">
-                                <div class="ms-3">
+                                <img src="{{asset($item->image)}}" class="pic-prof rounded-circle"  alt="">
+                                <div class="">
                                     <p class="fw-bold mb-1">{{$item->name}}</p>
                                     <p class="text-muted mb-0">{{$item->email}}</p>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1 text-center">{{$item->title}}</p>
-                          {{--   <p class="text-muted mb-0">Finance</p> --}}
+                            <p class="fw-normal mb-1 ">{{$item->title}}</p>
                         </td>
 
                         <td>
@@ -109,23 +108,7 @@
                                     </svg>
                                 </a>
                             </div> --}}
-                            <div class="button-container">
-                                <button
-                                            type="button"
-                                            class="btn btn-link"
-                                            data-mdb-ripple-color="dark"
-                                            >
-                                            <i class="fa-solid fa-phone"></i>
-                                </button>
-                                <button
-                                        type="button"
-                                        class="btn btn-link"
-                                        data-mdb-ripple-color="dark"
-                                        >
-                                        <i class="fa-regular fa-envelope"></i>
-
-                                </button>
-                            </div>
+                            
                       </div>
                    {{--  <img src="{{asset('/storage/images/prof/1700399723.png')}}" class="rounded-circle d-flex align-items-center" width="120px" he alt=""> --}}
                    </div>
@@ -167,9 +150,9 @@
                             </div>
                         </div>
 
-                        <div class="card mt-3 p-5 CardProfile" style="height: 392px;">
+                        <div class="card mt-3 p-5 CardProfile" style="height: 314px;">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-6 ">
 
                                     <div class="form-group">
                                         <label for="" class="text-uppercase">Email</label>
@@ -189,10 +172,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card mt-3 p-4 CardFormation" style="display: none; ">
+                        <div class="card mt-3 p-5 CardFormation" style="display: none; ">
                             {{-- append --}}
                         </div>
-                        <div class="card mt-3 p-4 Cardexperience" style="display: none;">
+                        <div class="card mt-3 p-5 Cardexperience" style="display: none;">
                             <div class="InforCardexperience" >
                                 {{-- append --}}
                             </div>
@@ -221,7 +204,7 @@
                             </div>
                         </div>
 
-                        <div class="card mt-3 p-4 Cardcertification" style="display: none">
+                        <div class="card mt-3 p-5 Cardcertification" style="display: none">
                            {{--  <a target="_blank" id="FileCertification">Certification</a> --}}
 
                             <a class="button" id="FileCertification" target="_blank">

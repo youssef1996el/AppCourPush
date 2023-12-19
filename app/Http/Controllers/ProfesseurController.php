@@ -87,9 +87,11 @@ class ProfesseurController extends Controller
             }
             else
             {
+                
                 $idCours = Cours::where('title',$request->nameCours)->select('id')->get();
                 $idCours = (int)$idCours[0]->id;
-                $checkCoursisExistProf = CoursProfesseur::where('idcours',$idCours)->count();
+                $checkCoursisExistProf = CoursProfesseur::where('idcours',$idCours)->where('iduser',Auth::user()->id)->count();
+
                 if($checkCoursisExistProf == 0)
                 {
                     $CoursProfesseur = CoursProfesseur::create([

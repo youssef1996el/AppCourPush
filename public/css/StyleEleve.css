@@ -81,3 +81,30 @@ tbody, td, tfoot, th, thead, tr {
 .dropdown.show .dropdown-menu {
   width: auto;
 }
+.details{
+  background: #d9d5d5;
+  border-radius: 0px;
+  text-transform: capitalize;
+}
+.details:hover{
+  background: #a7a4a4;
+}
+
+.reserver ,.details{
+  font-size: 16px;
+}
+#TableProfesseurIsActive_paginate{
+  margin-top: 12px;
+}
+#TableProfesseurIsActive_paginate .pagination{
+  
+  justify-content: flex-end;
+}
+#TableProfesseurIsActive_paginate li{
+  margin-right: 12px;
+
+}
+#TableProfesseurIsActive_paginate .page-link,.page-item{
+  border-radius: 0px;
+  cursor: pointer;
+}

@@ -26,7 +26,7 @@ $(document).ready(function () {
                                                                 <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.</div>\
                                                             </div>\
                                                             <button value='+value.id+' title="Modifier cette Type Cours" class="BtnEditTypeCours">\
-                                                                Buy now\
+                                                               Modifier\
                                                             </button>\
                                                         </div>');
                         }
@@ -42,7 +42,7 @@ $(document).ready(function () {
                                                                 </div>\
                                                             </div>\
                                                             <button  value='+value.id+' title="Modifier cette Type Cours" class="BtnEditTypeCours">\
-                                                                Buy now\
+                                                                Modifier\
                                                             </button>\
                                                         </div>');
                         }

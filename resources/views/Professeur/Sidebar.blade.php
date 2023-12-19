@@ -42,9 +42,14 @@
 					   <span class="theme-item">Profile</span></a></li>
 					<li><a href="{{ url('eleves') }}"><i class="fa-solid fa-users"></i>
 					   <span class="theme-item"> Eleves</span></a></li>
+					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
+							data-feather="file-text"></i> <span
+							class="theme-item"> Les cours / Disponibilite</span></a></li>
+					<li><a href="extras.html"><i class="fa-solid fa-user-pen"></i> <span
+							class="theme-item"> Informations personnelles</span></a></li>	
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
-							class="theme-item"> Extras</span></a></li>
+							class="theme-item"> Extras</span></a></li>	
 				</ul>
 
 
@@ -359,7 +364,9 @@
             { pattern: 'index.html', index: 0 },
             { pattern: 'ShowProfileProf', index: 1 },
             { pattern: 'eleves', index: 2 },
-            { pattern: 'extras.html', index: 3 }
+			{ pattern: 'Dashboard/cours', index: 3 },
+			{ pattern: 'eleves', index: 4 },
+            { pattern: 'extras.html', index: 5 }
         ];
 
         // Determine the active index based on the current URL

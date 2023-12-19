@@ -30,8 +30,8 @@
         <div id="divFormation&Exp" class="col-7">
             <!-- Formation -->
             <div class="card cardFormation" >
-                <h4 class="title-card "> Formation</h4>
-                <hr style="color:gray ; width:100%">
+                <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
+
                     <div class="card-body timeline" >
 
                         <ul class="list-unstyled ">
@@ -61,8 +61,8 @@
             </div>
 
             <!-- Experience -->
-            <div class="card cardExperience" style="border-bottom:1px solid gray" >
-                <h4 class="title-card "style="border-bottom:1px solid gray"> Experience</h4>
+            <div class="card cardExperience" >
+                <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Experience</h4>
                     <div class="timeline">
                         <ul id="ListExperince">
                         @foreach ($ExperinceProf as $key => $item)
@@ -92,8 +92,8 @@
         <div class="row mt-4" >
             <div id="divCours" class="col-4">
                 <div class="card cardCours" >
-                    <h4 class="title-card">Les cours </h4>
-                    <hr style="color:gray ; width:100%">
+                    <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Les cours </h4>
+                  
                         <div class="card-body">
                         <div class="divScrollCours" >
                                 <p class="card-cours">BodyBodyBodyBodyBodyBody</p>
@@ -107,8 +107,7 @@
             </div>
         <div id="divDispo" class="col-8">
             <div class="card cardDispo text-left">
-                <h4 class="title-card">Disponibilite de professeur </h4>
-                <hr style="color:gray ; width:100%">
+                <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
                    <div class="card-body ">
                         <div class="ClassDisponible">
                         @foreach ($disponibilityByDay as $key => $data)

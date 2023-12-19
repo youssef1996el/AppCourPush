@@ -382,17 +382,19 @@
         color: red;
     }
     .tags-input {
-            display: inline-block;
-            position: relative;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 5px;
-            box-shadow: 2px 2px 5px #00000033;
-            width: 100%;
-            margin-top: 10px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
+        
+        display: inline-block;
+        position: relative;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 5px;
+        box-shadow: 2px 2px 5px #00000033;
+        width: 100%;
+        margin-top: 12px;
+        max-height: 212px;
+        overflow-y: auto;
+        height: 212px;
+              }
 
         .tags-input ul {
             list-style: none;

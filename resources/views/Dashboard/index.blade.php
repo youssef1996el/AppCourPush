@@ -46,8 +46,6 @@
 							class="theme-item"> Profile</span>
                         </a>
                     </li>
-					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
-							data-feather="file-text"></i> <span class="theme-item">Cours</span></a></li>
 					<li><a href="{{ url('professeurs') }}"><i class="fa-solid fa-user-tie"></i>
 					   <span class="theme-item"> Professeurs</span></a></li>
 					<li><a href="{{ url('eleves') }}"><i class="fa-solid fa-users"></i>
