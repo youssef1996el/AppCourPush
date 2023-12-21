@@ -291,11 +291,11 @@
                                                 <button type="button" id="AddCours" >Ajouter</button>
                                                 <div class="errorCours"></div>
                                             </div>
-                                            {{-- cours tags --}} <div class="ListeCours">
-                                                <div class="tags-input">
-                                                    <ul id="tags"></ul>
-                                                </div>
+                                            {{-- cours tags --}}
+                                            <div class="tags-input">
+                                                <ul id="tags"></ul>
                                             </div>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -830,21 +830,32 @@
                                 if ($('.divHours').find('div:contains(' + textToAppend + ')').length === 0)
                                 {
 
-                                    var divToAppend = $('<div style="display: flex; align-items: center; padding: 20px;">' +
+                                    var divToAppend = $('<div style="display: flex; align-items: center; padding: 0px 20px;">' +
                                                             '<table style="width: 100%;">' +
                                                                 '<tr>' +
                                                                     '<th colspan="6" style="font-size: 26px;text-align: center;" class="nameDays">' +
-                                                                        '<input type="text" value=' + textToAppend + ' name="days[]" style="border:none;text-align: center;"/>' +
+                                                                    '<label style="border:none; text-align: center;" name="days[]" >' + textToAppend + '</label>' +
                                                                     '</th>' +
                                                                 '</tr>' +
                                                                 '<tr>' +
                                                                     '<th><label for="day-type">Choisir un cours</label></th>' +
                                                                     '<th>' + finalSelect +'</th>' +
+                                                                    '<th class="radioGP">' +
+                                                                    '<label>' +
+                                                                        '<input type="radio" name="radio" id="group" checked="">' +
+                                                                        '<span><i class="fas fa-users "></i></span>' +
+                                                                    '</label>' +
+                                                                    '<label>' +
+                                                                        '<input type="radio" name="radio" id="particulier">' +
+                                                                        '<span><i class="fas fa-user "></i></span>' +
+                                                                    '</label>' +
+                                                                
+                                                                '</th>' +
                                                                     '<th><label for="start-time1">Heure de début</label></th>' +
                                                                     '<th><input type="time" id="start-time1" class="heuredebut" name="heuredebut[]"></th>' +
                                                                     '<th><label for="start-time2">Heure de fin</label></th>' +
                                                                     '<th><input type="time" id="start-time2" class="heurefin" name="heurefin[]"></th>' +
-                                                                    '<th><i class="fa-solid fa-xmark" style="border: 1px solid gray; cursor: pointer; font-size: 30px; color: red; "></i></th>' +
+                                                                    '<th><i class="fa-solid fa-xmark" style=" cursor: pointer; font-size: 30px; color: red; "></i></th>' +
                                                                 '</tr>' +
                                                             '</table>' +
                                                         '</div>' +
@@ -946,5 +957,51 @@
 
 
 </script>
+<style>
 
+
+.radioGP  {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.radioGP input[type="radio"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.radioGP input[type="radio"]:checked + span {
+  box-shadow: 0 0 0 0.0625em #0043ed;
+  background-color: #dee7ff;
+  z-index: 1;
+  color: #0043ed;
+}
+
+.radioGP label span {
+  display: block;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.375em .75em;
+  position: relative;
+  margin-left: .0625em;
+  box-shadow: 0 0 0 0.0625em #b5bfd9;
+  letter-spacing: .05em;
+  color: #3e4963;
+  text-align: center;
+  transition: background-color .5s ease;
+}
+
+.radioGP label:first-child span {
+  border-radius: .375em 0 0 .375em;
+}
+
+.radioGP label:last-child span {
+  border-radius: 0 .375em .375em 0;
+}</style>
 </html>

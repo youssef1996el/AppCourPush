@@ -9,11 +9,16 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="{{asset('css/StyleCours.css')}}">
+<link rel="stylesheet" href="{{asset('css/disponibiliteStyle.css')}}">
+
+
+
 
 <script src="{{asset('js/ScriptDashBoardCours.js')}}"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
 <div class="msg" style="margin: auto"></div>
 <div class="container mt-2 widthContainer">
 
@@ -41,6 +46,40 @@
                 </tbody>
             </table>
         </div>
+        <div class="col-sm-12 col-md-12 col-xl-12">
+            <h2 class="mb-3" style="padding-left: 12px;">Disponibilite </h2></div>
+            <div class="disponibilteCase" style="background-color:pink;">
+                
+<div style="display: flex; align-items: center; padding: 0px 20px;">
+    <table style="width: 100%;">
+        <tr>
+            <th colspan="6" style="font-size: 26px;text-align: center;" class="nameDays">
+                <label style="border:none; text-align: center;" name="days[]" >Your Text Here</label>
+            </th>
+        </tr>
+        <tr>
+            <th><label for="day-type">Choisir un cours</label></th>
+            <th>Your Select Options Here</th>
+            <th class="radioGP">
+                <label>
+                    <input type="radio" name="radio" id="group" checked="">
+                    <span><i class="fas fa-users "></i></span>
+                </label>
+                <label>
+                    <input type="radio" name="radio" id="particulier">
+                    <span><i class="fas fa-user "></i></span>
+                </label>
+            </th>
+            <th><label for="start-time1">Heure de début</label></th>
+            <th><input type="time" id="start-time1" class="heuredebut" name="heuredebut[]"></th>
+            <th><label for="start-time2">Heure de fin</label></th>
+            <th><input type="time" id="start-time2" class="heurefin" name="heurefin[]"></th>
+            <th><i class="fa-solid fa-xmark" style=" cursor: pointer; font-size: 30px; color: red; "></i></th>
+        </tr>
+    </table>
+</div>
+<hr style="width:80%">
+            </div>
     </div>
 </div>
 

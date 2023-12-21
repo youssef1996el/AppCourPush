@@ -1003,9 +1003,10 @@ body
      border-radius: 20px;
      height: 350px;
      overflow: auto;
-     width:90%;
+     width:96%;
      margin: auto;
      max-width: 800px;
+     padding: 30px 2px;
  }
  @media (max-width: 768px) {
      .days-list {
