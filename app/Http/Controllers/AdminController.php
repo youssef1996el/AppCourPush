@@ -14,6 +14,7 @@ use App\Models\CertificationProf;
 use Vinkla\Hashids\Facades\Hashids;
 use App\Models\TypeCours;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     public function professeurs()
@@ -103,8 +104,44 @@ class AdminController extends Controller
 
     public function AdminProfile()
     {
-        return view('Dashboard.ProfileAdmin');
+        $DataAdmin = User::where('role_name','Admin')->where('id',Auth::user()->id)->get();
+
+        return view('Dashboard.ProfileAdmin')
+                ->with('DataAdmin', $DataAdmin[0]);
     }
+
+    public function UpDateAdmin(Request $request)
+    {
+        try
+        {
+            dd($request->all());
+            if($request->nouveaumotdepasse)
+            {
+                $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
+                $path = $request->file('image')->storeAs('images/prof',$fileName,'public');
+                $requestDataImage['image'] = '/storage/'.$path;
+                $UpdateAdmin =User::where('id', Auth::user()->id)->update([
+                    'nom'       => $request->nom,
+                    'prenom'    => $request->prenom,
+                    'password'  => Hash::make($request->nouveaumotdepasse)
+                ]);
+            }
+            else
+            {
+                $UpdateAdmin =User::where('id', Auth::user()->id)->update([
+                    'nom'       => $request->nom,
+                    'prenom'    => $request->prenom,
+                    'password'  => Hash::make($request->nouveaumotdepasse)
+                ]);
+            }
+
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
+    }
+
 
     public function ShowUser($id)
     {

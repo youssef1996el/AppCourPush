@@ -87,7 +87,7 @@ class ProfesseurController extends Controller
             }
             else
             {
-                
+
                 $idCours = Cours::where('title',$request->nameCours)->select('id')->get();
                 $idCours = (int)$idCours[0]->id;
                 $checkCoursisExistProf = CoursProfesseur::where('idcours',$idCours)->where('iduser',Auth::user()->id)->count();
@@ -147,6 +147,13 @@ class ProfesseurController extends Controller
             'status'        => 200,
             'data'          => $dataCoursProf
         ]);
+    }
+
+    public function InfoProfesseur()
+    {
+        $DataProfesseur = User::where('id',Auth::user()->id)->get();
+        return view('Professeur.InfoProfesseur')
+        ->with('DataProfesseur',$DataProfesseur[0]);
     }
 
 

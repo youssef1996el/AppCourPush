@@ -44,4 +44,18 @@ $(document).ready(function () {
             }
         },
     });
+
+    $('.showEleve').on('click',function()
+    {
+        var image  = $(this).closest('tr').find('img').attr('src');
+        var name   = $(this).closest('tr').find('td:eq(0)').text();
+        var email  = $(this).closest('tr').find('td:eq(1)').text();
+        var pays   = $(this).closest('tr').find('td:eq(2)').text();
+
+        $('.nomCompletEleve').val(name.replace(/\s+/g, ' '));
+        $('.emailEleve').val(email);
+        $('.paysEleve').val(pays);
+        $('#imageEleve').attr('src',image);
+        $('#ModalView').modal('show');
+    });
 });

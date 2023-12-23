@@ -59,6 +59,7 @@ Route::get('ShowProfileProf'       ,[ProfesseurController::class,'ShowProfile'])
 Route::post('StoreCoursProf'       ,[ProfesseurController::class,'StoreCoursProf']);
 Route::post('DestroyCoursProf'     ,[ProfesseurController::class,'DestroyCoursProf']);
 Route::get('getCoursByProf'        ,[ProfesseurController::class,'getCoursByProf']);
+Route::get('InfoProfesseur'        ,[ProfesseurController::class,'InfoProfesseur'])->name('InfoProfesseur');
 
 /******************************************* End Professeur *************************************************/
 
@@ -82,6 +83,7 @@ Route::get('fetchDataTypeCours'       ,[AdminController::class,'fetchDataTypeCou
 Route::post('StoreDataTypeCours'      ,[AdminController::class,'StoreDataTypeCours']);
 Route::get('GetTypeCours'             ,[AdminController::class,'GetTypeCours']);
 Route::post('UpdateDataTypeCourse'    ,[AdminController::class,'UpdateDataTypeCourse']);
+Route::post('UpDateAdmin'             ,[AdminController::class,'UpDateAdmin']);
 
 /******************************************** End Dashboard Admin ***********************************************/
 

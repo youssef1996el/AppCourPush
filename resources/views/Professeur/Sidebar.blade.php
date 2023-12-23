@@ -45,18 +45,18 @@
 					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span
 							class="theme-item"> Les cours / Disponibilite</span></a></li>
-					<li><a href="extras.html"><i class="fa-solid fa-user-pen"></i> <span
-							class="theme-item"> Informations personnelles</span></a></li>	
+					<li><a href="{{route('InfoProfesseur')}}"><i class="fa-solid fa-user-pen"></i> <span
+							class="theme-item"> Informations personnelles</span></a></li>
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
-							class="theme-item"> Extras</span></a></li>	
+							class="theme-item"> Extras</span></a></li>
 				</ul>
 
 
 
 			</nav>
 
-			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');height:100%;background-repeat: no-repeat;background-position:center;background-size:cover">
+			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');background-repeat: no-repeat;background-position:center;background-size:cover">
 
 				<nav class="navbar navbar-expand-md  bg-white py-0" aria-label="navbarexample" id="navbar" >
 					<div class="container-fluid">
