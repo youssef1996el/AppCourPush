@@ -361,10 +361,9 @@
         var urlPatterns = [
             { pattern: 'index.html', index: 0 },
             { pattern: 'Admin/Profile', index: 1 },
-			{ pattern: 'Dashboard/cours', index: 2 },
-            { pattern: 'professeurs', index: 3 },
-            { pattern: 'eleves', index: 4 },
-            { pattern: 'CoursPaiement', index: 5 }
+            { pattern: 'professeurs', index: 2 },
+            { pattern: 'eleves', index: 3 },
+            { pattern: 'CoursPaiement', index: 4 }
         ];
 
         // Determine the active index based on the current URL
