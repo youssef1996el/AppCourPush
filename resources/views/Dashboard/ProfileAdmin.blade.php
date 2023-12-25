@@ -15,13 +15,13 @@
 
                 <div class="col-sm-4 col-sm-offset-1">
                     <div class="picture-container">
-                    <div class="picture">
-                                                    <img src="{{asset('image/default-avatar.png')}}" class="picture-src" id="wizardPicturePreview" title=""/>
-                                                    <input type="file" id="wizard-picture" name="image">
-                                                </div>
+                        <div class="picture">
+                            <img src="{{asset('image/default-avatar.png')}}" class="picture-src" id="wizardPicturePreview" title=""/>
+                            <input type="file" id="wizard-picture" name="image">
+                        </div>
 
-                                                <h6>choisir une photo</h6>
-                                                <div class="error"></div>
+                        <h6>choisir une photo</h6>
+                        <div class="error"></div>
          
                     </div>
                 </div>
