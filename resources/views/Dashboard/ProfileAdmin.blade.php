@@ -15,14 +15,14 @@
 
                 <div class="col-sm-4 col-sm-offset-1">
                     <div class="picture-container">
-                        <div class="picture">
-                            <img  src="{{ $DataAdmin->image == '' ? asset('image/default-avatar.png') : $DataAdmin->image }}" class="picture-profile" id="wizardPicturePreview" title=""
-                            style="{{ $DataAdmin->image == '' ? '' : 'width:100%;margin:0 10px 10px -41px' }} " />
-                            <input type="file" id="wizard-picture" name="image">
-                        </div>
+                    <div class="picture">
+                                                    <img src="{{asset('image/default-avatar.png')}}" class="picture-src" id="wizardPicturePreview" title=""/>
+                                                    <input type="file" id="wizard-picture" name="image">
+                                                </div>
 
-                        <h6>choisir une photo</h6>
-                        <div class="error"></div>
+                                                <h6>choisir une photo</h6>
+                                                <div class="error"></div>
+         
                     </div>
                 </div>
                 <div class="col-sm-8" style="width:50%">
@@ -67,5 +67,51 @@
         </form>
     </div>
 
+<style>
+     .wizard-card .picture input[type="file"] {
+   cursor: pointer;
+   display: block;
+   height: 100%;
+   left: 0;
+   opacity: 0 !important;
+   position: absolute;
+   top: 0;
+   width: 100%;
+ }
+</style>
+<style>#picture-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
 
+.picture-src {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+}
+
+#wizard-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 100px; /* Make sure the file input covers the entire image */
+    opacity: 0;
+    cursor: pointer;
+}</style>
+
+<script>function displayImage(input) {
+    var preview = document.getElementById('wizardPicturePreview');
+    var file = input.files[0];
+
+    if (file) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+}</script>
 @endsection
