@@ -93,8 +93,9 @@ $(document).ready(function ()
 
                 if (result.isConfirmed)
                 {
+
+                   /*  Swal.fire("Saved!", "", "success"); */
                     $('#FormUpdateAdmin').submit();
-                    Swal.fire("Saved!", "", "success");
                 }
                 else if (result.isDenied)
                 {
@@ -109,14 +110,14 @@ $(document).ready(function ()
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-    
+
             reader.onload = function (e) {
                 $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
             }
             reader.readAsDataURL(input.files[0]);
         }
     }
-    
+
     $("#wizard-picture").change(function(){
         readURL(this);
     });

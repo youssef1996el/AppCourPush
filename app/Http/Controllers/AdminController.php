@@ -15,6 +15,7 @@ use Vinkla\Hashids\Facades\Hashids;
 use App\Models\TypeCours;
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 class AdminController extends Controller
 {
     public function professeurs()
@@ -114,26 +115,33 @@ class AdminController extends Controller
     {
         try
         {
-            dd($request->all());
-            if($request->nouveaumotdepasse)
-            {
-                $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
-                $path = $request->file('image')->storeAs('images/prof',$fileName,'public');
-                $requestDataImage['image'] = '/storage/'.$path;
-                $UpdateAdmin =User::where('id', Auth::user()->id)->update([
-                    'nom'       => $request->nom,
-                    'prenom'    => $request->prenom,
-                    'password'  => Hash::make($request->nouveaumotdepasse)
-                ]);
+            $user = Auth::user();
+
+            // Update user data
+            $updateData = [
+                'nom' => $request->nom,
+                'prenom' => $request->prenom,
+                'password' => Hash::make($request->nouveaumotdepasse),
+            ];
+
+            // Check if a new image is provided
+            if ($request->hasFile('image')) {
+                // Delete the old image if it exists
+                if ($user->image) {
+                    $imagePath = str_replace('/storage/', '', $user->image);
+                    Storage::delete($imagePath);
+                }
+
+                // Upload and store the new image
+                $path = $request->file('image')->store('images/prof', 'public');
+                $updateData['image'] = '/storage/'.$path;
             }
-            else
-            {
-                $UpdateAdmin =User::where('id', Auth::user()->id)->update([
-                    'nom'       => $request->nom,
-                    'prenom'    => $request->prenom,
-                    'password'  => Hash::make($request->nouveaumotdepasse)
-                ]);
-            }
+
+            // Update the user
+            $user->update($updateData);
+
+
+            return redirect()->back()->with('success', 'Profile updated successfully');
 
         }
         catch (\Throwable $th)

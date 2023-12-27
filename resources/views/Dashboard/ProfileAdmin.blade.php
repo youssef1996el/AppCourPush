@@ -8,7 +8,7 @@
         <div class="title">
                 <h2 style="padding-left: 12px;font-family: times;">Profile </h2>
         </div>
-        <form action="{{url('UpDateAdmin')}}" method="post" id="FormUpdateAdmin">
+        <form action="{{url('UpDateAdmin')}}" method="post" id="FormUpdateAdmin" enctype="multipart/form-data">
             @csrf
 
             <div class="row content">
@@ -16,13 +16,14 @@
                 <div class="col-sm-4 col-sm-offset-1">
                     <div class="picture-container">
                         <div class="picture">
-                            <img src="{{asset('image/default-avatar.png')}}" class="picture-src" id="wizardPicturePreview" title=""/>
+                            <img src="{{ $DataAdmin->image == '' ? asset('image/default-avatar.png') : $DataAdmin->image }}" class="picture-src" id="wizardPicturePreview" title=""/>
+
                             <input type="file" id="wizard-picture" name="image">
                         </div>
 
                         <h6>choisir une photo</h6>
                         <div class="error"></div>
-         
+
                     </div>
                 </div>
                 <div class="col-sm-8" style="width:50%">
@@ -61,7 +62,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col-sm-12 col-md-12 col-xl-12 ">
-                    <button type="submit" class="btn btn-success float-end BtnUpdateDataAdmin">Valider</button>
+                    <button type="button" class="btn btn-success float-end BtnUpdateDataAdmin">Valider</button>
                 </div>
             </div>
         </form>
