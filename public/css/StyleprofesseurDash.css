@@ -85,7 +85,7 @@
     background: white;
     border-radius: 50%;
     margin: auto;
-    border: 2px solid #48f148;
+    
   }
   
   .cardProfile .share {
@@ -758,7 +758,6 @@
 
 
    .pic-prof{
-    border: 2px solid #48f148;
     width:45px;
     height: 45px;
    }
@@ -815,4 +814,32 @@
   width: 45px;
   height: 45px;
   border: 2px solid #48f148;
+}
+.custom-input{
+  color: #3498db; /* Change to your desired color */
+  padding-left: 30px; /* Adjust the padding to make space for the icon */
+}
+
+/* Add an icon to the input using the ::before pseudo-element */
+.custom-input::before {
+  content: '\f2c0'; /* Unicode for the Font Awesome check-circle icon */
+  font-family: 'Font Awesome 6 Free'; /* Use the appropriate font-family for your icon library */
+  position: absolute;
+  left: 10px; /* Adjust the left position to align the icon */
+  top: 50%; /* Center the icon vertically */
+  transform: translateY(-50%);
+  color: #2ecc71; /* Change to your desired color for the icon */
+  font-size: 18px; /* Adjust the font size of the icon */
+}
+.cardProfileEleve {
+  width: 29em;
+  height: auto;
+  transition: 1s ease-in-out;
+  clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+  background-color: #ff0000;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 8px 12px 8px;
 }

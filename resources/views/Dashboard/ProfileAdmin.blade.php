@@ -68,38 +68,7 @@
         </form>
     </div>
 
-<style>
-     .wizard-card .picture input[type="file"] {
-   cursor: pointer;
-   display: block;
-   height: 100%;
-   left: 0;
-   opacity: 0 !important;
-   position: absolute;
-   top: 0;
-   width: 100%;
- }
-</style>
-<style>#picture-container {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    cursor: pointer;
-}
 
-.picture-src {
-    width: 100px; /* Adjust the width as needed */
-    height: 100px; /* Adjust the height as needed */
-}
-
-#wizard-picture {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 100px; /* Make sure the file input covers the entire image */
-    opacity: 0;
-    cursor: pointer;
-}</style>
 
 <script>function displayImage(input) {
     var preview = document.getElementById('wizardPicturePreview');

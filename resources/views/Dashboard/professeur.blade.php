@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{asset('css/StyleProfesseurDash.css')}}">
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <div id="overlay">
     <div class="three-body">
         <div class="three-body__dot"></div>
@@ -31,7 +32,7 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="{{asset($item->image)}}" class="pic-prof rounded-circle"  alt="">
+                                <img id="verificationImage" src="{{asset($item->image)}}" class="pic-prof rounded-circle"  alt="">
                                 <div class="">
                                     <p class="fw-bold mb-1">{{$item->name}}</p>
                                     <p class="text-muted mb-0">{{$item->email}}</p>
@@ -39,7 +40,7 @@
                             </div>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1 " style="text-align: center">{{$item->title}}</p>
+                            <p class="fw-normal mb-1 " style="text-align: center;width: 116px;">{{$item->title}}</p>
                         </td>
 
                         <td>
@@ -54,7 +55,9 @@
                                 <span class="">Professionnel</span>
                             </td>
                         @endif
-                        <td>{{$item->verification}}</td>
+                        <td  id="verificationCell" style=" display: ruby-base;margin-top: 14px;" >
+                           <p>{{$item->verification}}</p>
+                        </td>
                         <td>
                             <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}}>
                                 <i class="fa-solid fa-eye"></i>
@@ -198,7 +201,7 @@
                                 <span class="lable">  Certification</span>
                             </a>
                             <div class="radio-input">
-                                <input value="Verifie" name="verification" id="value-1" type="radio">
+                                <input value="Verifie" name="verification" id="value-1" type="radio" class="custom-input">
                                 <label for="value-1">Verifie</label>
                                 <input value="Refuser" name="verification" id="value-2" type="radio">
                                 <label for="value-2">Non verifie</label>
@@ -225,5 +228,31 @@
     var scrimage          ='{{ asset("") }}';
     var scrCertification  ='{{ asset("") }}';
     var verificationCertification = "{{url('verificationProf')}}"
+</script>
+
+<script>
+  // Assuming $item->verification is accessible in JavaScript
+  var verificationValue = "{{$item->verification}}";
+  var verificationCell = document.getElementById('verificationCell');
+
+  if (verificationValue === "Verifie") {
+    // Add an icon before the text
+    var icon = document.createElement('i');
+    icon.className = 'fas fa-certificate'; // Change to your desired icon class
+
+    // Append the icon and update the color
+    verificationCell.insertBefore(icon, verificationCell.firstChild);
+    verificationCell.style.color = "#1DA1F2"; 
+    verificationImage.style.border = "2px solid #1DA1F2";
+    imageProfesseur.style.border = "2px solid #1DA1F2";// Change to your desired color
+  } else {
+    var icon = document.createElement('i');
+    icon.className = 'fas fa-times-circle'; // Change to your desired icon class
+
+    // Append the icon and update the color
+    verificationCell.insertBefore(icon, verificationCell.firstChild);
+    verificationCell.style.color = "red"; 
+    verificationImage.style.border = "2px solid red";
+  }
 </script>
 @endsection()
