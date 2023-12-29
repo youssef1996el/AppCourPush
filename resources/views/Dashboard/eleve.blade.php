@@ -68,17 +68,23 @@
 
                <div class="col-sm-12 col-md-3 col-m-3">
                     <div class="card bg-light cardProfileEleve shadow-sm">
+                       <img class="img" id="imageEleve" alt="Image">
+
                        <form>
                             
-                            <img class="img" id="imageEleve" src="path/to/your/image.jpg" alt="Image">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="nameEleve" readonly>
+                            <div class="form-group">
+                                <label for="name">Nom complet </label>
+                                <input type="text" id="name" class="nomCompletEleve" name="nameEleve" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email </label>
+                                <input type="email" id="email" class="emailEleve" name="emailEleve" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="pays">Pays </label>
+                                <input type="text" id="pays"  class="paysEleve" name="paysEleve" readonly>
+                            </div>
 
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="emailEleve" readonly>
-
-                            <label for="pays">Pays:</label>
-                            <input type="text" id="pays" name="paysEleve" readonly>
                         </form>
                             
                   </div>
@@ -91,17 +97,17 @@
     </div>
 </div>
 <style>
-    .cardProfileEleve form {
+    /* .cardProfileEleve form {
       text-align: center;
-      margin-top: 50px; /* Adjust as needed for top margin */
+      margin-top: 50px; 
     }
 
     .cardProfileEleve  img {
       display: block;
       margin: 0 auto;
-      width: 100px; /* Adjust the width as needed */
+      width: 100px;
       height: auto;
-      margin-bottom: 10px; /* Add margin to separate image from inputs */
+      margin-bottom: 10px; 
     }
 
     .cardProfileEleve label {
@@ -112,7 +118,34 @@
     .cardProfileEleve input {
       display: inline-block;
       margin-bottom: 10px;
+    }*/
+    .cardProfileEleve  form {
+        padding: 20px;
     }
+
+    .cardProfileEleve  .form-group {
+      margin-bottom: 15px;
+    }
+
+    .cardProfileEleve label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .cardProfileEleve input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    .cardProfileEleve  img {
+    width: 120px;
+  height: 120px;
+  text-align: center;
+  margin: auto;
+    margin-bottom: auto;
+  display: flex;
+  border-radius: 50%;
+  margin-bottom: 20px;}
   </style>
 
 <script src="{{asset('js/ScriptDashboardEleve.js')}}"></script>

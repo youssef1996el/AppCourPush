@@ -53,10 +53,15 @@
                             <h2>Your Personal Information</h2>
                             <p>Enter your personal information to get closer to copanies.</p>
                         </div>
+                        <div class="picture-container">
                         <div class="ContentImage">
-                            <img src="{{asset('image/default-avatar.png')}}" alt="" width="60px" height="60px">
+                        
+                        
+                            <img src="{{asset('image/default-avatar.png')}}" class="picture-src" id="wizardPicturePreview" alt="" width="60px" height="60px">
                             <input type="file" id="wizard-picture" name="image" {{-- require --}}> {{-- had require hya li kadiir border f color red validation --}}
+                           
                         </div>
+                    </div>
                         <div class="input-text">
                             <div class="input-div">
                                 <input type="text" name="titre" required {{-- require --}} id="user_name">
@@ -425,6 +430,20 @@
             $(document).on('click', '.formExperience .btn-danger', function() {
                 $(this).closest('.formExperience').remove();
             });
+            function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#wizard-picture").change(function(){
+        readURL(this);
+    });
 
         });
     </script>
@@ -1071,6 +1090,39 @@ select{
     {
         display: none;
     }
+    .picture-container {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+ .ContentImage {
+  width: 100px;
+  height: 100px;
+  background-color: #999999;
+  border: 4px solid #CCCCCC;
+  color: #FFFFFF;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+.ContentImage:hover {
+  border-color: #2ca8ff;
+}
+.ContentImage input[type="file"] {
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0 !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.picture-src {
+  width: 100px ;
+  height: 100px ;
+}
     </style>
 
 
@@ -1185,6 +1237,8 @@ select{
                 }
             });
             return validate;
+
+ 
 
         }
     </script>
