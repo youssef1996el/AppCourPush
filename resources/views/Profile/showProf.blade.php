@@ -291,7 +291,7 @@
                                                 <button type="button" id="AddCours" >Ajouter</button>
                                                 <div class="errorCours"></div>
                                             </div>
-                                            {{-- cours tags --}} <div class="ListeCours">
+                                            <div class="ListeCours">
                                                 <div class="tags-input">
                                                     <ul id="tags"></ul>
                                                 </div>
@@ -382,7 +382,7 @@
         color: red;
     }
     .tags-input {
-        
+
         display: inline-block;
         position: relative;
         border: 1px solid #ccc;

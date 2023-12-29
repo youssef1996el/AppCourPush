@@ -61,6 +61,11 @@ Route::post('DestroyCoursProf'     ,[ProfesseurController::class,'DestroyCoursPr
 Route::get('getCoursByProf'        ,[ProfesseurController::class,'getCoursByProf']);
 Route::get('InfoProfesseur'        ,[ProfesseurController::class,'InfoProfesseur'])->name('InfoProfesseur');
 
+Route::get('StepByStep',function()
+{
+    return view('Professeur.StepByStep');
+});
+
 /******************************************* End Professeur *************************************************/
 
 /******************************************** Eleve *********************************************************/
