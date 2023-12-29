@@ -18,12 +18,12 @@
             <div class="form">
                 <div class="left-side">
                     <div class="left-heading">
-                        <h3>indeed</h3>
+                        <h3><small><b>CRÉEZ </b> VOTRE PROFILE <br></small></h3>
                     </div>
 
                     <div class="steps-content">
-                        <h3>Step <span class="step-number">1</span></h3>
-                        <p class="step-number-content active">Commençons par les informations de base .</p>
+                        <h5><i>Étape </i><span class="step-number">1</span></h5>
+                        <p class="step-number-content active">Ces informations nous permettront d'en savoir plus sur vous. </p>
                         <p class="step-number-content d-none">Get to know better by adding your diploma,certificate and education life.</p>
                         <p class="step-number-content d-none">Help companies get to know you better by telling then about your past experiences.</p>
                         <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
@@ -33,13 +33,13 @@
                         <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
                     </div>
                     <ul class="progress-bar">
-                        <li class="active">Personal Information</li>
-                        <li>Education</li>
-                        <li>Work Experience</li>
+                        <li class="active">informations personnelles</li>
+                        <li>Éducation</li>
+                        <li>Expériences professionnelles</li>
                         <li>Vos méthodes</li>
                         <li>Certification</li>
                         <li>Cours</li>
-                        <li>Disponibilte</li>
+                        <li>Disponibilité</li>
                     </ul>
 
 
@@ -48,10 +48,9 @@
                 <div class="right-side">
                     {{-- Step 1 --}}
                     <div class="main active">
-                        <small><i class="fa fa-smile-o"></i></small>
                         <div class="text">
-                            <h2>Your Personal Information</h2>
-                            <p>Enter your personal information to get closer to copanies.</p>
+                            <h2>Vos informations personnelles</h2>
+                            <p>Saisissez vos informations personnelles pour vous rapprocher des étudiants.</p>
                         </div>
                         <div class="picture-container">
                         <div class="ContentImage">
@@ -75,31 +74,30 @@
                         <div class="input-text">
                             <div class="input-div">
                                 <input type="text" name="phone" required {{-- require --}}>
-                                <span>Numero de telephone:</span>
+                                <span>Numéro de téléphone</span>
                             </div>
 
                         </div>
                         <div class="buttons">
-                            <button class="next_button">Next Step</button>
+                            <button class="next_button">Suivant</button>
                         </div>
                     </div>
                     {{-- End Step 1 --}}
 
                     {{-- Step 2 --}}
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
                         <div class="row">
                             <div class="col-sm-12 col-md-10 col-xl-10">
-                                <h2>Education</h2>
-                                <p>Inform companies about your education life.</p>
+                                <h2>Éducation</h2>
+                                <p>Informez les étudiants et leurs parents de votre vie éducative.</p>
                             </div>
                             <div class="col-sm-12 col-md-2 col-xl-2">
-                                <button class="btn btn-secondary float-end " id="AddFormation">Ajoute</button>
+                                <button class="btn btn-secondary float-end " id="AddFormation">Ajouter</button>
                             </div>
                         </div>
 
 
-                        <div class="HeightEducation card shadow">
+                        <div class="HeightEducation ">
                             <div class="input-text">
                                 <div class="input-div">
                                     <input type="text" required {{-- require --}}>
@@ -132,29 +130,28 @@
 
 
                         <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
+                            <button class="back_button">Précédent</button>
+                            <button class="next_button">Suivant</button>
                         </div>
                     </div>
                     {{-- End Stpe 2 --}}
 
                     {{-- Step 3 --}}
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
                        {{--  <div class="text">
-                            <h2>Work Experiences</h2>
+                            <h2>Expériences professionnelles</h2>
                             <p>Can you talk about your past work experience?</p>
                         </div> --}}
                         <div class="row">
                             <div class="col-sm-12 col-md-10 col-xl-10">
-                                <h2>Work Experiences</h2>
-                                <p>Can you talk about your past work experience?</p>
+                                <h2>Expériences professionnelles</h2>
+                                <p>Pouvez-vous parler de votre expérience professionnelle passée ?</p>
                             </div>
                             <div class="col-sm-12 col-md-2 col-xl-2">
-                                <button class="btn btn-secondary float-end " id="AddExperience">Ajoute</button>
+                                <button class="btn btn-secondary float-end " id="AddExperience">Ajouter</button>
                             </div>
                         </div>
-                        <div class="heightExperience card shadow">
+                        <div class="heightExperience">
                             <div class="input-text">
                                 <div class="input-div">
                                     <input type="text" required >
@@ -167,17 +164,19 @@
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name ="country"></select>
-                                </div>
-                                <div class="input-div">
+                                    <label>Du</label>
                                     <input type="date" required>
-                                    <span>Du</span>
+                                    <!-- <span>Du</span> -->
+                               </div>
+                               <div class="input-div">
+                                    <label>Au</label>
+                                    <input type="date" required>
+                                    <!-- <span>Au</span> -->
                                 </div>
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="date" required>
-                                    <span>Au</span>
+                                    <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name ="country"></select>
                                 </div>
                             </div>
                             <hr style="border-style: dashed">
@@ -186,22 +185,21 @@
 
 
                         <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
+                            <button class="back_button">Précédent</button>
+                            <button class="next_button">Suivant</button>
                         </div>
                     </div>
                     {{-- End step 3 --}}
 
 
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
                         <div class="text">
                             <h2>Vos méthodes</h2>
-                            <p>vos expériences en cours de soutien et en pédagogie .</p>
+                            <p>Vos expériences en cours de soutien et en pédagogie .</p>
                         </div>
                         <div class="input-text">
                             <div class="input-div">
-                                <label for="">
+                                <label for="" class="mb-2">
                                     Plus votre description sera détaillée, plus vous aurez de chances d'avoir des élèves.
                                     Vous pouvez rajouter les résultats et/ou les retours de vos élèves.
                                     Cette présentation sera affichée sur votre profil.
@@ -230,30 +228,28 @@
                             </div>
                         </div> --}}
                         <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
+                            <button class="back_button">Précédent</button>
+                            <button class="next_button">Suivant</button>
                             {{-- <button class="submit_button">Submit</button> --}}
                         </div>
                     </div>
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
                         <div class="text">
                             <h2>Certification</h2>
-                            <p>bla bla bla .</p>
+                            <p>Veuillez ajouter votre dernier certificat de travail.</p>
                         </div>
                         <div class="input-text">
                             <div class="input-div">
-                                <label for="">Attestation de travail</label>
+                                <label for="" class="sr-only">Attestation de travail</label>
                                 <input type="file" name="attestation">
                             </div>
                         </div>
                         <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
+                            <button class="back_button">Précédent</button>
+                            <button class="next_button">Suivant</button>
                         </div>
                     </div>
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
                         <div class="text">
                             <h2>Cours</h2>
                             <p>Quelles sont les cours dans lesquelles vous pouvez aider des élèves ?</p>
@@ -261,30 +257,32 @@
                         <div class="List-Courses">
                             <div class="input-cours">
                                 <div class="input-text">
-                                    <div class="input-div">
+                                    <div class="input-div" class="d-flex">
+
                                         <input type="text" id="input-tag">
-                                        <span>Ajouter des cours</span>
+                                        <button type="button" id="AddCours" >Ajouter</button>
                                     </div>
+                                   
                                 </div>
-                                <button type="button" id="AddCours" >Ajouter</button>
+                                
                                 <div class="errorCours"></div>
                             </div>
-                            <div class="ListeCours">
-                                <div class="tags-input">
+                            <div class="ListeCours" >
+                                <div class="tags-input" >
                                     <ul id="tags"></ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
+                        <div class="buttons button_space mt-3">
+                            <button class="back_button">Précédent</button>
+                            <button class="next_button">Suivant</button>
                         </div>
                     </div>
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
                         <div class="text">
-                            <h2>Disponibilte</h2>
+                            <h2>Disponibilité</h2>
                             <p>Quelles sont vos disponibilités pour donner des cours ?</p>
+                            <h5 style="color:red">NB. Les cours particuliers coûtent 12 euros et les cours collectifs coûtent 10 euros</h5>
                         </div>
                         <div class="row rowDays">
                             <div class="days-list">
@@ -298,28 +296,17 @@
                             </div>
                             <br>
                             <div class="divHours">
-                                <input type="text" value="Lundi" style="border: none;text-align: center;border-bottom: 1px solid black">
-
-                                <div style="display: flex;gap: 20px">
+                                <label type="text" value="Lundi" style="text-align: center;"></label>
+                                <div style="display: flex;">
                                     <div class="input-div">
-                                        <label for="">Du</label>
-                                        <input type="time">
-                                    </div>
-                                    <div class="input-div">
-                                        <label for="">Au</label>
-                                        <input type="time">
-                                    </div>
-                                </div>
-                                <div style="display: flex;gap:20px">
-                                    <div class="input-div">
-                                        <label for="">Cours</label>
-                                        <select name="" id="" style="width: 150%">
+                                        <label for="">Choisir un cours</label>
+                                        <select name="" id="" >
                                             <option value="1">Arabe</option>
                                         </select>
                                     </div>
-                                    <div class="input-div" style="margin-left:4.5rem">
+                                    <div class="input-div">
                                         <label for="">Groupe / Privé</label>
-                                        <br>
+                                       
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
                                             <input type="radio" class="btn-check" name="btnradio" id="group" autocomplete="off" checked="">
                                             <label class="btn btn-outline-primary" for="group" style=""><i class="fa fa-users "></i></label>
@@ -328,13 +315,32 @@
                                             <label class="btn btn-outline-primary " for="private" style="width:45px ; "><i class="fa fa-user "></i></label>
                                         </div>
                                     </div>
+                                    <div class="input-div">
+                                        <label for="">Heure de début</label>
+                                        <input type="time">
+                                    </div>
+                                    <div class="input-div">
+                                        <label for="">Heure de fin</label>
+                                        <input type="time">
+                                    </div>
                                 </div>
+                               <!--  <div style="display: flex;gap: 20px">
+                                    <div class="input-div">
+                                        <label for="">Heure de début</label>
+                                        <input type="time">
+                                    </div>
+                                    <div class="input-div">
+                                        <label for="">Heure de fin</label>
+                                        <input type="time">
+                                    </div>
+                                </div> -->
+                                
                                 <hr style="border-style: dashed">
                             </div>
                         </div>
                         <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="submit_button">Submit</button>
+                            <button class="back_button">Précédent</button>
+                            <button class="submit_button">Valider</button>
                         </div>
                     </div>
 
@@ -404,17 +410,17 @@
                                                     </div>
                                                     <div class="input-text">
                                                         <div class="input-div">
-                                                            <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name ="country"></select>
+                                                            <label>Du</label>
+                                                            <input type="date" required
                                                         </div>
                                                         <div class="input-div">
+                                                            <label>Au</label>
                                                             <input type="date" required>
-                                                            <span>Du</span>
                                                         </div>
                                                     </div>
                                                     <div class="input-text">
                                                         <div class="input-div">
-                                                            <input type="date" required>
-                                                            <span>Au</span>
+                                                            <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name ="country"></select>
                                                         </div>
                                                     </div>
                                                     <div class="input-text">
@@ -500,6 +506,7 @@
         *{
             padding:0;
             margin:0;
+            font-family:times;
         }
         .containerCss{
             min-height:100vh;
@@ -509,13 +516,13 @@
             background-color:#eee;
         }
         .containerCss .cardCss{
-            height:500px;
-            width:800px;
-            background-color:#fff;
-            position:relative;
-            box-shadow:0 15px 30px rgba(0,0,0,0.1);
+            height: 540px;
+            width: 830px;
+            background-color: #fff;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             font-family: 'Poppins', sans-serif;
-            border-radius:20px;
+            border-radius: 20px;
         }
         .containerCss .cardCss .form{
             width:100%;
@@ -693,7 +700,7 @@ input[type="date"]{
     padding:0px 10px;
 }
 input[type="time"]{
-    width:100%;
+    width:46%;
     height:40px;
     border:none;
     outline:0;
@@ -714,7 +721,7 @@ input[type="time"]{
 {
     margin: -4px 0 8px 0;
     padding: 4px;
-    max-height: 18rem;
+    max-height: 20rem;
     overflow-y: auto;
 
 }
@@ -722,7 +729,7 @@ input[type="time"]{
 {
     margin: -18px 0 8px 0;
     padding: 4px;
-    max-height: 18rem;
+    max-height: 20rem;
     overflow-y: auto;
 }
 /********** */
@@ -772,7 +779,7 @@ input[type="time"]{
     padding: 5px;
     box-shadow: 2px 2px 5px #00000033;
     width: 100%;
-    margin-top: 12px;
+    margin-top: -14px;
     max-height: 212px;
     overflow-y: auto;
     height: 195px;
@@ -802,6 +809,18 @@ input[type="time"]{
     outline: none;
     padding: 5px;
     font-size: 14px;
+
+}
+#input-tag{
+  width: 78%;
+  height: 40px;
+  border: none;
+  outline: 0;
+  border-radius: 5px;
+  border: 1px solid #cbced4;
+  gap: 20px;
+  box-sizing: border-box;
+ 
 }
 
 .tags-input input[type="text"]:focus
@@ -823,11 +842,10 @@ input[type="time"]{
     border: none;
     color: #fff;
     cursor: pointer;
-    padding: 4px 20px;
-    border-radius: 0px;
+    padding: 8px 20px;
+    border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    margin-top: -25px;
+ 
     transition: .9s ease;
 }
 /**************** */
@@ -1105,6 +1123,7 @@ select{
   overflow: hidden;
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
+  margin: auto;
 }
 .ContentImage:hover {
   border-color: #2ca8ff;
