@@ -389,6 +389,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="input-text">
+                                                <div class="input-div">
                                                     <button class="btn btn-danger float-end">Supprimer</button>
                                                 </div>
                                                 <hr style="border-style: dashed">
@@ -398,33 +399,38 @@
             $('#AddExperience').on('click', function()
             {
                 $('.heightExperience').append(`<div class="formExperience">
+                                                       <div class="input-text">
+                                                            <div class="input-div">
+                                                                <input type="text" required >
+                                                                <span>Filière</span>
+                                                            </div>
+                                                            <div class="input-div">
+                                                                <input type="text" required >
+                                                                <span>Lycée / Université</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-text">
+                                                            <div class="input-div">
+                                                                <label>Du</label>
+                                                                <input type="date" required>
+                                                                <!-- <span>Du</span> -->
+                                                        </div>
+                                                        <div class="input-div">
+                                                                <label>Au</label>
+                                                                <input type="date" required>
+                                                                <!-- <span>Au</span> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-text">
+                                                            <div class="input-div">
+                                                                <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name ="country"></select>
+                                                            </div>
+                                                        </div>
+
                                                     <div class="input-text">
                                                         <div class="input-div">
-                                                            <input type="text" required require>
-                                                            <span>Filière</span>
-                                                        </div>
-                                                        <div class="input-div">
-                                                            <input type="text" required require>
-                                                            <span>Lycée / Université</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="input-text">
-                                                        <div class="input-div">
-                                                            <label>Du</label>
-                                                            <input type="date" required
-                                                        </div>
-                                                        <div class="input-div">
-                                                            <label>Au</label>
-                                                            <input type="date" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="input-text">
-                                                        <div class="input-div">
-                                                            <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name ="country"></select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="input-text">
                                                         <button class="btn btn-danger float-end">Supprimer</button>
+                                                        </div>
                                                     </div>
                                                     <hr style="border-style: dashed">
                                                 </div>`)
