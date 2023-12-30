@@ -45,7 +45,7 @@ class HomeController extends Controller
     {
 
         if (Auth::user()->role_name === 'professeur') {
-            return redirect('professeur/StepByStep');
+            return redirect('StepByStep');
         }
         else if(Auth::user()->role_name === 'eleve')
         {

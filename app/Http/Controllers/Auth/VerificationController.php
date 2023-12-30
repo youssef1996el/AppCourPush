@@ -44,7 +44,7 @@ class VerificationController extends Controller
     {
 
         if (Auth::user()->role_name == 'professeur') {
-            return 'professeur/StepByStep';
+            return 'StepByStep';
             /* return redirect('professeur/StepByStep'); */
         } else {
             return '/home';

@@ -51,7 +51,7 @@ class LoginController extends Controller
             $checkProfIsExperince = DB::table('experinceprof')->where('iduser', '=', Auth::user()->id)->count();
             if($checkProfIsExperince == 0)
             {
-                $this->redirectTo = route('professeur/StepByStep');
+                $this->redirectTo = route('StepByStep');
                 return $this->redirectTo;
             }
             else

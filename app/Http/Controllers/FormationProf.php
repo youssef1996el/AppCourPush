@@ -26,7 +26,7 @@ class FormationProf extends Controller
                 [
                     'diplome'               =>$diplome[$i],
                     'specialise'            =>$specialise[$i],
-                    'annee'                 =>$annee[$i],
+                    'annee'                 =>$annee[$i].'-01-01',
                     'ecole'                 =>$ecole[$i],
                     'pays'                  =>$pays[$i],
                     'created_at'           =>Carbon::now(),
