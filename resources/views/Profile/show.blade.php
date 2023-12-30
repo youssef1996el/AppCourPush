@@ -9,9 +9,9 @@
         <div id="divProfile" class="col-5">
             <div class="card text-center">
                 <img class="card-img-top" src="{{asset($DataProf[0]->image)}}" alt="Profile image"  srcset="" style="border: 2px solid white;">
-                <h2 class="name">{{$DataProf[0]->nom}}</h2>
+                <h2 class="name">{{$DataProf[0]->nom .' '. $DataProf[0]->prenom}}</h2>
                 <h4 >{{$DataProf[0]->title}}</h4>
-                <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> 3 ans d'expérience</h4>
+                <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince}}</span> ans d'expérience</h4>
                 <div class="card-body" >
                     <p class="card-text">{{$DataProf[0]->description}}</p>
                 </div>
@@ -31,9 +31,7 @@
             <!-- Formation -->
             <div class="card cardFormation" >
                 <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
-
                     <div class="card-body timeline" >
-
                         <ul class="list-unstyled ">
                             @foreach ($FormationProf as $key => $item)
                                 <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
@@ -93,7 +91,7 @@
             <div id="divCours" class="col-4">
                 <div class="card cardCours" >
                     <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Les cours </h4>
-                  
+
                         <div class="card-body">
                         <div class="divScrollCours" >
                                 <p class="card-cours">BodyBodyBodyBodyBodyBody</p>
@@ -118,15 +116,21 @@
                                             <p >
                                                 @if($data)
                                                     <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+
                                                 @endif
                                                 {{$data ? $data->debut : "Vide"}}
+
                                             </p>
+
+
                                             <p>
                                                 @if($data)
                                                    <i class="fa-solid fa-clock" style="color: #0078ff"></i>
                                                  @endif
                                                 {{$data ? $data->fin : 'Vide'}}
                                             </p>
+
+
                                         </div>
                                     </div>
                                 </div>

@@ -24,9 +24,10 @@ class ProfesseurController extends Controller
         $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[Auth::user()->id]);
         $CourProf      = DB::select('select cp.id as idcourprof,c.title,c.id as idcour from cours c,courprof cp,users u where u.id = cp.iduser and c.id = cp.idcours and u.id = ?',[Auth::user()->id]);
         $DataProf = User::where('id',Auth::user()->id)->get();
-        $DisponibleProf = DB::select('select jour,debut,fin from disponibleprof where iduser = ?',[Auth::user()->id]);
+        $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
         $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
+        $CalculExperince = DB::select('select sum(timestampdiff(year,du,au) ) as experince from experinceprof where iduser = ?',[Auth::user()->id]);
 
         $disponibilityByDay = [];
         foreach ($day_names_fr as $item)
@@ -57,7 +58,8 @@ class ProfesseurController extends Controller
         ->with('DisponibleProf',$DisponibleProf)
         ->with('DataProf',$DataProf)
         ->with('disponibilityByDay',$disponibilityByDay)
-        ->with('CourProf',$CourProf);
+        ->with('CourProf',$CourProf)
+        ->with('CalculExperince' , $CalculExperince[0]->experince);
     }
 
     public function StoreCoursProf(Request $request)
