@@ -5,6 +5,7 @@
   margin: auto;
   padding: 20px 24px; background: #ffffff4a;" >
             <div class="card-body">
+                <h3 class="mb-5" style="font-style:italic">Les informations personnelles</h3>
                 <div class="row">
                     <div class="picture-container">
                         <div class="picture">
@@ -51,6 +52,9 @@
     </div>
 
     <style>
+        *{
+            font-family:times;
+        }
         .picture-src{
             width: 160px;
   height: 160px;
