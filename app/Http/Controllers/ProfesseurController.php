@@ -9,6 +9,7 @@ use DateTime;
 use DB;
 use Auth;
 use App\Models\CoursProfesseur;
+use App\Models\TypeCours;
 class ProfesseurController extends Controller
 {
     public function StepByStep()
@@ -154,6 +155,17 @@ class ProfesseurController extends Controller
         $DataProfesseur = User::where('id',Auth::user()->id)->get();
         return view('Professeur.InfoProfesseur')
         ->with('DataProfesseur',$DataProfesseur[0]);
+    }
+
+    public function GetPriceGroupeOrPrive()
+    {
+        $TypeCoursPrive = TypeCours::select('prix')->where('type','=','Cours particulier')->get();
+        $TypeCoursGroupe = TypeCours::select('prix')->where('type','=','Cours en groupe')->get();
+        return response()->json([
+            'status'   => 200,
+            'Groupe'   => $TypeCoursGroupe,
+            'Prive'    => $TypeCoursPrive
+        ]);
     }
 
 

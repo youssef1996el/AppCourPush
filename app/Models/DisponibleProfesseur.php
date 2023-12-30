@@ -12,6 +12,6 @@ class DisponibleProfesseur extends Model
 
     protected $fillable =
     [
-        'jour', 'debut', 'fin','iduser'
+        'jour', 'debut', 'fin','iduser','idcours','typecours'
     ];
 }

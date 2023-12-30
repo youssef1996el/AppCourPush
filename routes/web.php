@@ -60,6 +60,7 @@ Route::post('StoreCoursProf'       ,[ProfesseurController::class,'StoreCoursProf
 Route::post('DestroyCoursProf'     ,[ProfesseurController::class,'DestroyCoursProf']);
 Route::get('getCoursByProf'        ,[ProfesseurController::class,'getCoursByProf']);
 Route::get('InfoProfesseur'        ,[ProfesseurController::class,'InfoProfesseur'])->name('InfoProfesseur');
+Route::get('GetPriceGroupeOrPrive' ,[ProfesseurController::class,'GetPriceGroupeOrPrive']);
 
 Route::get('StepByStep',function()
 {

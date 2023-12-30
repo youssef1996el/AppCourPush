@@ -14,7 +14,8 @@ class DisponibleProf extends Controller
         $days = $request->days;
         $heuredebut = $request->heuredebut;
         $heurefin =$request->heurefin;
-
+        $courByDate = $request->courByDate;
+        $typeCours  = $request->typeCours;
         if(!is_null($days))
         {
             for($i = 0 ; $i< count($days) ; $i++)
@@ -27,6 +28,8 @@ class DisponibleProf extends Controller
                     'created_at'           =>Carbon::now(),
                     'updated_at'           =>Carbon::now(),
                     'iduser'               =>Auth::user()->id,
+                    'idcours'              =>$courByDate[$i],
+                    'typecours'            =>$typeCours[$i],
                 ];
                 DB::table('disponibleprof')->insert($DataSava);
             }
