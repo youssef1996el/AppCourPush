@@ -57,11 +57,11 @@
                             </div>
                             <div class="picture-container">
                                 <div class="ContentImage">
-                                    <img src="{{asset('image/default-avatar.png')}}"  class="picture-src" id="wizardPicturePreview" alt="" width="60px" height="60px">
-                                    <input type="file" id="wizard-picture" name="image" required require> {{-- had require hya li kadiir border f color red validation --}}
+                                    <img src="{{asset('image/default-avatar.png')}}"  class="picture-src" id="wizardPicturePreview" alt="" width="60px" height="60px" required require >
+                                    <input type="file" id="wizard-picture" name="image" required require > 
                                 </div>
                             </div>
-                            <div class="input-text">
+                            <div class="input-text" style="margin-top: 2.5rem;">
                                 <div class="input-div">
                                     <input type="text" name="titre" required require id="user_name">
                                     <span>Titre de votre annonce</span>
@@ -71,14 +71,14 @@
                                     <span class="textDateNaissance">Date de naissance</span>
                                 </div>
                             </div>
-                            <div class="input-text">
+                            <div class="input-text" style="margin-top: 2.5rem;">
                                 <div class="input-div">
                                     <input type="text" id="phone" name="phone" required require>
                                     <span>Numéro de téléphone</span>
                                 </div>
 
                             </div>
-                            <div class="buttons">
+                            <div class="buttons mt-3">
                                 <button type="button" class="next_button">Suivant</button>
                             </div>
                         </div>
@@ -96,6 +96,7 @@
                                 </div>
                             </div>
                             <div class="HeightEducation ">
+                                
                                 <div class="input-text">
                                     <div class="input-div">
                                         <input type="text" name="diplome[]" required require>
@@ -106,7 +107,7 @@
                                         <span>Spécialité</span>
                                     </div>
                                 </div>
-                                <div class="input-text">
+                                <div class="input-text" style="margin-top: 2.5rem;">
                                     <div class="input-div">
                                         <input type="text" name="annee[]" required require>
                                         <span>Année d'obtention</span>
@@ -154,17 +155,17 @@
                                         <span>Lycée / Université</span>
                                     </div>
                                 </div>
-                                <div class="input-text">
+                                <div class="input-text " style="margin-top: 1rem !important; font-weight:bold;font-size:14px;">
                                     <div class="input-div">
-                                        <label>Du</label>
+                                        <label style="margin-left: 6px;">Du</label>
                                         <input type="date" name="du[]" required require>
                                         <!-- <span>Du</span> -->
-                                </div>
-                                <div class="input-div">
-                                        <label>Au</label>
+                                     </div>
+                                     <div class="input-div">
+                                        <label  style="margin-left: 6px;">Au</label>
                                         <input type="date" name="au[]" required require>
                                         <!-- <span>Au</span> -->
-                                    </div>
+                                     </div>
                                 </div>
                                 <div class="input-text">
                                     <div class="input-div">
@@ -371,7 +372,7 @@
                                                         <span>Spécialité</span>
                                                     </div>
                                                 </div>
-                                                <div class="input-text">
+                                                <div class="input-text" style="margin-top: 2.5rem;">
                                                     <div class="input-div">
                                                         <input type="text" name="annee[]" required require>
                                                         <span>Année d'obtention</span>
@@ -385,11 +386,11 @@
                                                     <div class="input-div">
                                                         <select class="countryDropdown" onchange="print_state('state', this.selectedIndex);" name="paysFormation[]"></select>
                                                     </div>
+                                                    <div class="input-div">
+                                                        <button class="btn btn-danger float-end">Supprimer</button>
+                                                    </div>
                                                 </div>
-                                                <div class="input-text">
-                                                <div class="input-div">
-                                                    <button class="btn btn-danger float-end">Supprimer</button>
-                                                </div>
+                                               
                                                 <hr style="border-style: dashed">
                                             </div>`);
                                             print_country("countryDropdown");
@@ -412,13 +413,13 @@
                                                                 <span>Lycée / Université</span>
                                                             </div>
                                                         </div>
-                                                        <div class="input-text">
+                                                        <div class="input-text" style="margin-top: 1rem !important; font-weight:bold;font-size:14px;">
                                                             <div class="input-div">
-                                                                <label>Du</label>
+                                                                <label style="margin-left:6px">Du</label>
                                                                 <input type="date"  name="du[]" required require>
                                                         </div>
                                                         <div class="input-div">
-                                                                <label>Au</label>
+                                                                <label style="margin-left:6px">Au</label>
                                                                 <input type="date" name="au[]" required require>
                                                             </div>
                                                         </div>
@@ -426,13 +427,11 @@
                                                             <div class="input-div">
                                                                 <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysExperience[]" required require></select>
                                                             </div>
+                                                            <div class="input-div">
+                                                                <button class="btn btn-danger float-end">Supprimer</button>
+                                                            </div>
                                                         </div>
 
-                                                    <div class="input-text">
-                                                        <div class="input-div">
-                                                        <button class="btn btn-danger float-end">Supprimer</button>
-                                                        </div>
-                                                    </div>
                                                     <hr style="border-style: dashed">
                                                 </div>`);
                                                 print_country("countryDropdown");
@@ -465,6 +464,7 @@
                         $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
                     }
                     reader.readAsDataURL(input.files[0]);
+                    
                 }
             }
 
@@ -491,27 +491,27 @@
                             finalSelect += '</select>';
                             $('.divHours').append(`<div class="FormDisponibilite">
                                 <div class="row g-0">
-                                    <div class="col-sm-1 col-md-1 col-xl-1 ">
-                                        <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px; cursor: pointer;" class="RemoveFormDisponiblite">
+      
+                                    <div class="col-sm-11 col-md-11 col-xl-11">
+                                        <input  type="text" name="days[]" class="DaysDispo" value="${textToAppend}" style="text-align: center;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  
+  background: #3047671a;
+ 
+  border-radius: 0px;">
+                                    </div>
+                                    <div class=col-sm-1 col-md-1 col-xl-1 ">
+                                        <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px; cursor: pointer;margin-left: 12px;" class="RemoveFormDisponiblite">
                                             <circle cx="15" cy="15" r="13.5" stroke="rgb(48,72,500)" stroke-width="2.25" fill="rgb(255, 1, 1)" />
                                             <text x="50%" y="50%" font-size="15" text-anchor="middle" fill="white" dy=".3em">X</text>
                                         </svg>
 
                                     </div>
-                                    <div class="col-sm-11 col-md-11 col-xl-11">
-                                        <input type="text" name="days[]" class="DaysDispo" value="${textToAppend}" style="text-align: center">
-                                    </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-3 col-xl-3">
-                                        <label for="">Heure de début</label>
-                                        <input type="time" name="heuredebut[]" class="form-control heuredebut">
-                                    </div>
-                                    <div class="col-sm-12 col-md-3 col-xl-3">
-                                        <label for="">Heure de fin</label>
-                                        <input type="time" name="heurefin[]" class="form-control heurefin">
-                                    </div>
+                                <div class="row mt-3">
                                     <div class="col-sm-12 col-md-3 col-xl-3">
                                         <label for="" style="white-space: nowrap">Choisir un cours</label>
                                         ${finalSelect}
@@ -542,6 +542,15 @@
                                             </label>
                                         </div>
                                     </div>
+                                    <div class="col-sm-12 col-md-3 col-xl-3">
+                                        <label for="">Heure de début</label>
+                                        <input type="time" name="heuredebut[]" class="form-control heuredebut">
+                                    </div>
+                                    <div class="col-sm-12 col-md-3 col-xl-3">
+                                        <label for="">Heure de fin</label>
+                                        <input type="time" name="heurefin[]" class="form-control heurefin">
+                                    </div>
+                                   
                                 </div>
                                 <hr style="border-style: dashed">
                             </div>`);
@@ -788,12 +797,21 @@
         {
             border: 2px solid #304767;
             border-radius: 20px;
-            height:200px;
+            height: 200px;
             overflow: auto;
-            margin: auto;
-            padding: 30px 2px;
+                overflow-x: auto;
+            margin: 12px 0px 0 -18px;
+                margin-bottom: 0px;
+            padding: 30px 12px;
             margin-bottom: 7px;
             overflow-x: clip;
+            min-width: 530px;
+        }
+        .divHours label
+        {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
         @media (max-width: 768px) {
             .days-list {
@@ -966,7 +984,7 @@
     color:#cbced4;
 }
 .input-text{
-    margin:30px 0;
+    margin: 30px 0px 4px 0;
      display:flex;
     gap:20px;
 }
@@ -1021,19 +1039,29 @@ input[type="time"]{
 }
 .HeightEducation
 {
-    margin: -4px 0 8px 0;
-    padding: 4px;
-    max-height: 20rem;
-    overflow-y: auto;
+ 
+  padding: 8px;
+  max-height: 20rem;
+  overflow-y: auto;
+  margin-bottom: 16px;
 
 }
 .heightExperience
 {
-    margin: -18px 0 8px 0;
-    padding: 4px;
+    padding: 8px;
     max-height: 20rem;
     overflow-y: auto;
+    margin-bottom: 16px;
 }
+
+/* .heightExperience .card{  
+  width: 532px !important;
+  padding: 12px !important;
+}
+.HeightEducation .card{  
+  width: 532px;
+  padding: 12px !important;
+} */
 /********** */
 .heightExperience::-webkit-scrollbar {
     width: 15px;
@@ -1074,17 +1102,16 @@ input[type="time"]{
 .tags-input
 {
 
-    display: inline-block;
-    position: relative;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px;
-    box-shadow: 2px 2px 5px #00000033;
-    width: 100%;
-    margin-top: -14px;
-    max-height: 212px;
-    overflow-y: auto;
-    height: 195px;
+  Position: relative;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px 10px;
+  box-shadow: 2px 2px 5px #00000033;
+  width: 100%;
+  margin-top: 9px;
+  max-height: 212px;
+  overflow-y: auto;
+  height: 195px;
 }
 
 .tags-input ul
@@ -1182,9 +1209,9 @@ select{
     transition:all 0.5s;
 }
 .input-div input:focus ~ span,.input-div input:valid ~ span  {
-    top:-15px;
+    top:-20px;
     left:6px;
-    font-size:10px;
+    font-size:14px;
     font-weight:600;
 }
 
@@ -1443,6 +1470,7 @@ select{
 .picture-src {
   width: 100px ;
   height: 100px ;
+  
 }
 
 /******************************** CSS GRoupe Prive*/
@@ -1675,5 +1703,6 @@ select{
 
         }
     </script>
+    
 </body>
 </html>
