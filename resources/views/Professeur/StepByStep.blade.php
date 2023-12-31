@@ -297,11 +297,11 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>Voulez-vous sauvegarder vos donnees personnelles ?*</p>
-                                      <!--   <input type="checkbox" id="confirmCheckbox">
-                                        <label for="confirmCheckbox">J'accepte </label> -->
+                                        <input type="checkbox" id="confirmCheckbox">
+                                        <label for="confirmCheckbox">Oui, j'accepte </label> 
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
                                         <button type="submit" class="btn btn-primary" id="btnSaveData">sauvegarder</button>
                                     </div>
                                 </div>
