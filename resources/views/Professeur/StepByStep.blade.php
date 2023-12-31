@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{asset('css/Step.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Document</title>
+    <title>Iqraa</title>
 </head>
 <body>
 
@@ -58,7 +59,7 @@
                             <div class="picture-container">
                                 <div class="ContentImage">
                                     <img src="{{asset('image/default-avatar.png')}}"  class="picture-src" id="wizardPicturePreview" alt="" width="60px" height="60px" required require >
-                                    <input type="file" id="wizard-picture" name="image" required require > 
+                                    <input type="file" id="wizard-picture" name="image"  require required > 
                                 </div>
                             </div>
                             <div class="input-text" style="margin-top: 2.5rem;">
@@ -78,8 +79,8 @@
                                 </div>
 
                             </div>
-                            <div class="buttons mt-3">
-                                <button type="button" class="next_button">Suivant</button>
+                            <div class="buttons mt-3 float-end">
+                                <button type="button" class="next_button ">Suivant</button>
                             </div>
                         </div>
                         {{-- End Step 1 --}}
@@ -120,12 +121,12 @@
                                 </div>
                                 <div class="input-text">
                                     <div class="input-div">
-                                        <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysFormation[]"></select>
+                                        <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysFormation[]" required require></select>
                                     </div>
                                 </div>
                                 <hr style="border-style: dashed">
                             </div>
-                            <div class="buttons button_space">
+                            <div class="buttons button_space float-end">
                                 <button type="button" class="back_button">Précédent</button>
                                 <button type="button" class="next_button">Suivant</button>
                             </div>
@@ -174,7 +175,7 @@
                                 </div>
                                 <hr style="border-style: dashed">
                             </div>
-                            <div class="buttons button_space">
+                            <div class="buttons button_space float-end">
                                 <button type="button" class="back_button">Précédent</button>
                                 <button type="button" class="next_button">Suivant</button>
                             </div>
@@ -198,7 +199,7 @@
 
                                 </div>
                             </div>
-                            <div class="buttons button_space">
+                            <div class="buttons button_space mt-3 float-end">
                                 <button type="button" class="back_button">Précédent</button>
                                 <button type="button" class="next_button">Suivant</button>
 
@@ -218,7 +219,7 @@
                                     <input type="file" name="attestation" class="form-control">
                                 </div>
                             </div>
-                            <div class="buttons button_space">
+                            <div class="buttons button_space mt-5 float-end">
                                 <button type="button" class="back_button">Précédent</button>
                                 <button type="button" class="next_button">Suivant</button>
                             </div>
@@ -250,7 +251,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="buttons button_space mt-3">
+                            <div class="buttons button_space mt-4 float-end">
                                 <button type="button" class="back_button">Précédent</button>
                                 <button type="button" class="next_button">Suivant</button>
                             </div>
@@ -279,7 +280,7 @@
 
                                 </div>
                             </div>
-                            <div class="buttons button_space">
+                            <div class="buttons button_space mt-2 float-end">
                                 <button type="button" class="back_button">Précédent</button>
                                 <button type="button" class="submit_button finish" >Valider</button>
                             </div>
@@ -291,13 +292,13 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         <h4 class="modal-title">Confirmer la sauvegarde</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Acceptez-vous nos conditions générales ? Cette question est requise *</p>
-                                        <input type="checkbox" id="confirmCheckbox">
-                                        <label for="confirmCheckbox">J'accepte </label>
+                                        <p>Voulez-vous sauvegarder vos donnees personnelles ?*</p>
+                                      <!--   <input type="checkbox" id="confirmCheckbox">
+                                        <label for="confirmCheckbox">J'accepte </label> -->
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
@@ -384,7 +385,7 @@
                                                 </div>
                                                 <div class="input-text">
                                                     <div class="input-div">
-                                                        <select class="countryDropdown" onchange="print_state('state', this.selectedIndex);" name="paysFormation[]"></select>
+                                                        <select class="countryDropdown" onchange="print_state('state', this.selectedIndex);" name="paysFormation[]" required require></select>
                                                     </div>
                                                     <div class="input-div">
                                                         <button class="btn btn-danger float-end">Supprimer</button>
@@ -757,834 +758,7 @@
         });
     </script>
 
-    <style>
-        .activeRadio
-        {
-            background: #0d6efd;
-        }
-        .activeIcon
-        {
-            color: white
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
-        .days-list
-        {
-            display: contents;
-            justify-content: space-around;
-            margin: 0px 30px;
-        }
-        .day-item
-        {
-            font-size: 18px;
-            padding: 5px 10px;
-            background-color: #304767;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin: 5px;
-            flex-grow: 1;
-            max-width: calc(21.333% - 10px);
-        }
-
-
-        .day-item:hover
-        {
-            background-color: #3b5170;
-        }
-        .divHours
-        {
-            border: 2px solid #304767;
-            border-radius: 20px;
-            height: 200px;
-            overflow: auto;
-                overflow-x: auto;
-            margin: 12px 0px 0 -18px;
-                margin-bottom: 0px;
-            padding: 30px 12px;
-            margin-bottom: 7px;
-            overflow-x: clip;
-            min-width: 530px;
-        }
-        .divHours label
-        {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-        @media (max-width: 768px) {
-            .days-list {
-                flex-direction: column;
-            }
-
-            .day-item {
-                max-width: 100%;
-            }
-        }
-        /*********** */
-        *{
-            padding:0;
-            margin:0;
-            font-family:times;
-        }
-        .containerCss{
-            min-height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            background-color:#eee;
-        }
-        .containerCss .cardCss{
-            height: 540px;
-            width: 830px;
-            background-color: #fff;
-            position: relative;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            font-family: 'Poppins', sans-serif;
-            border-radius: 20px;
-        }
-        .containerCss .cardCss .form{
-            width:100%;
-            height:100%;
-
-            display:flex;
-        }
-        .containerCss .cardCss .left-side{
-            width:35%;
-            background-color:#304767;
-            height:100%;
-        border-top-left-radius:20px;
-        border-bottom-left-radius:20px;
-        padding:20px 30px;
-        box-sizing:border-box;
-
-        }
-/*left-side-start*/
-.left-heading{
-    color:#fff;
-
-}
-.steps-content{
-    /* margin-top:30px; */
-    color:#fff;
-}
-.steps-content p{
-    font-size:12px;
-    margin-top:15px;
-}
-.progress-bar{
-    list-style:none;
-    /*color:#fff;*/
-    /* margin-top:30px; */
-    font-size:13px;
-    font-weight:700;
-    counter-reset:containerCss 0;
-}
-.progress-bar li{
-       position:relative;
-       margin-left:40px;
-       margin-top:26px;
-       counter-increment:containerCss 1;
-      color:#4f6581;
-}
-.progress-bar li::before{
-    content:counter(containerCss);
-    line-height:25px;
-    text-align:center;
-    position:absolute;
-    height:25px;
-    width:25px;
-    border:1px solid #4f6581;
-    border-radius:50%;
-    left:-40px;
-    top:-5px;
-    z-index:10;
-    background-color:#304767;
-
-
-}
-
-
-.progress-bar li::after{
-    content: '';
-    position: absolute;
-    height: 90px;
-    width: 2px;
-    background-color: #4f6581;
-    z-index: 1;
-    left: -27px;
-    top: -50px;
-}
-
-
-.progress-bar li.active::after{
-    background-color: #fff;
-
-}
-
-.progress-bar li:first-child:after{
-  display:none;
-}
-
-/*.progress-bar li:last-child:after{*/
-/*  display:none;  */
-/*}*/
-.progress-bar li.active::before{
-    color:#fff;
-      border:1px solid #fff;
-}
-.progress-bar li.active{
-    color:#fff;
-}
-.d-none{
-   display:none;
-}
-
-
-/*left-side-end*/
-.containerCss .cardCss .right-side{
-    width:65%;
-    background-color:#fff;
-    height:100%;
-  border-radius:20px;
-}
-/*right-side-start*/
-.main{
-    display:none;
-}
-.active{
-    display:block;
-}
-.main{
-    padding:35px;
-}
-.main small{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:2px;
-    height:30px;
-    width:30px;
-    background-color:#ccc;
-    border-radius:50%;
-    color:yellow;
-    font-size:19px;
-}
-.text{
-    margin-top:10px;
-}
-.congrats{
-    text-align:center;
-}
-.text p{
-    margin-top:5px;
-    font-size:13px;
-    font-weight:700;
-    color:#cbced4;
-}
-.input-text{
-    margin: 30px 0px 4px 0;
-     display:flex;
-    gap:20px;
-}
-
-.input-text .input-div{
-    width:100%;
-    position:relative;
-
-}
-
-/**************** */
-textarea
-{
-    width:100%;
-
-    border:none;
-    outline:0;
-    border-radius:5px;
-    border:1px solid #cbced4;
-    gap:20px;
-    box-sizing:border-box;
-    padding:0px 10px;
-}
-input[type="date"]{
-    width:100%;
-    height:40px;
-    border:none;
-    outline:0;
-    border-radius:5px;
-    border:1px solid #cbced4;
-    gap:20px;
-    box-sizing:border-box;
-    padding:0px 10px;
-}
-input[type="time"]{
-    width:111%;
-    height:40px;
-    border:none;
-    outline:0;
-    border-radius:5px;
-    border:1px solid #cbced4;
-    gap:20px;
-    box-sizing:border-box;
-    padding:0px 10px;
-    margin-right: 5rem;
-}
-.ContentImage
-{
-    display: flex;
-    justify-content: center;
-    align-items: center
-}
-.HeightEducation
-{
- 
-  padding: 8px;
-  max-height: 20rem;
-  overflow-y: auto;
-  margin-bottom: 16px;
-
-}
-.heightExperience
-{
-    padding: 8px;
-    max-height: 20rem;
-    overflow-y: auto;
-    margin-bottom: 16px;
-}
-
-/* .heightExperience .card{  
-  width: 532px !important;
-  padding: 12px !important;
-}
-.HeightEducation .card{  
-  width: 532px;
-  padding: 12px !important;
-} */
-/********** */
-.heightExperience::-webkit-scrollbar {
-    width: 15px;
-}
-.HeightEducation::-webkit-scrollbar {
-    width: 15px;
-}
-.divHours::-webkit-scrollbar {
-    width: 15px;
-}
-/******** */
-
-.heightExperience::-webkit-scrollbar-thumb {
-    background-color: #304767;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
-}
-.HeightEducation::-webkit-scrollbar-thumb {
-    background-color: #304767;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
-}
-.divHours::-webkit-scrollbar-thumb {
-    background-color: #304767;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
-}
-/************ */
-.HeightEducation::-webkit-scrollbar-track {
-    background-color: #eee;
-}
-.heightExperience::-webkit-scrollbar-track {
-    background-color: #eee;
-}
-.divHours::-webkit-scrollbar-track {
-    background-color: #eee;
-}
-.tags-input
-{
-
-  Position: relative;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 12px 10px;
-  box-shadow: 2px 2px 5px #00000033;
-  width: 100%;
-  margin-top: 9px;
-  max-height: 212px;
-  overflow-y: auto;
-  height: 195px;
-}
-
-.tags-input ul
-{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.tags-input li
-{
-    display: inline-block;
-    background-color: #f2f2f2;
-    color: #333;
-    border-radius: 20px;
-    padding: 5px 10px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
-
-.tags-input input[type="text"]
-{
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-size: 14px;
-
-}
-#input-tag{
-  width: 78%;
-  height: 40px;
-  border: none;
-  outline: 0;
-  border-radius: 5px;
-  border: 1px solid #cbced4;
-  gap: 20px;
-  box-sizing: border-box;
-
-}
-
-.tags-input input[type="text"]:focus
-{
-    outline: none;
-}
-
-.tags-input .delete-button
-{
-    background-color: transparent;
-    border: none;
-    color: #999;
-    cursor: pointer;
-    margin-left: 5px;
-}
-#AddCours
-{
-    background-color: #4e99e9;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    padding: 8px 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-    transition: .9s ease;
-}
-/**************** */
-
-input[type="text"]{
-    width:100%;
-    height:40px;
-    border:none;
-    outline:0;
-    border-radius:5px;
-    border:1px solid #cbced4;
-    gap:20px;
-    box-sizing:border-box;
-    padding:0px 10px;
-}
-select{
-    width:100%;
-    height:40px;
-    border:none;
-    outline:0;
-    border-radius:5px;
-    border:1px solid #cbced4;
-    gap:20px;
-    box-sizing:border-box;
-    padding:0px 10px;
-}
-.input-text .input-div span{
-    position:absolute;
-    top:10px;
-    left:10px;
-    font-size:14px;
-    transition:all 0.5s;
-}
-.input-div input:focus ~ span,.input-div input:valid ~ span  {
-    top:-20px;
-    left:6px;
-    font-size:14px;
-    font-weight:600;
-}
-
-.input-div span{
-    top:-15px;
-    left:6px;
-    font-size:10px;
-}
-.buttons button{
-    height:40px;
-    width:100px;
-    border:none;
-    border-radius:5px;
-    background-color:#0075ff;
-    font-size:12px;
-    color:#fff;
-    cursor:pointer;
-}
-.button_space{
-    display:flex;
-    gap:20px;
-
-}
-.button_space button:nth-child(1){
-    background-color:#fff;
-    color:#000;
-    border:1px solid#000;
-}
-.user_card{
-    margin-top:20px;
-    margin-bottom:40px;
-    height:200px;
-    width:100%;
-    border:1px solid #c7d3d9;
-    border-radius:10px;
-    display:flex;
-    overflow:hidden;
-    position:relative;
-    box-sizing:border-box;
-}
-.user_card span{
-    height:80px;
-    width:100%;
-    background-color:#dfeeff;
-}
-.circle{
-    position:absolute;
-    top:40px;
-    left:60px;
-}
-.circle span{
-    height:70px;
-    width:70px;
-    background-color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border:2px solid #fff;
-    border-radius:50%;
-}
-.circle span img{
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    object-fit:cover;
-}
-.social{
-    display:flex;
-    position:absolute;
-    top:100px;
-    right:10px;
-}
-.social span{
-    height:30px;
-    width:30px;
-    border-radius:7px;
-    background-color:#fff;
-    border:1px solid #cbd6dc;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-left:10px;
-    color:#cbd6dc;
-
-}
-.social span i{
-        cursor:pointer;
-}
-.heart{
-    color:red !important;
-}
-.share{
-        color:red !important;
-}
-.user_name{
-    position:absolute;
-    top:110px;
-    margin:10px;
-    padding:0 30px;
-    display:flex;
-    flex-direction:column;
-    width:100%;
-
-}
-.user_name h3{
-    color:#4c5b68;
-}
-.detail{
-    /*margin-top:10px;*/
-   display:flex;
-   justify-content:space-between;
-   margin-right:50px;
-}
-.detail p{
-    font-size:12px;
-    font-weight:700;
-
-}
-.detail p a{
-    text-decoration:none;
-    color:blue;
-}
-
-
-
-
-
-
-.checkmark__circle {
-  stroke-dasharray: 166;
-  stroke-dashoffset: 166;
-  stroke-width: 2;
-  stroke-miterlimit: 10;
-  stroke: #7ac142;
-  fill: none;
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-}
-
-.checkmark {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: block;
-  stroke-width: 2;
-  stroke: #fff;
-  stroke-miterlimit: 10;
-  margin: 10% auto;
-  box-shadow: inset 0px 0px 0px #7ac142;
-  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
-}
-
-.checkmark__check {
-  transform-origin: 50% 50%;
-  stroke-dasharray: 48;
-  stroke-dashoffset: 48;
-  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-}
-
-@keyframes stroke {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes scale {
-  0%, 100% {
-    transform: none;
-  }
-  50% {
-    transform: scale3d(1.1, 1.1, 1);
-  }
-}
-@keyframes fill {
-  100% {
-    box-shadow: inset 0px 0px 0px 30px #7ac142;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-.warning{
-    border:1px solid red !important;
-}
-
-
-/*right-side-end*/
-@media (max-width:750px) {
-    .containerCss{
-        height:scroll;
-
-
-    }
-    .containerCss .cardCss {
-        max-width: 350px;
-        height:auto !important;
-        margin:30px 0;
-    }
-    .containerCss .cardCss .right-side {
-     width:100%;
-
-    }
-     .input-text{
-         display:block;
-     }
-
-     .input-text .input-div{
-  margin-top:20px;
-
-}
-
-    .containerCss .cardCss .left-side {
-
-     display: none;
-    }
-}
-    .textDateNaissance
-    {
-        display: none;
-    }
-    .picture-container {
-  position: relative;
-  cursor: pointer;
-  text-align: center;
-}
- .ContentImage {
-  width: 100px;
-  height: 100px;
-  background-color: #999999;
-  border: 4px solid #CCCCCC;
-  color: #FFFFFF;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  margin: auto;
-}
-.ContentImage:hover {
-  border-color: #2ca8ff;
-}
-.ContentImage input[type="file"] {
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  left: 0;
-  opacity: 0 !important;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.picture-src {
-  width: 100px ;
-  height: 100px ;
   
-}
-
-/******************************** CSS GRoupe Prive*/
-.radio-inputs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 176px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.radio-inputs > * {
-  margin: 2px;
-}
-
-.radio-input:checked + .radio-tile {
-  border-color: #2260ff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  color: #2260ff;
-}
-
-.radio-input:checked + .radio-tile:before {
-  transform: scale(1);
-  opacity: 1;
-  background-color: #2260ff;
-  border-color: #2260ff;
-}
-
-.radio-input:checked + .radio-tile .radio-icon svg {
-  fill: #2260ff;
-}
-
-.radio-input:checked + .radio-tile .radio-label {
-  color: #2260ff;
-}
-
-.radio-input:focus + .radio-tile {
-  border-color: #2260ff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
-}
-
-.radio-input:focus + .radio-tile:before {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.radio-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 51px;
-  min-height: 39px;
-  border-radius: 0.5rem;
-  border: 2px solid #b5bfd9;
-  background-color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  transition: 0.15s ease;
-  cursor: pointer;
-  position: relative;
-}
-
-.radio-tile:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 0.75rem;
-  height: 0.75rem;
-  border: 2px solid #b5bfd9;
-  background-color: #fff;
-  border-radius: 50%;
-  top: 0.25rem;
-  left: 0.1rem;
-  opacity: 0;
-  transform: scale(0);
-  transition: 0.25s ease;
-}
-
-.radio-tile:hover {
-  border-color: #2260ff;
-}
-
-.radio-tile:hover:before {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.radio-icon svg {
-  width: 2rem;
-  height: 2rem;
-  fill: #494949;
-}
-
-.radio-label {
-  color: #707070;
-  transition: 0.375s ease;
-  text-align: center;
-  font-size: 13px;
-}
-
-.radio-input {
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-    </style>
 
 
 
@@ -1687,7 +861,9 @@ select{
 
         function validateform(){
             validate=true;
-            var validate_inputs=document.querySelectorAll(".main.active input");
+            var validate_inputs=document.querySelectorAll(".main.active input ");
+            var validate_selects=document.querySelectorAll(".main.active select ");
+
             validate_inputs.forEach(function(vaildate_input){
                 vaildate_input.classList.remove('warning');
                 if(vaildate_input.hasAttribute('require')){
@@ -1697,6 +873,16 @@ select{
                     }
                 }
             });
+            validate_selects.forEach(function(validate_select){
+                validate_select.classList.remove('warning');
+                if(validate_select.hasAttribute('require')){
+                    if(validate_select.value.length==0){
+                        validate=false;
+                        validate_select.classList.add('warning');
+                    }
+                }
+            });
+          
             return validate;
 
 
