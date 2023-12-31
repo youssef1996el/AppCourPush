@@ -5,49 +5,91 @@
   margin: auto;
   padding: 20px 24px; background: #ffffff4a;" >
             <div class="card-body">
-                <h3 class="mb-5" style="font-style:italic">Les informations personnelles</h3>
-                <div class="row">
-                    <div class="picture-container">
-                        <div class="picture">
-                            <img src="" class="picture-src" id="wizardPicturePreview" title=""/>
-                            <input type="file" id="wizard-picture" name="image">
-                        </div>
+        
+                    <div class="card text-left">
+                      <div class="card-body">
+                        <h4 class="card-title">Modification de l'education</h4>
+                        <button type="button" class="btn btn-primary  BtnAjoutEducationProf float-end" >Ajouter</button>
 
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-1">Dernier diplôme</label>
+                                    <input type="text" class="form-control" placeholder="Dernier diplôme" value="">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-1">Année d'obtention</label>
+                                    <input type="text" class="form-control" placeholder="Année d'obtention" value="">
+                                </div>
+                                <div class="form-group mb-3">
+                                     <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysExperience[]" required require></select>
+                                </div>  
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-1">Spécialité</label>
+                                    <input type="text" class="form-control" placeholder="Spécialité" value="">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-1">Lycée / Université</label>
+                                    <input type="date" class="form-control" placeholder="Lycée / Université" value="">
+                                </div>
+                                <div class="form-group mb-3">               
+                                    <button type="button" class="btn btn-danger BtnSuppEducationProf float-end" >Supprimer</button>
+                                </div>
+
+                            </div>
+                            <div class="form-group mb-3">               
+                                    <button type="button" class="btn btn-success  BtnUpdateEducationProf" style="display:flex; margin:auto">Valider</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
-                        <div class="form-group mb-3">
-                            <label for="" class="mb-1">Nom complet</label>
-                            <input type="text" class="form-control" placeholder="nom" value="">
+</div>
+                    <div class="card text-left">
+                      <div class="card-body">
+                        <h4 class="card-title">Modification de l'experience</h4>
+                        <button type="button" class="btn btn-primary  BtnAjoutExperienceProf float-end" >Ajouter</button>
+
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-1">Filière</label>
+                                    <input type="text" class="form-control" placeholder="Filière" value="">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-1">Du</label>
+                                    <input type="date" class="form-control"  value="">
+                                </div>
+                                <div class="form-group mb-3">
+                                     <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysExperience[]" required require></select>
+                                </div>  
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-1">Lycée / Université</label>
+                                    <input type="text" class="form-control" placeholder="Lycée / Université" value="">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-1">Au</label>
+                                    <input type="date" class="form-control"  value="">
+                                </div>
+                                <div class="form-group mb-3">               
+                                    <button type="button" class="btn btn-danger BtnSuppExperienceProf float-end" >Supprimer</button>
+                                </div>
+
+                            </div>
+                            <div class="form-group mb-3">               
+                                    <button type="button" class="btn btn-success  BtnUpdateExperienceProf" style="display:flex; margin:auto">Valider</button>
+                            </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="" class="mb-1">télephone</label>
-                            <input type="text" class="form-control" placeholder="Prénom" value="">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="" class="mb-1">Titre</label>
-                            <input type="text" class="form-control" placeholder="nom" value="">
-                        </div>  
-                     
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
-                        <div class="form-group mb-3">
-                            <label for="" class="mb-1">Email</label>
-                            <input type="email" class="form-control" placeholder="nom" value="">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="" class="mb-1">Date naissance</label>
-                            <input type="date" class="form-control" placeholder="Prénom" value="">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="" class="mb-1">Méthode</label>
-                            <textarea name="" id="" class="form-control"  rows="3"></textarea>
-                        <div>
                     </div>
                 </div> 
             </div>
-            <div class="mt-5">
-               <button type="button" class="btn btn-success  BtnUpdateDataProfesseur" style="display:flex; margin:auto">Valider</button>
-            </div>
+           
         </div>
     </div>
 
