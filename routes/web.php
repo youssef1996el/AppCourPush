@@ -134,7 +134,10 @@ Route::get('Dashboard/cours',function()
 });
 
 
-
+Route::get('ExpEduInfos',function()
+{
+    return view('Professeur.ExpEduInfos');
+})->name('ExpEduInfos');
 
 
 

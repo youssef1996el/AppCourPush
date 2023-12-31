@@ -47,12 +47,16 @@
 							class="theme-item"> Les cours / Disponibilite</span></a></li>
 					<li><a href="{{route('InfoProfesseur')}}"><i class="fa-solid fa-user-pen"></i> <span
 							class="theme-item"> Informations personnelles</span></a></li>
+
+					<li><a href="{{route('ExpEduInfos')}}"><i class="fa-solid fa-user-pen"></i> <span
+							class="theme-item"> Education et Experience  </span></a></li>
+							
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
 							class="theme-item"> Extras</span></a></li>
 				</ul>
 
-
+				
 
 			</nav>
 
