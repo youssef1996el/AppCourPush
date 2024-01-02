@@ -59,7 +59,7 @@
                             <div class="picture-container">
                                 <div class="ContentImage">
                                     <img src="{{asset('image/default-avatar.png')}}"  class="picture-src" id="wizardPicturePreview" alt="" width="60px" height="60px" required require >
-                                    <input type="file" id="wizard-picture" name="image"  require required > 
+                                    <input type="file" id="wizard-picture" name="image"  require required >
                                 </div>
                             </div>
                             <div class="input-text" style="margin-top: 2.5rem;">
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="HeightEducation ">
-                                
+
                                 <div class="input-text">
                                     <div class="input-div">
                                         <input type="text" name="diplome[]" required require>
@@ -298,7 +298,7 @@
                                     <div class="modal-body">
                                         <p>Voulez-vous sauvegarder vos donnees personnelles ?*</p>
                                         <input type="checkbox" id="confirmCheckbox">
-                                        <label for="confirmCheckbox">Oui, j'accepte </label> 
+                                        <label for="confirmCheckbox">Oui, j'accepte </label>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
@@ -391,7 +391,7 @@
                                                         <button class="btn btn-danger float-end">Supprimer</button>
                                                     </div>
                                                 </div>
-                                               
+
                                                 <hr style="border-style: dashed">
                                             </div>`);
                                             print_country("countryDropdown");
@@ -465,7 +465,7 @@
                         $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
                     }
                     reader.readAsDataURL(input.files[0]);
-                    
+
                 }
             }
 
@@ -492,16 +492,9 @@
                             finalSelect += '</select>';
                             $('.divHours').append(`<div class="FormDisponibilite">
                                 <div class="row g-0">
-      
+
                                     <div class="col-sm-11 col-md-11 col-xl-11">
-                                        <input  type="text" name="days[]" class="DaysDispo" value="${textToAppend}" style="text-align: center;
-  border: none;
-  font-size: 22px;
-  font-weight: bold;
-  
-  background: #3047671a;
- 
-  border-radius: 0px;">
+                                        <input  type="text" name="days[]" class="DaysDispo" value="${textToAppend}" style="text-align: center;border: none;font-size: 22px;font-weight: bold;background: #3047671a;border-radius: 0px;">
                                     </div>
                                     <div class=col-sm-1 col-md-1 col-xl-1 ">
                                         <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="margin-top: 5px; cursor: pointer;margin-left: 12px;" class="RemoveFormDisponiblite">
@@ -551,16 +544,13 @@
                                         <label for="">Heure de fin</label>
                                         <input type="time" name="heurefin[]" class="form-control heurefin">
                                     </div>
-                                   
+
                                 </div>
                                 <hr style="border-style: dashed">
                             </div>`);
                         }
                     }
                 });
-
-
-
             });
 
             $(document).on('change','.FormDisponibilite .radio-input',function()
@@ -758,7 +748,7 @@
         });
     </script>
 
-  
+
 
 
 
@@ -882,13 +872,13 @@
                     }
                 }
             });
-          
+
             return validate;
 
 
 
         }
     </script>
-    
+
 </body>
 </html>

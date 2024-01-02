@@ -61,13 +61,23 @@ Route::post('DestroyCoursProf'     ,[ProfesseurController::class,'DestroyCoursPr
 Route::get('getCoursByProf'        ,[ProfesseurController::class,'getCoursByProf']);
 Route::get('InfoProfesseur'        ,[ProfesseurController::class,'InfoProfesseur'])->name('InfoProfesseur');
 Route::get('GetPriceGroupeOrPrive' ,[ProfesseurController::class,'GetPriceGroupeOrPrive']);
-
+Route::get('ExpEduInfos'           ,[ProfesseurController::class,'ExpEduInfos'])->name('ExpEduInfos');
 Route::get('StepByStep',function()
 {
     return view('Professeur.StepByStep');
 })->name('StepByStep');
 
 /******************************************* End Professeur *************************************************/
+
+/********************************************** Formation **************************************************/
+Route::post('DeleteFormationPro'   ,[FormationProf::class,'DeleteFormationPro']);
+Route::post('UpdateFormation'      ,[FormationProf::class,'UpdateFormation']);
+/********************************************** End Formation ***********************************************/
+
+/*********************************************** Experince  *************************************************/
+Route::post('DeleteExperincePro'  ,[ExperinceProf::class,'ExperinceProf']);
+Route::post('UpdateExperince'     ,[ExperinceProf::class,'UpdateExperince']);
+/*********************************************** End Experince  **********************************************/
 
 /******************************************** Eleve *********************************************************/
 Route::get('profile/eleve'            ,[EleveController::class,'index'])->name('profile/eleve');
@@ -134,10 +144,7 @@ Route::get('Dashboard/cours',function()
 });
 
 
-Route::get('ExpEduInfos',function()
-{
-    return view('Professeur.ExpEduInfos');
-})->name('ExpEduInfos');
+
 
 
 
