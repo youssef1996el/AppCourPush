@@ -80,8 +80,9 @@ Route::post('UpdateExperince'     ,[ExperinceProf::class,'UpdateExperince']);
 /*********************************************** End Experince  **********************************************/
 
 /******************************************** Eleve *********************************************************/
-Route::get('profile/eleve'            ,[EleveController::class,'index'])->name('profile/eleve');
-Route::get('GetpProfesseur'           ,[EleveController::class,'GetpProfesseur']);
+Route::get('profile/eleve'                                              ,[EleveController::class,'index'])->name('profile/eleve');
+Route::get('GetpProfesseur'                                             ,[EleveController::class,'GetpProfesseur']);
+Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'    ,[EleveController::class,'Reservation']);
 /******************************************** End Eleve  ****************************************************/
 /******************************************** Start Dashboard Admin ***********************************************/
 Route::get('professeurs'              ,[AdminController::class,'professeurs'])->name('professeurs');
