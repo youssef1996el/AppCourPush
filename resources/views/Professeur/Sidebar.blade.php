@@ -50,13 +50,13 @@
 
 					<li><a href="{{route('ExpEduInfos')}}"><i class="fa-solid fa-user-pen"></i> <span
 							class="theme-item"> Education et Experience  </span></a></li>
-							
+
 					<li><a href="extras.html"><i
 							class="data-feather theme-item" data-feather="globe"></i> <span
 							class="theme-item"> Extras</span></a></li>
 				</ul>
 
-				
+
 
 			</nav>
 
@@ -369,8 +369,8 @@
             { pattern: 'ShowProfileProf', index: 1 },
             { pattern: 'eleves', index: 2 },
 			{ pattern: 'Dashboard/cours', index: 3 },
-			{ pattern: 'eleves', index: 4 },
-            { pattern: 'extras.html', index: 5 }
+			{ pattern: 'InfoProfesseur', index: 4 },
+            { pattern: 'ExpEduInfos', index: 5 }
         ];
 
         // Determine the active index based on the current URL
