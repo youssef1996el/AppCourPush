@@ -93,10 +93,7 @@
                         @foreach ($CourProf as $item)
                             <p class="card-cours">{{$item->title}}</p>
                         @endforeach
-
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -105,7 +102,7 @@
                 <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
                 <div class="card-body ">
                     <div class="ClassDisponible">
-                    @foreach ($disponibilityByDay as $key => $data)
+                    {{-- @foreach ($disponibilityByDay as $key => $data)
                         <div class="ContentDisponible">
                             <div class="Days">{{$key}}</div>
                                 <div class="ClassCalculHeight" >
@@ -125,7 +122,33 @@
                                     </div>
                                 </div>
                             </div>
-                    @endforeach
+                    @endforeach --}} {{-- mate9isich had Code li dayr lih comment --}}
+                        @foreach ($disponibilityByDay as $key => $data)
+
+                            <div class="ContentDisponible" >
+                                <div class="Days">{{$key}}</div>
+                                <div class="ClassCalculHeight">
+                                    @foreach($data as $item)
+                                        <div class="ClassTimeDisponible" style="color:#0c3c74;background:#00f8ff3b;">
+                                            <p>
+                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                {{$item->debut}}
+                                            </p>
+                                            <p>
+                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                {{$item->fin}}
+                                            </p>
+                                        </div>
+                                    @endforeach
+                                    @if(empty($data))
+                                        <div class="ClassTimeDisponible" style="color: #0c3c74;background: #00f8ff3b;">
+                                            <p>Vide</p>
+                                            <p>Vide</p>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

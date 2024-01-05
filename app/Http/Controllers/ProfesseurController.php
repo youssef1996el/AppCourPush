@@ -26,15 +26,36 @@ class ProfesseurController extends Controller
         $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[Auth::user()->id]);
         $CourProf      = DB::select('select c.title from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[Auth::user()->id]);
         $DataProf = User::where('id',Auth::user()->id)->get();
-        $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
-        $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
 
         $CalculExperince = DB::select('select sum(timestampdiff(year,du,au) ) as experince from experinceprof where iduser = ?',[Auth::user()->id]);
-
+       /*  $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
+        $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
         $disponibilityByDay = [];
         foreach ($day_names_fr as $item)
         {
             $disponibilityByDay[$item] = null;
+        }
+
+        foreach ($DisponibleProf as $item1)
+        {
+            $debut = new DateTime($item1->debut);
+            $fin = new DateTime($item1->fin);
+            $diff = $debut->diff($fin);
+            $hours = $diff->h + $diff->i / 60;
+
+            $item1->calculhour = $hours;
+
+            $disponibilityByDay[$item1->jour] = $item1;
+        }
+ */
+        $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
+
+        $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        $disponibilityByDay = [];
+
+        foreach ($day_names_fr as $item) {
+            $disponibilityByDay[$item] = [];
         }
 
         foreach ($DisponibleProf as $item1) {
@@ -45,8 +66,16 @@ class ProfesseurController extends Controller
 
             $item1->calculhour = $hours;
 
-            $disponibilityByDay[$item1->jour] = $item1;
+            // Add the current item to the array for the corresponding day
+            $disponibilityByDay[$item1->jour][] = $item1;
         }
+
+
+
+
+
+
+
 
 
 
