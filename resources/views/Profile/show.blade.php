@@ -32,9 +32,9 @@
             <div class="card cardFormation" >
                 <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
                     <div class="card-body timeline" >
-                        <ul class="list-unstyled ">
+                        <ul class="list-unstyled " id="ListFormation">
                             @foreach ($FormationProf as $key => $item)
-                                <div class="item {{ $key >= 1 ? 'hidden' : '' }}">
+                                <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}" {{-- {{ $key >= 1 ? 'hidden' : '' }}" --}}>
                                     <li class="timeline-item" >
                                         <div class="timeline-element">
                                             <a href="#">{{ $item->diplome }} </a>
@@ -43,103 +43,94 @@
                                             <span class="circle"></span>
                                             <div class="timeline-content">
                                                 <p>{{ $item->specialise }}</p>
-                                                    </div>
+                                            </div>
                                         </div>
                                     </li>
-
                                 </div>
                             @endforeach
                         </ul>
                     </div>
-
                 <div class="show"  >
                     <button id="showMoreFormation" class="btn showMore">Voir plus</button>
-                    <button id="showFirstItemFormation" class="btn showLess hidden">Voir moins</button>
+                    <button id="showFirstItemFormation" class="btn showLess " style="display: none">Voir moins</button>
                 </div>
             </div>
 
             <!-- Experience -->
             <div class="card cardExperience" >
                 <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Experience</h4>
-                    <div class="timeline">
-                        <ul id="ListExperince">
+                <div class="timeline">
+                    <ul id="ListExperince">
                         @foreach ($ExperinceProf as $key => $item)
                             <div class="item" data-index="{{ $key }}" style="{{ $key > 0 ? 'display:none;' : '' }}">
                                 <li>
-                                    <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->du)->format('m/Y') }}<span style="padding-left: 4px;padding-right: 4px;">-</span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->au)->format('m/Y') }}</span>
+                                    <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->du)->format('m/Y') }}
+                                        <span style="padding-left: 4px;padding-right: 4px;">-</span>
+                                        {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->au)->format('m/Y') }}
+                                    </span>
                                     <div class="timeline-content">
-                                    <h3>{{ $item->poste}}</h3>
-                                    <p>
-                                    {{ $item->entreprise}} /    {{ $item->pays}}</p>                                             </p>
+                                        <h3>{{ $item->poste}}</h3>
+                                        <p>{{ $item->entreprise}} /{{ $item->pays}}</p>
                                     </div>
                                 </li>
                             </div>
                         @endforeach
-                        </ul>
-                    </div>
-                    <div class="show">
-                        <button id="showMoreExperience" class="btn showMore">Voir plus</button>
-                        <button id="showFirstItemExperience" class="btn showLess " style="display: none">Voir moins</button>
-                    </div>
-            </div>
-
-        </div>
-
-        </div>
-
-        <div class="row mt-4" >
-            <div id="divCours" class="col-4">
-                <div class="card cardCours" >
-                    <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Les cours </h4>
-
-                        <div class="card-body">
-                        <div class="divScrollCours" >
-                                <p class="card-cours">BodyBodyBodyBodyBodyBody</p>
-                                <p class="card-cours">Body</p>
-                                <p class="card-cours">BodyBody</p>
-                                <p class="card-cours">BodyBodyBodyBody</p>
-                            </div>
-
-                        </div>
+                    </ul>
+                </div>
+                <div class="show">
+                    <button id="showMoreExperience" class="btn showMore">Voir plus</button>
+                    <button id="showFirstItemExperience" class="btn showLess " style="display: none">Voir moins</button>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row mt-4" >
+        <div id="divCours" class="col-4">
+            <div class="card cardCours">
+                <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Les cours </h4>
+                <div class="card-body">
+                    <div class="divScrollCours" >
+                        @foreach ($CourProf as $item)
+                            <p class="card-cours">{{$item->title}}</p>
+                        @endforeach
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <div id="divDispo" class="col-8">
             <div class="card cardDispo text-left">
                 <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
-                   <div class="card-body ">
-                        <div class="ClassDisponible">
-                        @foreach ($disponibilityByDay as $key => $data)
-                            <div class="ContentDisponible">
-                                <div class="Days">{{$key}}</div>
-                                    <div class="ClassCalculHeight" >
-                                        <div class="ClassTimeDisponible"  style="@if($data) color:#0c3c74;background:#00f8ff3b; @else '' @endif">
-                                            <p >
-                                                @if($data)
-                                                    <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-
+                <div class="card-body ">
+                    <div class="ClassDisponible">
+                    @foreach ($disponibilityByDay as $key => $data)
+                        <div class="ContentDisponible">
+                            <div class="Days">{{$key}}</div>
+                                <div class="ClassCalculHeight" >
+                                    <div class="ClassTimeDisponible"  style="@if($data) color:#0c3c74;background:#00f8ff3b; @else '' @endif">
+                                        <p>
+                                            @if($data)
+                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                            @endif
+                                            {{$data ? $data->debut : "Vide"}}
+                                        </p>
+                                        <p>
+                                            @if($data)
+                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
                                                 @endif
-                                                {{$data ? $data->debut : "Vide"}}
-
-                                            </p>
-
-
-                                            <p>
-                                                @if($data)
-                                                   <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                 @endif
-                                                {{$data ? $data->fin : 'Vide'}}
-                                            </p>
-
-
-                                        </div>
+                                            {{$data ? $data->fin : 'Vide'}}
+                                        </p>
                                     </div>
                                 </div>
-                        @endforeach
-                       </div>
+                            </div>
+                    @endforeach
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 </div>

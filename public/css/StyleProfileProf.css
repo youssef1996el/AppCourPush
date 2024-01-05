@@ -78,6 +78,21 @@ font-size: 26px;
   overflow-x:auto;
   max-height:140px
 }
+.divScrollCours::-webkit-scrollbar
+{
+    width: 15px;
+}
+.divScrollCours::-webkit-scrollbar-thumb
+{
+    background-color: #094a68;
+    border-radius: 10px;
+    border: 3px solid #fff;
+}
+.divScrollCours::-webkit-scrollbar-track
+{
+    background-color: #99c2e9;
+    border-radius: 10px;
+}
 .fc .fc-scrollgrid-liquid {
   height: 100%;
   background: white;
@@ -259,6 +274,21 @@ font-size: 26px;
   padding: 10px 5px;
   max-height: 200px;
   overflow-y: auto;
+}
+.timeline ul::-webkit-scrollbar
+{
+    width: 15px;
+}
+.timeline ul::-webkit-scrollbar-thumb
+{
+    background-color: #094a68;
+    border-radius: 10px;
+    border: 3px solid #fff;
+}
+.timeline ul::-webkit-scrollbar-track
+{
+    background-color: #99c2e9;
+    border-radius: 10px;
 }
 
 .timeline ul li {

@@ -24,7 +24,7 @@ class ProfesseurController extends Controller
     {
         $FormationProf = DB::select('select diplome,specialise,annee,ecole,pays from formationprof where diplome is not null and iduser  =?',[Auth::user()->id]);
         $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[Auth::user()->id]);
-        $CourProf      = DB::select('select cp.id as idcourprof,c.title,c.id as idcour from cours c,courprof cp,users u where u.id = cp.iduser and c.id = cp.idcours and u.id = ?',[Auth::user()->id]);
+        $CourProf      = DB::select('select c.title from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[Auth::user()->id]);
         $DataProf = User::where('id',Auth::user()->id)->get();
         $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
         $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];

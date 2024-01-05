@@ -279,7 +279,7 @@ input[type="time"]{
 }
 .HeightEducation
 {
- 
+
   padding: 8px;
   max-height: 20rem;
   overflow-y: auto;
@@ -294,12 +294,12 @@ input[type="time"]{
     margin-bottom: 16px;
 }
 
-.heightExperience, .card{  
+.heightExperience, .card{
     width: 508px;
   margin-left: -20px;
   padding: 10px;
 }
-.HeightEducation, .card{  
+.HeightEducation, .card{
     width: 508px;
   margin-left: -20px;
   padding: 10px;
@@ -712,7 +712,7 @@ select{
 .picture-src {
   width: 100px ;
   height: 100px ;
-  
+
 }
 
 /******************************** CSS GRoupe Prive*/
