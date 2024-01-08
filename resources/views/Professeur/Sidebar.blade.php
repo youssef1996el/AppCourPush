@@ -42,7 +42,7 @@
 					   <span class="theme-item">Profile</span></a></li>
 					<li><a href="{{ url('eleves') }}"><i class="fa-solid fa-users"></i>
 					   <span class="theme-item"> Eleves</span></a></li>
-					<li><a href="{{ url('Dashboard/cours') }}"><i class="data-feather theme-item"
+					<li><a href="{{ url('Cours&Disponibilite') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span
 							class="theme-item"> Les cours / Disponibilite</span></a></li>
 					<li><a href="{{route('InfoProfesseur')}}"><i class="fa-solid fa-user-pen"></i> <span
@@ -368,7 +368,7 @@
             { pattern: 'index.html', index: 0 },
             { pattern: 'ShowProfileProf', index: 1 },
             { pattern: 'eleves', index: 2 },
-			{ pattern: 'Dashboard/cours', index: 3 },
+			{ pattern: 'Cours&Disponibilite', index: 3 },
 			{ pattern: 'InfoProfesseur', index: 4 },
             { pattern: 'ExpEduInfos', index: 5 }
         ];

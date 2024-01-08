@@ -146,7 +146,10 @@ Route::get('Dashboard/cours',function()
 
 
 
-
+Route::get('Cours&Disponibilite',function()
+{
+    return view('Professeur.CoursDispo');
+});
 
 
 

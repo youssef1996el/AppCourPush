@@ -236,7 +236,6 @@
                                 <div class="input-cours">
                                     <div class="input-text">
                                         <div class="input-div" class="d-flex">
-
                                             <input type="text" id="input-tag">
                                             <button type="button" id="AddCours" >Ajouter</button>
                                         </div>
