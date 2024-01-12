@@ -42,11 +42,12 @@
                                 <div class="space">
                                     <div class="row">
 
-                                        <div class="col-md-3 bg-success">
+                                        <div class="col-md-3 ">
                                              <label for="" style="white-space: nowrap">Choisir un cours</label>
+                                            
                                         </div>
 
-                                        <div class="col-md-3 bg-warning">
+                                        <div class="col-md-3 ">
                                         <label for="">Groupe / Privé</label>
                                             <div class="radio-inputs">
                                                 <label>
@@ -72,11 +73,11 @@
                                                 </label>
                                             </div>                    
                                         </div>
-                                        <div class="col-md-2 bg-info">
+                                        <div class="col-md-2 ">
                                             <label for=""> début</label>
                                             <input type="time" name="heuredebut[]" class="form-control heuredebut">
                                         </div>
-                                        <div class="col-md-2 bg-danger">
+                                        <div class="col-md-2 ">
                                             <label for=""> fin</label>
                                             <input type="time" name="heurefin[]" class="form-control heurefin">
                                         </div>
@@ -94,12 +95,13 @@
                                 <div class="space">
                                     <div class="row">
 
-                                        <div class="col-md-3 bg-success">
-                                             <label for="" style="white-space: nowrap">Choisir un cours</label>
+                                        <div class="col-md-3 ">
+                                             <label for="" class="sr-only" style="white-space: nowrap">Choisir un cours</label>
+                                             
                                         </div>
 
-                                        <div class="col-md-3 bg-warning">
-                                        <label for="">Groupe / Privé</label>
+                                        <div class="col-md-3 ">
+                                        <label for="" class="sr-only">Groupe / Privé</label>
                                             <div class="radio-inputs">
                                                 <label>
                                                     <input class="radio-input" value="groupe" type="checkbox" name="typeCours[]">
@@ -124,12 +126,12 @@
                                                 </label>
                                             </div>                    
                                         </div>
-                                        <div class="col-md-2 bg-info">
-                                            <label for=""> début</label>
+                                        <div class="col-md-2 ">
+                                            <label for="" class="sr-only"> début</label>
                                             <input type="time" name="heuredebut[]" class="form-control heuredebut">
                                         </div>
-                                        <div class="col-md-2 bg-danger">
-                                            <label for=""> fin</label>
+                                        <div class="col-md-2">
+                                            <label for="" class="sr-only"> fin</label>
                                             <input type="time" name="heurefin[]" class="form-control heurefin">
                                         </div>
                                         <div class="col-md-2">
@@ -146,12 +148,12 @@
                                 <div class="space">
                                     <div class="row">
 
-                                        <div class="col-md-3 bg-success">
-                                             <label for="" style="white-space: nowrap">Choisir un cours</label>
+                                        <div class="col-md-3 ">
+                                             <label class="sr-only" for="" style="white-space: nowrap">Choisir un cours</label>
                                         </div>
 
-                                        <div class="col-md-3 bg-warning">
-                                        <label for="">Groupe / Privé</label>
+                                        <div class="col-md-3 ">
+                                        <label for="" class="sr-only">Groupe / Privé</label>
                                             <div class="radio-inputs">
                                                 <label>
                                                     <input class="radio-input" value="groupe" type="checkbox" name="typeCours[]">
@@ -176,12 +178,12 @@
                                                 </label>
                                             </div>                    
                                         </div>
-                                        <div class="col-md-2 bg-info">
-                                            <label for=""> début</label>
+                                        <div class="col-md-2 ">
+                                            <label for="" class="sr-only"> début</label>
                                             <input type="time" name="heuredebut[]" class="form-control heuredebut">
                                         </div>
-                                        <div class="col-md-2 bg-danger">
-                                            <label for=""> fin</label>
+                                        <div class="col-md-2">
+                                            <label for="" class="sr-only"> fin</label>
                                             <input type="time" name="heurefin[]" class="form-control heurefin">
                                         </div>
                                         <div class="col-md-2">
@@ -198,6 +200,119 @@
             </p>
         </div>
     </div>
-    
+<style>
+    /******************************** CSS GRoupe Prive*/
+.radio-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 176px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-inputs > * {
+  margin: 2px;
+}
+
+.radio-input:checked + .radio-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #2260ff;
+  border-color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-icon svg {
+  fill: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-label {
+  color: #2260ff;
+}
+
+.radio-input:focus + .radio-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+}
+
+.radio-input:focus + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 51px;
+  min-height: 39px;
+  border-radius: 0.5rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.1rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+}
+
+.radio-tile:hover {
+  border-color: #2260ff;
+}
+
+.radio-tile:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-icon svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #494949;
+}
+
+.radio-label {
+  color: #707070;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 13px;
+}
+
+.radio-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+</style>
 </div>
 @endsection
