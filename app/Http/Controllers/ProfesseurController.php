@@ -29,12 +29,14 @@ class ProfesseurController extends Controller
 
 
         $CalculExperince = DB::select('select sum(timestampdiff(year,du,au) ) as experince from experinceprof where iduser = ?',[Auth::user()->id]);
-       /*  $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
+
+        $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
+
         $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
         $disponibilityByDay = [];
-        foreach ($day_names_fr as $item)
-        {
-            $disponibilityByDay[$item] = null;
+
+        foreach ($day_names_fr as $item) {
+            $disponibilityByDay[$item] = [];
         }
 
         foreach ($DisponibleProf as $item1)
@@ -46,38 +48,9 @@ class ProfesseurController extends Controller
 
             $item1->calculhour = $hours;
 
-            $disponibilityByDay[$item1->jour] = $item1;
-        }
- */
-        $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
 
-        $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-        $disponibilityByDay = [];
-
-        foreach ($day_names_fr as $item) {
-            $disponibilityByDay[$item] = [];
-        }
-
-        foreach ($DisponibleProf as $item1) {
-            $debut = new DateTime($item1->debut);
-            $fin = new DateTime($item1->fin);
-            $diff = $debut->diff($fin);
-            $hours = $diff->h + $diff->i / 60;
-
-            $item1->calculhour = $hours;
-
-            // Add the current item to the array for the corresponding day
             $disponibilityByDay[$item1->jour][] = $item1;
         }
-
-
-
-
-
-
-
-
-
 
        /*  dd($ExperinceProf); */
 
@@ -214,6 +187,100 @@ class ProfesseurController extends Controller
         ->with('idFormation',$idFormation)
         ->with('idExperince',$idExperince)
         ->with('country_arr',$country_arr);
+    }
+
+    public function CoursDisponibilite()
+    {
+
+        $DisponibleProf = DB::select('select d.id,jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
+
+        $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        $disponibilityByDay = [];
+
+        foreach ($day_names_fr as $item) {
+            $disponibilityByDay[$item] = [];
+        }
+        foreach ($DisponibleProf as $item1)
+        {
+            $debut = new DateTime($item1->debut);
+            $fin = new DateTime($item1->fin);
+            $diff = $debut->diff($fin);
+            $hours = $diff->h + $diff->i / 60;
+
+            $item1->calculhour = $hours;
+
+
+            $disponibilityByDay[$item1->jour][] = $item1;
+        }
+        foreach ($disponibilityByDay as &$dayArray) {
+            usort($dayArray, function($a, $b) {
+                return strtotime($a->debut) - strtotime($b->debut);
+            });
+        }
+
+        $dataCoursProf = DB::table('cours')
+        ->join('courprof','courprof.idcours','cours.id')
+        ->where('courprof.iduser',Auth::user()->id)
+        ->select('cours.id','cours.title')
+        ->get();
+
+        return view('Professeur.CoursDispo')
+            ->with('disponibilityByDay',$disponibilityByDay)
+            ->with('cours',$dataCoursProf);
+
+    }
+
+    public function DeleteDisponible(Request $request)
+    {
+        try
+        {
+            $DeleteDisponibleProf = DB::table('disponibleprof')->where('id',$request->id)->delete();
+            return response()->json([
+                'status' =>200,
+            ]);
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
+    }
+    public function DeleteDisponibleByDay(Request $request)
+    {
+        try
+        {
+            $DeleteDisponibleByDayProf = DB::table('disponibleprof')->where('jour',trim($request->jour))->delete();
+            return response()->json([
+                'status' =>200,
+            ]);
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
+    }
+
+    public function CheckDayIsExiste(Request $request)
+    {
+        try
+        {
+            $checkDayIsExisteDispoByProf = DB::table('disponibleprof')->where('jour',trim($request->jour))->count();
+            if($checkDayIsExisteDispoByProf == 0)
+            {
+                return response()->json([
+                    'status'   => 200,
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status' => 220,
+                ]);
+            }
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
     }
 
 

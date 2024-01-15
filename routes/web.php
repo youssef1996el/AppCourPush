@@ -62,6 +62,10 @@ Route::get('getCoursByProf'        ,[ProfesseurController::class,'getCoursByProf
 Route::get('InfoProfesseur'        ,[ProfesseurController::class,'InfoProfesseur'])->name('InfoProfesseur');
 Route::get('GetPriceGroupeOrPrive' ,[ProfesseurController::class,'GetPriceGroupeOrPrive']);
 Route::get('ExpEduInfos'           ,[ProfesseurController::class,'ExpEduInfos'])->name('ExpEduInfos');
+Route::get('Cours&Disponibilite'   ,[ProfesseurController::class,'CoursDisponibilite']);
+Route::post('DeleteDisponible'     ,[ProfesseurController::class,'DeleteDisponible']);
+Route::post('DeleteDisponibleByDay',[ProfesseurController::class,'DeleteDisponibleByDay']);
+Route::get('checkDayIsExiste'      ,[ProfesseurController::class,'CheckDayIsExiste']);
 Route::get('StepByStep',function()
 {
     return view('Professeur.StepByStep');
@@ -146,10 +150,10 @@ Route::get('Dashboard/cours',function()
 
 
 
-Route::get('Cours&Disponibilite',function()
+/* Route::get('Cours&Disponibilite',function()
 {
     return view('Professeur.CoursDispo');
 });
-
+ */
 
 
