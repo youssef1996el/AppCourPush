@@ -38,8 +38,40 @@ class DisponibleProf extends Controller
         $response = App::call('App\Http\Controllers\CoursProf@Store', [
             'request' => $request
         ]);
+    }
 
+    public function UpdateDisponible(Request $request)
+    {
+        // check Professeur has disponoble
+        $CheckData = DB::table('disponibleprof')->where('iduser',Auth::user()->id)->count();
+        if($CheckData >0)
+        {
+            DB::table('disponibleprof')->where('iduser',Auth::user()->id)->delete();
+        }
+        else
+        {
+            $data = $request->input('data');
 
+            foreach ($data as $day => $dayData)
+            {
+                foreach ($dayData as $row) {
+                    $cours = $row['cours'];
+                    $typeCours = $row['typeCours'];
+                    $heureDebut = $row['heureDebut'];
+                    $heureFin = $row['heureFin'];
+
+                    // Insert into the database
+                    DB::table('disponibleprof')->insert([
+                        'jour' => $day,
+                        'debut' => $heureDebut,
+                        'fin' => $heureFin,
+                        'iduser' => Auth::user()->id,
+                        'idcours' => $cours,
+                        'typecours' => $typeCours,
+                    ]);
+                }
+            }
+        }
 
     }
 }
