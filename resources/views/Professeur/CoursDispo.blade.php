@@ -90,13 +90,16 @@
                                                             <div class="col-md-3 colAppEnd">
 
                                                                 <label for="" style="white-space: nowrap">Choisir un cours</label>
-                                                                <select name="" id="" class="form-select">
+                                                                <select name="" id="" class="form-select dropDownCoursAppEnd"></select>
+                                                                {{-- <select name="" id="" class="form-select ">
                                                                     <option value="0">veuillez sélectionner le cours</option>
                                                                     @foreach ($cours as $itemCours)
                                                                         <option value="{{$itemCours->id}}">{{$itemCours->title}}</option>
                                                                     @endforeach
 
-                                                                </select>
+                                                                </select> --}}
+
+
                                                             </div>
                                                             <div class="col-md-3 colAppEnd">
 
@@ -162,13 +165,15 @@
                                                     <div class="row">
                                                         <div class="col-md-3 colAppEnd">
                                                             <label for="" style="white-space: nowrap">Choisir un cours</label>
-                                                            <select name="" id="" class="form-select">
+                                                            <select name="" id="" class="form-select dropDownCoursAppEnd"></select>
+                                                            {{-- <select name="" id="" class="form-select ">
                                                                 <option value="0">veuillez sélectionner le cours</option>
-                                                                @foreach ($cours as $itemCours)
-                                                                    <option value="{{$itemCours->id}}">{{$itemCours->title}}</option>
-                                                                @endforeach
 
-                                                            </select>
+                                                                    @foreach ($cours as $itemCours)
+                                                                        <option value="{{$itemCours->id}}">{{$itemCours->title}}</option>
+                                                                    @endforeach
+                                                            </select> --}}
+
                                                         </div>
                                                         <div class="col-md-3 colAppEnd">
 
@@ -436,6 +441,33 @@
 <script>
     const $tags = $('#tags');
     const $input = $('#input-tag');
+    function GetCoursProfInDropDown()
+    {
+        $.ajax({
+            type: "get",
+            url: "{{url('getCoursByProf')}}",
+            dataType: "json",
+            success: function (response)
+            {
+                if(response.status == 200)
+                {
+                    if(response.data.length > 0)
+                    {
+                        $('.dropDownCoursAppEnd').empty();
+
+                        $('.dropDownCoursAppEnd').append('<option value="0">Veuillez sélectionner le cours</option>');
+
+                        $.each(response.data, function (index, value)
+                        {
+                            $('.dropDownCoursAppEnd').append('<option value="' + value.id + '">' + value.title + '</option>');
+                        });
+                    }
+                }
+            }
+        });
+
+    }
+    GetCoursProfInDropDown();
     function GetCoursProfSession()
     {
         const $tags = $('#tags');
@@ -490,6 +522,7 @@
                 if(response.status == 200)
                 {
                     GetCoursProfSession();
+                    GetCoursProfInDropDown();
                     $(this).parent().remove();
                 }
             }
@@ -530,7 +563,7 @@
 
                             });
                             $input.val('');
-
+                            GetCoursProfInDropDown();
                         }
                         if(response.status == 400)
                         {
@@ -572,6 +605,8 @@
                             $tags.append($tag);
                         });
                         $input.val('');
+                        GetCoursProfInDropDown();
+
 
                     }
                     if(response.status == 400)
@@ -712,13 +747,18 @@
                     }
                 }
             });
-            $(document).on('change','.DataDisponible .radio-input',function()
-            {
-                var checkboxes = $(this).closest('.DataDisponible').find('.radio-input');
-                checkboxes.not(this).prop('checked', false);
-            });
-
         }
     });
+
+    $(document).on('change','.DataDisponible .radio-input',function()
+    {
+        var rowContainer = $(this).closest('.row');
+        var checkboxes = rowContainer.find('.radio-input');
+        checkboxes.not(this).prop('checked', false);
+    });
+
+
+
+
 </script>
 @endsection
