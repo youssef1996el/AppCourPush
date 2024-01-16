@@ -150,6 +150,11 @@ Route::get('Cours&Disponibilite',function()
 {
     return view('Professeur.CoursDispo');
 });
+Route::get('InfosProfile',function()
+{
+    return view('Eleve.InfosEleve');
+});
+
 
 
 
