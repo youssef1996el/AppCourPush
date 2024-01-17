@@ -34,10 +34,12 @@
                     <div class="card-body">
                         <h4 class="card-title"></h4>
                         <p class="card-text">
-                            @foreach ($disponibilityByDay as $day => $items)
-                                <div class="row border mb-3 DataDisponible" >
+                            <form action="" method="post" id="disponibilityForm">
+                                @csrf
+                                @foreach ($disponibilityByDay as $day => $items)
+                                <div class="row border mb-3 DataDisponible">
                                     <div class="col-3">
-                                        <input type="checkbox" {{ count($items) > 0 ? 'checked'  : '' }} class="DaysIsRemoveDisponible">
+                                        <input name="Days[]" type="checkbox" {{ count($items) > 0 ? 'checked'  : '' }} class="DaysIsRemoveDisponible">
                                         <label for="" class="nameDays">{{ $day }}</label>
                                         <span class="checkmark"></span>
                                     </div>
@@ -49,15 +51,15 @@
                                                         @if ($i < count($items))
                                                             <div class="col-md-3">
                                                                 <label for="" style="white-space: nowrap">Choisir un cours</label>
-                                                                <select name="" id="" class="form-select">
-                                                                    <option value="">{{ $items[$i]->title }}</option>
+                                                                <select name="Cours[]" id="" class="form-select">
+                                                                    <option value="{{$items[$i]->idcours}}">{{ $items[$i]->title }}</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <label for="">Groupe / Privé</label>
                                                                 <div class="radio-inputs">
                                                                     <label>
-                                                                        <input {{ $items[$i]->typecours == 'groupe' ? 'checked' : '' }} class="radio-input" value="groupe" type="checkbox" name="typeCours[]">
+                                                                        <input  {{ $items[$i]->typecours == 'groupe' ? 'checked' : '' }} class="radio-input" value="groupe" type="checkbox" name="typeCours[]">
                                                                         <span class="radio-tile">
                                                                             <span class="radio-icon">
                                                                                 <svg class="svg-icon" viewBox="0 0 20 20" id="{{ $items[$i]->id }}">
@@ -67,7 +69,7 @@
                                                                         </span>
                                                                     </label>
                                                                     <label>
-                                                                        <input {{ $items[$i]->typecours == 'prive' ? 'checked' : '' }} class="radio-input" value="prive" type="checkbox" name="typeCours[]">
+                                                                        <input  {{ $items[$i]->typecours == 'prive' ? 'checked' : '' }} class="radio-input" value="prive" type="checkbox" name="typeCours[]">
                                                                         <span class="radio-tile">
                                                                             <span class="radio-icon">
                                                                                 <svg class="svg-icon" viewBox="0 0 20 20" id="{{ $items[$i]->id }}">
@@ -88,18 +90,8 @@
                                                             </div>
                                                         @else
                                                             <div class="col-md-3 colAppEnd">
-
                                                                 <label for="" style="white-space: nowrap">Choisir un cours</label>
-                                                                <select name="" id="" class="form-select dropDownCoursAppEnd"></select>
-                                                                {{-- <select name="" id="" class="form-select ">
-                                                                    <option value="0">veuillez sélectionner le cours</option>
-                                                                    @foreach ($cours as $itemCours)
-                                                                        <option value="{{$itemCours->id}}">{{$itemCours->title}}</option>
-                                                                    @endforeach
-
-                                                                </select> --}}
-
-
+                                                                <select name="Cours[]" id="" class="form-select dropDownCoursAppEnd"></select>
                                                             </div>
                                                             <div class="col-md-3 colAppEnd">
 
@@ -128,12 +120,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2 g-0">
-
                                                                 <label for=""> Début</label>
                                                                 <input type="time" name="heuredebut[]" class="form-control heuredebut" >
                                                             </div>
                                                             <div class="col-md-2 g-0">
-
                                                                 <label for=""> Fin</label>
                                                                 <input type="time" name="heurefin[]" class="form-control heurefin">
                                                             </div>
@@ -165,18 +155,9 @@
                                                     <div class="row">
                                                         <div class="col-md-3 colAppEnd">
                                                             <label for="" style="white-space: nowrap">Choisir un cours</label>
-                                                            <select name="" id="" class="form-select dropDownCoursAppEnd"></select>
-                                                            {{-- <select name="" id="" class="form-select ">
-                                                                <option value="0">veuillez sélectionner le cours</option>
-
-                                                                    @foreach ($cours as $itemCours)
-                                                                        <option value="{{$itemCours->id}}">{{$itemCours->title}}</option>
-                                                                    @endforeach
-                                                            </select> --}}
-
+                                                            <select name="Cours[]" id="" class="form-select dropDownCoursAppEnd"></select>
                                                         </div>
                                                         <div class="col-md-3 colAppEnd">
-
                                                             <label for="">Groupe / Privé</label>
                                                             <div class="radio-inputs">
                                                                 <label>
@@ -222,7 +203,10 @@
                                         @endif
                                     </div>
                                 </div>
-                            @endforeach
+                                @endforeach
+                            </form>
+
+                            <button type="button" id="UpDateDisponible" >sauvegarde</button>
                         </p>
                      </div>
                 </div>
@@ -259,7 +243,7 @@
         box-sizing: border-box;
 
     }
-    #AddCours
+    #AddCours, #UpDateDisponible
     {
         background-color: #4e99e9;
         border: none;
@@ -323,115 +307,130 @@
         width: 110%;
     }
     /******************************** CSS GRoupe Prive*/
-.radio-inputs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 176px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.radio-inputs
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 176px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.radio-inputs > * {
-  margin: 2px;
+.radio-inputs > *
+{
+    margin: 2px;
 }
 
-.radio-input:checked + .radio-tile {
-  border-color: #2260ff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  color: #2260ff;
+.radio-input:checked + .radio-tile
+{
+    border-color: #2260ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #2260ff;
 }
 
-.radio-input:checked + .radio-tile:before {
-  transform: scale(1);
-  opacity: 1;
-  background-color: #2260ff;
-  border-color: #2260ff;
+.radio-input:checked + .radio-tile:before
+{
+    transform: scale(1);
+    opacity: 1;
+    background-color: #2260ff;
+    border-color: #2260ff;
 }
 
-.radio-input:checked + .radio-tile .radio-icon svg {
-  fill: #2260ff;
+.radio-input:checked + .radio-tile .radio-icon svg
+{
+    fill: #2260ff;
 }
 
-.radio-input:checked + .radio-tile .radio-label {
-  color: #2260ff;
+.radio-input:checked + .radio-tile .radio-label
+{
+    color: #2260ff;
 }
 
-.radio-input:focus + .radio-tile {
-  border-color: #2260ff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+.radio-input:focus + .radio-tile
+{
+    border-color: #2260ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
 }
 
-.radio-input:focus + .radio-tile:before {
-  transform: scale(1);
-  opacity: 1;
+.radio-input:focus + .radio-tile:before
+{
+    transform: scale(1);
+    opacity: 1;
 }
 
-.radio-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 51px;
-  min-height: 39px;
-  border-radius: 0.5rem;
-  border: 2px solid #b5bfd9;
-  background-color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  transition: 0.15s ease;
-  cursor: pointer;
-  position: relative;
+.radio-tile
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 51px;
+    min-height: 39px;
+    border-radius: 0.5rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.15s ease;
+    cursor: pointer;
+    position: relative;
 }
 
-.radio-tile:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 0.75rem;
-  height: 0.75rem;
-  border: 2px solid #b5bfd9;
-  background-color: #fff;
-  border-radius: 50%;
-  top: 0.25rem;
-  left: 0.1rem;
-  opacity: 0;
-  transform: scale(0);
-  transition: 0.25s ease;
+.radio-tile:before
+{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 0.25rem;
+    left: 0.1rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.25s ease;
 }
 
-.radio-tile:hover {
-  border-color: #2260ff;
+.radio-tile:hover
+{
+    border-color: #2260ff;
 }
 
-.radio-tile:hover:before {
-  transform: scale(1);
-  opacity: 1;
+.radio-tile:hover:before
+{
+    transform: scale(1);
+    opacity: 1;
 }
 
-.radio-icon svg {
-  width: 2rem;
-  height: 2rem;
-  fill: #494949;
+.radio-icon svg
+{
+    width: 2rem;
+    height: 2rem;
+    fill: #494949;
 }
 
-.radio-label {
-  color: #707070;
-  transition: 0.375s ease;
-  text-align: center;
-  font-size: 13px;
+.radio-label
+{
+    color: #707070;
+    transition: 0.375s ease;
+    text-align: center;
+    font-size: 13px;
 }
 
-.radio-input {
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+.radio-input
+{
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 </style>
@@ -465,7 +464,6 @@
                 }
             }
         });
-
     }
     GetCoursProfInDropDown();
     function GetCoursProfSession()
@@ -488,16 +486,9 @@
                     }
                     $.each(response.data, function (index, value)
                     {
-
                         const $tag = $('<li></li>');
-
-
                         $tag.text(value.title);
-
-
                         $tag.append('<button type="button" class="delete-button" value=' + value.id + '>X</button>');
-
-
                         $tags.append($tag);
                     });
                 }
@@ -606,8 +597,6 @@
                         });
                         $input.val('');
                         GetCoursProfInDropDown();
-
-
                     }
                     if(response.status == 400)
                     {
@@ -683,12 +672,15 @@
 
     $('.DaysIsRemoveDisponible').on('click',function(e)
     {
-        var checked = $(this).prop('checked');
 
+        var checked = $(this).prop('checked');
+        var day = $(this).closest('.DataDisponible').find('.nameDays').text();
+        var colNonDisponible = $(this).closest('.DataDisponible').find('.colNonDisponible');
+        var colDataNonDisponible = $(this).closest('.DataDisponible').find('.ColDataNonDisponible');
         if (checked)
         {
-            $('.colNonDisponible').css('display', 'none');
-            $('.ColDataNonDisponible').css('display', 'block');
+            colNonDisponible.css('display', 'none');
+            colDataNonDisponible.css('display', 'block');
         }
         else
         {
@@ -707,8 +699,8 @@
                 {
                     if(response.status == 200)
                     {
-                        $('.colNonDisponible').css('display', 'block');
-                        $('.ColDataNonDisponible').css('display', 'none');
+                        colNonDisponible.css('display', 'block');
+                        colDataNonDisponible.css('display', 'none');
                     }
                     else if(response.status == 220)
                     {
@@ -755,6 +747,117 @@
         var rowContainer = $(this).closest('.row');
         var checkboxes = rowContainer.find('.radio-input');
         checkboxes.not(this).prop('checked', false);
+    });
+
+    $('#UpDateDisponible').on('click', function (e) {
+        e.preventDefault();
+
+        var atLeastOneDayChecked = false;
+        var daysData = {};
+        $('#disponibilityForm input[name="Days[]"]:checked').each(function () {
+            atLeastOneDayChecked = true;
+            var day = $(this).siblings('.nameDays').text();
+            var dayData = [];
+            $(this).closest('.DataDisponible').find('select[name="Cours[]"]').each(function ()
+            {
+                var coursValue = $(this).val();
+                if (coursValue !== '0') {
+                    var typeCoursValue = $(this).closest('.row').find('input[name="typeCours[]"]:checked').val();
+                    var heureDebutValue = $(this).closest('.row').find('input[name="heuredebut[]"]').val();
+                    var heureFinValue = $(this).closest('.row').find('input[name="heurefin[]"]').val();
+
+                    if (typeCoursValue !== null && heureDebutValue !== null && heureFinValue !== null &&
+                        typeCoursValue !== undefined && heureDebutValue !== undefined && heureFinValue !== undefined &&
+                        typeCoursValue !== '' && heureDebutValue !== '' && heureFinValue !== '') {
+
+                        dayData.push({
+                            cours: coursValue,
+                            typeCours: typeCoursValue,
+                            heureDebut: heureDebutValue,
+                            heureFin: heureFinValue
+                        });
+                    }
+                }
+            });
+            daysData[day] = dayData;
+        });
+        if (!atLeastOneDayChecked)
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Veuillez sélectionner au moins un jour.",
+            });
+            return;
+        }
+        var isEmpty = true;
+        for (var day in daysData)
+        {
+            if (daysData[day].length > 0)
+            {
+                isEmpty = false;
+                break;
+            }
+        }
+        if (isEmpty)
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Veuillez remplir les données pour au moins un jour sélectionné.",
+            });
+            return;
+        }
+
+
+        Swal.fire({
+            title: "Voulez-vous enregistrer les modifications ?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Sauvegarder",
+            denyButtonText: `Ne sauvegardez pas`,
+            cancelButtonText: "Annuler"
+        }).then((result) =>
+        {
+
+            if (result.isConfirmed)
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "{{url('UpDateDisponibleByProf')}}",
+                    headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+                    data:
+                    {
+                        data : daysData
+                    },
+                    dataType: "json",
+                    success: function (response)
+                    {
+                        if(response.status == 200)
+                        {
+                            Swal.fire({
+                                title: "Enregistrée!",
+                                text: "",
+                                icon: "success"
+                            }).then((result) => {
+                                if (result.isConfirmed || result.isDismissed) {
+                                    location.reload();
+                                }
+                            });
+                        }
+
+
+                    }
+                });
+
+            }
+            else if (result.isDenied)
+            {
+                Swal.fire("Les modifications ne sont pas enregistrées", "", "info");
+            }
+        });
+
+
     });
 
 

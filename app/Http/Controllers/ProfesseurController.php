@@ -12,6 +12,7 @@ use App\Models\CoursProfesseur;
 use App\Models\TypeCours;
 use App\Models\FormationProfesseur;
 use App\Models\ExperinceProfesseur;
+use Illuminate\Support\Facades\App;
 class ProfesseurController extends Controller
 {
     public function StepByStep()
@@ -192,7 +193,7 @@ class ProfesseurController extends Controller
     public function CoursDisponibilite()
     {
 
-        $DisponibleProf = DB::select('select d.id,jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
+        $DisponibleProf = DB::select('select d.idcours,d.id,jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[Auth::user()->id]);
 
         $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
         $disponibilityByDay = [];
@@ -263,7 +264,8 @@ class ProfesseurController extends Controller
     {
         try
         {
-            $checkDayIsExisteDispoByProf = DB::table('disponibleprof')->where('jour',trim($request->jour))->count();
+            $checkDayIsExisteDispoByProf = DB::table('disponibleprof')->where('jour',trim($request->jour))->where('iduser',Auth::user()->id)->count();
+
             if($checkDayIsExisteDispoByProf == 0)
             {
                 return response()->json([
@@ -279,6 +281,22 @@ class ProfesseurController extends Controller
         }
         catch (\Throwable $th)
         {
+            throw $th;
+        }
+    }
+
+    public function UpDateDisponibleByProf(Request $request)
+    {
+        try
+        {
+            $response = App::call('App\Http\Controllers\DisponibleProf@UpdateDisponible', [
+                'request' => $request
+            ]);
+            return response()->json([
+                'status' => 200
+            ]);
+        }
+        catch (\Throwable $th) {
             throw $th;
         }
     }
