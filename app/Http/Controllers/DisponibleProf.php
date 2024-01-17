@@ -54,7 +54,8 @@ class DisponibleProf extends Controller
 
             foreach ($data as $day => $dayData)
             {
-                foreach ($dayData as $row) {
+                foreach ($dayData as $row)
+                {
                     $cours = $row['cours'];
                     $typeCours = $row['typeCours'];
                     $heureDebut = $row['heureDebut'];
@@ -62,12 +63,14 @@ class DisponibleProf extends Controller
 
                     // Insert into the database
                     DB::table('disponibleprof')->insert([
-                        'jour' => $day,
-                        'debut' => $heureDebut,
-                        'fin' => $heureFin,
-                        'iduser' => Auth::user()->id,
-                        'idcours' => $cours,
-                        'typecours' => $typeCours,
+                        'jour'          => $day,
+                        'debut'         => $heureDebut,
+                        'fin'           => $heureFin,
+                        'iduser'        => Auth::user()->id,
+                        'idcours'       => $cours,
+                        'typecours'     => $typeCours,
+                        'created_at'    => Carbon::now(),
+                        'updated_at'    => Carbon::now(),
                     ]);
                 }
             }

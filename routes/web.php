@@ -88,6 +88,8 @@ Route::post('UpdateExperince'     ,[ExperinceProf::class,'UpdateExperince']);
 Route::get('profile/eleve'                                              ,[EleveController::class,'index'])->name('profile/eleve');
 Route::get('GetpProfesseur'                                             ,[EleveController::class,'GetpProfesseur']);
 Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'    ,[EleveController::class,'Reservation']);
+Route::get('InfosProfile'                                               ,[EleveController::class,'InfosProfile']);
+Route::post('UpdateDataEleve'                                           ,[EleveController::class,'UpdateDataEleve'])->name('UpdateDataEleve');
 /******************************************** End Eleve  ****************************************************/
 /******************************************** Start Dashboard Admin ***********************************************/
 Route::get('professeurs'              ,[AdminController::class,'professeurs'])->name('professeurs');
@@ -151,19 +153,13 @@ Route::get('Dashboard/cours',function()
 
 
 
-/* Route::get('Cours&Disponibilite',function()
-{
-    return view('Professeur.CoursDispo');
-});
-<<<<<<< HEAD
-Route::get('InfosProfile',function()
-{
-    return view('Eleve.InfosEleve');
-});
 
 
-=======
- */
->>>>>>> 79dfaf7ea01b7d6a6a0da4faf81bcf0c8321e7f6
+
+
+
+
+
+
 
 
