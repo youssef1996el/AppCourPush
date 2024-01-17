@@ -148,21 +148,17 @@ Route::get('Dashboard/cours',function()
     return view('Dashboard.cours');
 });
 
-
-
-/* Route::get('Cours&Disponibilite',function()
-{
-    return view('Professeur.CoursDispo');
-});
-<<<<<<< HEAD
 Route::get('InfosProfile',function()
 {
     return view('Eleve.InfosEleve');
 });
-
-
-=======
- */
->>>>>>> 79dfaf7ea01b7d6a6a0da4faf81bcf0c8321e7f6
+Route::get('prix',function()
+{
+    return view('Eleve.Solde');
+});
+Route::get('Mescours',function()
+{
+    return view('Eleve.Cours');
+});
 
 
