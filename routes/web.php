@@ -151,6 +151,7 @@ Route::get('Dashboard/cours',function()
     return view('Dashboard.cours');
 });
 
+<<<<<<< HEAD
 
 
 
@@ -161,5 +162,19 @@ Route::get('Dashboard/cours',function()
 
 
 
+=======
+Route::get('InfosProfile',function()
+{
+    return view('Eleve.InfosEleve');
+});
+Route::get('prix',function()
+{
+    return view('Eleve.Solde');
+});
+Route::get('Mescours',function()
+{
+    return view('Eleve.Cours');
+});
+>>>>>>> 3dbccc3cd0f01e1d398faa379a517e0bdfc0bea7
 
 

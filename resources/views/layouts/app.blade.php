@@ -80,6 +80,16 @@
                             </li>
                         @else
                             <li class="nav-item d-flex" style="align-items: center;">
+                            <a href="{{ url('profile/eleve') }}">
+                                <button class="cta">
+                                <span>Reserver des cours</span>
+                                <svg width="15px" height="10px" viewBox="0 0 13 10">
+                                    <path d="M1,5 L11,5"></path>
+                                    <polyline points="8 1 12 5 8 9"></polyline>
+                                </svg>
+                            </button>
+                            </li>
+                            <li class="nav-item d-flex" style="align-items: center;">
                                 <a class="nav-link" href="">
                                     <i class="fas fa-bell fa-lg"></i>
                             </li>
@@ -95,14 +105,10 @@
                                     <a class="dropdown-item" href="{{ url('InfosProfile') }}">
                                         {{ __('Profile') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ url('Mescours') }}">
                                         {{ __('Mes cours') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ url('prix') }}">
                                         {{ __('prix') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -122,7 +128,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" style="background-image:url('{{asset('image/25099.jpg')}}');background-repeat: no-repeat;background-position:center;background-size:cover">
             @yield('content')
         </main>
     </div>
@@ -135,5 +141,63 @@
   border-radius: 50%;
   border: 1px solid gray;
     }
+    .cta {
+  position: relative;
+  margin: auto;
+  padding: 12px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cta:before {
+    content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #b1dae7;
+  width: 45px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.cta span {
+  position: relative;
+  font-family: times;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #234567;
+}
+
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #234567;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+  width: 100%;
+  background: #b1dae7;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active {
+  transform: scale(0.95);
+}
+
 </style>
 </html>
