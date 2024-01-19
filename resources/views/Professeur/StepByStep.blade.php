@@ -51,7 +51,7 @@
                     <form action="{{url('StoreData')}}" method="post" id="FormDetailProf" enctype="multipart/form-data">
                         @csrf
                         {{-- Step 1 --}}
-                        <div class="main ">
+                        <div class="main active">
                             <div class="text">
                                 <h2>Vos informations personnelles</h2>
                                 <p>Saisissez vos informations personnelles pour vous rapprocher des étudiants.</p>
@@ -258,7 +258,7 @@
                         {{-- End Step 6 --}}
 
                         {{-- Step 7 --}}
-                        <div class="main active">
+                        <div class="main ">
                             <div class="text">
                                 <h2>Disponibilité</h2>
                                 <p>Quelles sont vos disponibilités pour donner des cours ?</p>
