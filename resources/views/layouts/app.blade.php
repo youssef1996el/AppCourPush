@@ -94,13 +94,13 @@
                                     <i class="fas fa-bell fa-lg"></i>
                             </li>
                             <li class="nav-item dropdown d-flex" style="align-items: center;">
- 
+
                                 <a id="navbarDropdown" class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                   <!--  {{ Auth::user()->name }} -->
-                                  <img class="theme-item user-avatar " src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt="User image">   
-                                
+                                  <img class="theme-item user-avatar " src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt="User image">
+
                                 </a>
-                            
+
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ url('InfosProfile') }}">
                                         {{ __('Profile') }}
