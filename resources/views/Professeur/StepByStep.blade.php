@@ -315,7 +315,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type= "text/javascript" src ={{asset('js/countries.js')}} ></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script language="javascript">
 
         $(document).ready(function ()
@@ -472,10 +472,28 @@
                 readURL(this);
             });
 
-
+            var totalDays = [];
             $('.day-item').on('click', function () {
+
                 var finalSelect = '';
                 var textToAppend = $(this).text();
+
+                totalDays.push(textToAppend);
+                var selectedDayCount = totalDays.filter(day => day === textToAppend).length;
+                if (selectedDayCount > 3)
+                {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Le nombre maximum de créneaux disponibles pour " + textToAppend + " est de 3.",
+                        footer: '<a href="#">Why do I have this issue?</a>'
+                    });
+                    /* alert("Maximum available slots for " + textToAppend + " is 3."); */
+                    // Remove the last occurrence of the selected day to stay within the limit
+                    totalDays.pop();
+                    return;
+                }
+
                 $.ajax({
                     type: "get",
                     url: "{{url('getCoursByProf')}}",

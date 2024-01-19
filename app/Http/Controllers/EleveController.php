@@ -7,16 +7,14 @@ use App\Models\User;
 use DB;
 use App\Models\Cours;
 use Carbon\Carbon;
+use Auth;
 use App\Models\DisponibleProfesseur;
+use Illuminate\Support\Facades\File;
 class EleveController extends Controller
 {
     public function index()
     {
         $cours = Cours::all();
-
-
-
-
         return view('profile.eleve')
                 ->with('cours'          , $cours);
     }
@@ -83,8 +81,8 @@ class EleveController extends Controller
         $query->where('d.jour', $frenchDayName);
 
         $DataProfesseur = $query->paginate(1);
-
-
+        $hasCoursToday = $DataProfesseur->isNotEmpty();
+       /*  dd($DataProfesseur); */
         return response()->json([
             'status'        =>200,
             'Data'          => $DataProfesseur,
@@ -98,5 +96,50 @@ class EleveController extends Controller
     public function Reservation($Time,$NameProfesseur,$Cours,$TypeCours)
     {
         return view('Eleve.Reserve');
+    }
+
+    public function InfosProfile()
+    {
+        $DataEleve = User::where('id',Auth::user()->id)->get();
+        return view('Eleve.InfosEleve')->with('DataEleve',$DataEleve[0]);
+    }
+
+    public function UpdateDataEleve(Request $request)
+    {
+        // Check if the "eleves" folder exists in the storage path
+        $storagePath = storage_path('app/public/images/eleves');
+        if (!File::exists($storagePath)) {
+            // If not, create the "eleves" folder
+            File::makeDirectory($storagePath, 0755, true, true);
+        }
+
+        $user = Auth::user();
+
+        // Handle image upload
+        if ($request->hasFile('image'))
+        {
+            // Extract the old image name from the database
+            $oldImageName = basename($user->image);
+
+            // Remove the old image if it exists
+            if ($oldImageName !== null && File::exists(storage_path("app/public/images/eleves/{$oldImageName}"))) {
+                File::delete(storage_path("app/public/images/eleves/{$oldImageName}"));
+            }
+
+            $imageName = 'eleves/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->storeAs('public/images', $imageName);
+            $user->image = "/storage/images/{$imageName}";
+        }
+
+        // Update other user data
+        $user->name             = $request->name;
+        $user->telephone        = $request->telephone;
+        $user->email            = $request->email;
+        $user->datenaissance    = $request->datenaissance;
+
+        // Save the changes
+        $user->save();
+        return redirect()->back();
+
     }
 }

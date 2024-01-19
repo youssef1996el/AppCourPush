@@ -97,7 +97,7 @@ tbody, td, tfoot, th, thead, tr {
   margin-top: 12px;
 }
 #TableProfesseurIsActive_paginate .pagination{
-  
+
   justify-content: flex-end;
 }
 #TableProfesseurIsActive_paginate li{
@@ -107,4 +107,8 @@ tbody, td, tfoot, th, thead, tr {
 #TableProfesseurIsActive_paginate .page-link,.page-item{
   border-radius: 0px;
   cursor: pointer;
+}
+.ContainerEleve
+{
+    overflow-x: hidden
 }
