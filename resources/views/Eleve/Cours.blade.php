@@ -30,7 +30,6 @@
 
                         </div>
                     </div>
-
                     <!-- Tab 2: Cours Déjà Pris -->
                     <div id="cours" class="tab-pane fade">
                         <h3>Cours Déjà Pris</h3>

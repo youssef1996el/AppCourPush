@@ -36,7 +36,6 @@
                 </div>  
                 <div class="row mt-4">
                     <div class="col-sm-12 col-md-2 col-xl-2 "></div>
-
                     <div class="col-sm-12 col-md-8 col-xl-8 ">
                         <div class="showInputs ">
                             <a href="#" id="showInputsLink" class="d-flex justify-content-center bold">Modifier votre mot de passe</a>
