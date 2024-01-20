@@ -13,6 +13,7 @@ use App\http\Controllers\ProfesseurController;
 use App\http\Controllers\EleveController;
 use App\http\Controllers\AdminController;
 use Vinkla\Hashids\Facades\Hashids;
+use App\Models\Cours;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -165,7 +166,9 @@ Route::get('Dashboard/cours',function()
 
 Route::get('Reserver',function()
 {
-    return view('Eleve.ReserveCourse');
+    $cours = Cours::all();
+    return view('profile.eleve')
+    ->with('cours'          , $cours);
 });
 Route::get('Mescours',function()
 {
