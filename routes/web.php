@@ -163,9 +163,9 @@ Route::get('Dashboard/cours',function()
 
 
 
-Route::get('prix',function()
+Route::get('Reserver',function()
 {
-    return view('Eleve.Solde');
+    return view('Eleve.ReserveCourse');
 });
 Route::get('Mescours',function()
 {

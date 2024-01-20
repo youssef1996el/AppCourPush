@@ -4,20 +4,20 @@
     <div class="row" style="margin-top:5rem">
         <div class="col-sm-12 col-md-6 col-xl-6">
             <div class="card">
-                <div class="card-container">
+                <div class="card-container mt-3 ">
                     <div class="front">
-                        <div class="image">
+                        <div class="image ">
                             <img src="{{asset('image/chip.png')}}" alt="">
                             <img src="{{asset('image/visa.png')}}" alt="">
                         </div>
                         <div class="card-number-box">#### #### #### ####</div>
                         <div class="flexbox">
                             <div class="box">
-                                <span>card holder</span>
-                                <div class="card-holder-name">full name</div>
+                                <span>porte-carte</span>
+                                <div class="card-holder-name">Nom complet</div>
                             </div>
                             <div class="box">
-                                <span>expires</span>
+                                <span>expire</span>
                                 <div class="expiration">
                                     <span class="exp-month">mm</span>
                                     <span class="exp-year">yy</span>
@@ -134,19 +134,19 @@
                             </svg>
                         </span>
                     <div class="inputBox">
-                        <span>card number</span>
+                        <span>Numéro de carte</span>
                         <input type="text" maxlength="19" class="card-number-input">
                         <div class="card-number-box"></div>
                     </div>
                     <div class="inputBox">
-                        <span>card holder</span>
+                        <span>Porte-carte</span>
                         <input type="text" class="card-holder-input">
                     </div>
                     <div class="flexbox">
                         <div class="inputBox">
                             <span>expiration mm</span>
                             <select name="" id="" class="month-input">
-                                <option value="month" selected disabled>month</option>
+                                <option value="month" selected disabled>mois</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
                                 <option value="03">03</option>
@@ -164,7 +164,7 @@
                         <div class="inputBox">
                             <span>expiration yy</span>
                             <select name="" id="" class="year-input">
-                                <option value="year" selected disabled>year</option>
+                                <option value="year" selected disabled>annee</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
                                 <option value="2023">2023</option>
@@ -182,13 +182,34 @@
                             <input type="text" maxlength="4" class="cvv-input">
                         </div>
                     </div>
-                    <input type="submit" value="submit" class="submit-btn">
+                    <input type="submit" value="Valider" class="submit-btn">
                 </form>
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-xl-6">
-            <div class="card">
+        <div class="col-sm-12 col-md-6 col-xl-6" style="display: flex;
+  justify-content: flex-end;">
+            <div class="card text-left" style="width:430px ; padding:12px ;height: 50%;">
+              <img class="card-img-top " src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title fs-3 mb-4">Votre choix</h4>
+                <p class="card-text">
+                    <div class="row">
+                       <div class="col-sm-12 col-md-6 col-xl-6">
+                           <label class="text-muted fs-5 mb-3">Langue</label>
+                           <label class="text-muted fs-5 mb-3">Cours</label>
+                           <label class="text-muted fs-5 mb-3">Group/Particulier</label>
+                           <label class="text-muted fs-5 mb-3">Montant</label>
+                       </div>
+                       <div class="col-sm-12 col-md-6 col-xl-6">
+                           <label class="text-black fs-5 mb-3">Langue</label>
+                           <label class="text-black fs-5 mb-3">Cours</label>
+                           <label class="text-black fs-5 mb-3">Group/Particulier</label>
+                           <label class="text-black fs-5 mb-3">Montant</label>
 
+                       </div>
+                    </div>
+                </p>
+              </div>
             </div>
         </div>
     </div>
@@ -218,12 +239,15 @@
     flex-flow: column;
     padding-bottom: 60px; */
 }
+label{
+    display:block;
+}
 
 .container form{
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 10px 15px rgba(0,0,0,.1);
-    padding: 20px;
+    padding: 50px;
    /*  width: 600px; */
     padding-top: 160px;
 }
@@ -258,7 +282,7 @@
 
 .container form .submit-btn{
     width: 100%;
-    background:linear-gradient(45deg, blueviolet, deeppink);
+    background: linear-gradient(45deg, #729ae6, #0c2a41);
     margin-top: 20px;
     padding: 10px;
     font-size: 20px;
@@ -274,7 +298,7 @@
 }
 
 .container .card-container{
-    margin-bottom: -150px;
+    margin-bottom: -120px;
     position: relative;
     height: 250px;
     width: 400px;
@@ -286,7 +310,7 @@
     height: 100%;
     width: 100%;
     top: 0; left: 0;
-    background:linear-gradient(45deg, blueviolet, deeppink);
+    background: linear-gradient(45deg, #729ae6, #0c2a41);
     border-radius: 5px;
     backface-visibility: hidden;
     box-shadow: 0 15px 25px rgba(0,0,0,.2);
@@ -331,7 +355,7 @@
     top:0; left: 0;
     height: 100%;
     width: 100%;
-    background:linear-gradient(45deg, blueviolet, deeppink);
+    background: linear-gradient(45deg, #729ae6, #0c2a41);
     border-radius: 5px;
     padding: 20px 0;
     text-align: right;

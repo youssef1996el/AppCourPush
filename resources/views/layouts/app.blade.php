@@ -80,7 +80,7 @@
                             </li>
                         @else
                             <li class="nav-item d-flex" style="align-items: center;">
-                            <a href="{{ url('profile/eleve') }}">
+                            <a href="{{ url('Reserver') }}">
                                 <button class="cta">
                                 <span>Reserver des cours</span>
                                 <svg width="15px" height="10px" viewBox="0 0 13 10">
@@ -108,9 +108,7 @@
                                     <a class="dropdown-item" href="{{ url('Mescours') }}">
                                         {{ __('Mes cours') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('prix') }}">
-                                        {{ __('prix') }}
-                                    </a>
+                                
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

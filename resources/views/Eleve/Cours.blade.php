@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
 <div class="container" style="margin-top:65px;">
-        <div class="card shadow " style=" width: 600px;
+        <div class="card shadow " style=" width: 900px;
   margin: auto;
   padding: 20px 24px; background: #ffffff5c;" >
             <div class="card-body">
-                <h3 class="mb-5" style="font-style:italic; text-align:center">Mes cours</h3>
+                <h3 class="mb-5" style="font-style:italic; text-align:center">Mon apprentissage</h3>
                 
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" id="programmes-tab" data-toggle="tab" href="#programmes">Programmes</a>
+                        <a class="nav-link active" id="programmes-tab" data-toggle="tab" href="#programmes">Mes Cours</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="cours-tab" data-toggle="tab" href="#cours">Cours Déjà Pris</a>
@@ -19,10 +19,12 @@
                 <div class="tab-content">
                     <!-- Tab 1: Programmes -->
                     <div id="programmes" class="tab-pane fade show active">
-                        <h3>Programmes</h3>
-                        <div class="row">
+                        <div class="row mt-4">
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
-                                <p>This is the content for Programmes tab.</p>
+                                <img  class="" src="{{asset('image/cours.png')}}" alt="cours" style="width:200px">
+                                <h5 class="mt-3">Rien de prévu pour le moment</h5>
+                                <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
+                                <p>Pour commencer, <a href="#"> resever un cours</a></p>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
                                 <div id="calendarProgrammes">Calendar for Programmes</div>
@@ -32,10 +34,12 @@
                     </div>
                     <!-- Tab 2: Cours Déjà Pris -->
                     <div id="cours" class="tab-pane fade">
-                        <h3>Cours Déjà Pris</h3>
-                        <div class="row">
+                        <div class="row mt-4">
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
-                                <p>This is the content for Cours Déjà Pris tab</p>
+                                <img  class="" src="{{asset('image/nonpris.png')}}" alt="cours" style="width:200px">
+                                <h5 class="mt-3">Vous pouvez retrouver tous vos cours terminés ici.</h5>
+                                <p class="text-muted">Vous n'avez pas suivi de cours... pour l'instant !</p>
+                                <p>Pour commencer, <a href="#"> resever un cours</a></p>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
                                 <div id="calendarCours">Calendar for Programmes</div>
