@@ -138,6 +138,25 @@
 
     $(document).ready(function ()
     {
+        var currentUrl = window.location.href;
+
+        // Get the pathname (route)
+        var pathname = window.location.pathname;
+
+        // Split the pathname into an array based on '/'
+        var pathArray = pathname.split('/');
+
+        // Extract the name route (assuming it's the second segment in the path)
+        var nameRoute = pathArray[1];
+
+        if( nameRoute === 'Reserver' )
+        {
+            $('#bookCard').css('display', 'none');
+            $('.WelcomeEleve').css('display', 'none');
+            $('#bookClass').css('display', 'block');
+        }
+
+
         $('#TableProfesseurIsActive').DataTable({
             searching: false, // Remove the search box
             lengthChange: false,
