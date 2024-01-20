@@ -14,6 +14,7 @@ use App\http\Controllers\EleveController;
 use App\http\Controllers\AdminController;
 use Vinkla\Hashids\Facades\Hashids;
 use App\Models\Cours;
+use App\http\Controllers\StripeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,6 +91,7 @@ Route::get('profile/eleve'                                              ,[EleveC
 Route::get('GetpProfesseur'                                             ,[EleveController::class,'GetpProfesseur']);
 Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'    ,[EleveController::class,'Reservation']);
 Route::get('InfosProfile'                                               ,[EleveController::class,'InfosProfile']);
+Route::get('Details/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'    ,[EleveController::class,'Details']);
 Route::post('UpdateDataEleve'                                           ,[EleveController::class,'UpdateDataEleve'])->name('UpdateDataEleve');
 /******************************************** End Eleve  ****************************************************/
 /******************************************** Start Dashboard Admin ***********************************************/
@@ -113,10 +115,8 @@ Route::post('UpDateAdmin'             ,[AdminController::class,'UpDateAdmin']);
 /******************************************** End Dashboard Admin ***********************************************/
 
 /********************************************* Stripe  ****************************************************/
-Route::get('Account/store/checkout',function()
-{
-    return view('Stripe.index');
-});
+
+Route::get('Acount/store/checkout/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{Nomber}/{Montant}',[StripeController::class,'index']);
 /********************************************* End Stripe **************************************************/
 Route::get('/prof/{name}/{id}',function()
 {
@@ -174,10 +174,10 @@ Route::get('Mescours',function()
 {
     return view('Eleve.Cours');
 });
-Route::get('Details',function()
+/* Route::get('Details',function()
 {
     return view('Eleve.Details');
-});
+}); */
 
 
 

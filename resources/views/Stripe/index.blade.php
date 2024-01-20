@@ -201,10 +201,10 @@
                            <label class="text-muted fs-5 mb-3">Montant</label>
                        </div>
                        <div class="col-sm-12 col-md-6 col-xl-6">
-                           <label class="text-black fs-5 mb-3">Langue</label>
-                           <label class="text-black fs-5 mb-3">Cours</label>
-                           <label class="text-black fs-5 mb-3">Group/Particulier</label>
-                           <label class="text-black fs-5 mb-3">Montant</label>
+                           <label class="text-black fs-5 mb-3">Langue (ina langue)</label>
+                           <label class="text-black fs-5 mb-3">{{$Cours}}</label>
+                           <label class="text-black fs-5 mb-3">{{$TypeCours}}</label>
+                           <label class="text-black fs-5 mb-3">{{$Montant}}</label>
 
                        </div>
                     </div>

@@ -559,6 +559,23 @@
             var reservationUrl = "/Reservation/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours);
             window.location.href = reservationUrl;
         });
+        $(document).on('click','.details',function()
+        {
+            var Time            = $(this).closest('tr').find('td:eq(0)').text().trim();
+            var NameProfesseur  = $(this).closest('tr').find('.NameProfesseur').text().trim();
+            var cours           = $(this).closest('tr').find('td:eq(2)').text().trim();
+            var typeCours       = $(this).closest('tr').find('.ClassTypeCours').text().trim();
+            if(typeCours === 'Cours particulier')
+            {
+                typeCours = 'prive';
+            }
+            else
+            {
+                typeCours = 'groupe';
+            }
+            var reservationUrl = "/Details/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours);
+            window.location.href = reservationUrl;
+        });
     });
 
 </script>

@@ -20,17 +20,49 @@
             <p>Toutes les formules comprennent un essai gratuit de 7 jours avant que votre abonnement payant ne commence.<br> Assistez gratuitement à un cours particulier ou jusqu'à trois cours en groupe.</p>
         </div>
         <h2 class="mt-3">Choisir un cours</h2>
-        <h3 class="mt-3 text-muted">Langue arabe</h3>
+        <h3 class="mt-3 text-muted">Langue <span>{{$Cours}}</span></h3>
 
         <div class="row mt-5">
-            <div class="col-sm-12 col-md-2 col-xl-2 "></div>
 
+            @if ($TypeCours === 'groupe')
+                <div class="col-sm-12 col-md-4 col-xl-4 ">
+                    <div class="card-prix">
+                        <div class="header">
+                            <span class="title">Cours en groupe</span>
+                            <span class="PriceGroupe"></span>
+                        </div>
+                            <p class="desc">Apprentissage en groupe pour favoriser l'interaction sociale. Idéal pour ceux qui apprécient la dynamique de groupe.</p>
+                            <ul class="lists">
+                                <li class="list">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Interaction sociale</span>
+                                </li>
+                                <li class="list">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Coût abordable</span>
+                                </li>
+                                <li class="list">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Diversité des points de vue</span>
+                                </li>
+                            </ul>
+                            <button type="button" class="action" >Commencer</button>
+
+                    </div>
+                </div>
+            @else
                 <div class="col-sm-12 col-md-4 col-xl-4 ">
 
                     <div class="card-prix">
                         <div class="header">
                             <span class="title">Cours particulier</span>
-                            <span class="price">17 €/h</span>
+                            <span class="PricePrive"></span>
                         </div>
                             <p class="desc">Cours personnalisé avec une attention individuelle. Idéal pour ceux qui préfèrent un apprentissage sur mesure.</p>
                             <ul class="lists">
@@ -55,40 +87,13 @@
                             </ul>
                             <button type="button" class="action" onclick="window.location='{{ url('/Account/store/checkout') }}'">Commencer</button>
                     </div>
-                   
                 </div>
-                <div class="col-sm-12 col-md-4 col-xl-4 ">
 
-                    <div class="card-prix">
-                        <div class="header">
-                            <span class="title">Cours en groupe</span>
-                            <span class="price">34 €/h</span>
-                        </div>
-                            <p class="desc">Apprentissage en groupe pour favoriser l'interaction sociale. Idéal pour ceux qui apprécient la dynamique de groupe.</p>
-                            <ul class="lists">
-                                <li class="list">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span>Interaction sociale</span>                                
-                                </li>
-                                <li class="list">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span>Coût abordable</span>                                
-                                </li>
-                                <li class="list">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span>Diversité des points de vue</span>                                
-                                </li>
-                            </ul>
-                            <button type="button" class="action" onclick="window.location='{{ url('/Account/store/checkout') }}'">Commencer</button>
-                        
-                    </div>
-                </div>
+            @endif
+            <div class="col-sm-12 col-md-2 col-xl-2 "></div> {{-- o ma hachamtiiich dayra liya hna col vide wakhad 2 o ila kant f phone ghadi yakon scroll tewill --}}
+
+
+
                 <div class="col-sm-12 col-md-2 col-xl-2 "></div>
 
             </div>
@@ -113,7 +118,7 @@
             background-position: right center;
             background: url('{{ asset("image/background-image.png") }}'), linear-gradient(260.96deg, rgb(21, 59, 255) -80.13%, rgb(153, 0, 204) 100%);
         }
-   
+
     .card-prix {
   margin-left:18px;
   flex-wrap: wrap;
@@ -192,5 +197,47 @@
   color: white;
 }
 </style>
+<script>
+    $(document).ready(function () {
+        var Time = @json($Time);
+        var NameProfesseur = @json($NameProfesseur);
+        var cours = @json($Cours);
+        var typeCours = @json($TypeCours);
+        var randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
 
+        $('.action').on('click',function()
+        {
+            var Montant = 0;
+            if(typeCours === 'groupe')
+            {
+                Montant = $('.PriceGroupe').text();
+            }
+            else
+            {
+                Montant = $('.PricePrive').text();
+            }
+
+            var checkout = "/Acount/store/checkout/"+ encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/"  + encodeURIComponent(cours) + "/"  + encodeURIComponent(typeCours) + "/"  + encodeURIComponent(randomNumber) + "/" + encodeURIComponent(Montant);
+            window.location.href = checkout;
+        });
+        function GetPrice()
+        {
+            $.ajax({
+                type: "get",
+                url: "{{url('GetPriceGroupeOrPrive')}}",
+                dataType: "json",
+                success: function (response)
+                {
+                    if(response.status == 200)
+                    {
+                        $('.PricePrive').text(response.Prive[0]['prix']).css('color','red');
+                        $('.PriceGroupe').text(response.Groupe[0]['prix']).css('color','red');
+                    }
+                }
+            });
+        }
+        GetPrice();
+
+    });
+</script>
 @endsection

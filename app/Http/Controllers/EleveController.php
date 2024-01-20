@@ -95,7 +95,16 @@ class EleveController extends Controller
 
     public function Reservation($Time,$NameProfesseur,$Cours,$TypeCours)
     {
-        return view('Eleve.Reserve');
+        return view('Eleve.Reserve')
+        ->with('Cours',$Cours)
+        ->with('Time',$Time)
+        ->with('NameProfesseur',$NameProfesseur)
+        ->with('TypeCours',$TypeCours);
+    }
+
+    public function Details($Time,$NameProfesseur,$Cours,$TypeCours)
+    {
+        return view('Eleve.Details');
     }
 
     public function InfosProfile()
