@@ -171,6 +171,10 @@ Route::get('Mescours',function()
 {
     return view('Eleve.Cours');
 });
+Route::get('Details',function()
+{
+    return view('Eleve.Details');
+});
 
 
 
