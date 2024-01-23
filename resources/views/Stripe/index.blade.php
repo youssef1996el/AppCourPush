@@ -1,7 +1,15 @@
 @extends('layouts.app')
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class="container">
     <div class="row" style="margin-top:5rem">
+        @if (Session::has('success'))
+            <div class="alert alert-success text-center">
+                <a href="#" class="close" data-bs-dismiss="alert" aria-label="close"></a>
+                <p>{{Session::get('success')}}</p>
+            </div>
+        @endif
+
         <div class="col-sm-12 col-md-6 col-xl-6">
             <div class="card">
                 <div class="card-container mt-3 ">
@@ -34,9 +42,9 @@
                             <img src="{{asset('image/visa.png')}}" alt="">
                         </div>
                     </div>
-
                 </div>
-                <form action="">
+                <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
+                    @csrf
                     <span><input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked></span>
                     <span class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1ul1nx9">
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="20" viewBox="0 0 33.406 20" style="margin-right: 5px; vertical-align: bottom;">
@@ -135,7 +143,7 @@
                         </span>
                     <div class="inputBox">
                         <span>Numéro de carte</span>
-                        <input type="text" maxlength="19" class="card-number-input">
+                        <input type="text" maxlength="19" class="card-number-input card-number">
                         <div class="card-number-box"></div>
                     </div>
                     <div class="inputBox">
@@ -145,7 +153,7 @@
                     <div class="flexbox">
                         <div class="inputBox">
                             <span>expiration mm</span>
-                            <select name="" id="" class="month-input">
+                            <select name="" id="" class="month-input card-expiry-month">
                                 <option value="month" selected disabled>mois</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
@@ -163,7 +171,7 @@
                         </div>
                         <div class="inputBox">
                             <span>expiration yy</span>
-                            <select name="" id="" class="year-input">
+                            <select name="" id="" class="year-input card-expiry-year">
                                 <option value="year" selected disabled>annee</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
@@ -179,66 +187,72 @@
                         </div>
                         <div class="inputBox">
                             <span>cvv</span>
-                            <input type="text" maxlength="4" class="cvv-input">
+                            <input type="text" maxlength="4" class="cvv-input card-cvc">
                         </div>
                     </div>
                     <input type="submit" value="Valider" class="submit-btn">
                 </form>
+
+
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-xl-6" style="display: flex;
-  justify-content: flex-end;">
+        <div class="col-sm-12 col-md-6 col-xl-6" style="display: flex;justify-content: flex-end;">
             <div class="card text-left" style="width:430px ; padding:12px ;height: 50%;">
               <img class="card-img-top " src="holder.js/100px180/" alt="">
               <div class="card-body">
                 <h4 class="card-title fs-3 mb-4">Votre choix</h4>
                 <p class="card-text">
                     <div class="row">
-                       <div class="col-sm-12 col-md-6 col-xl-6">
-                           <label class="text-muted fs-5 mb-3">Langue</label>
-                           <label class="text-muted fs-5 mb-3">Cours</label>
-                           <label class="text-muted fs-5 mb-3">Group/Particulier</label>
-                           <label class="text-muted fs-5 mb-3">Montant</label>
-                       </div>
-                       <div class="col-sm-12 col-md-6 col-xl-6">
-                           <label class="text-black fs-5 mb-3">Langue (ina langue)</label>
-                           <label class="text-black fs-5 mb-3">{{$Cours}}</label>
-                           <label class="text-black fs-5 mb-3">{{$TypeCours}}</label>
-                           <label class="text-black fs-5 mb-3">{{$Montant}}</label>
+                        <table class="w-100">
+                            <thead>
+                                <tr>
+                                    <th class="InformationCours" >Langue</th>
+                                    <td class="InformationCours">Arabe</td>
+                                </tr>
+                                <tr>
+                                    <th class="InformationCours">Cours</th>
+                                    <td class="InformationCours">{{$Cours}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="InformationCours">Nom Professeur</th>
+                                    <td class="InformationCours">{{$NameProfesseur}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="InformationCours">Group/Particulier</th>
+                                    <td class="InformationCours">{{$TypeCours}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="InformationCours">Montant</th>
+                                    <td class="InformationCours">{{$Montant}}</td>
+                                </tr>
+                            </thead>
+                        </table>
 
-                       </div>
                     </div>
                 </p>
               </div>
             </div>
         </div>
     </div>
-
-
-
-
 </div>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-/* *{
+*{
     font-family: 'Poppins', sans-serif;
     margin:0; padding:0;
     box-sizing: border-box;
     outline: none; border: none;
     text-decoration: none;
     text-transform: uppercase;
-} */
-
-.container{
-   /*  min-height: 100vh;
-    background: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column;
-    padding-bottom: 60px; */
 }
+.InformationCours
+{
+    padding: 10px;
+    border-bottom: 0.5px solid
+}
+
+
 label{
     display:block;
 }
@@ -248,7 +262,7 @@ label{
     border-radius: 5px;
     box-shadow: 0 10px 15px rgba(0,0,0,.1);
     padding: 50px;
-   /*  width: 600px; */
+
     padding-top: 160px;
 }
 
@@ -396,7 +410,55 @@ label{
     height: 30px;
 }
 </style>
-<script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    $(function() {
+      var $form = $(".require-validation");
+      $('form.require-validation').bind('submit', function(e) {
+        var $form = $(".require-validation"),
+        inputSelector = ['input[type=email]', 'input[type=password]', 'input[type=text]', 'input[type=file]', 'textarea'].join(', '),
+        $inputs = $form.find('.required').find(inputSelector),
+        $errorMessage = $form.find('div.error'),
+        valid = true;
+        $errorMessage.addClass('hide');
+        $('.has-error').removeClass('has-error');
+        $inputs.each(function(i, el) {
+            var $input = $(el);
+            if ($input.val() === '') {
+                $input.parent().addClass('has-error');
+                $errorMessage.removeClass('hide');
+                e.preventDefault();
+            }
+        });
+        if (!$form.data('cc-on-file')) {
+          e.preventDefault();
+          Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+          Stripe.createToken({
+              number: $('.card-number').val(),
+              cvc: $('.card-cvc').val(),
+              exp_month: $('.card-expiry-month').val(),
+              exp_year: $('.card-expiry-year').val()
+          }, stripeResponseHandler);
+        }
+      });
+
+      function stripeResponseHandler(status, response) {
+          if (response.error) {
+              $('.error')
+                  .removeClass('hide')
+                  .find('.alert')
+                  .text(response.error.message);
+          } else {
+              /* token contains id, last4, and card type */
+              var token = response['id'];
+              $form.find('input[type=text]').empty();
+              $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+              $form.get(0).submit();
+         }
+     }
+   });
+   </script>
+ <script>
 
     document.querySelector('.card-number-input').oninput = () => {
         let input = document.querySelector('.card-number-input');

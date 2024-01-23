@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
         "socialiteproviders/manager": "^4.4",
+        "stripe/stripe-php": "^13.9",
         "vinkla/hashids": "^11.0"
     },
     "require-dev": {

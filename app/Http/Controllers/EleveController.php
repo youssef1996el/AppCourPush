@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use Auth;
 use App\Models\DisponibleProfesseur;
 use Illuminate\Support\Facades\File;
+use DateTime;
+use Session;
 class EleveController extends Controller
 {
     public function index()
@@ -95,6 +97,7 @@ class EleveController extends Controller
 
     public function Reservation($Time,$NameProfesseur,$Cours,$TypeCours)
     {
+
         return view('Eleve.Reserve')
         ->with('Cours',$Cours)
         ->with('Time',$Time)
@@ -104,7 +107,48 @@ class EleveController extends Controller
 
     public function Details($Time,$NameProfesseur,$Cours,$TypeCours)
     {
-        return view('Eleve.Details');
+        // Extract id professeur
+        $idProfesseur = User::where('name',$NameProfesseur)->get();
+
+        if(!empty($idProfesseur))
+        {
+            $DisponibleProf = DB::select('select d.idcours,d.id,jour,debut,fin,c.title,d.typecours from
+                disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[$idProfesseur[0]->id]);
+
+            $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+            $disponibilityByDay = [];
+
+            foreach ($day_names_fr as $item) {
+                $disponibilityByDay[$item] = [];
+            }
+            foreach ($DisponibleProf as $item1)
+            {
+                $debut = new DateTime($item1->debut);
+                $fin = new DateTime($item1->fin);
+                $diff = $debut->diff($fin);
+                $hours = $diff->h + $diff->i / 60;
+
+                $item1->calculhour = $hours;
+
+
+                $disponibilityByDay[$item1->jour][] = $item1;
+            }
+            foreach ($disponibilityByDay as &$dayArray) {
+                usort($dayArray, function($a, $b) {
+                    return strtotime($a->debut) - strtotime($b->debut);
+                });
+            }
+            $CourProf      = DB::select('select c.title from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[$idProfesseur[0]->id]);
+            $FormationProf = DB::select('select diplome,specialise,annee,ecole,pays from formationprof where diplome is not null and iduser  =?',[$idProfesseur[0]->id]);
+            $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[$idProfesseur[0]->id]);
+        }
+
+
+        return view('Eleve.Details')
+        ->with('disponibilityByDay',$disponibilityByDay)
+        ->with('CourProf',$CourProf)
+        ->with('FormationProf',$FormationProf)
+        ->with('ExperinceProf',$ExperinceProf);
     }
 
     public function InfosProfile()
