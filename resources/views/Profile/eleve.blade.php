@@ -139,15 +139,19 @@
 
     $(document).ready(function ()
     {
+        function disableBack()
+        {
+                window.history.forward()
+        }
+        window.onload = disableBack();
+        window.onpageshow = function(e)
+        {
+            if (e.persisted)
+                disableBack();
+        }
         var currentUrl = window.location.href;
-
-        // Get the pathname (route)
         var pathname = window.location.pathname;
-
-        // Split the pathname into an array based on '/'
         var pathArray = pathname.split('/');
-
-        // Extract the name route (assuming it's the second segment in the path)
         var nameRoute = pathArray[1];
 
 
@@ -159,8 +163,10 @@
         }
 
 
+
+
         $('#TableProfesseurIsActive').DataTable({
-            searching: false, // Remove the search box
+            searching: false,
             lengthChange: false,
             info: false,
         });

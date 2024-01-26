@@ -24,6 +24,31 @@ class EleveController extends Controller
     public function GetpProfesseur(Request $request)
     {
         $requestData = $request->all();
+       /*  $test = DB::select("select d.debut,u.image,u.name,c.title,d.jour,d.typecours from disponibleprof d,users u, cours c where d.idcours =c.id and d.iduser = u.id and u.verification='verifie';
+        ");
+        $filteredResults = array_filter($test, function ($item) use ($requestData) {
+            // Check if 'cours' is not null and matches the 'id' in the item
+            $coursCondition = ($requestData['cours'] !== "false") ? ($item->id == $requestData['cours']) : true;
+
+            // Check if 'day' is not null and matches the 'jour' in the item
+            $dayCondition = ($requestData['day'] !== "false") ? ($item->jour == $requestData['day']) : true;
+
+            // Check if 'hour' is not null and matches the 'debut' in the item
+            $hourCondition = ($requestData['hour'] !== "false") ? ($item->debut == $requestData['hour']) : true;
+
+            // Check if 'type' is not null and matches the 'typecours' in the item
+            $typeCondition = ($requestData['type'] !== "false") ? ($item->typecours == $requestData['type']) : true;
+
+            // Combine all conditions with logical AND
+            return $coursCondition && $dayCondition && $hourCondition && $typeCondition;
+        });
+
+        // If you want the filtered results as an indexed array
+        $filteredResults = array_values($filteredResults);
+
+        dd($filteredResults); */
+
+
         $englishDayName = Carbon::now()->format('l');
         // Define a mapping of English to French day names
         $englishToFrenchDays = [
@@ -66,6 +91,7 @@ class EleveController extends Controller
         {
             $query->where('d.debut', $requestData['hour']);
         }
+
         if($requestData['day'] != "false")
         {
             $date = Carbon::parse($requestData['day']);
