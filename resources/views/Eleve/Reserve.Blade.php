@@ -90,7 +90,7 @@
                 </div>
 
             @endif
-            <div class="col-sm-12 col-md-2 col-xl-2 "></div> {{-- o ma hachamtiiich dayra liya hna col vide wakhad 2 o ila kant f phone ghadi yakon scroll tewill --}}
+            <div class="col-sm-12 col-md-2 col-xl-2 "></div>
 
 
 

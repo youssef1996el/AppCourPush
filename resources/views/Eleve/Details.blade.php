@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<link rel="stylesheet" href="{{asset('css/StyleProfileProf.css')}}">
+<link rel="stylesheet" href="{{asset('css/StyleDetails.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 <div class="container">
     <div class="row mt-5">
@@ -29,6 +29,38 @@
                      </p>
             
                 <a name="" id="" class="btn btn-primary" href="#" role="button">Reserver</a>
+            </div>
+        </div>
+        <div class="card text-left mt-5 mb-5" style="">
+            <div class="card-body">
+                <h4 class="card-title ">Réservation de cours</h4>
+                <p class="card-text-label mt-5"> 
+                <div class="row">
+                        <div class="col-sm-12 col-md-3 col-xl-3 ">
+                            <label for="typeCours">Sélectionner le type de cours :</label>
+                            <select id="typeCours">
+                                <option value="cours">Cours</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-xl-3 ">
+                            <label for="" style="margin-left: 5px">Groupe ou Privé: </label>
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
+                                    <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" for="group"><i class="fas fa-users "></i></label>
+
+                                    <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
+                                    <label class="btn btn-outline-primary " for="private" style="width:45px ; "><i class="fas fa-user "></i></label>
+                                </div>
+                        </div>
+                     
+                        <div class="col-sm-12 col-md-3 col-xl-3 ">
+                            <label for="dateCours">Sélectionner une date :</label>
+                            <input type="date" id="dateCours">
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-xl-3 ">
+                            <a name="" id="" class="btn btn-primary" href="#" role="button">Reserver</a>
+                        </div>
+                </div>
             </div>
         </div>
         <div class="row row-card " style="background: #ffffff5c; display:flex; margin:auto ; padding-bottom:36px">

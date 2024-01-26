@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 col-xl-3">
-                                    <button type="button" class="btn btn-primary mt-4 BtnIntialiser" >Reinitialiser</button>
+                                    <button type="button" class="btn btn-primary mt-3">Reinitialiser</button>                                
                                 </div>
                             </div>
                         </div>
