@@ -9,6 +9,24 @@
                 <p>{{Session::get('success')}}</p>
             </div>
         @endif
+        @if (Session::has('failed'))
+            <div class="alert alert-danger text-center">
+                <a href="#" class="close" data-bs-dismiss="alert" aria-label="close"></a>
+                <p>{{Session::get('failed')}}</p>
+            </div>
+        @endif
+        @if (Session::has('card'))
+            <div class="alert alert-danger text-center">
+                <a href="#" class="close" data-bs-dismiss="alert" aria-label="close"></a>
+                <p>{{Session::get('card')}}</p>
+            </div>
+        @endif
+        @if (Session::has('Error'))
+            <div class="alert alert-danger text-center">
+                <a href="#" class="close" data-bs-dismiss="alert" aria-label="close"></a>
+                <p>{{Session::get('Error')}}</p>
+            </div>
+        @endif
 
         <div class="col-sm-12 col-md-6 col-xl-6">
             <div class="card">
