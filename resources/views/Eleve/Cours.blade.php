@@ -25,6 +25,15 @@
                                 <h5 class="mt-3">Rien de prévu pour le moment</h5>
                                 <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
                                 <p>Pour commencer, <a href="#"> resever un cours</a></p>
+
+                                <div class="card text-left">
+                                  <img class="card-img-top" src="{{asset('image/default-avatar.png') }}" alt="">
+                                  <div class="card-body">
+                                    <h4 class="card-title">nom de cours</h4>
+                                    <p class="card-text">description</p>
+                                    <a href="#">lien de zoom</a>
+                                  </div>
+                                </div>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
                                 <div id="calendarProgrammes">Calendar for Programmes</div>
@@ -84,4 +93,6 @@
         });
     });
     </script>
+    
+   
 @endsection
