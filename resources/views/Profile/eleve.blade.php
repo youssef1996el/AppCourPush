@@ -117,7 +117,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 col-xl-3">
-                                    <button type="button" class="btn btn-primary mt-3">Reinitialiser</button>                                
+                                    <button type="button" onclick="sayHi()" class="btn btn-primary">Reinitialiser</button>
+                                                                    
                                 </div>
                             </div>
                         </div>
@@ -148,6 +149,7 @@
 
         // Extract the name route (assuming it's the second segment in the path)
         var nameRoute = pathArray[1];
+
 
         if( nameRoute === 'Reserver' )
         {
@@ -577,6 +579,10 @@
             window.location.href = reservationUrl;
         });
     });
+
+    function sayHi() {
+            alert('Hi');
+        }
 
 </script>
 
