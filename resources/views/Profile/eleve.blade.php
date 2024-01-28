@@ -118,7 +118,12 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 col-xl-3">
+<<<<<<< HEAD
                                     <button type="button" class="btn btn-primary mt-3 " id="BtnDouha">Reinitialiser</button>
+=======
+                                    <button type="button" onclick="sayHi()" class="btn btn-primary">Reinitialiser</button>
+                                                                    
+>>>>>>> ec020ac3984f6725af907021cb7e80d825265099
                                 </div>
                             </div>
                         </div>
@@ -173,10 +178,14 @@ var url = "{{ url('GetpProfesseur') }}";
         var pathArray = pathname.split('/');
         var nameRoute = pathArray[1];
 
+<<<<<<< HEAD
         $('#BtnDouha').on('click',function()
         {
             alert('yarabi tekhadam');
         });
+=======
+
+>>>>>>> ec020ac3984f6725af907021cb7e80d825265099
         if( nameRoute === 'Reserver' )
         {
             $('#bookCard').css('display', 'none');
@@ -458,6 +467,10 @@ var url = "{{ url('GetpProfesseur') }}";
             window.location.href = reservationUrl;
         }); */
     });
+
+    function sayHi() {
+            alert('Hi');
+        }
 
 </script>
 

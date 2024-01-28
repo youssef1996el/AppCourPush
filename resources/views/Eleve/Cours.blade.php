@@ -21,19 +21,29 @@
                     <div id="programmes" class="tab-pane fade show active">
                         <div class="row mt-4">
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
-                                <img  class="" src="{{asset('image/cours.png')}}" alt="cours" style="width:200px">
+                                <img  class="" src="{{asset('image/cours.png') }}" alt="cours" style="width:200px">
                                 <h5 class="mt-3">Rien de prévu pour le moment</h5>
                                 <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
                                 <p>Pour commencer, <a href="#"> resever un cours</a></p>
 
-                                <div class="card text-left">
-                                  <img class="card-img-top" src="{{asset('image/default-avatar.png') }}" alt="">
-                                  <div class="card-body">
-                                    <h4 class="card-title">nom de cours</h4>
-                                    <p class="card-text">description</p>
-                                    <a href="#">lien de zoom</a>
-                                  </div>
+                                <div class="card-sl">
+                                    <div class="name-course">Nom du cours</div>
+                                        <a class="card-action" href="#"><img src="{{asset('image/default-avatar.png') }}" class="avatar" alt="" ></a>
+                                        <div class="card-heading">
+                                            Nom de prof
+                                        </div>
+                                        <div class="card-text">
+                                            <i class="fa fa-clock    "></i> <label>60 min</label>
+                                        </div>
+                                        <div class="card-text">
+                                            <i class="fa fa-users"></i><label> nombre des eleves</label>
+                                        </div>
+                                        <div class="card-text">
+                                            <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
+                                        </div>
+                                    
                                 </div>
+                              
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
                                 <div id="calendarProgrammes">Calendar for Programmes</div>
@@ -94,5 +104,98 @@
     });
     </script>
     
-   
+<style>
+      .card-sl {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width:300px;
+    }
+
+ a{
+     text-decoration:none;
+     cursor: pointer;
+ }
+ .card-sl label{
+margin-left:14px;
+ }
+.avatar{
+    width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #3a7dc6;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+    .card-action {
+        width:50px;
+        height:50px;
+        position: relative;
+        float: left;
+        margin-top: -25px;
+        margin-left: 20px;
+        z-index: 2;
+        color: #3fa5c6;
+        background: #fff;
+        border-radius: 100%;
+        padding: 15px;
+        font-size: 15px;
+    }
+
+    .card-action:hover {
+        color: #fff;
+        background: #3a7dc6;
+        -webkit-animation: pulse 1.5s infinite;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+
+    }
+    .avatar:hover{
+        background-color: #3a7dc6;;
+
+    }
+
+    .card-heading {
+        font-size: 18px;
+        font-weight: bold;
+        background: #fff;
+        padding: 10px 15px;
+    }
+
+    .card-text {
+        padding: 10px 15px;
+        background: #fff;
+        font-size: 14px;
+        color: #636262;
+    }
+
+    .card-button {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+        width: 100%;
+        background-color: #1F487E;
+        color: #fff;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .card-button:hover {
+        text-decoration: none;
+        background-color: #1D3461;
+        color: #fff;
+
+    }
+
+.name-course {
+    font-size: 40px; /* Large font size */
+    font-weight: bold; /* Make the font bold */
+    color: white; /* White text color */
+    background-color: #3a7dc6; /* Background color */
+    padding: 30px 10px 30px 10px; /* Some padding around the text */
+    border-radius: 4px; /* Rounded corners */
+    text-shadow: 2px 2px 4px #000000; /* Text shadow for a 3D effect */
+    width: 100%; /* Fit the width to the content */
+    margin: auto; /* Centering the block */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  text-align:center;/* Box shadow for depth */
+}
+</style>
 @endsection
