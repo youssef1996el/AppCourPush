@@ -12,6 +12,7 @@ use App\Models\DisponibleProfesseur;
 use Illuminate\Support\Facades\File;
 use DateTime;
 use Session;
+use Illuminate\Pagination\LengthAwarePaginator;
 class EleveController extends Controller
 {
     public function index()
@@ -24,33 +25,8 @@ class EleveController extends Controller
     public function GetpProfesseur(Request $request)
     {
         $requestData = $request->all();
-       /*  $test = DB::select("select d.debut,u.image,u.name,c.title,d.jour,d.typecours from disponibleprof d,users u, cours c where d.idcours =c.id and d.iduser = u.id and u.verification='verifie';
-        ");
-        $filteredResults = array_filter($test, function ($item) use ($requestData) {
-            // Check if 'cours' is not null and matches the 'id' in the item
-            $coursCondition = ($requestData['cours'] !== "false") ? ($item->id == $requestData['cours']) : true;
-
-            // Check if 'day' is not null and matches the 'jour' in the item
-            $dayCondition = ($requestData['day'] !== "false") ? ($item->jour == $requestData['day']) : true;
-
-            // Check if 'hour' is not null and matches the 'debut' in the item
-            $hourCondition = ($requestData['hour'] !== "false") ? ($item->debut == $requestData['hour']) : true;
-
-            // Check if 'type' is not null and matches the 'typecours' in the item
-            $typeCondition = ($requestData['type'] !== "false") ? ($item->typecours == $requestData['type']) : true;
-
-            // Combine all conditions with logical AND
-            return $coursCondition && $dayCondition && $hourCondition && $typeCondition;
-        });
-
-        // If you want the filtered results as an indexed array
-        $filteredResults = array_values($filteredResults);
-
-        dd($filteredResults); */
-
-
         $englishDayName = Carbon::now()->format('l');
-        // Define a mapping of English to French day names
+        $frenchDayName = "";
         $englishToFrenchDays = [
             'Monday'    => 'Lundi',
             'Tuesday'   => 'Mardi',
@@ -60,30 +36,131 @@ class EleveController extends Controller
             'Saturday'  => 'Samedi',
             'Sunday'    => 'Dimanche',
         ];
-        // Use the mapping to get the French day name
-        $frenchDayName = $englishToFrenchDays[$englishDayName];
+        if($requestData['isLoadPage'] == 1)
+        {
+
+            $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+            ->join('users', 'disponibleprof.iduser', '=', 'users.id')
+            ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
+            ->where('users.verification', 'verifie')
+            ->where('disponibleprof.jour',$englishToFrenchDays[$englishDayName]) // today
+            ->get();
+            $frenchDayName = $englishToFrenchDays[$englishDayName];
+        }
+        else
+        {
+            if($requestData['isLoadPage'] == 0)
+            {
+                if($requestData['day'] === "false")
+                {
+                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+                    ->join('users', 'disponibleprof.iduser', '=', 'users.id')
+                    ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
+                    ->where('users.verification', 'verifie')
+                    ->get();
+                }
+                else
+                {
+                    $CarbonNameDaysIsNotLoad = Carbon::parse($requestData['day']);
+                    $NameDaysIsNotLoad       = $CarbonNameDaysIsNotLoad->format('l');
+                    $NameDaysIsNotLoadFranch = $englishToFrenchDays[$NameDaysIsNotLoad];
+                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+                    ->join('users', 'disponibleprof.iduser', '=', 'users.id')
+                    ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
+                    ->where('users.verification', 'verifie')
+                    ->where('disponibleprof.jour',$NameDaysIsNotLoadFranch)
+                    ->get();
+                    $frenchDayName = $NameDaysIsNotLoadFranch;
+                }
+
+            }
+
+        }
+
+        $experienceData = DB::select('SELECT iduser, SUM(TIMESTAMPDIFF(YEAR, e.du, e.au)) AS experience FROM experinceprof e GROUP BY iduser;');
+
+        $experienceLookup = [];
+        foreach ($experienceData as $experience) {
+            $experienceLookup[$experience->iduser] = $experience->experience;
+        }
+
+        foreach ($test as $item) {
+            $userId = $item->iduser;
+            $item->experience = isset($experienceLookup[$userId]) ? $experienceLookup[$userId] : 0;
+        }
+
+
+        $filteredResults = $test->filter(function ($item) use ($requestData) {
+            $coursCondition = ($requestData['cours'] !== "false") ? in_array($item->idcours, $requestData['cours']) : true;
+            $hourCondition = ($requestData['hour'] !== "false") ? ($item->debut == $requestData['hour']) : true;
+            $typeCondition = ($requestData['type'] !== "false") ? ($item->typecours == $requestData['type']) : true;
+
+            return $coursCondition && $hourCondition && $typeCondition;
+        });
+       /*  dd($requestData['cours']); */
+        /* dd($filteredResults); */
+
+
+
+
+
+
+       /*  $perPage = 1;
+        $page = request()->get('page', 1);
+        $slicedData = $filteredResults->slice(($page - 1) * $perPage, $perPage)->all();
+
+
+        $paginator = new LengthAwarePaginator($slicedData, $filteredResults->count(), $perPage, $page);
+        $paginator->setPath(request()->url());
+
+
+        $paginatedDataArray = $paginator->toArray();
+
+
+
+
+        $DataProfesseur = $paginatedDataArray; */
+        $DataProfesseur = $filteredResults;
+        /* dd($requestData); */
+
 
         $hasCoursToday = false;
         $NameDaysCours = DisponibleProfesseur::all();
-        foreach ($NameDaysCours as $item)
+        if($frenchDayName !=="")
         {
-            if($item->jour === $frenchDayName)
-            {
-                $hasCoursToday = true;
+            foreach ($NameDaysCours as $item) {
+                if ($item->jour === $frenchDayName) {
+                    $hasCoursToday = true;
+                }
             }
         }
 
-        $query = DB::table('users as u')
+
+        /* dd($DataProfesseur); */
+        return response()->json([
+            'status' => 200,
+            'Data' => $DataProfesseur,
+
+            'frenchDayName' => $englishDayName,
+            'hasCoursToday' => $hasCoursToday,
+            'TodayTitle' => \Carbon\Carbon::now()->format('l, j M Y'),
+        ]);
+      /*   $DataProfesseur = $filteredResults->paginate(1); */
+
+       /*  $hasCoursToday = $DataProfesseur->isNotEmpty(); */
+
+
+      /*   $query = DB::table('users as u')
         ->join('disponibleprof as d', 'u.id', '=', 'd.iduser')
         ->join('cours as c', 'd.idcours', '=', 'c.id')
         ->join('experinceprof as e', 'u.id', '=', 'e.iduser')
         ->select('u.id', 'd.debut', 'u.image', 'u.title', 'u.name', 'd.typecours', 'c.title as cours', DB::raw('sum(timestampdiff(YEAR,e.du,e.au)) as experince'))
         ->where('u.verification', 'Verifie')
-        /* ->where('d.jour', $frenchDayName) */
-        ->groupBy('u.id');
+
+        ->groupBy('u.id'); */
 
 
-        if($requestData['cours'] != "false")
+        /* if($requestData['cours'] != "false")
         {
             $query->where('c.id', $requestData['cours']);
         }
@@ -106,18 +183,12 @@ class EleveController extends Controller
         {
             $query->where('d.typecours', $requestData['type']);
         }
-        $query->where('d.jour', $frenchDayName);
+        $query->where('d.jour', $frenchDayName); */
 
-        $DataProfesseur = $query->paginate(1);
-        $hasCoursToday = $DataProfesseur->isNotEmpty();
+       /*  $DataProfesseur = $query->paginate(1);
+        $hasCoursToday = $DataProfesseur->isNotEmpty(); */
        /*  dd($DataProfesseur); */
-        return response()->json([
-            'status'        =>200,
-            'Data'          => $DataProfesseur,
-            'frenchDayName' => $englishDayName,
-            'hasCoursToday' => $hasCoursToday,
-            'TodayTitle'    => \Carbon\Carbon::now()->format('l, j M Y'),
-        ]);
+
     }
 
 
