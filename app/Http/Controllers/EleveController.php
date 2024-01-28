@@ -12,7 +12,7 @@ use App\Models\DisponibleProfesseur;
 use Illuminate\Support\Facades\File;
 use DateTime;
 use Session;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Lang;
 class EleveController extends Controller
 {
     public function index()
@@ -97,31 +97,10 @@ class EleveController extends Controller
 
             return $coursCondition && $hourCondition && $typeCondition;
         });
-       /*  dd($requestData['cours']); */
-        /* dd($filteredResults); */
 
 
-
-
-
-
-       /*  $perPage = 1;
-        $page = request()->get('page', 1);
-        $slicedData = $filteredResults->slice(($page - 1) * $perPage, $perPage)->all();
-
-
-        $paginator = new LengthAwarePaginator($slicedData, $filteredResults->count(), $perPage, $page);
-        $paginator->setPath(request()->url());
-
-
-        $paginatedDataArray = $paginator->toArray();
-
-
-
-
-        $DataProfesseur = $paginatedDataArray; */
         $DataProfesseur = $filteredResults;
-        /* dd($requestData); */
+
 
 
         $hasCoursToday = false;
@@ -135,59 +114,57 @@ class EleveController extends Controller
             }
         }
 
+        $now = Carbon::now();
 
-        /* dd($DataProfesseur); */
+        // Manually translate day names to French
+        $daysTranslations = [
+            'sunday' => 'dimanche',
+            'monday' => 'lundi',
+            'tuesday' => 'mardi',
+            'wednesday' => 'mercredi',
+            'thursday' => 'jeudi',
+            'friday' => 'vendredi',
+            'saturday' => 'samedi',
+        ];
+
+        // Manually translate month names to French
+        $monthsTranslations = [
+            1 => 'janvier',
+            2 => 'février',
+            3 => 'mars',
+            4 => 'avril',
+            5 => 'mai',
+            6 => 'juin',
+            7 => 'juillet',
+            8 => 'août',
+            9 => 'septembre',
+            10 => 'octobre',
+            11 => 'novembre',
+            12 => 'décembre',
+        ];
+
+
+
+            $carbonDate = Carbon::createFromFormat('Y-m-d', $requestData['dateInput']);
+
+            $day = $daysTranslations[strtolower($carbonDate->format('l'))];
+            $month = $monthsTranslations[$carbonDate->format('n')];
+
+            // Format the date in the desired format
+            $DateSelected = ucfirst($day) . ', ' . $carbonDate->format('j') . ' ' . $month . ' ' . $carbonDate->format('Y');
+
+
+
         return response()->json([
-            'status' => 200,
-            'Data' => $DataProfesseur,
+            'status'            => 200,
+            'Data'              => $DataProfesseur,
+            'DateSelected'      => $DateSelected,
+            'frenchDayName'     => $englishDayName,
+            'hasCoursToday'     => $hasCoursToday,
 
-            'frenchDayName' => $englishDayName,
-            'hasCoursToday' => $hasCoursToday,
-            'TodayTitle' => \Carbon\Carbon::now()->format('l, j M Y'),
+            'hasRequestDate'    => $requestData['day'],
+            'TodayTitle'        => \Carbon\Carbon::now()->format('l, j M Y'),
         ]);
-      /*   $DataProfesseur = $filteredResults->paginate(1); */
-
-       /*  $hasCoursToday = $DataProfesseur->isNotEmpty(); */
-
-
-      /*   $query = DB::table('users as u')
-        ->join('disponibleprof as d', 'u.id', '=', 'd.iduser')
-        ->join('cours as c', 'd.idcours', '=', 'c.id')
-        ->join('experinceprof as e', 'u.id', '=', 'e.iduser')
-        ->select('u.id', 'd.debut', 'u.image', 'u.title', 'u.name', 'd.typecours', 'c.title as cours', DB::raw('sum(timestampdiff(YEAR,e.du,e.au)) as experince'))
-        ->where('u.verification', 'Verifie')
-
-        ->groupBy('u.id'); */
-
-
-        /* if($requestData['cours'] != "false")
-        {
-            $query->where('c.id', $requestData['cours']);
-        }
-        if($requestData['hour'] != "false")
-        {
-            $query->where('d.debut', $requestData['hour']);
-        }
-
-        if($requestData['day'] != "false")
-        {
-            $date = Carbon::parse($requestData['day']);
-            $dayName = $date->format('l');
-            $frenchDayName = $englishToFrenchDays[$dayName];
-        }
-        else
-        {
-           $frenchDayName = $frenchDayName;
-        }
-        if($requestData['type'] != "false")
-        {
-            $query->where('d.typecours', $requestData['type']);
-        }
-        $query->where('d.jour', $frenchDayName); */
-
-       /*  $DataProfesseur = $query->paginate(1);
-        $hasCoursToday = $DataProfesseur->isNotEmpty(); */
-       /*  dd($DataProfesseur); */
 
     }
 

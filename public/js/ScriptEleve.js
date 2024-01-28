@@ -19,6 +19,9 @@ $(document).ready(function () {
         $('.WelcomeEleve').css('display', 'none');
         $('#bookClass').css('display', 'block');
     }
+    var today = new Date().toISOString().split('T')[0];
+    $('.DateSearch').attr('min', today);
+
     $('#multiple-select-field' ).select2({
         theme: "bootstrap-5",
         width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
@@ -37,23 +40,26 @@ $(document).ready(function () {
     var ValueDay   = '';
     var valueHour  = '';
     var ValueType  = '';
+    var isLoadPage = 1;
     $('.BtnIntialiser').on('click', function()
     {
-        alert(123);
+        isLoadPage = 1;
         var ValueCours = '';
         var ValueDay   = '';
         var valueHour  = '';
         var ValueType  = '';
-        fetchProfesseurs(currentPage,false,false,false,false);
+        var today = new Date().toISOString().split('T')[0];
+        $('.DateSearch').val(today);
+        fetchProfesseurs(currentPage,false,false,false,false,isLoadPage,dateInput);
     });
-    var isLoadPage = 1; // when load page this variable  = 1
+    // when load page this variable  = 1
 
     $('.typeCours').on('click',function()
     {
         // search with Groupe or Prive
         isLoadPage = 0;
         ValueType = $(this).val();
-        fetchProfesseurs(currentPage,ValueCours == '' ? false : ValueCours,ValueDay == '' ? false : ValueDay,valueHour == '' ? false : valueHour,ValueType,isLoadPage);
+        fetchProfesseurs(currentPage,ValueCours == '' ? false : ValueCours,ValueDay == '' ? false : ValueDay,valueHour == '' ? false : valueHour,ValueType,isLoadPage,dateInput);
     });
 
     $('.DateSearch').on('change',function()
@@ -61,7 +67,7 @@ $(document).ready(function () {
         // Search with name day
         isLoadPage = 0;
         ValueDay = $(this).val();
-        fetchProfesseurs(currentPage,ValueCours == '' ? false : ValueCours,ValueDay ,valueHour == '' ? false : valueHour,ValueType == '' ? false :ValueType,isLoadPage);
+        fetchProfesseurs(currentPage,ValueCours == '' ? false : ValueCours,ValueDay ,valueHour == '' ? false : valueHour,ValueType == '' ? false :ValueType,isLoadPage,$(this).val());
     });
     $('.btnTime').on('click',function()
     {
@@ -70,7 +76,7 @@ $(document).ready(function () {
         $('#dropdownMenuButton1').text(value);
         isLoadPage = 0;
         valueHour = $(this).val();
-        fetchProfesseurs(currentPage,ValueCours == '' ? false : ValueCours,ValueDay == '' ? false : ValueDay,valueHour,ValueType == '' ? false :ValueType,isLoadPage);
+        fetchProfesseurs(currentPage,ValueCours == '' ? false : ValueCours,ValueDay == '' ? false : ValueDay,valueHour,ValueType == '' ? false :ValueType,isLoadPage,dateInput);
     });
 
     $('#multiple-select-field').on('change',function()
@@ -86,11 +92,11 @@ $(document).ready(function () {
             ValueCours = $(this).val();
         }
 
-        fetchProfesseurs(currentPage,ValueCours,ValueDay == '' ? false : ValueDay,valueHour == '' ? false : valueHour ,ValueType == '' ? false :ValueType,isLoadPage);
+        fetchProfesseurs(currentPage,ValueCours,ValueDay == '' ? false : ValueDay,valueHour == '' ? false : valueHour ,ValueType == '' ? false :ValueType,isLoadPage,dateInput);
     });
     var dataTableInitialized = false;
-
-    function fetchProfesseurs(page, cours, day, hour, type,isLoadPage)
+    var dateInput = $('.DateSearch').val();
+    function fetchProfesseurs(page, cours, day, hour, type,isLoadPage,dateInput)
     {
         var urlGetDataProfesseurDisponible = url;
         $.ajax({
@@ -103,6 +109,7 @@ $(document).ready(function () {
                 hour: hour,
                 type: type,
                 isLoadPage : isLoadPage,
+                dateInput  : dateInput
             },
             dataType: "json",
             success: function (response)
@@ -111,11 +118,16 @@ $(document).ready(function () {
                 if(response.status == 200)
                 {
 
+
+
                     var dataArray = Array.isArray(response.Data) ? response.Data : [response.Data];
                     if (dataArray.length > 0)
                     {
                         $('.NoCoursToday').css('display', 'none');
                         $('.DataProfesseur').css('display', 'block');
+                        $('.DateSelected').css('display', 'block');
+                        $('.DateSelected').text(response.DateSelected);
+
                         if(!dataTableInitialized)
                         {
                             dataTableInitialized = true;
@@ -207,8 +219,9 @@ $(document).ready(function () {
                         $('.NoCoursToday').empty();
                         $('.NoCoursToday').css('display', 'block');
                         $('.DataProfesseur').css('display', 'none');
+                        $('.DateSelected').css('display', 'none');
                         $('.NoCoursToday').append(`<h3 class="text-uppercase mt-2">Cours disponibles</h3>
-                                                        <h5 class="text-secondary mt-4">${response.TodayTitle}</h5>
+                                                        <h5 class="text-secondary mt-4 dateNoDisponible">${response.DateSelected}</h5>
                                                         <div class="card bg-light p-3">
                                                             <div class="d-flex">
                                                                 <svg style="margin: auto 0px" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2jtx7" focusable="false" aria-hidden="true" viewBox="0 0 56 56" width="56" height="56" fill="none">
@@ -246,7 +259,7 @@ $(document).ready(function () {
             }
         });
     }
-    fetchProfesseurs(currentPage,false,false,false,false,isLoadPage);
+    fetchProfesseurs(currentPage,false,false,false,false,isLoadPage,dateInput);
 
     $(document).on('click','.reserver',function()
     {
