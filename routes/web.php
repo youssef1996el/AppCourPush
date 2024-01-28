@@ -97,6 +97,7 @@ Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'    ,[EleveC
 Route::get('InfosProfile'                                               ,[EleveController::class,'InfosProfile']);
 Route::get('Details/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'        ,[EleveController::class,'Details']);
 Route::post('UpdateDataEleve'                                           ,[EleveController::class,'UpdateDataEleve'])->name('UpdateDataEleve');
+Route::get('Mescours'                                                   ,[EleveController::class,'Mescours']);
 /******************************************** End Eleve  ****************************************************/
 /******************************************** Start Dashboard Admin ***********************************************/
 Route::get('professeurs'              ,[AdminController::class,'professeurs'])->name('professeurs');
@@ -179,10 +180,7 @@ Route::get('Reserver',function()
     return view('profile.eleve')
     ->with('cours'          , $cours);
 });
-Route::get('Mescours',function()
-{
-    return view('Eleve.Cours');
-});
+
 /* Route::get('Details',function()
 {
     return view('Eleve.Details');

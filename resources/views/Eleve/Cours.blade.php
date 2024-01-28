@@ -6,7 +6,7 @@
   padding: 20px 24px; background: #ffffff5c;" >
             <div class="card-body">
                 <h3 class="mb-5" style="font-style:italic; text-align:center">Mon apprentissage</h3>
-                
+
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" id="programmes-tab" data-toggle="tab" href="#programmes">Mes Cours</a>
@@ -21,29 +21,39 @@
                     <div id="programmes" class="tab-pane fade show active">
                         <div class="row mt-4">
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
-                                <img  class="" src="{{asset('image/cours.png') }}" alt="cours" style="width:200px">
-                                <h5 class="mt-3">Rien de prévu pour le moment</h5>
-                                <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
-                                <p>Pour commencer, <a href="#"> resever un cours</a></p>
 
-                                <div class="card-sl">
-                                    <div class="name-course">Nom du cours</div>
-                                        <a class="card-action" href="#"><img src="{{asset('image/default-avatar.png') }}" class="avatar" alt="" ></a>
-                                        <div class="card-heading">
-                                            Nom de prof
+                                @if ($hasCours)
+                                    @foreach ($MesCours as $item)
+                                        <div class="card-sl">
+                                            <div class="name-course">{{$item->name_cours}}</div>
+                                            <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
+                                            <div class="card-heading">
+                                                {{$item->nom_professeur}}
+                                            </div>
+
+                                            <div class="card-text">
+                                                <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
+                                            </div>
+                                            <div class="card-text">
+                                                <i class="fa fa-calendar"></i> <label>{{$item->days}}</label>
+                                            </div>
+                                            <div class="card-text">
+                                                <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
+                                            </div>
+                                            <div class="card-text">
+                                                <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
+                                            </div>
                                         </div>
-                                        <div class="card-text">
-                                            <i class="fa fa-clock    "></i> <label>60 min</label>
-                                        </div>
-                                        <div class="card-text">
-                                            <i class="fa fa-users"></i><label> nombre des eleves</label>
-                                        </div>
-                                        <div class="card-text">
-                                            <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
-                                        </div>
-                                    
-                                </div>
-                              
+                                    @endforeach
+
+                                @else
+                                    <img  class="" src="{{asset('image/cours.png') }}" alt="cours" style="width:200px">
+                                    <h5 class="mt-3">Rien de prévu pour le moment</h5>
+                                    <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
+                                    <p>Pour commencer, <a href="#"> resever un cours</a></p>
+                                @endif
+
+
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6 ">
                                 <div id="calendarProgrammes">Calendar for Programmes</div>
@@ -68,17 +78,17 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
     <style>
-       
-      
+
+
 
 
     </style>
-    
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI/tZ1oFY1AJXQFAFPPFVIyIZbOT6KELr1U9zFk=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha256-GLt00i6C1Wq2A7p0sH/cF4AtI5N99l8dZLCzZ9dAd2Q=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.2/js/bootstrap.min.js" integrity="sha256-pzjw8E+RpuCyTp4ARb5hj2bRiFaR9p5VRO9z1FDTNI=" crossorigin="anonymous"></script>
@@ -103,7 +113,7 @@
         });
     });
     </script>
-    
+
 <style>
       .card-sl {
         border-radius: 8px;
