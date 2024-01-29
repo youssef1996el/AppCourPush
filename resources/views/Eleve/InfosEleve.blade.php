@@ -30,9 +30,14 @@
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Pays</label>
                             <select name="" id="" class="form-select">
-                                <option value="{{$mycodeFromDatabase}}">{{$mycodeFromDatabase}}</option>
+                                @foreach ($Pays as $key => $value)
+                                    <option value="{{$key}}" selected>{{$value}} </option>
+                                @endforeach
+
+
+                               {{--  <option value="{{$mycodeFromDatabase}}">{{$mycodeFromDatabase}}</option> --}}
                                 @foreach ($codeCountry as $key => $value)
-                                    <option value="{{$value}}">{{$value}}</option>
+                                    <option value="{{$key}}">{{$value}}</option>
                                 @endforeach
                             </select>
                             {{-- <select  onchange="print_state('state',this.selectedIndex);" class="form-control countryDropdown" name="paysFormation[]" required require></select> --}}

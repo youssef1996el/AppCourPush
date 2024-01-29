@@ -89,11 +89,11 @@
 
     </style>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI/tZ1oFY1AJXQFAFPPFVIyIZbOT6KELr1U9zFk=" crossorigin="anonymous"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI/tZ1oFY1AJXQFAFPPFVIyIZbOT6KELr1U9zFk=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha256-GLt00i6C1Wq2A7p0sH/cF4AtI5N99l8dZLCzZ9dAd2Q=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.2/js/bootstrap.min.js" integrity="sha256-pzjw8E+RpuCyTp4ARb5hj2bRiFaR9p5VRO9z1FDTNI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha256-u/nt5S9ZNqwQIg0pLQkMt2VrC0M8Qb/ZQFdAsj+nUxE=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js" integrity="sha256-r3kKJT5/PjR9O5JQ8i0Np8WVXuRKMbukp3WE5oD6E8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha256-u/nt5S9ZNqwQIg0pLQkMt2VrC0M8Qb/ZQFdAsj+nUxE=" crossorigin="anonymous"></script> --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js" integrity="sha256-r3kKJT5/PjR9O5JQ8i0Np8WVXuRKMbukp3WE5oD6E8=" crossorigin="anonymous"></script> --}}
 
     <script>
  $(document).ready(function(){

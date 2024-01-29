@@ -479,21 +479,24 @@ class EleveController extends Controller
             'ZM' => 'Zambia',
             'ZW' => 'Zimbabwe'
         ];
+        $Pays = [];
         $mycodeFromDatabase = $DataEleve[0]->pays;
-        foreach($codeCountry as $key => $value)
-        {
-            if($key === $mycodeFromDatabase)
-            {
-                $mycodeFromDatabase = $value;
+        foreach ($codeCountry as $key => $value) {
+            if ($key === $mycodeFromDatabase) {
+                $Pays = [
+                    $key => $value
+                ];
                 break;
             }
         }
 
+       /*  dd($Pays); */
 
         return view('Eleve.InfosEleve')
         ->with('DataEleve',$DataEleve[0])
         ->with('mycodeFromDatabase',$mycodeFromDatabase)
-        ->with('codeCountry',$codeCountry);
+        ->with('codeCountry',$codeCountry)
+        ->with('Pays',$Pays);
     }
 
     public function UpdateDataEleve(Request $request)
