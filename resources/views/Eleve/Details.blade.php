@@ -4,7 +4,7 @@
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 <div class="container">
     <div class="row mt-5">
-        <div class="card text-left mt-5 mb-5" style="">
+        <div class="card card-reserve1 text-left mt-5 mb-5" style="">
         <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
                 <div class="titreImage">
@@ -28,22 +28,22 @@
                     </div>
                      </p>
             
-                <a name="" id="" class="btn btn-primary" href="#" role="button">Reserver</a>
+                <a name="" id="" class="btn btn-primary btn-reserver" href="#" role="button" style="border-radius:6px">Reserver</a>
             </div>
         </div>
-        <div class="card text-left mt-5 mb-5" style="">
+        <div class="card card-reserve2 text-left mt-3 mb-5" style="">
             <div class="card-body">
                 <h4 class="card-title ">Réservation de cours</h4>
                 <p class="card-text-label mt-5"> 
-                <div class="row">
-                        <div class="col-sm-12 col-md-3 col-xl-3 ">
-                            <label for="typeCours">Sélectionner le type de cours :</label>
+                <div class="row mb-3">
+                        <div class="col-sm-12 col-md-4 col-xl-4 ">
+                            <label for="typeCours"  style="display:block">Sélectionner le type de cours :</label>
                             <select id="typeCours">
                                 <option value="cours">Cours</option>
                             </select>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3 ">
-                            <label for="" style="margin-left: 5px">Groupe ou Privé: </label>
+                        <div class="col-sm-12 col-md-3 col-xl-3 text-center">
+                            <label for="" style="margin-left: 5px; display:block">Groupe ou Privé: </label>
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
                                     <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" checked>
                                     <label class="btn btn-outline-primary" for="group"><i class="fas fa-users "></i></label>
@@ -54,16 +54,16 @@
                         </div>
                      
                         <div class="col-sm-12 col-md-3 col-xl-3 ">
-                            <label for="dateCours">Sélectionner une date :</label>
+                            <label for="dateCours"  style=" display:block">Sélectionner une date :</label>
                             <input type="date" id="dateCours">
                         </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3 ">
-                            <a name="" id="" class="btn btn-primary" href="#" role="button">Reserver</a>
+                        <div class="col-sm-12 col-md-2 col-xl-2 mt-4">
+                            <a name="" id="" class="btn btn-primary btn-reserver" href="#" role="button" style="border-radius:6px">Reserver</a>
                         </div>
                 </div>
             </div>
         </div>
-        <div class="row row-card " style="background: #ffffff5c; display:flex; margin:auto ; padding-bottom:36px">
+        <div class="row row-card " style=" display:flex; margin:auto ; padding-bottom:36px">
         <h3 class="mt-5 mb-4">A propos "Nom"</h3>
             <div id="divProfile" class="col-12">
                 <div class="card text-center">
@@ -144,34 +144,7 @@
                     </div>
                 </div>
             </div>
-            <div id="divFormation" class="col-6 mt-5">
-                <div class="card cardFormation" >
-                    <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
-                        <div class="card-body timeline" >
-                            <ul class="list-unstyled " id="ListFormation">
-                                @foreach ($FormationProf as $key => $item)
-                                    <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}" {{-- {{ $key >= 1 ? 'hidden' : '' }}" --}}>
-                                        <li class="timeline-item" >
-                                            <div class="timeline-element">
-                                                <a href="#">{{ $item->diplome }} </a>
-                                                <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                                                <span class="pays">{{ $item->pays }}</span>
-                                                <span class="circle"></span>
-                                                <div class="timeline-content">
-                                                    <p>{{ $item->specialise }}</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div>
-                                @endforeach
-                            </ul>
-                        </div>
-                    <div class="show"  >
-                        <button id="showMoreFormation" class="btn showMore">Voir plus</button>
-                        <button id="showFirstItemFormation" class="btn showLess " style="display: none">Voir moins</button>
-                    </div>
-                </div>
-            </div>
+            
             <div id="divExperience" class="col-6 mt-5">
                 <div class="card cardExperience" >
                     <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Experience</h4>
@@ -199,6 +172,33 @@
                     </div>
                 </div>
             </div>
+            <div id="divFormation" class="col-6 mt-5">
+                <div class="card cardFormation" >
+                    <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
+                        <div class="card-body timeline" >
+                            <ul class="list-unstyled " id="ListFormation">
+                                @foreach ($FormationProf as $key => $item)
+                                    <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}" {{-- {{ $key >= 1 ? 'hidden' : '' }}" --}}>
+                                        <li class="timeline-item" >
+                                            <div class="timeline-element">
+                                                <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                <span class="pays">{{ $item->pays }}</span>
+                                                <div class="timeline-content">
+                                                    <h3>{{ $item->diplome }}</h3>
+                                                    <p>{{ $item->specialise }}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                @endforeach
+                            </ul>
+                        </div>
+                    <div class="show"  >
+                        <button id="showMoreFormation" class="btn  showMore">Voir plus</button>
+                        <button id="showFirstItemFormation" class="btn showLess " style="display: none">Voir moins</button>
+                    </div>
+                </div>
+            </div>
 
            
         </div>
@@ -206,50 +206,5 @@
                     
     </div>
 </div>
-<style>
-    .card-text-label label{
-        display:block;
-        margin-bottom:20px
-    }
-    i{
-        margin-right:15px
-    }
-    h4 {display:inline}
-    .avatar{
-        width: 65px;
-        height: 65px;
-        float: left;
-        border-radius: 50%;
-        border: 1px solid gray;
-    }
-    .card-text span{
-        display: block;
-         margin-left: 42px;
-    }
-    .prof-image{
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        border: 1px solid gray;
-        text-align:center;
-        display:flex;
-        margin:auto
-       
-    }
-    .row-card{
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-    .titreImage{
-        display: flex;
-        justify-content: space-evenly;
-        align-content: center;
-        align-items: center;
-        }
-    }
- 
-</style>
+
 @endsection

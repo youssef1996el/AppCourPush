@@ -126,7 +126,7 @@
             </div>
         </nav>
 
-        <main class="py-4" style="background-image:url('{{asset('image/25099.jpg')}}');background-repeat: no-repeat;background-position:center;background-size:cover">
+        <main class="py-4" style="">
             @yield('content')
         </main>
     </div>

@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="{{asset('css/StyleReserver.css')}}">
 
     <div class="container mt-5">
         <div class="pervious" style="margin-top:5rem;">
@@ -16,11 +16,17 @@
             </a>
         </div>
         <div class="panel card rounded-2 mt-4 mb-5">
-            <h3>Commencez votre parcours linguistique gratuitement</h3>
-            <p>Toutes les formules comprennent un essai gratuit de 7 jours avant que votre abonnement payant ne commence.<br> Assistez gratuitement à un cours particulier ou jusqu'à trois cours en groupe.</p>
+            <h3>Prêt à poursuivre votre parcours linguistique dès aujourd'hui ?</h3>
+            <h5>Nos formules flexibles comprennent :</h5>
+            <ul>
+                <li>Les cours en mini-groupes, avec un maximum de 4 élèves, sont proposés à un tarif avantageux de 17 €/h.
+                <li>Bénéficiez d'une attention personnalisée avec nos cours particuliers, disponibles à 34 €/h.
+            </ul>
+            </p>       
+            <p>Continuez à progresser à votre rythme avec la formule qui répond à vos besoins linguistiques.</p>
         </div>
-        <h2 class="mt-3">Choisir un cours</h2>
-        <h3 class="mt-3 text-muted">Langue <span>{{$Cours}}</span></h3>
+        <h3 class="mt-3 ">La Langue Arabe  </h3>
+        
 
         <div class="row mt-5">
 
@@ -90,113 +96,13 @@
                 </div>
 
             @endif
-            <div class="col-sm-12 col-md-2 col-xl-2 "></div>
-
-
-
-                <div class="col-sm-12 col-md-2 col-xl-2 "></div>
+        
 
             </div>
 
-        <h3></h3>
+
     </div>
-    <style>
-        .panel
-        {
-            font-size: 0.875rem;
-            font-weight: 400;
-            line-height: 1.25rem;
-            letter-spacing: -0.1px;
-            font-family: "Open Sans";
-            border-radius: 8px;
-            padding: 24px;
-            background-repeat: no-repeat;
-            background-origin: border-box;
-            overflow: hidden;
-            position: relative;
-            color: rgb(255, 255, 255);
-            background-position: right center;
-            background: url('{{ asset("image/background-image.png") }}'), linear-gradient(260.96deg, rgb(21, 59, 255) -80.13%, rgb(153, 0, 204) 100%);
-        }
-
-    .card-prix {
-  margin-left:18px;
-  flex-wrap: wrap;
-  align-items: stretch;
-  margin-bottom: 2rem;
-  width: 290px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 0.25rem;
-  background-color: rgba(17, 24, 39, 1);
-  padding: 1.5rem;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 700;
-  color: #fff
-}
-
-.price {
-  font-size: 3.75rem;
-  line-height: 1;
-  font-weight: 700;
-  color: #fff
-}
-
-.desc {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.625;
-  color: rgba(156, 163, 175, 1);
-}
-
-.lists {
-    margin-bottom: 1.5rem;
-  flex: 1 1 0%;
-  color: rgba(156, 163, 175, 1);
-  margin-left: -35px;
-  margin-top: 1rem;
-
-}
-
-.lists .list {
-  margin-bottom: 0.5rem;
-  display: flex;
-  margin-left: 0.5rem
-}
-
-.lists .list svg {
-  height: 1.5rem;
-  width: 1.5rem;
-  flex-shrink: 0;
-  margin-right: 0.5rem;
-  color: rgb(52, 95, 226);
-}
-
-.action {
-  border: none;
-  outline: none;
-  display: inline-block;
-  border-radius: 0.25rem;
-  background-color: rgb(52, 95, 226);
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  text-align: center;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: white;
-}
-</style>
+ 
 <script>
     $(document).ready(function () {
         var Time = @json($Time);
@@ -230,8 +136,8 @@
                 {
                     if(response.status == 200)
                     {
-                        $('.PricePrive').text(response.Prive[0]['prix']).css('color','red');
-                        $('.PriceGroupe').text(response.Groupe[0]['prix']).css('color','red');
+                        $('.PricePrive').text(response.Prive[0]['prix']).css('color','#fff');
+                        $('.PriceGroupe').text(response.Groupe[0]['prix']).css('color','#fff');
                     }
                 }
             });

@@ -232,7 +232,15 @@
                                         <img class="card-img-top" style=" width: 45%; border-radius: 50%; border: 3px solid aliceblue; margin-left: 84px;" src="{{$item->image}}" alt="">
                                     </div>
                                     <div class="card-body" style="  padding: 0;margin-top: 24px ;">
-                                        <h4 class="card-title text-center" style=" font-size: 1.5rem;font-weight: 600;line-height: 1.3;">{{$item->name}}</h4>
+                                        <div class="d-flex m-auto">
+                                            <p class="card-title text-center" style=" font-size: 1.5rem;font-weight: 600;line-height: 1.3; display:inline">{{$item->name}}</p>
+                                            <div style="display:inline-block;" class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1gslohp x1i64zmx x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
+                                                <svg aria-label="Vérifié" class="x1lliihq x1n2onr6" fill="rgb(0, 149, 246)" height="18" role="img" viewBox="0 0 40 40" width="18">
+                                                <title>Vérifié</title>
+                                                <path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
                                         <p class="card-text" style=" font-size: 1rem;">{{$item->telephone}}</p>
                                         <p class="card-text" style=" font-size: 1rem; ">{{$item->description}}</p>
                                     </div>

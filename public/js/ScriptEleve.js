@@ -201,7 +201,7 @@ $(document).ready(function () {
                                                     <p class="text-muted mb-0 ClassTypeCours">Cours en groupe</p>
                                                 `}`;
                             var FiveTd = `<td class="buttonsRD">
-                                                    <button type="button" class="btn btn-primary reserver">Resever</button>
+                                                    <button type="button" class="btn btn-primary reserver">Reserver</button>
                                                     <button type="button" class="btn details">Details</button>
                                                 </td>`;
                             dataTable.row.add([

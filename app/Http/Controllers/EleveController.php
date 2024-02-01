@@ -545,8 +545,11 @@ class EleveController extends Controller
         // check this eleve Auth is has cours or not
         $check               =  Reserves::where('nom_eleve',$ExtractNameEleve)->count();
         $hasCours            = false;
+        $MesCours =[];
+       
         if($check > 0)
         {
+            
             $hasCours = true;
             $MesReserve    = DB::select("select r.id,times,days,typecours,c.title as name_cours,r.nom_professeur from reserves r, cours c where r.idcours = c.id;");
             $nomProfesseurs = [];
@@ -572,7 +575,10 @@ class EleveController extends Controller
 
             $MesCours  =$MesReserve;
             /* dd($MesCours); */
+            
         }
+        
+
         return view('Eleve.Cours')
         ->with('hasCours',$hasCours)
         ->with('MesCours',$MesCours);
