@@ -180,3 +180,7 @@ tbody, td, tfoot, th, thead, tr {
   .form-control::placeholder{
     font-size: 16px;
   }
+
+  a{
+    text-decoration: none;
+  }

@@ -23,7 +23,7 @@
                 <li>Bénéficiez d'une attention personnalisée avec nos cours particuliers, disponibles à 34 €/h.
             </ul>
             </p>       
-            <p>Continuez à progresser à votre rythme avec la formule qui répond à vos besoins linguistiques.</p>
+            <p class="text-p">Continuez à progresser à votre rythme avec la formule qui répond à vos besoins linguistiques.</p>
         </div>
         <h3 class="mt-3 ">La Langue Arabe  </h3>
         
