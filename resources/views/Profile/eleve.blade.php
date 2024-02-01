@@ -49,8 +49,8 @@
         </div>
     </div>
 
-    <div id="bookClass" class="card bg-light  mt-5" style="display: none">
-        <div class="searchSpace">
+    <div id="bookClass" class="card bg-light " style="display: none; margin-top:72px;">
+        <div class="searchSpace mt-5">
             <div class="row p-3">
                 <div class="col-sm-12 col-md-4 col-xl-4">
                     <div class="card">
