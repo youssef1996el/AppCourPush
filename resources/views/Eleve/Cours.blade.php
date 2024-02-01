@@ -4,7 +4,7 @@
 <script src="{{asset('js/CourseScript.js')}}"></script>
 
 <div class="container" style="margin-top:65px;">
-        <div class="card shadow card-apprentissage" >
+        <div class="card shadow bg-light card-apprentissage" >
             <div class="card-body">
                 <h3 class="mb-5" style="font-style:italic; text-align:center">Mon apprentissage</h3>
 
@@ -22,7 +22,7 @@
                     <div id="programmes" class="tab-pane fade show active">
                         <div class="row mt-4">
                             <div class="col-sm-12 col-md-7 col-xl-7 ">
-                                <div class="d-flex" style="justify-content: space-between;">
+                                <div class="d-flex" style="justify-content: space-evenly;">
                         
                                 @if ($hasCours)
                                     @foreach ($MesCours as $item)
