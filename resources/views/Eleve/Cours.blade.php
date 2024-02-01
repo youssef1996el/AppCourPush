@@ -21,8 +21,8 @@
                     <!-- Tab 1: Programmes -->
                     <div id="programmes" class="tab-pane fade show active">
                         <div class="row mt-4">
-                            <div class="col-sm-12 col-md-7 col-xl-7 ">
-                                <div class="d-flex" style="justify-content: space-evenly;">
+                            <div class="col-sm-12 col-md-8 col-xl-8 ">
+                                <div class="d-flex" style="gap: 20px;">
                         
                                 @if ($hasCours)
                                     @foreach ($MesCours as $item)
@@ -57,7 +57,7 @@
                             </div>
 
                             </div>
-                            <div class="col-sm-12 col-md-5 col-xl-5 ">
+                            <div class="col-sm-12 col-md-4 col-xl-4 ">
                                 <div id="calendarProgrammes">Calendar for Programmes</div>
                             </div>
 
