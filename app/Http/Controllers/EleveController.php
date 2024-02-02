@@ -14,6 +14,7 @@ use DateTime;
 use Session;
 use Illuminate\Support\Facades\Lang;
 use App\Models\Reserves;
+use Illuminate\Support\Facades\Hash;
 class EleveController extends Controller
 {
     public function index()
@@ -533,7 +534,11 @@ class EleveController extends Controller
         $user->telephone        = $request->telephone;
         $user->email            = $request->email;
         $user->datenaissance    = $request->datenaissance;
+        $user->pays             = $request->pays;
 
+        if ($request->filled('newpassword')) {
+            $user->password = Hash::make($request->newpassword);
+        }
         // Save the changes
         $user->save();
         return redirect()->back();
