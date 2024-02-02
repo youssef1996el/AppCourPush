@@ -31,7 +31,7 @@
         <div class="row mt-5">
 
             @if ($TypeCours === 'groupe')
-                <div class="col-sm-12 col-md-4 col-xl-4 ">
+                <div class="col-sm-12 col-md-4 col-xl-4 m-auto">
                     <div class="card-prix">
                         <div class="header">
                             <span class="title">Cours en groupe</span>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             @else
-                <div class="col-sm-12 col-md-4 col-xl-4 ">
+                <div class="col-sm-12 col-md-4 col-xl-4 m-auto">
 
                     <div class="card-prix">
                         <div class="header">
@@ -136,8 +136,8 @@
                 {
                     if(response.status == 200)
                     {
-                        $('.PricePrive').text(response.Prive[0]['prix']).css('color','#fff');
-                        $('.PriceGroupe').text(response.Groupe[0]['prix']).css('color','#fff');
+                        $('.PricePrive').text(response.Prive[0]['prix']+"€" ).css('color','#fff');
+                        $('.PriceGroupe').text(response.Groupe[0]['prix']+"€").css('color','#fff');
                     }
                 }
             });

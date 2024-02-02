@@ -3,6 +3,7 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('css/StyleEleve.css')}}">
 <script src="{{asset('js/ScriptEleve.js')}}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
@@ -12,8 +13,8 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<div class="container ContainerEleve">
 
+<div class="container ContainerEleve">
     <div class="WelcomeEleve">
         <h1>Bienvenue , {{Auth::user()->name}}</h1>
     </div>
@@ -125,7 +126,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                <div class="col-sm-12 col-md-4 col-xl-4">
                                     <label for="" style="margin-left: 5px">Groupe ou Privé: </label>
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
                                         <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" checked>
@@ -135,10 +136,7 @@
                                         <label class="btn btn-outline-primary " for="private" style="width:45px ; "><i class="fas fa-user "></i></label>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-3 col-xl-3" style="display: flex;
-  justify-content: end;
-  margin-top: -20px;
-  align-items: baseline;">
+                                <div class="col-sm-12 col-md-2 col-xl-2" style="display: flex; justify-content: end;margin-top: -20px; align-items: baseline;">
                                     <button type="button"  class="btn  BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button> 
                                 </div>
                             </div>
@@ -168,13 +166,7 @@
         </div>
     </div>
 </div>
-<style>
-    #TableProfesseurIsActive_filter
-    {
-        margin-left: -23rem;
-        margin-bottom: 5px
-    }
-</style>
+
 <script>
     var url = "{{ url('GetpProfesseur') }}";
 </script>

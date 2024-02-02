@@ -184,3 +184,10 @@ tbody, td, tfoot, th, thead, tr {
   a{
     text-decoration: none;
   }
+  #TableProfesseurIsActive_filter
+  {
+      margin-left: -23rem;
+      margin-bottom: 5px
+  }
+
+

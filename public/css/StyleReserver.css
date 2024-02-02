@@ -10,13 +10,15 @@
     background-origin: border-box;
     overflow: hidden;
     position: relative;
-    color: rgb(255, 255, 255);
+    color: rgb(8, 30, 57);
     background-position: right center;
     background: url('http://127.0.0.1:8000/image/imgdb.png'), linear-gradient(260.96deg, rgb(175, 207, 230) -80.13%, rgb(48, 101, 183) 100%);
       background-repeat: repeat, repeat;
       background-size: auto, auto;
     background-repeat: no-repeat;
-    background-size: cover;}
+    background-size: cover;
+  
+  font-weight: bold;}
   
       .card-prix {
     margin-left:18px;
@@ -99,6 +101,7 @@
   .text-p{
     font-style: oblique;
     font-weight: bold;
-    color: white;
+    color: rgb(8, 30, 57);
     font-size: 16px;
   }
+

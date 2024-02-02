@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+<link rel="stylesheet" href="{{asset('css/StyleInfoEleve.css')}}">
+<script src="{{asset('js/ScriptInfosEleve.js')}}"></script>
 <div class="container" style="margin-top:65px;">
         <div class="card shadow " style=" width: 600px;margin: auto;padding: 20px 24px; background: #ffffff5c;" >
             <div class="card-body">
@@ -84,135 +86,6 @@
         </div>
     </div>
 
-    <style>
-        #showInputsLink{
-            font-weight: bold;
-            font-size: 18px;
-        }
-        *{
-            font-family:times;
-        }
-        .countryDropdown{
-            border-bottom: 1px solid #999;
-  border: none none gray none;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-        }
-        .picture-src{
-            width: 160px;
-  height: 160px;
-
-        }
-
-        .form-control:focus{
-            border-bottom:1px solid black !important;
-            box-shadow: none;
-        }
-        .form-control{
-        border-radius: 0px;}
-        .form-group input {
-            padding: 6px 12px;
-        }
-        .form-control:focus {
-            padding: 6px 12px;
-        }
-
-
-        .picture-container {
-  position: relative;
-  cursor: pointer;
-  text-align: center;
-}
- .picture {
-  width: 160px;
-  height: 160px;
-  background-color: #999999;
-  border: 4px solid #CCCCCC;
-  color: #FFFFFF;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  margin:auto;
-}
-.picture:hover {
-  border-color: #4479a7;
-}
-.picture input[type="file"] {
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  left: 0;
-  opacity: 0 !important;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.hidden-inputs {
-      display: none;
-    }
-
-.form-group .show-password {
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 70%;
-    transform: translateY(-50%);
-}
-
-
-    </style>
-   {{--  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script type= "text/javascript" src ={{asset('js/countries.js')}} ></script>
 
-
-    <script>
-$(document).ready(function ()
-{
-    print_country("countryDropdown");
-function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#wizard-picture").change(function(){
-        readURL(this);
-    });
-    document.getElementById('showInputsLink').addEventListener('click', function() {
-    var inputsContainer = document.getElementById('inputsContainer');
-    inputsContainer.style.display = (inputsContainer.style.display === 'none' || inputsContainer.style.display === '') ? 'block' : 'none';
-  });
-  const passwordInputIds = [
-    { inputId: "mdpActuelle", eyeId: "actualEye" },
-    { inputId: "nouveaumdp", eyeId: "newEye" },
-    { inputId: "Confirmermdp", eyeId: "cfrmEye" },
-
-];
-
-passwordInputIds.forEach(function(pair) {
-    const passwordInput = document.getElementById(pair.inputId);
-    const togglePasswordButton = document.getElementById(pair.eyeId);
-
-    if (passwordInput && togglePasswordButton) {
-        togglePasswordButton.addEventListener("click", function () {
-            const type = passwordInput.getAttribute("type");
-            passwordInput.setAttribute("type", type === "password" ? "text" : "password");
-
-            // Toggle the eye icon
-            togglePasswordButton.classList.toggle("fa-eye");
-            togglePasswordButton.classList.toggle("fa-eye-slash");
-        });
-    }
-});
-});
-    </script>
 @endsection
