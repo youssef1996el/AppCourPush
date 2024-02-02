@@ -98,6 +98,7 @@ Route::get('InfosProfile'                                               ,[EleveC
 Route::get('Details/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'        ,[EleveController::class,'Details']);
 Route::post('UpdateDataEleve'                                           ,[EleveController::class,'UpdateDataEleve'])->name('UpdateDataEleve');
 Route::get('Mescours'                                                   ,[EleveController::class,'Mescours']);
+Route::get('CalanderCours'                                              ,[EleveController::class,'GetMesCourCalander']);
 /******************************************** End Eleve  ****************************************************/
 /******************************************** Start Dashboard Admin ***********************************************/
 Route::get('professeurs'              ,[AdminController::class,'professeurs'])->name('professeurs');

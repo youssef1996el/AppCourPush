@@ -37,6 +37,7 @@ class EleveController extends Controller
             'Saturday'  => 'Samedi',
             'Sunday'    => 'Dimanche',
         ];
+
         if($requestData['isLoadPage'] == 1)
         {
 
@@ -58,6 +59,7 @@ class EleveController extends Controller
                     ->join('users', 'disponibleprof.iduser', '=', 'users.id')
                     ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
                     ->where('users.verification', 'verifie')
+                    ->where('disponibleprof.jour',$englishToFrenchDays[$englishDayName]) // today // i add this row
                     ->get();
                 }
                 else
@@ -546,10 +548,10 @@ class EleveController extends Controller
         $check               =  Reserves::where('nom_eleve',$ExtractNameEleve)->count();
         $hasCours            = false;
         $MesCours =[];
-       
+
         if($check > 0)
         {
-            
+
             $hasCours = true;
             $MesReserve    = DB::select("select r.id,times,days,typecours,c.title as name_cours,r.nom_professeur from reserves r, cours c where r.idcours = c.id;");
             $nomProfesseurs = [];
@@ -574,13 +576,158 @@ class EleveController extends Controller
 
 
             $MesCours  =$MesReserve;
-            /* dd($MesCours); */
-            
+
+
         }
-        
+
+
+        /* $query = DB::select('select r.id,times,days,typecours,c.title as name_cours,r.nom_professeur from reserves r, cours c where r.idcours = c.id;');
+
+        $daysTranslations = [
+            'dimanche' => 'Sunday',
+            'lundi' => 'Monday',
+            'mardi' => 'Tuesday',
+            'mercredi' => 'Wednesday',
+            'jeudi' => 'Thursday',
+            'vendredi' => 'Friday',
+            'samedi' => 'Saturday',
+        ];
+
+        $englishDaysArray = [];
+
+        foreach ($query as $item) {
+            $dayFrench = strtolower($item->days);
+
+            if (array_key_exists($dayFrench, $daysTranslations)) {
+                $dayEnglish = $daysTranslations[$dayFrench];
+                $englishDaysArray[] = $dayEnglish;
+            } else {
+                $englishDaysArray[] = 'UnknownDay';
+            }
+        }
+
+        $currentMonth = date('n');
+
+        $daysOfWeekDates = [];
+$currentMonth = date('n');
+
+foreach (range(1, 31) as $day) {
+    $date = date("Y-m-$day");
+
+    foreach ($query as $item) {
+        $dayFrench = strtolower($item->days);
+
+        if (array_key_exists($dayFrench, $daysTranslations)) {
+            $dayEnglish = $daysTranslations[$dayFrench];
+
+            if (date('l', strtotime($date)) == $dayEnglish && date('n', strtotime($date)) == $currentMonth) {
+                $formattedDate = date('M d, Y', strtotime($date));
+
+                $daysOfWeekDates[] = [
+                    'id' => $item->id,
+                    'name_cours' => $item->name_cours,
+                    'date' => $formattedDate,
+                    'typecours' => $item->typecours,
+                    'name_professeur' => $item->nom_professeur,
+                    'time' => $item->times,
+                ];
+            }
+        }
+    }
+}
+
+dd($daysOfWeekDates); */
+
+
+
 
         return view('Eleve.Cours')
         ->with('hasCours',$hasCours)
         ->with('MesCours',$MesCours);
+    }
+
+    public function GetMesCourCalander()
+    {
+        $ExtractNameEleve    = User::where('id',Auth::user()->id)->select('name')->first();
+        $ExtractNameEleve    = $ExtractNameEleve->name;
+        // check this eleve Auth is has cours or not
+        $check               =  Reserves::where('nom_eleve',$ExtractNameEleve)->count();
+        $hasCours            = false;
+        $MesCours =[];
+
+        if($check > 0)
+        {
+
+            $hasCours = true;
+            $query = DB::select('select r.id,times,days,typecours,c.title as name_cours,r.nom_professeur from reserves r, cours c where r.idcours = c.id;');
+
+            $daysTranslations = [
+                'dimanche' => 'Sunday',
+                'lundi' => 'Monday',
+                'mardi' => 'Tuesday',
+                'mercredi' => 'Wednesday',
+                'jeudi' => 'Thursday',
+                'vendredi' => 'Friday',
+                'samedi' => 'Saturday',
+            ];
+
+            $englishDaysArray = [];
+
+            foreach ($query as $item) {
+                $dayFrench = strtolower($item->days);
+
+                if (array_key_exists($dayFrench, $daysTranslations)) {
+                    $dayEnglish = $daysTranslations[$dayFrench];
+                    $englishDaysArray[] = $dayEnglish;
+                } else {
+                    $englishDaysArray[] = 'UnknownDay';
+                }
+            }
+
+            $currentMonth = date('n');
+
+            $daysOfWeekDates = [];
+            $currentMonth = date('n');
+
+            foreach (range(1, 31) as $day) {
+                $date = date("Y-m-$day");
+
+                foreach ($query as $item) {
+                    $dayFrench = strtolower($item->days);
+
+                    if (array_key_exists($dayFrench, $daysTranslations)) {
+                        $dayEnglish = $daysTranslations[$dayFrench];
+
+                        if (date('l', strtotime($date)) == $dayEnglish && date('n', strtotime($date)) == $currentMonth) {
+                            $formattedDate = date('M d, Y', strtotime($date));
+
+                            $daysOfWeekDates[] = [
+                                'id' => $item->id,
+                                'name_cours' => $item->name_cours,
+                                'date' => $formattedDate,
+                                'typecours' => $item->typecours,
+                                'name_professeur' => $item->nom_professeur,
+                                'time' => $item->times,
+                            ];
+                        }
+                    }
+                }
+            }
+        }
+
+        if(!empty($daysOfWeekDates))
+        {
+            return response()->json([
+                'status'         =>200,
+                'data' => $daysOfWeekDates
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+            ]);
+        }
+
     }
 }

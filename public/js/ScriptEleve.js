@@ -41,13 +41,18 @@ $(document).ready(function () {
     var valueHour  = '';
     var ValueType  = '';
     var isLoadPage = 1;
+
     $('.BtnIntialiser').on('click', function()
     {
+
         isLoadPage = 1;
         var ValueCours = '';
         var ValueDay   = '';
         var valueHour  = '';
         var ValueType  = '';
+        $('.typeCours').prop('checked',false);
+        $('#dropdownMenuButton1').text('__:__');
+        $('#multiple-select-field').val([]).trigger('change');
         var today = new Date().toISOString().split('T')[0];
         $('.DateSearch').val(today);
         fetchProfesseurs(currentPage,false,false,false,false,isLoadPage,dateInput);

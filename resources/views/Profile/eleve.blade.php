@@ -128,25 +128,21 @@
                                 <div class="col-sm-12 col-md-3 col-xl-3">
                                     <label for="" style="margin-left: 5px">Groupe ou Privé: </label>
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
-                                        <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" checked>
+                                        <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" >
                                         <label class="btn btn-outline-primary" for="group"><i class="fas fa-users "></i></label>
 
                                         <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
                                         <label class="btn btn-outline-primary " for="private" style="width:45px ; "><i class="fas fa-user "></i></label>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-3 col-xl-3" style="display: flex;
-  justify-content: end;
-  margin-top: -20px;
-  align-items: baseline;">
-                                    <button type="button"  class="btn  BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button> 
+                                <div class="col-sm-12 col-md-3 col-xl-3" style="display: flex;justify-content: end;margin-top: -20px;align-items: baseline;">
+                                    <button type="button"  class="btn  BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="NoCoursToday"></div>
                     <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
-                   {{--  <h5 class="text-secondary mt-4">{{ \Carbon\Carbon::now()->locale('fr')->format('l, j M Y') }}</h5> --}}
                    <h5 class="text-secondary mt-4 DateSelected"></h5>
                     <div class="DataProfesseur">
                         <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
