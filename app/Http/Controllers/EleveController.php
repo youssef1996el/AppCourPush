@@ -42,7 +42,7 @@ class EleveController extends Controller
         if($requestData['isLoadPage'] == 1)
         {
 
-            $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+            $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image','timezone', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
             ->join('users', 'disponibleprof.iduser', '=', 'users.id')
             ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
             ->where('users.verification', 'verifie')
@@ -56,7 +56,7 @@ class EleveController extends Controller
             {
                 if($requestData['day'] === "false")
                 {
-                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image','timezone', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
                     ->join('users', 'disponibleprof.iduser', '=', 'users.id')
                     ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
                     ->where('users.verification', 'verifie')
@@ -68,7 +68,7 @@ class EleveController extends Controller
                     $CarbonNameDaysIsNotLoad = Carbon::parse($requestData['day']);
                     $NameDaysIsNotLoad       = $CarbonNameDaysIsNotLoad->format('l');
                     $NameDaysIsNotLoadFranch = $englishToFrenchDays[$NameDaysIsNotLoad];
-                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image','timezone', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
                     ->join('users', 'disponibleprof.iduser', '=', 'users.id')
                     ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
                     ->where('users.verification', 'verifie')

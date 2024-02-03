@@ -126,7 +126,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-4 col-xl-4">
+                                <div class="col-sm-12 col-md-3 col-xl-3">
                                     <label for="" style="margin-left: 5px">Groupe ou Privé: </label>
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
                                         <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" >
@@ -136,9 +136,6 @@
                                         <label class="btn btn-outline-primary " for="private" style="width:45px ; "><i class="fas fa-user "></i></label>
                                     </div>
                                 </div>
-
-
-
                                 <div class="col-sm-12 col-md-3 col-xl-3" style="display: flex;justify-content: end;margin-top: -20px;align-items: baseline;">
                                     <button type="button"  class="btn  BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                                 </div>

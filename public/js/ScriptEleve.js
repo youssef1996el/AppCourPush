@@ -184,7 +184,7 @@ $(document).ready(function () {
                         dataTable.clear();
                         $.each(response.Data, function (index, value)
                         {
-                            var FirstTd     =  `<a href="#">${value.debut}</a>`;
+                            var FirstTd     =  `<a href="#">${value.debut}</a><br><a href="#">${value.timezone}</a>`;
                             var SecoundTd   =  `<div class="d-flex align-items-center">
                                                     <img src="${value.image}" class="rounded-circle" style="width: 45px; height: 45px; " alt="">
                                                         <div class="ms-3">
