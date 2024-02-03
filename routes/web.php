@@ -73,6 +73,7 @@ Route::post('DeleteDisponible'      ,[ProfesseurController::class,'DeleteDisponi
 Route::post('DeleteDisponibleByDay' ,[ProfesseurController::class,'DeleteDisponibleByDay']);
 Route::get('checkDayIsExiste'       ,[ProfesseurController::class,'CheckDayIsExiste']);
 Route::post('UpDateDisponibleByProf',[ProfesseurController::class,'UpDateDisponibleByProf']);
+Route::post('UpdateInfoProfesseur'  ,[ProfesseurController::class,'UpdateInfoProfesseur']);
 Route::get('StepByStep',function()
 {
     return view('Professeur.StepByStep');

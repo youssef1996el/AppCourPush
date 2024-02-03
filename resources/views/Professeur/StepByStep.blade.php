@@ -274,6 +274,7 @@
                                     <div class="day-item d-inline ml-2">Samedi</div>
                                     <div class="day-item d-inline ml-2">Dimanche</div>
                                 </div>
+                                <select class="form-control dropdownTimeZone" name="timezone"></select>
                                 <br>
                                 <div class="divHours">
 
@@ -316,10 +317,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type= "text/javascript" src ={{asset('js/countries.js')}} ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{asset('js/timezones.full.js')}}" ></script>
     <script language="javascript">
 
         $(document).ready(function ()
         {
+            $('.dropdownTimeZone').timezones({
+                lang: 'fr'
+            });
             // Not add any caracter
             $(document).on('keypress','.DaysDispo',function(event)
             {
@@ -473,7 +478,8 @@
             });
 
             var totalDays = [];
-            $('.day-item').on('click', function () {
+            $('.day-item').on('click', function ()
+            {
 
                 var finalSelect = '';
                 var textToAppend = $(this).text();
