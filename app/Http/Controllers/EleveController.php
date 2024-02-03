@@ -221,12 +221,23 @@ class EleveController extends Controller
             $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[$idProfesseur[0]->id]);
         }
 
+        $getIdCours = DB::select("select id from cours where title = ?",[$Cours]);
+
+        $nomberReserveThisCours = DB::select("select count(*) as nomber from reserves where nom_professeur = ? and idcours = ? and typecours = 'groupe'",[$NameProfesseur,$getIdCours[0]->id]);
+
+        $imageProfesseur = User::where('name',$NameProfesseur)->first();
 
         return view('Eleve.Details')
         ->with('disponibilityByDay',$disponibilityByDay)
         ->with('CourProf',$CourProf)
         ->with('FormationProf',$FormationProf)
-        ->with('ExperinceProf',$ExperinceProf);
+        ->with('ExperinceProf',$ExperinceProf)
+        ->with('Time',$Time)
+        ->with('Cours',$Cours)
+        ->with('TypeCours',$TypeCours)
+        ->with('NameProfesseur',$NameProfesseur)
+        ->with('imageProfesseur',$imageProfesseur)
+        ->with('nomberReserveThisCours', $nomberReserveThisCours !== null && count($nomberReserveThisCours) > 0 ? $nomberReserveThisCours[0]->nomber : 1);
     }
 
     public function InfosProfile()
@@ -504,30 +515,41 @@ class EleveController extends Controller
 
     public function UpdateDataEleve(Request $request)
     {
-        // Check if the "eleves" folder exists in the storage path
         $storagePath = storage_path('app/public/images/eleves');
-        if (!File::exists($storagePath)) {
-            // If not, create the "eleves" folder
-            File::makeDirectory($storagePath, 0755, true, true);
-        }
 
-        $user = Auth::user();
+if (!File::exists($storagePath)) {
+    // If not, create the "eleves" folder
+    File::makeDirectory($storagePath, 0755, true, true);
+}
 
-        // Handle image upload
-        if ($request->hasFile('image'))
-        {
-            // Extract the old image name from the database
-            $oldImageName = basename($user->image);
+$user = Auth::user();
 
-            // Remove the old image if it exists
-            if ($oldImageName !== null && File::exists(storage_path("app/public/images/eleves/{$oldImageName}"))) {
-                File::delete(storage_path("app/public/images/eleves/{$oldImageName}"));
-            }
+// Handle image upload
+if ($request->hasFile('image')) {
+    // Extract the old image name from the database
+    $oldImageName = basename($user->image);
 
-            $imageName = 'eleves/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->storeAs('public/images', $imageName);
-            $user->image = "/storage/images/{$imageName}";
-        }
+    // Remove the old image if it exists
+    if ($oldImageName !== null && File::exists(storage_path("app/public/images/eleves/{$oldImageName}"))) {
+        File::delete(storage_path("app/public/images/eleves/{$oldImageName}"));
+    }
+
+    $imageName = 'eleves/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
+
+    // Store the new image in the storage directory
+    $request->image->storeAs('public/images/eleves', $imageName);
+
+    // Create the public path for the new image
+    $publicImagePath = public_path("storage/images/eleves/{$imageName}");
+
+    // Make sure the directory exists before copying
+    File::ensureDirectoryExists(dirname($publicImagePath));
+
+    // Copy the new image to the public directory
+    File::copy(storage_path("app/public/images/eleves/{$imageName}"), $publicImagePath);
+
+    $user->image = "/storage/images/eleves/{$imageName}";
+}
 
         // Update other user data
         $user->name             = $request->name;

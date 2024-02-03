@@ -8,33 +8,34 @@
         <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
                 <div class="titreImage">
-                <h4 class="card-title ">Cours "G/P" de "Nom"</h4>
-                <img src="{{asset('image/default-avatar.png') }}" class="avatar" alt="" >
+                <h4 class="card-title ">{{$Cours}} "{{$TypeCours}}" de "{{$NameProfesseur}}"</h4>
+
+                <img src="{{ $imageProfesseur->image == '' ? asset('image/default-avatar.png') : $imageProfesseur->image}}" class="picture-src" id="wizardPicturePreview" title="" width="50"/>
                 </div>
-                <p class="card-text-label mt-5"> 
+                <p class="card-text-label mt-5">
                     <div class="row">
                         <div class="col-sm-12 col-md-3 col-xl-3 ">
-                        <label> <i class="fa fa-book fa-xl" aria-hidden="true"></i>  cours1 </label>        
+                        <label> <i class="fa fa-book fa-xl" aria-hidden="true"></i>  {{$Cours}} </label>
                         </div>
                         <div class="col-sm-12 col-md-3 col-xl-3">
-                        <label> <i class="fa fa-clock fa-xl" aria-hidden="true"></i>  Dimanche, 21 janvier 2024 <span> 19:00 - 20:00 (GMT+1)</span> </label>        
+                        <label> <i class="fa fa-clock fa-xl" aria-hidden="true"></i>  Dimanche, 21 janvier 2024 <span> 19:00 - 20:00 (GMT+1)</span> </label>
                         </div>
                         <div class="col-sm-12 col-md-3 col-xl-3 ">
-                        <label> <i class="fa fa-users  fa-xl" aria-hidden="true"></i>  2 Participants</label> 
+                        <label> <i class="fa fa-users  fa-xl" aria-hidden="true"></i>  {{$nomberReserveThisCours}} Participants</label>
                         </div>
                         <div class="col-sm-12 col-md-3 col-xl-3 ">
-                        <label> <i class="fa fa-video-camera fa-xl" aria-hidden="true"></i>  Hébergé sur Zoom</label> 
+                        <label> <i class="fa fa-video-camera fa-xl" aria-hidden="true"></i>  Hébergé sur Zoom</label>
                         </div>
                     </div>
                      </p>
-            
+
                 <a name="" id="" class="btn btn-primary btn-reserver" href="#" role="button" style="border-radius:6px">Reserver</a>
             </div>
         </div>
         <div class="card card-reserve2 text-left mt-3 mb-5" style="">
             <div class="card-body">
                 <h4 class="card-title ">Réservation de cours</h4>
-                <p class="card-text-label mt-5"> 
+                <p class="card-text-label mt-5">
                 <div class="row mb-3">
                         <div class="col-sm-12 col-md-4 col-xl-4 ">
                             <label for="typeCours"  style="display:block">Sélectionner le type de cours :</label>
@@ -52,7 +53,7 @@
                                     <label class="btn btn-outline-primary " for="private" style="width:45px ; "><i class="fas fa-user "></i></label>
                                 </div>
                         </div>
-                     
+
                         <div class="col-sm-12 col-md-3 col-xl-3 ">
                             <label for="dateCours"  style=" display:block">Sélectionner une date :</label>
                             <input type="date" id="dateCours">
@@ -144,7 +145,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div id="divExperience" class="col-6 mt-5">
                 <div class="card cardExperience" >
                     <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Experience</h4>
@@ -200,10 +201,10 @@
                 </div>
             </div>
 
-           
+
         </div>
- 
-                    
+
+
     </div>
 </div>
 
