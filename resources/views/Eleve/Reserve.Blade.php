@@ -22,11 +22,11 @@
                 <li>Les cours en mini-groupes, avec un maximum de 4 élèves, sont proposés à un tarif avantageux de 17 €/h.
                 <li>Bénéficiez d'une attention personnalisée avec nos cours particuliers, disponibles à 34 €/h.
             </ul>
-            </p>       
+            </p>
             <p class="text-p">Continuez à progresser à votre rythme avec la formule qui répond à vos besoins linguistiques.</p>
         </div>
         <h3 class="mt-3 ">La Langue Arabe  </h3>
-        
+
 
         <div class="row mt-5">
 
@@ -96,13 +96,13 @@
                 </div>
 
             @endif
-        
+
 
             </div>
 
 
     </div>
- 
+
 <script>
     $(document).ready(function () {
         var Time = @json($Time);
@@ -136,8 +136,14 @@
                 {
                     if(response.status == 200)
                     {
-                        $('.PricePrive').text(response.Prive[0]['prix']+"€" ).css('color','#fff');
-                        $('.PriceGroupe').text(response.Groupe[0]['prix']+"€").css('color','#fff');
+                        var priceText = response.Prive[0]['prix'];
+                        var priceInteger = parseInt(priceText, 10);
+
+                        $('.PricePrive').text(priceInteger + " €").css('color', '#fff');
+                        var groupePriceText = response.Groupe[0]['prix'];
+                        var groupePriceInteger = parseInt(groupePriceText, 10);
+
+                        $('.PriceGroupe').text(groupePriceInteger + " €").css('color', '#fff');
                     }
                 }
             });

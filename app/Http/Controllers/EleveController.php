@@ -14,6 +14,7 @@ use DateTime;
 use Session;
 use Illuminate\Support\Facades\Lang;
 use App\Models\Reserves;
+use Illuminate\Support\Facades\Hash;
 class EleveController extends Controller
 {
     public function index()
@@ -41,7 +42,7 @@ class EleveController extends Controller
         if($requestData['isLoadPage'] == 1)
         {
 
-            $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+            $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image','timezone', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
             ->join('users', 'disponibleprof.iduser', '=', 'users.id')
             ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
             ->where('users.verification', 'verifie')
@@ -55,7 +56,7 @@ class EleveController extends Controller
             {
                 if($requestData['day'] === "false")
                 {
-                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image','timezone', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
                     ->join('users', 'disponibleprof.iduser', '=', 'users.id')
                     ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
                     ->where('users.verification', 'verifie')
@@ -67,7 +68,7 @@ class EleveController extends Controller
                     $CarbonNameDaysIsNotLoad = Carbon::parse($requestData['day']);
                     $NameDaysIsNotLoad       = $CarbonNameDaysIsNotLoad->format('l');
                     $NameDaysIsNotLoadFranch = $englishToFrenchDays[$NameDaysIsNotLoad];
-                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
+                    $test = DisponibleProfesseur::select('disponibleprof.id','idcours', 'debut', 'image','timezone', 'name', DB::raw('cours.title as cours' ), 'jour', 'typecours', 'disponibleprof.iduser','users.title')
                     ->join('users', 'disponibleprof.iduser', '=', 'users.id')
                     ->join('cours', 'disponibleprof.idcours', '=', 'cours.id')
                     ->where('users.verification', 'verifie')
@@ -182,14 +183,15 @@ class EleveController extends Controller
         ->with('TypeCours',$TypeCours);
     }
 
-    public function Details($Time,$NameProfesseur,$Cours,$TypeCours)
+    public function Details($Time,$NameProfesseur,$Cours,$TypeCours,$DateSelected)
     {
         // Extract id professeur
         $idProfesseur = User::where('name',$NameProfesseur)->get();
 
         if(!empty($idProfesseur))
         {
-            $DisponibleProf = DB::select('select d.idcours,d.id,jour,debut,fin,c.title,d.typecours from
+
+            $DisponibleProf = DB::select('select d.idcours,d.id,jour,debut,fin,c.title,d.typecours,d.timezone from
                 disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[$idProfesseur[0]->id]);
 
             $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
@@ -218,14 +220,78 @@ class EleveController extends Controller
             $CourProf      = DB::select('select c.title from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[$idProfesseur[0]->id]);
             $FormationProf = DB::select('select diplome,specialise,annee,ecole,pays from formationprof where diplome is not null and iduser  =?',[$idProfesseur[0]->id]);
             $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[$idProfesseur[0]->id]);
+
+            // Extract debut and fin from disponible
+            $filteredArray = array_filter($DisponibleProf, function($item) use ($TypeCours,$Cours,$Time) {
+                return $item->typecours === $TypeCours && $item->title === $Cours && $item->debut === $Time;
+            });
+            $DebutCours = $filteredArray[0]->debut;
+            $FinCours   = $filteredArray[0]->fin;
+            $TimeZone   = $filteredArray[0]->timezone;
+            // information Professeur
+            $InformationProfesseur = User::where('id',$idProfesseur[0]->id)->first();
+            // sum experince professeur
+            $CalculExperince = DB::select('select sum(timestampdiff(year,du,au) ) as experince from experinceprof where iduser = ?',[$idProfesseur[0]->id]);
         }
+
+        $getIdCours = DB::select("select id from cours where title = ?",[$Cours]);
+
+        $nomberReserveThisCours = DB::select("select  count(*) as c from reserves where nom_professeur = ? and idcours = ? and typecours ='groupe' group by nom_eleve ;",[$NameProfesseur,$getIdCours[0]->id]);
+
+        $imageProfesseur = User::where('name',$NameProfesseur)->first();
+
+        ///////////
+        $dateVariable = $DateSelected;
+
+        // Convert the date to a Carbon instance
+        $carbonDate = Carbon::parse($dateVariable);
+
+        // Array for translating days and months
+        $translations = [
+            'Monday' => 'lundi',
+            'Tuesday' => 'mardi',
+            'Wednesday' => 'mercredi',
+            'Thursday' => 'jeudi',
+            'Friday' => 'vendredi',
+            'Saturday' => 'samedi',
+            'Sunday' => 'dimanche',
+            'January' => 'janvier',
+            'February' => 'février',
+            'March' => 'mars',
+            'April' => 'avril',
+            'May' => 'mai',
+            'June' => 'juin',
+            'July' => 'juillet',
+            'August' => 'août',
+            'September' => 'septembre',
+            'October' => 'octobre',
+            'November' => 'novembre',
+            'December' => 'décembre',
+        ];
+
+        // Format the date as desired
+        $formattedDate = $carbonDate->translatedFormat('l d F, Y', null, 'fr', $translations);
+
+        // Output the result
 
 
         return view('Eleve.Details')
-        ->with('disponibilityByDay',$disponibilityByDay)
-        ->with('CourProf',$CourProf)
-        ->with('FormationProf',$FormationProf)
-        ->with('ExperinceProf',$ExperinceProf);
+        ->with('CalculExperince'         , $CalculExperince)
+        ->with('InformationProfesseur'   , $InformationProfesseur)
+        ->with('DebutCours'              , $DebutCours)
+        ->with('TimeZone'                , $TimeZone)
+        ->with('FinCours'                , $FinCours)
+        ->with('DateSelected'            , $formattedDate)
+        ->with('disponibilityByDay'      , $disponibilityByDay)
+        ->with('CourProf'                , $CourProf)
+        ->with('FormationProf'           , $FormationProf)
+        ->with('ExperinceProf'           , $ExperinceProf)
+        ->with('Time'                    , $Time)
+        ->with('Cours'                   , $Cours)
+        ->with('TypeCours'               , $TypeCours)
+        ->with('NameProfesseur'          , $NameProfesseur)
+        ->with('imageProfesseur'         , $imageProfesseur)
+        ->with('nomberReserveThisCours'  , $nomberReserveThisCours !== null && count($nomberReserveThisCours) > 0 ? count($nomberReserveThisCours) : 1);
     }
 
     public function InfosProfile()
@@ -503,37 +569,52 @@ class EleveController extends Controller
 
     public function UpdateDataEleve(Request $request)
     {
-        // Check if the "eleves" folder exists in the storage path
         $storagePath = storage_path('app/public/images/eleves');
-        if (!File::exists($storagePath)) {
-            // If not, create the "eleves" folder
-            File::makeDirectory($storagePath, 0755, true, true);
-        }
 
-        $user = Auth::user();
+if (!File::exists($storagePath)) {
+    // If not, create the "eleves" folder
+    File::makeDirectory($storagePath, 0755, true, true);
+}
 
-        // Handle image upload
-        if ($request->hasFile('image'))
-        {
-            // Extract the old image name from the database
-            $oldImageName = basename($user->image);
+$user = Auth::user();
 
-            // Remove the old image if it exists
-            if ($oldImageName !== null && File::exists(storage_path("app/public/images/eleves/{$oldImageName}"))) {
-                File::delete(storage_path("app/public/images/eleves/{$oldImageName}"));
-            }
+// Handle image upload
+if ($request->hasFile('image')) {
+    // Extract the old image name from the database
+    $oldImageName = basename($user->image);
 
-            $imageName = 'eleves/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->storeAs('public/images', $imageName);
-            $user->image = "/storage/images/{$imageName}";
-        }
+    // Remove the old image if it exists
+    if ($oldImageName !== null && File::exists(storage_path("app/public/images/eleves/{$oldImageName}"))) {
+        File::delete(storage_path("app/public/images/eleves/{$oldImageName}"));
+    }
+
+    $imageName = 'eleves/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
+
+    // Store the new image in the storage directory
+    $request->image->storeAs('public/images/eleves', $imageName);
+
+    // Create the public path for the new image
+    $publicImagePath = public_path("storage/images/eleves/{$imageName}");
+
+    // Make sure the directory exists before copying
+    File::ensureDirectoryExists(dirname($publicImagePath));
+
+    // Copy the new image to the public directory
+    File::copy(storage_path("app/public/images/eleves/{$imageName}"), $publicImagePath);
+
+    $user->image = "/storage/images/eleves/{$imageName}";
+}
 
         // Update other user data
         $user->name             = $request->name;
         $user->telephone        = $request->telephone;
         $user->email            = $request->email;
         $user->datenaissance    = $request->datenaissance;
+        $user->pays             = $request->pays;
 
+        if ($request->filled('newpassword')) {
+            $user->password = Hash::make($request->newpassword);
+        }
         // Save the changes
         $user->save();
         return redirect()->back();

@@ -73,6 +73,7 @@ Route::post('DeleteDisponible'      ,[ProfesseurController::class,'DeleteDisponi
 Route::post('DeleteDisponibleByDay' ,[ProfesseurController::class,'DeleteDisponibleByDay']);
 Route::get('checkDayIsExiste'       ,[ProfesseurController::class,'CheckDayIsExiste']);
 Route::post('UpDateDisponibleByProf',[ProfesseurController::class,'UpDateDisponibleByProf']);
+Route::post('UpdateInfoProfesseur'  ,[ProfesseurController::class,'UpdateInfoProfesseur']);
 Route::get('StepByStep',function()
 {
     return view('Professeur.StepByStep');
@@ -95,7 +96,7 @@ Route::get('profile/eleve'                                              ,[EleveC
 Route::get('GetpProfesseur'                                             ,[EleveController::class,'GetpProfesseur']);
 Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'    ,[EleveController::class,'Reservation']);
 Route::get('InfosProfile'                                               ,[EleveController::class,'InfosProfile']);
-Route::get('Details/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'        ,[EleveController::class,'Details']);
+Route::get('Details/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{Date}' ,[EleveController::class,'Details']);
 Route::post('UpdateDataEleve'                                           ,[EleveController::class,'UpdateDataEleve'])->name('UpdateDataEleve');
 Route::get('Mescours'                                                   ,[EleveController::class,'Mescours']);
 Route::get('CalanderCours'                                              ,[EleveController::class,'GetMesCourCalander']);

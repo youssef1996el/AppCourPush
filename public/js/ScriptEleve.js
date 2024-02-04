@@ -184,7 +184,7 @@ $(document).ready(function () {
                         dataTable.clear();
                         $.each(response.Data, function (index, value)
                         {
-                            var FirstTd     =  `<a href="#">${value.debut}</a>`;
+                            var FirstTd     =  `<a href="#" class="debutCours">${value.debut}</a><br><a href="#">${value.timezone}</a>`;
                             var SecoundTd   =  `<div class="d-flex align-items-center">
                                                     <img src="${value.image}" class="rounded-circle" style="width: 45px; height: 45px; " alt="">
                                                         <div class="ms-3">
@@ -268,7 +268,9 @@ $(document).ready(function () {
 
     $(document).on('click','.reserver',function()
     {
-        var Time            = $(this).closest('tr').find('td:eq(0)').text().trim();
+        var Time = $(this).closest('tr').find('.debutCours').text().trim();
+
+
         var NameProfesseur  = $(this).closest('tr').find('.NameProfesseur').text().trim();
         var cours           = $(this).closest('tr').find('td:eq(2)').text().trim();
         var typeCours       = $(this).closest('tr').find('.ClassTypeCours').text().trim();
@@ -281,14 +283,17 @@ $(document).ready(function () {
             typeCours = 'groupe';
         }
         var reservationUrl = "/Reservation/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours);
+
+
         window.location.href = reservationUrl;
     });
     $(document).on('click','.details',function()
     {
-        var Time            = $(this).closest('tr').find('td:eq(0)').text().trim();
+        var Time            = $(this).closest('tr').find('.debutCours').text().trim();
         var NameProfesseur  = $(this).closest('tr').find('.NameProfesseur').text().trim();
         var cours           = $(this).closest('tr').find('td:eq(2)').text().trim();
         var typeCours       = $(this).closest('tr').find('.ClassTypeCours').text().trim();
+        var DateSelected    = $('.DateSearch').val();
         if(typeCours === 'Cours particulier')
         {
             typeCours = 'prive';
@@ -297,7 +302,7 @@ $(document).ready(function () {
         {
             typeCours = 'groupe';
         }
-        var reservationUrl = "/Details/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours);
+        var reservationUrl = "/Details/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours) + "/" + encodeURIComponent(DateSelected);
         window.location.href = reservationUrl;
     });
 });

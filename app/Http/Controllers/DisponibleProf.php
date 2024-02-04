@@ -30,6 +30,7 @@ class DisponibleProf extends Controller
                     'iduser'               =>Auth::user()->id,
                     'idcours'              =>$courByDate[$i],
                     'typecours'            =>$typeCours[$i],
+                    'timezone'             =>$request->timezone,
                 ];
                 DB::table('disponibleprof')->insert($DataSava);
             }

@@ -64,10 +64,11 @@
 
                         </div>
                         <div class="col-sm-12 col-md-4 col-xl-4 ">
-                            <div id="calendarProgrammes">Calendar for Programmes</div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCalander">
+                            <div id="calendarProgrammes" style="text-align: center">Calendar for Programmes</div>
+                            <img style="cursor: pointer" src="{{asset('image/Calander.svg')}}" width="105%" alt="" srcset="" data-bs-toggle="modal" data-bs-target="#ModalCalander">
+                            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCalander">
                                 Open Modal
-                            </button>
+                            </button> --}}
                         </div>
 
                     </div>
