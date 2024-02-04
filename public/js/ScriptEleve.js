@@ -293,6 +293,7 @@ $(document).ready(function () {
         var NameProfesseur  = $(this).closest('tr').find('.NameProfesseur').text().trim();
         var cours           = $(this).closest('tr').find('td:eq(2)').text().trim();
         var typeCours       = $(this).closest('tr').find('.ClassTypeCours').text().trim();
+        var DateSelected    = $('.DateSearch').val();
         if(typeCours === 'Cours particulier')
         {
             typeCours = 'prive';
@@ -301,7 +302,7 @@ $(document).ready(function () {
         {
             typeCours = 'groupe';
         }
-        var reservationUrl = "/Details/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours);
+        var reservationUrl = "/Details/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours) + "/" + encodeURIComponent(DateSelected);
         window.location.href = reservationUrl;
     });
 });

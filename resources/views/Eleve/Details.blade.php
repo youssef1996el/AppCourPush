@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<link rel="stylesheet" href="{{asset('css/StyleDetails.css')}}">
+<link  rel="stylesheet" href="{{asset('css/StyleDetails.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
+
 <div class="container">
     <div class="row mt-5">
         <div class="card card-reserve1 text-left mt-5 mb-5" style="">
@@ -14,21 +15,33 @@
                 </div>
                 <p class="card-text-label mt-5">
                     <div class="row">
-                        <div class="col-sm-12 col-md-3 col-xl-3 ">
-                        <label> <i class="fa fa-book fa-xl" aria-hidden="true"></i>  {{$Cours}} </label>
+                        <div class="col-sm-12 col-md-3 col-xl-3 p-2">
+                            <label>
+                                <i class="fa fa-book fa-xl" aria-hidden="true"></i>
+                                {{$Cours}}
+                            </label>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3">
-                        <label> <i class="fa fa-clock fa-xl" aria-hidden="true"></i>  Dimanche, 21 janvier 2024 <span> 19:00 - 20:00 (GMT+1)</span> </label>
+                        <div class="col-sm-12 col-md-3 col-xl-3 p-2">
+                            <label>
+                                <i class="fa fa-clock fa-xl" aria-hidden="true"></i>
+                                {{$DateSelected}}
+                                <span> {{$DebutCours}} - {{$FinCours}} {{($TimeZone)}}</span>
+                            </label>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3 ">
-                        <label> <i class="fa fa-users  fa-xl" aria-hidden="true"></i>  {{$nomberReserveThisCours}} Participants</label>
+                        <div class="col-sm-12 col-md-3 col-xl-3  p-2">
+                            <label>
+                                <i class="fa fa-users  fa-xl" aria-hidden="true"></i>
+                                {{$nomberReserveThisCours}} Participants
+                            </label>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3 ">
-                        <label> <i class="fa fa-video-camera fa-xl" aria-hidden="true"></i>  Hébergé sur Zoom</label>
+                        <div class="col-sm-12 col-md-3 col-xl-3  p-2">
+                            <label>
+                                <i class="fa fa-video-camera fa-xl" aria-hidden="true"></i>
+                                Hébergé sur Zoom
+                            </label>
                         </div>
                     </div>
-                     </p>
-
+                </p>
                 <a name="" id="" class="btn btn-primary btn-reserver" href="#" role="button" style="border-radius:6px">Reserver</a>
             </div>
         </div>
@@ -43,13 +56,13 @@
                                 <option value="cours">Cours</option>
                             </select>
                         </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3 text-center">
+                        <div class="col-sm-12 col-md-3 col-xl-3 " id="responsiveDiv">
                             <label for="" style="margin-left: 5px; display:block">Groupe ou Privé: </label>
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
-                                    <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" checked>
+                                    <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" {{$TypeCours == "groupe" ? 'checked' : ''}} >
                                     <label class="btn btn-outline-primary" for="group"><i class="fas fa-users "></i></label>
 
-                                    <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
+                                    <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off" {{$TypeCours == "prive" ? 'checked' : ''}} >
                                     <label class="btn btn-outline-primary " for="private" style="width:45px ; "><i class="fas fa-user "></i></label>
                                 </div>
                         </div>
@@ -65,44 +78,24 @@
             </div>
         </div>
         <div class="row row-card " style=" display:flex; margin:auto ; padding-bottom:36px">
-        <h3 class="mt-5 mb-4">A propos "Nom"</h3>
+        <h3 class="mt-5 mb-4">A propos {{$InformationProfesseur->title}}</h3>
             <div id="divProfile" class="col-12">
                 <div class="card text-center">
-                    <img class=" prof-image mt-5" src="{{asset('image/default-avatar.png') }}" alt="Profile image"  srcset="" >
-                    <h2 class="name">Ouardi douha</h2>
+                    <img class=" prof-image mt-5" src="{{ $imageProfesseur->image == '' ? asset('image/default-avatar.png') : $imageProfesseur->image}}" alt="Profile image"  srcset="" >
+                    <h2 class="name">{{$NameProfesseur}}</h2>
                     <h4 >Prof d'arabe</h4>
-                    <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>4 </span> ans d'expérience</h4>
+                    <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince[0]->experince}}</span> ans d'expérience</h4>
                     <div class="card-body" >
-                        <p class="card-text">description de description</p>
+                        <p class="card-text">{{$InformationProfesseur->description}}</p>
                     </div>
                 </div>
             </div>
-            <div id="divDispo" class="col-8 mt-5">
+            <div id="divDispo" class="col-sm-12 col-md-8 col-xl-8  mt-5">
                 <div class="card cardDispo text-left">
                     <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
                     <div class="card-body ">
                         <div class="ClassDisponible">
-                        {{-- @foreach ($disponibilityByDay as $key => $data)
-                            <div class="ContentDisponible">
-                                <div class="Days">{{$key}}</div>
-                                    <div class="ClassCalculHeight" >
-                                        <div class="ClassTimeDisponible"  style="@if($data) color:#0c3c74;background:#00f8ff3b; @else '' @endif">
-                                            <p>
-                                                @if($data)
-                                                    <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                @endif
-                                                {{$data ? $data->debut : "Vide"}}
-                                            </p>
-                                            <p>
-                                                @if($data)
-                                                    <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                    @endif
-                                                {{$data ? $data->fin : 'Vide'}}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                        @endforeach --}} {{-- mate9isich had Code li dayr lih comment --}}
+
                             @foreach ($disponibilityByDay as $key => $data)
 
                                 <div class="ContentDisponible" >
@@ -133,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div id="divCours" class="col-4 mt-5">
+            <div id="divCours" class="col-sm-12 col-md-4 col-xl-4 mt-5">
                 <div class="card cardCours">
                     <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Les cours </h4>
                     <div class="card-body">
@@ -146,7 +139,7 @@
                 </div>
             </div>
 
-            <div id="divExperience" class="col-6 mt-5">
+            <div id="divExperience" class="col-sm-12 col-md-6 col-xl-6 mt-5">
                 <div class="card cardExperience" >
                     <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Experience</h4>
                     <div class="timeline">
@@ -173,33 +166,36 @@
                     </div>
                 </div>
             </div>
-            <div id="divFormation" class="col-6 mt-5">
-                <div class="card cardFormation" >
-                    <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
-                        <div class="card-body timeline" >
-                            <ul class="list-unstyled " id="ListFormation">
-                                @foreach ($FormationProf as $key => $item)
-                                    <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}" {{-- {{ $key >= 1 ? 'hidden' : '' }}" --}}>
-                                        <li class="timeline-item" >
-                                            <div class="timeline-element">
-                                                <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                                                <span class="pays">{{ $item->pays }}</span>
-                                                <div class="timeline-content">
-                                                    <h3>{{ $item->diplome }}</h3>
-                                                    <p>{{ $item->specialise }}</p>
+            @if (count($FormationProf) > 0)
+                <div id="divFormation" class="col-sm-12 col-md-6 col-xl-6  mt-5">
+                    <div class="card cardFormation" >
+                        <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
+                            <div class="card-body timeline" >
+                                <ul class="list-unstyled " id="ListFormation">
+                                    @foreach ($FormationProf as $key => $item)
+                                        <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}" {{-- {{ $key >= 1 ? 'hidden' : '' }}" --}}>
+                                            <li class="timeline-item" >
+                                                <div class="timeline-element">
+                                                    <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                    <span class="pays">{{ $item->pays }}</span>
+                                                    <div class="timeline-content">
+                                                        <h3>{{ $item->diplome }}</h3>
+                                                        <p>{{ $item->specialise }}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    </div>
-                                @endforeach
-                            </ul>
+                                            </li>
+                                        </div>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        <div class="show"  >
+                            <button id="showMoreFormation" class="btn  showMore">Voir plus</button>
+                            <button id="showFirstItemFormation" class="btn showLess " style="display: none">Voir moins</button>
                         </div>
-                    <div class="show"  >
-                        <button id="showMoreFormation" class="btn  showMore">Voir plus</button>
-                        <button id="showFirstItemFormation" class="btn showLess " style="display: none">Voir moins</button>
                     </div>
                 </div>
-            </div>
+            @endif
+
 
 
         </div>
@@ -207,5 +203,27 @@
 
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+      adjustTextCenterClass();
 
+      // Call the function on window resize
+      $(window).resize(function() {
+        adjustTextCenterClass();
+      });
+
+      function adjustTextCenterClass() {
+        var screenWidth = $(window).width();
+        var isSmallScreen = screenWidth < 576; // Assuming 'sm' breakpoint is 576 pixels
+
+        if (isSmallScreen) {
+          $('#responsiveDiv').removeClass('text-center');
+          $('#typeCour').css('width','100%');
+          $('#dateCours').css('width','100%');
+        } else {
+          $('#responsiveDiv').addClass('text-center');
+        }
+      }
+    });
+  </script>
 @endsection
