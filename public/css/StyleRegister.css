@@ -21,7 +21,7 @@
 
 
 .form-eleve {
-    width: 42%;
+    width: 50%;
     color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 16px;
@@ -158,3 +158,30 @@
         .fa-eye-slash{
             color: black;
         }
+
+        @media (max-width: 768px) {
+            .form-eleve {
+                width: 100%; /* Make the form full width on smaller screens */
+            }
+        
+            .nav-pills {
+                flex-direction: column; /* Display pills vertically on smaller screens */
+            }
+        
+            .nav-link {
+                width: 100%; /* Make pills full width */
+                text-align: center; /* Center align pill text */
+            }
+        
+            .tab-pane {
+                padding: 0 15px; /* Add padding to tab content */
+            }}
+
+
+            .form-group input {
+                text-indent: 30px;
+            }
+          
+            .fa-user, .fa-lock{
+                color: black;
+            }

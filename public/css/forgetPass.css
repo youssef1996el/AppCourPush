@@ -1,0 +1,16 @@
+.form-group i.fa-envelope {
+    position: absolute;
+    left: 10px; /* Adjust the left value as needed */
+    top: 50%;
+    transform: translateY(-50%);
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    text-indent: 30px;
+}
+.form-group
+{
+  margin: 28px 0px;
+  position: relative;
+}

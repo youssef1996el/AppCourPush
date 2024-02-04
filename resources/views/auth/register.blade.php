@@ -5,8 +5,8 @@
     <script src="{{asset('js/niceCountryInput.js')}}"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('css/niceCountryInput.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/StyleRegister.css')}}">
-
     <script src="{{asset('js/ScriptRegister.js')}}"></script>
+
 <div class="container mt-5">
     <div class="row justify-content-center ">
         <div class="form-eleve col-md-8 mt-3">
@@ -55,6 +55,7 @@
                         </div>
                         <!-- Email input -->
                         <div class="form-group mb-4 input-control">
+                            <i class="fa fa-user" aria-hidden="true"></i>
                             <input type="email" id="emailEleve" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email"/>
                             <div class="error ErrorValidation"></div>
 
@@ -63,8 +64,9 @@
 
                         <!-- Password input -->
                         <div class="form-group mb-4 input-control">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
                             <input type="password" name="password" placeholder="Mot de passe" id="passwordEleve" class="form-control @error('password') is-invalid @enderror" />
-                            <i class="fa-solid fa-eye show-password" id="eye" ></i>
+                            <i class="fa-solid fa-eye show-password" id="eyeE" ></i>
                          
                             <div class="error ErrorValidation"></div>
                             
@@ -74,8 +76,9 @@
                         </div>
                         <!-- Confirme Password input -->
                         <div class="form-group mb-4 input-control">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
                             <input  id="confirmPasswordEleve" type="password" placeholder="Confirmer votre mot de passe" class="form-control" name="password_confirmation"  autocomplete="new-password">
-                            <i class="fa-solid fa-eye show-password" id="eye" ></i>
+                            <i class="fa-solid fa-eye show-password" id="eyeCE" ></i>
                             <div class="error ErrorValidation"></div>
                             <div class="checkPassword" style="display: none"></div>
                             <label for="password-confirm" class="sr-only form-label">{{ __('Confirm Password') }}</label>
@@ -146,6 +149,7 @@
 
                         <!-- Email input -->
                         <div class="form-group mb-4 input-control">
+                            <i class="fa fa-user" aria-hidden="true"></i>
                             <input type="email" id="emailProfesseur"  placeholder ="Email"  class="form-control @error('email') is-invalid @enderror" name="email" />
                             <div class="error ErrorValidation"></div>
 
@@ -154,8 +158,9 @@
 
                         <!-- Password input -->
                         <div class="form-group mb-4 input-control">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
                             <input type="password" id="passwordProfesseur"  placeholder ="Mot de passe "  class="form-control @error('password') is-invalid @enderror" name="password" />
-                            <i class="fa-solid fa-eye show-password" id="eye" ></i>
+                            <i class="fa-solid fa-eye show-password" id="eyeP" ></i>
 
                             <div class="error ErrorValidation"></div>
 
@@ -164,8 +169,9 @@
 
                         <!-- Confirme Password input -->
                         <div class="form-group mb-4">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
                             <input id="confirmpasswordProfesseur" type="password"  placeholder ="Confirmer votre mot de passe"  class="form-control confirmpasswordProfesseur" name="password_confirmation"  autocomplete="new-password">
-                            <i class="fa-solid fa-eye show-password" id="eye" ></i>
+                            <i class="fa-solid fa-eye show-password" id="eyeCP" ></i>
 
                             <div class="error ErrorValidation" style="color: red ;font-size:14px"></div>
                             <div class="checkPassword" style="display: none"></div>
@@ -290,6 +296,8 @@
         </div>
     </div>
 </div>
+
+
 <script>
   function onChangeCallback(ctr){
             console.log("The country was changed: " + ctr);

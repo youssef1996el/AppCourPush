@@ -1,0 +1,32 @@
+/* .card-body{
+    padding: 12px 8px;
+}
+
+.form-group input {
+    width: 250px;
+    text-indent: 0px;
+    padding: 4px;
+}
+
+.form-group
+{
+  margin: 28px 16px;
+  position: relative;
+}
+*/
+.form-control{
+    width:250px;
+}
+.form-control:focus{
+    width: 250px;
+} 
+label{
+    color: black !important;
+}
+.form-group input {
+    text-indent: 0px;
+}
+.form-group input {
+    width: 250px;
+    text-indent: 0px;
+}

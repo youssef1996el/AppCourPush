@@ -298,18 +298,29 @@ $(document).ready(function () {
  
  
     
-    const passwordInputIds = ["passwordEleve", "ConfirmPasswordEleve", "passwordProfesseur", "ConfirmPasswordProfesseur"];
-    const passwordInputs = passwordInputIds.map(id => document.getElementById(id)).filter(Boolean);
-    const togglePasswordButton = document.getElementById("eye");
+   const passwordInputIds = [
+    { inputId: "passwordEleve", eyeId: "eyeE" },
+    { inputId: "confirmPasswordEleve", eyeId: "eyeCE" },
+    { inputId: "passwordProfesseur", eyeId: "eyeP" },
+    { inputId: "confirmpasswordProfesseur", eyeId: "eyeCP" },
+
     
-    togglePasswordButton.addEventListener("click", function () {
-        passwordInputs.forEach(function (passwordInput) {
+
+];
+
+passwordInputIds.forEach(function(pair) {
+    const passwordInput = document.getElementById(pair.inputId);
+    const togglePasswordButton = document.getElementById(pair.eyeId);
+
+    if (passwordInput && togglePasswordButton) {
+        togglePasswordButton.addEventListener("click", function () {
             const type = passwordInput.getAttribute("type");
             passwordInput.setAttribute("type", type === "password" ? "text" : "password");
+
+            // Toggle the eye icon
+            togglePasswordButton.classList.toggle("fa-eye");
+            togglePasswordButton.classList.toggle("fa-eye-slash");
         });
-    
-        // Toggle the eye icon
-        togglePasswordButton.classList.toggle("fa-eye");
-        togglePasswordButton.classList.toggle("fa-eye-slash");
-    });
+    }
+});
 });

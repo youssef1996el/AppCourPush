@@ -43,35 +43,16 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top " style="height:70px">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'App de soutien') }}
+                <a class="navbar-brand" href="#">LOGO</a>
+                <a class="navbar-toggler" href="{{ route('register') }}" aria-label="User Profile">
+                    <i class="fa fa-user-plus " id="user-plus" aria-hidden="true"></i>
                 </a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
+            
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <!--@if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif-->
-
-                            {{-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <p style=" display: inline;margin-right: 10px;">Vous n'avez pas encore de compte ?</p>
-                                    <a class="btn btn-primary " href="{{ route('register') }}">S'inscrire</a>
-                                </li>
-                            @endif --}}
+                
                             <li class="nav-item">
                                 @if (Route::currentRouteName() === "login")
                                     <p style="display: inline; margin-right: 10px;">Vous n'avez pas encore de compte ?</p>
@@ -132,70 +113,5 @@
     </div>
 </body>
 
-<style>
-    .user-avatar{
-        width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid gray;
-    }
-    .cta {
-  position: relative;
-  margin: auto;
-  padding: 12px 18px;
-  transition: all 0.2s ease;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
 
-.cta:before {
-    content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  display: block;
-  border-radius: 50px;
-  background: #b1dae7;
-  width: 45px;
-  height: 40px;
-  transition: all 0.3s ease;
-}
-
-.cta span {
-  position: relative;
-  font-family: times;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #234567;
-}
-
-.cta svg {
-  position: relative;
-  top: 0;
-  margin-left: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #234567;
-  stroke-width: 2;
-  transform: translateX(-5px);
-  transition: all 0.3s ease;
-}
-
-.cta:hover:before {
-  width: 100%;
-  background: #b1dae7;
-}
-
-.cta:hover svg {
-  transform: translateX(0);
-}
-
-.cta:active {
-  transform: scale(0.95);
-}
-
-</style>
 </html>
