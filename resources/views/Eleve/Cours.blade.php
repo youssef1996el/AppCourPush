@@ -91,6 +91,75 @@
                 </div>
             </div>
 
+
+            {{-- youssef --}}
+            <div class="tab-content">
+                <div id="programmes" class="tab-pane fade show active">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-8 col-xl-8 p-2">
+                            <div class="row">
+                                @if ($hasCours)
+                                    @foreach ($MesCours as $item)
+                                        <div class="col-sm-12 col-md-3 col-xl-3">
+                                            <div class="card-sl">
+                                                <div class="name-course">{{$item->name_cours}}</div>
+                                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
+                                                <div class="card-heading" style="white-space: normal">
+                                                    {{$item->nom_professeur}}
+                                                </div>
+
+                                                <div class="card-text">
+                                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
+                                                </div>
+                                                <div class="card-text d-flex">
+                                                    <i class="fa fa-calendar"></i> <label >{{$item->days}},1 février 2024<span style="display:block">  19:00 - 20:00 (GMT+1)</span></label>
+                                                </div>
+                                                <div class="card-text">
+                                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
+                                                </div>
+                                                <div class="card-text">
+                                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    @endforeach
+
+                                @else
+                                    <img  class="" src="{{asset('image/cours.png') }}" alt="cours" style="width:200px">
+                                    <h5 class="mt-3">Rien de prévu pour le moment</h5>
+                                    <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
+                                    <p>Pour commencer, <a href="#"> resever un cours</a></p>
+                                @endif
+
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-xl-4 p-2">
+                            <div id="calendarProgrammes" style="text-align: center">Calendar for Programmes</div>
+                            <img style="cursor: pointer" src="{{asset('image/Calander.svg')}}" width="105%" alt="" srcset="" data-bs-toggle="modal" data-bs-target="#ModalCalander">
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="cours" class="tab-pane fade">
+                    <div class="row mt-4">
+                        <div class="col-sm-12 col-md-6 col-xl-6 ">
+                            <img  class="" src="{{asset('image/nonpris.png')}}" alt="cours" style="width:200px">
+                            <h5 class="mt-3">Vous pouvez retrouver tous vos cours terminés ici.</h5>
+                            <p class="text-muted">Vous n'avez pas suivi de cours... pour l'instant !</p>
+                            <p>Pour commencer, <a href="#"> resever un cours</a></p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-xl-6 ">
+                            <div id="calendarCours">Calendar for Programmes</div>
+                            {{-- <div id="calendar"></div> --}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
