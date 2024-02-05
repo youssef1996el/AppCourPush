@@ -1,4 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function ()
+{
+
     const form = $('#form');
     const email = $('#email');
     const password = $('#password');

@@ -44,16 +44,19 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top " style="height:70px">
             <div class="container">
-                <a class="navbar-brand" href="#">LOGO</a>
-                <a class="navbar-toggler" href="{{ route('register') }}" aria-label="User Profile">
-                    <i class="fa fa-user-plus " id="user-plus" aria-hidden="true"></i>
-                </a>
+                <a class="navbar-brand" href="{{url('/')}}">LOGO</a>
+                @if (Route::currentRouteName() === "login")
+                    <a class="navbar-toggler" href="{{ route('register') }}" aria-label="User Profile">
+                        <i class="fa fa-user-plus " id="user-plus" aria-hidden="true"></i>
+                    </a>
+                @endif
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
+
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                
+
                             <li class="nav-item">
                                 @if (Route::currentRouteName() === "login")
                                     <p style="display: inline; margin-right: 10px;">Vous n'avez pas encore de compte ?</p>
