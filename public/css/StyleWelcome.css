@@ -127,6 +127,7 @@
 
 #service .card-img-top{
     height: 260px;
+    border-radius: 20px;
 }
 
 @media (max-width: 768px) {

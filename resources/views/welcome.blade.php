@@ -181,41 +181,45 @@
 
             </div>
         </section>
-        <section id="liste-profs" >
+        <section id="liste-profs">
             <div class="container mt-5 mb-5">
-                <div class="section-title" >
-                    <h2>Notre sélection de professeurs pour des cours à distance </h2>
+                <div class="section-title">
+                    <h2>Notre sélection de professeurs pour des cours à distance</h2>
                 </div>
-                <div class="row no-gutters mt-5">
+                <div class="row mt-5">
                     @foreach ($listProf as $item)
-                        <div class="col-sm-12 col-md-4 col-xl-4 mb-5">
-                            <a href="#" style="text-decoration: none;color: black;">
-                                <div class="card bg-light" style="padding: 20px;width: 92%;">
-                                    <div class="text-center">
-                                        <img class="card-img-top"  src="{{$item->image}}" alt="">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="card bg-light">
+                                <div class="text-center">
+                                    <img class="card-img-top img-fluid" src="{{$item->image}}" alt="{{$item->name}}">
+                                </div>
+                                <div class="card-body">
+                                    <div class="name-prof ">
+                                        <p class="card-title text-center d-inline">{{$item->name}}</p>
+                                        <svg aria-label="Vérifié" class="x1lliihq" fill="rgb(0, 149, 246)" height="18" role="img" viewBox="0 0 40 40" width="18" style="display:inline; margin-top:-4px">
+                                            <title>Vérifié</title>
+                                            <path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path>
+                                        </svg>
                                     </div>
-                                    <div class="card-body" style="  padding: 0;margin-top: 24px ;">
-                                        <div  class="name-prof x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1gslohp x1i64zmx x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1" >
-                                            <p class="card-title text-center d-inline" >{{$item->name}}</p>
-                                            <svg aria-label="Vérifié" class="x1lliihq x1n2onr6 d-inline" fill="rgb(0, 149, 246)" height="18" role="img" viewBox="0 0 40 40" width="18" style="margin-top:-4px">
-                                                <title>Vérifié</title>
-                                                <path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="teletemail mt-4">
-                                            <p class="card-text mb-4" style=" font-size: 24px; "> titre</p>
-                                            <p class="card-text mb-2" style=" font-size: 1rem;"> <i class="fa fa-phone" aria-hidden="true"></i>  {{$item->telephone}}</p>
-                                            <p class="card-text" style=" font-size: 1rem;"><i class="fa fa-envelope" aria-hidden="true"></i>  email</p>
 
-                                        </div>
+
+
+                                    
+                                    <div class="teletemail mt-4">
+                                        <p class="card-text mb-4" style=" font-size: 24px; "> titre</p>
+                                        <p class="card-text mb-2" style="font-size: 1rem;"><i class="fa fa-phone" aria-hidden="true"></i> {{$item->telephone}}</p>
+                                        <p class="card-text" style="font-size: 1rem;"><i class="fa fa-envelope" aria-hidden="true"></i> email</p>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
+                    </div>
                     @endforeach
                 </div>
             </div>
         </section>
+
         <footer class="footer text-dark text-center py-2">
             <div class="container">
                 <hr>

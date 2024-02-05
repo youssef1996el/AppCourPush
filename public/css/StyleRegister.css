@@ -21,7 +21,6 @@
 
 
 .form-eleve {
-    width: 50%;
     color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 16px;
@@ -160,9 +159,7 @@
         }
 
         @media (max-width: 768px) {
-            .form-eleve {
-                width: 100%; /* Make the form full width on smaller screens */
-            }
+           
         
             .nav-pills {
                 flex-direction: column; /* Display pills vertically on smaller screens */
@@ -184,4 +181,31 @@
           
             .fa-user, .fa-lock{
                 color: black;
+            }
+
+            @media (max-width: 576px) {
+                /* Your CSS styles for phones here */
+               .form-eleve {
+                width: 90%; /* Make the form full width on smaller screens */
+            }
+            }
+            
+            /* For tablets (medium devices) */
+            @media (min-width: 577px) and (max-width: 991px) {
+                /* Your CSS styles for tablets here */
+                .form-eleve {
+                    width: 500px;
+                    margin: auto;/* Make the form full width on smaller screens */
+                }
+             
+            }
+            
+            /* For laptops and desktops (large devices) */
+            @media (min-width: 992px) {
+                /* Your CSS styles for laptops and desktops here */
+                .form-eleve {
+                    width: 500px; /* Set card width for larger screens */
+                    margin: auto; /* Center align the card */
+                }
+                
             }
