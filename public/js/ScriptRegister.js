@@ -36,6 +36,19 @@ $(document).ready(function () {
                 allInputsValid = false;
             }
         }
+        // Check password length
+        var password = $('#passwordProfesseur').val();
+        if (password.length < 8) {
+            $('.ErrorValidation').text('Password must be at least 8 characters long.').css('display', 'block');
+            allInputsValid = false;
+        }
+
+        // Check password confirmation
+        var confirmPassword = $('#confirmpasswordProfesseur').val();
+        if (password !== confirmPassword) {
+            $('.ErrorValidation').text('Passwords do not match.').css('display', 'block');
+            allInputsValid = false;
+        }
 
         if (allInputsValid) {
             this.submit();
@@ -64,6 +77,20 @@ $(document).ready(function () {
                 $('.ErrorValidation').css('display', 'block');
                 allInputsValid = false;
             }
+        }
+
+       // Check password length
+        var password = $('#passwordEleve').val();
+        if (password.length < 8) {
+            $('.ErrorValidation').text('Password must be at least 8 characters long.').css('display', 'block');
+            allInputsValid = false;
+        }
+
+        // Check password confirmation
+        var confirmPassword = $('#confirmPasswordEleve').val();
+        if (password !== confirmPassword) {
+            $('.ErrorValidation').text('Passwords do not match.').css('display', 'block');
+            allInputsValid = false;
         }
 
         if (allInputsValid) {
@@ -264,7 +291,7 @@ $(document).ready(function () {
                 'display': 'block',
                 'color'  : 'red',
                 'font-size':'14px '
-                
+
             });
             $('.checkPassword').text('Le mot de passe n\'est pas correct')
         }
@@ -295,16 +322,16 @@ $(document).ready(function () {
             $('.checkPassword').css('display', 'none');
         }
    });
- 
- 
-    
+
+
+
    const passwordInputIds = [
     { inputId: "passwordEleve", eyeId: "eyeE" },
     { inputId: "confirmPasswordEleve", eyeId: "eyeCE" },
     { inputId: "passwordProfesseur", eyeId: "eyeP" },
     { inputId: "confirmpasswordProfesseur", eyeId: "eyeCP" },
 
-    
+
 
 ];
 

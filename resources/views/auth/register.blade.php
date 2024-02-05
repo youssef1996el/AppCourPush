@@ -67,9 +67,9 @@
                             <i class="fa fa-lock" aria-hidden="true"></i>
                             <input type="password" name="password" placeholder="Mot de passe" id="passwordEleve" class="form-control @error('password') is-invalid @enderror" />
                             <i class="fa-solid fa-eye show-password" id="eyeE" ></i>
-                         
+
                             <div class="error ErrorValidation"></div>
-                            
+
 
 
                             <label class="form-label sr-only" for="loginPassword">Mot de passe</label>
@@ -176,7 +176,7 @@
                             <div class="error ErrorValidation" style="color: red ;font-size:14px"></div>
                             <div class="checkPassword" style="display: none"></div>
                             <label for="password-confirm" class="form-label sr-only">{{ __('Confirm Password') }}</label>
-                           
+
                         </div>
 
 

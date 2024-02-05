@@ -634,7 +634,8 @@ if ($request->hasFile('image')) {
         {
 
             $hasCours = true;
-            $MesReserve    = DB::select("select r.id,times,days,typecours,c.title as name_cours,r.nom_professeur from reserves r, cours c where r.idcours = c.id;");
+            $MesReserve    = DB::select("select r.id,times,days,typecours,c.title as name_cours,r.nom_professeur from reserves r, cours c where r.idcours = c.id and r.nom_eleve = ?",
+                            [Auth::user()->name]);
             $nomProfesseurs = [];
 
             foreach ($MesReserve as $reserve) {
@@ -658,7 +659,20 @@ if ($request->hasFile('image')) {
 
             $MesCours  =$MesReserve;
 
-
+            $AddDebutAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id");
+            foreach ($MesCours as &$cours) {
+                foreach ($AddDebutAndTimeZone as $info) {
+                    if (
+                        $cours->name_cours == $info->title &&
+                        $cours->nom_professeur == $info->name &&
+                        $cours->times == $info->debut &&
+                        $cours->typecours == $info->typecours
+                    ) {
+                        $cours->fin = $info->fin;
+                        $cours->timezone = $info->timezone;
+                    }
+                }
+            }
         }
 
 
