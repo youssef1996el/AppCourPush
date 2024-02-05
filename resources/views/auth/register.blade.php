@@ -167,7 +167,7 @@
                             <label class="form-label sr-only" for="registerPassword">Password</label>
                         </div>
 
-                        <!-- Confirme Password input -->
+                        <!-- Confirm Password input -->
                         <div class="form-group mb-4">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                             <input id="confirmpasswordProfesseur" type="password"  placeholder ="Confirmer votre mot de passe"  class="form-control confirmpasswordProfesseur" name="password_confirmation"  autocomplete="new-password">
