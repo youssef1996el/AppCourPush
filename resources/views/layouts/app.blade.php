@@ -75,9 +75,11 @@
                             </button>
                             </li>
                             <li class="nav-item d-flex" style="align-items: center;">
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="#" id="notification-icon">
                                     <i class="fas fa-bell fa-lg"></i>
+                                </a>
                             </li>
+
                             <li class="nav-item dropdown d-flex" style="align-items: center;">
 
                                 <a id="navbarDropdown" class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
