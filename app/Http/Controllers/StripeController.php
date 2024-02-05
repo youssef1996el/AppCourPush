@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use Stripe;
-
 use Auth;
 use DB;
 use Carbon\Carbon;
+use App\Notifications\StripeNotification;
+use Illuminate\Support\Facades\Notification;
+use App\Models\User;
 class StripeController extends Controller
 {
 
@@ -55,6 +57,20 @@ class StripeController extends Controller
                                         ->first();
         $Days                 = $DisponibleProfessuer->jour;
         $Name_Eleve = Auth::user()->name;
+
+        // Extract Admin send notficiation
+        $adminUsers = DB::table('users')->where('role_name', 'admin');
+        // Extract users Send Notification
+        $selectedUsers = DB::table('users')
+                        ->whereIn('name', [$Name_Eleve, $NameProfesseur]);
+
+        $combinedQuery = $adminUsers->unionAll($selectedUsers);
+        $DataUsersSendNotification = $combinedQuery->get();
+
+        // Extract Role Eleve
+        $role_name = Auth::user()->role_name;
+
+
         $SaveReserve =
         [
 
@@ -67,6 +83,7 @@ class StripeController extends Controller
             'created_at'                =>Carbon::now(),
             'updated_at'                =>Carbon::now(),
         ];
+
         try
         {
             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -82,7 +99,26 @@ class StripeController extends Controller
             {
                 $Reserves = DB::table('reserves')->insert($SaveReserve);
                 Session::flash('success', 'Payment successful!');
-                return back();
+                foreach($DataUsersSendNotification as $item)
+                {
+                    $userModel = User::find($item->id);
+                    if($item->role_name === 'eleve')
+                    {
+                        $textEleve     = "Une notification immédiate confirmant que la réservation du cours a été effectuée avec succès.";
+                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textEleve));
+                    }
+                    if($item->role_name === 'professeur')
+                    {
+                        $textProfesseur = "Un éleve ".$Name_Eleve." a réserver votre cours intitulé ".$Cours->title." pour le ".$Days." et ".$Time;
+                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textProfesseur));
+                    }
+                    if($item->role_name === 'Admin')
+                    {
+                        $textAdmin     = "Un élève ".$Name_Eleve." a réservé un cours dans le système pour le ".$Days." et ".$Time;
+                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textAdmin));
+                    }
+                }
+                return redirect()->route('Mescours');
             }
             else
             {

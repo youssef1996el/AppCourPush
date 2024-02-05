@@ -195,35 +195,8 @@
                     </div>
                 </div>
             @endif
-
-
-
         </div>
-
-
     </div>
 </div>
-<script>
-    $(document).ready(function() {
-      adjustTextCenterClass();
 
-      // Call the function on window resize
-      $(window).resize(function() {
-        adjustTextCenterClass();
-      });
-
-      function adjustTextCenterClass() {
-        var screenWidth = $(window).width();
-        var isSmallScreen = screenWidth < 576; // Assuming 'sm' breakpoint is 576 pixels
-
-        if (isSmallScreen) {
-          $('#responsiveDiv').removeClass('text-center');
-          $('#typeCour').css('width','100%');
-          $('#dateCours').css('width','100%');
-        } else {
-          $('#responsiveDiv').addClass('text-center');
-        }
-      }
-    });
-  </script>
 @endsection
