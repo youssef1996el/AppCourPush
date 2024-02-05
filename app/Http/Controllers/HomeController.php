@@ -58,9 +58,6 @@ class HomeController extends Controller
 
     public function Store(Request $request)
     {
-
-
-
         $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
         $path = $request->file('image')->storeAs('images/prof',$fileName,'public');
         $requestDataImage['image'] = '/storage/'.$path;
