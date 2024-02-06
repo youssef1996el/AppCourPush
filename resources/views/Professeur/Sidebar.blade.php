@@ -40,7 +40,7 @@
 
 					<li><a href="{{ url('ShowProfileProf') }}"><i class="fa-solid fa-user-tie"></i>
 					   <span class="theme-item">Profile</span></a></li>
-					<li><a href="{{ url('eleves') }}"><i class="fa-solid fa-users"></i>
+					<li><a href="{{url('MesEleves')}}"><i class="fa-solid fa-users"></i>
 					   <span class="theme-item"> Eleves</span></a></li>
 					<li><a href="{{ url('Cours&Disponibilite') }}"><i class="data-feather theme-item"
 							data-feather="file-text"></i> <span
@@ -48,16 +48,20 @@
 					<li><a href="{{route('InfoProfesseur')}}"><i class="fa-solid fa-user-pen"></i> <span
 							class="theme-item" style="font-size:15px"> Informations personnelles</span></a></li>
 
-					<li><a href="{{route('ExpEduInfos')}}"><i class="fa-solid fa-user-pen"></i> <span
-							class="theme-item"> Education et Experience  </span></a></li>
+					<li>
+                        <a href="{{route('ExpEduInfos')}}">
+                            <i class="fa-solid fa-user-pen"></i>
+                            <span class="theme-item"> Education et Experience</span>
+                        </a>
+                    </li>
 
-					<li><a href="extras.html"><i
-							class="data-feather theme-item" data-feather="globe"></i> <span
-							class="theme-item"> Extras</span></a></li>
+					{{-- <li>
+                        <a href="{{url('MesEleves')}}">
+                            <i class="data-feather theme-item" data-feather="globe"></i>
+                            <span class="theme-item"> Mes éleve</span>
+                        </a>
+                    </li> --}}
 				</ul>
-
-
-
 			</nav>
 
 			<div id="bodywrapper" class="container-fluid showhidetoggle" style="background-image:url('{{asset('image/25099.jpg')}}');background-repeat: no-repeat;background-position:center;background-size:cover">
