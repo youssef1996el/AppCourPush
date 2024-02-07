@@ -54,13 +54,15 @@
                             <span class="theme-item"> Education et Experience</span>
                         </a>
                     </li>
+                    @if ($HasMeeting)
+                        <li>
+                            <a href="{{url('ElevesReserve')}}">
+                                <i class="fa-regular fa-handshake"></i>
+                                <span class="theme-item"> Réunion zoom</span>
+                            </a>
+                        </li>
+                    @endif
 
-					{{-- <li>
-                        <a href="{{url('MesEleves')}}">
-                            <i class="data-feather theme-item" data-feather="globe"></i>
-                            <span class="theme-item"> Mes éleve</span>
-                        </a>
-                    </li> --}}
 				</ul>
 			</nav>
 
@@ -340,10 +342,11 @@
         var urlPatterns = [
             { pattern: 'index.html', index: 0 },
             { pattern: 'ShowProfileProf', index: 1 },
-            { pattern: 'eleves', index: 2 },
+            { pattern: 'MesEleves', index: 2 },
 			{ pattern: 'Cours&Disponibilite', index: 3 },
 			{ pattern: 'InfoProfesseur', index: 4 },
-            { pattern: 'ExpEduInfos', index: 5 }
+            { pattern: 'ExpEduInfos', index: 5 },
+            { pattern: 'ElevesReserve', index: 6 },
         ];
 
         // Determine the active index based on the current URL

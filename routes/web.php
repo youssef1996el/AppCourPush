@@ -75,6 +75,7 @@ Route::get('checkDayIsExiste'       ,[ProfesseurController::class,'CheckDayIsExi
 Route::post('UpDateDisponibleByProf',[ProfesseurController::class,'UpDateDisponibleByProf']);
 Route::post('UpdateInfoProfesseur'  ,[ProfesseurController::class,'UpdateInfoProfesseur']);
 Route::get('MesEleves'              ,[ProfesseurController::class,'MesEleves']);
+Route::get('ElevesReserve'          ,[ProfesseurController::class,'ElevesReserve']);
 Route::get('StepByStep',function()
 {
     return view('Professeur.StepByStep');

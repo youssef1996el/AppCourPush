@@ -5,10 +5,10 @@
     <div class="row ">
         <div class="col-sm-12 col-md-12 col-xl-12">
           <h2 style="padding-left: 12px;font-family: times;">Liste des élèves </h2>
-          <table class="table-primary  align-middle mb-0 bg-white w-100" id="tableListEleve" style="margin-top: 20px;width: 84%;">
+          <table class="table-primary   align-middle mb-0 bg-white w-100" id="tableListEleve" style="margin-top: 20px;width: 84%;">
             <thead class="">
               <tr>
-                <th>Nom</th>
+                <th>Nom complet</th>
                 <th>Email</th>
                 <th>Pays</th>
                 <th>Status</th>
@@ -27,13 +27,13 @@
                             </div>
                         </td>
                         <td>
-                            <p class="text-muted mb-0">{{$item->email}}</p>
+                            <p class="text-muted mb-0 text-center">{{$item->email}}</p>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">{{$item->pays}}</p>
+                            <p class="fw-normal mb-1 text-center">{{$item->pays}}</p>
                         </td>
                         <td>
-                            <span class="">Active</span>
+                            <span class="text-center">Active</span>
                         </td>
                         {{-- <td class="d-flex align-items-end">
                             <button type="button" class="btn btn-link showEleve" data-mdb-ripple-color="dark" data-value={{$item->id}}>

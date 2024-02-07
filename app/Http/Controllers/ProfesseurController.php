@@ -15,6 +15,7 @@ use App\Models\ExperinceProfesseur;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use App\Models\Reserves;
+use Carbon\Carbon;
 class ProfesseurController extends Controller
 {
     public function StepByStep()
@@ -54,19 +55,22 @@ class ProfesseurController extends Controller
 
             $disponibilityByDay[$item1->jour][] = $item1;
         }
-
-       /*  dd($ExperinceProf); */
-
-
+        $HasMeeting = false;
+        $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
+        if($checkHasMeeting > 0)
+        {
+            $HasMeeting = true;
+        }
 
         return view('Profile.show')
-        ->with('FormationProf',$FormationProf)
-        ->with('ExperinceProf',$ExperinceProf)
-        ->with('DisponibleProf',$DisponibleProf)
-        ->with('DataProf',$DataProf)
-        ->with('disponibilityByDay',$disponibilityByDay)
-        ->with('CourProf',$CourProf)
-        ->with('CalculExperince' , $CalculExperince[0]->experince);
+        ->with('FormationProf'          ,$FormationProf)
+        ->with('ExperinceProf'          ,$ExperinceProf)
+        ->with('DisponibleProf'         ,$DisponibleProf)
+        ->with('DataProf'               ,$DataProf)
+        ->with('disponibilityByDay'     ,$disponibilityByDay)
+        ->with('CourProf'               ,$CourProf)
+        ->with('CalculExperince'        ,$CalculExperince[0]->experince)
+        ->with('HasMeeting'             ,$HasMeeting);
     }
 
     public function StoreCoursProf(Request $request)
@@ -161,9 +165,16 @@ class ProfesseurController extends Controller
 
     public function InfoProfesseur()
     {
+        $HasMeeting = false;
+        $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
+        if($checkHasMeeting > 0)
+        {
+            $HasMeeting = true;
+        }
         $DataProfesseur = User::where('id',Auth::user()->id)->get();
         return view('Professeur.InfoProfesseur')
-        ->with('DataProfesseur',$DataProfesseur[0]);
+        ->with('DataProfesseur',$DataProfesseur[0])
+        ->with('HasMeeting',$HasMeeting);
     }
 
     public function GetPriceGroupeOrPrive()
@@ -184,11 +195,18 @@ class ProfesseurController extends Controller
         $country_arr = ["Afghanistan", "Albania", "Algeria", "American Samoa", "Angola", "Anguilla", "Antartica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Ashmore and Cartier Island", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Clipperton Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czeck Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Europa Island", "Falkland Islands (Islas Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern and Antarctic Lands", "Gabon", "Gambia, The", "Gaza Strip", "Georgia", "Germany", "Ghana", "Gibraltar", "Glorioso Islands", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard Island and McDonald Islands", "Holy See (Vatican City)", "Honduras", "Hong Kong", "Howland Island", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Ireland, Northern", "Israel", "Italy", "Jamaica", "Jan Mayen", "Japan", "Jarvis Island", "Jersey", "Johnston Atoll", "Jordan", "Juan de Nova Island", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Man, Isle of", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Midway Islands", "Moldova", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcaim Islands", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romainia", "Russia", "Rwanda", "Saint Helena", "Saint Kitts and Nevis", "Saint Lucia", "Saint Pierre and Miquelon", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Scotland", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and South Sandwich Islands", "Spain", "Spratly Islands", "Sri Lanka", "Sudan", "Suriname", "Svalbard", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Tobago", "Toga", "Tokelau", "Tonga", "Trinidad", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands", "Wales", "Wallis and Futuna", "West Bank", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe"];
         $idFormation = implode(',',$Formation->pluck('id')->toArray());
         $idExperince = implode(',',$Experince->pluck('id')->toArray());
+        $HasMeeting = false;
+        $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
+        if($checkHasMeeting > 0)
+        {
+            $HasMeeting = true;
+        }
         return view('Professeur.ExpEduInfos')
         ->with('Formation',$Formation)
         ->with('Experince',$Experince)
         ->with('idFormation',$idFormation)
         ->with('idExperince',$idExperince)
+        ->with('HasMeeting',$HasMeeting)
         ->with('country_arr',$country_arr);
     }
 
@@ -226,9 +244,15 @@ class ProfesseurController extends Controller
         ->where('courprof.iduser',Auth::user()->id)
         ->select('cours.id','cours.title')
         ->get();
-
+        $HasMeeting = false;
+        $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
+        if($checkHasMeeting > 0)
+        {
+            $HasMeeting = true;
+        }
         return view('Professeur.CoursDispo')
             ->with('disponibilityByDay',$disponibilityByDay)
+            ->with('HasMeeting',$HasMeeting)
             ->with('cours',$dataCoursProf);
 
     }
@@ -632,8 +656,96 @@ class ProfesseurController extends Controller
                 $user->pays = 'Unknown';
             }
         }
+        $HasMeeting = false;
+        $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
+        if($checkHasMeeting > 0)
+        {
+            $HasMeeting = true;
+        }
         return view('Professeur.MesEleves')
+        ->with('HasMeeting',$HasMeeting)
         ->with('MesEleves',$DataEleves);
+    }
+
+    public function ElevesReserve()
+    {
+        // Extract my name professeur
+        $myName = Auth::user()->name;
+
+        // Extract Eleves Reserve Cours with my name
+        $Reserve = DB::table('reserves')
+                    ->join('cours','reserves.idcours','=','cours.id')
+                    ->select('reserves.times','reserves.typecours','reserves.days','cours.title','reserves.nom_eleve','reserves.nom_professeur')
+                    ->get();
+
+
+        // Extract name eleves and email
+        $DataEleves = User::where('role_name','eleve')->get();
+
+        foreach($Reserve as $item)
+        {
+            foreach($DataEleves as $item1)
+            {
+                if($item->nom_eleve === $item1->name)
+                {
+                    $item->email = $item1->email;
+                }
+            }
+        }
+
+        $AddFinAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id and d.iduser = ?",
+                            [Auth::user()->id]);
+        foreach ($Reserve as &$cours) {
+            foreach ($AddFinAndTimeZone as $info) {
+                if (
+                    $cours->title == $info->title &&
+                    $cours->nom_professeur == $info->name &&
+                    $cours->times == $info->debut &&
+                    $cours->typecours == $info->typecours
+                ) {
+                    $cours->fin = $info->fin;
+                    $cours->timezone = $info->timezone;
+                }
+            }
+        }
+        // Make Array List days convert from english to franch
+        $translations = [
+            'Monday' => 'Lundi',
+            'Tuesday' => 'Mardi',
+            'Wednesday' => 'Mercredi',
+            'Thursday' => 'Jeudi',
+            'Friday' => 'Vendredi',
+            'Saturday' => 'Samedi',
+            'Sunday' => 'Dimanche',
+        ];
+        // Extract name Today english
+        $Today = Carbon::now()->format('l');
+        // Convert From English to franch use Variable translations
+        $nameFrench = isset($translations[$Today]) ? $translations[$Today] : '';
+
+        // Add Att in variable reserve is has today meet or no
+        foreach($Reserve as $item)
+        {
+            if($item->days === $nameFrench)
+            {
+                $item->hasCours = true;
+            }
+            else
+            {
+                $item->hasCours = false;
+            }
+        }
+
+
+        $HasMeeting = false;
+        $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
+        if($checkHasMeeting > 0)
+        {
+            $HasMeeting = true;
+        }
+        return view('Professeur.Meeting')
+        ->with('ElevesMeeting',$Reserve)
+        ->with('HasMeeting',$HasMeeting);
     }
 
 
