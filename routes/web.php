@@ -15,6 +15,7 @@ use App\http\Controllers\AdminController;
 use Vinkla\Hashids\Facades\Hashids;
 use App\Models\Cours;
 use App\http\Controllers\StripeController;
+use App\http\Controllers\Online_ClassesController;
 
 
 
@@ -75,7 +76,8 @@ Route::get('checkDayIsExiste'       ,[ProfesseurController::class,'CheckDayIsExi
 Route::post('UpDateDisponibleByProf',[ProfesseurController::class,'UpDateDisponibleByProf']);
 Route::post('UpdateInfoProfesseur'  ,[ProfesseurController::class,'UpdateInfoProfesseur']);
 Route::get('MesEleves'              ,[ProfesseurController::class,'MesEleves']);
-Route::get('ElevesReserve'          ,[ProfesseurController::class,'ElevesReserve']);
+Route::get('ElevesReserve'          ,[ProfesseurController::class,'ElevesReserve'])->name('ElevesReserve');
+Route::post('SendLinkMeet'          ,[ProfesseurController::class,'SendLinkToEleves']);
 Route::get('StepByStep',function()
 {
     return view('Professeur.StepByStep');
@@ -128,6 +130,11 @@ Route::post('UpDateAdmin'             ,[AdminController::class,'UpDateAdmin']);
 Route::get('Acount/store/checkout/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{Nomber}/{Montant}',[StripeController::class,'index']);
 Route::post('PostStripe'                                                                         ,[StripeController::class,'StripePost'])->name('stripe.post');
 /********************************************* End Stripe **************************************************/
+
+
+/********************************************* Start Online_Classes ***************************************/
+Route::resource('online_Classes', Online_ClassesController::class);
+/********************************************* End Online_Classes   ***************************************/
 Route::get('/prof/{name}/{id}',function()
 {
     return view('Profile.index');

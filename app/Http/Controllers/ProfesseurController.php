@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use App\Models\Reserves;
 use Carbon\Carbon;
+use App\Mail\SendLinkMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 class ProfesseurController extends Controller
 {
     public function StepByStep()
@@ -735,7 +738,9 @@ class ProfesseurController extends Controller
                 $item->hasCours = false;
             }
         }
+        $sortedReserve = $Reserve->sortByDesc('hasCours');
 
+       /*  dd($sortedReserve); */
 
         $HasMeeting = false;
         $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
@@ -744,8 +749,56 @@ class ProfesseurController extends Controller
             $HasMeeting = true;
         }
         return view('Professeur.Meeting')
-        ->with('ElevesMeeting',$Reserve)
+        ->with('ElevesMeeting',$sortedReserve)
         ->with('HasMeeting',$HasMeeting);
+    }
+
+    public function SendLinkToEleves(Request $request)
+    {
+        try
+        {
+            //Extract Email Eleves
+            $emails = [];
+            foreach ($request->input('Data') as $data)
+            {
+                $emails[] = $data['Email'];
+            }
+
+            // Remove duplicate email addresses
+            $uniqueEmails = array_unique($emails);
+            // Extract id eleves send link in notfication website
+            $IdEleve = [];
+            foreach($request->input('Data') as $data)
+            {
+                $Eleves = User::where('email', $data['Email'])->select()->get();
+                foreach($Eleves as $item)
+                {
+                    $IdEleve[] = $item->id;
+                }
+            }
+            // variable $recipients == email eleves
+            $recipients = $uniqueEmails;
+
+            // Extract link meeting
+            $meetingLink = $request['link'];
+
+            //Send To Email using $recipients
+            Mail::send('email.Send',['meetingLink' => $meetingLink], function ($message) use ($recipients) {
+                $message->to($recipients)
+                        ->subject('Here is the link to our meeting');
+            });
+
+            return response()->json([
+                'status'  => 200,
+                'message' => 'Réunion envoyée avec succès',
+            ]);
+
+
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
     }
 
 
