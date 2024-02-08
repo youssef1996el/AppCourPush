@@ -452,6 +452,11 @@
                 }
             });
             var linkMeetValue = $('.LinkMeet').val();
+            if(linkMeetValue == '')
+            {
+                // diri hna hadak belan border yawli b hamar deyal input
+                return;
+            }
             $.ajax({
                 type: "post",
                 url: "{{url('SendLinkMeet')}}",
@@ -471,6 +476,7 @@
                 {
                     if(response.status == 200)
                     {
+                        $('.SelectedEleve').prop('checked', false);
                         $('#ModalEnvoyeLink').modal('hide');
 
                         $('#overlay').fadeOut();
