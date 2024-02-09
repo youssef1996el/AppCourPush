@@ -19,6 +19,8 @@ use Carbon\Carbon;
 use App\Mail\SendLinkMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use App\Notifications\SendLinkMeetNotification;
+use Illuminate\Support\Facades\Notification;
 class ProfesseurController extends Controller
 {
     public function StepByStep()
@@ -740,7 +742,7 @@ class ProfesseurController extends Controller
         }
         $sortedReserve = $Reserve->sortByDesc('hasCours');
 
-       /*  dd($sortedReserve); */
+      /*   dd($sortedReserve); */
 
         $HasMeeting = false;
         $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
@@ -757,15 +759,7 @@ class ProfesseurController extends Controller
     {
         try
         {
-            //Extract Email Eleves
-            $emails = [];
-            foreach ($request->input('Data') as $data)
-            {
-                $emails[] = $data['Email'];
-            }
 
-            // Remove duplicate email addresses
-            $uniqueEmails = array_unique($emails);
             // Extract id eleves send link in notfication website
             $IdEleve = [];
             foreach($request->input('Data') as $data)
@@ -776,17 +770,41 @@ class ProfesseurController extends Controller
                     $IdEleve[] = $item->id;
                 }
             }
-            // variable $recipients == email eleves
-            $recipients = $uniqueEmails;
+            // make code send notification to eleve in website
+            $uniqueIdEleve = array_unique($IdEleve);
+            // Extract Eleves
+            $DataEleves = [];
+            foreach($uniqueIdEleve as $item)
+            {
+                $DataEleves = DB::table('users')->where('role_name','eleve')->where('id',$item)->get();
+            }
 
             // Extract link meeting
             $meetingLink = $request['link'];
 
-            //Send To Email using $recipients
-            Mail::send('email.Send',['meetingLink' => $meetingLink], function ($message) use ($recipients) {
-                $message->to($recipients)
-                        ->subject('Here is the link to our meeting');
-            });
+            foreach($DataEleves as $item)
+            {
+                $userModel = User::find($item->id);
+                $textEleve = "Vous avez rendez-vous avec le Professeur ".$request['Data'][0]['nom_professeur']." pour le cours de ".$request['Data'][0]['title'].".
+                              Veuillez cliquer sur le lien suivant pour rejoindre la réunion avec le professeur: <a href='".$meetingLink."' target='_blank'>lien de réunion</a>.";
+                Notification::send($userModel,new SendLinkMeetNotification(Auth::user()->id,$textEleve));
+
+                // Send Notification to Email
+                Mail::send('email.Send',
+                                        [
+                                            'meetingLink' => $meetingLink,
+                                            'name_eleve'  => $item->name,
+                                            'Debut'       => $request['Data'][0]['debut'],
+                                            'Cours'       => $request['Data'][0]['title'],
+                                            'EmailProf'   => Auth::user()->email,
+                                        ],
+                                        function ($message) use ($item)
+                                        {
+                                            $message->to($item->email)
+                                                    ->subject('Invitation à rejoindre une session de classe virtuelle');
+                                        });
+            }
+
 
             return response()->json([
                 'status'  => 200,

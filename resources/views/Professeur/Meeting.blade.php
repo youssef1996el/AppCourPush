@@ -67,7 +67,7 @@
                         </td>
                         <td>
 
-                            <input type="checkbox" value="{{$item->email}}" class="SelectedEleve" {{$item->hasCours == false ? 'disabled' : ''}}>
+                            <input type="checkbox" value="{{$item->email}}" data-value="{{$item->nom_professeur}}" class="SelectedEleve" {{$item->hasCours == false ? 'disabled' : ''}}>
                         </td>
                     </tr>
                 @endforeach
@@ -437,16 +437,17 @@
                     var endTime = parseTime($row.find('.fin').text().trim());
                     var timeDiffInMinutes = calculateTimeDifference(startTime, endTime);
                     var rowData = {
-                        nom_eleve: $row.find('.nom_eleve').text().trim(),
-                        title: $row.find('.title').text().trim(),
-                        typecours: $row.find('.typecours').text().trim(),
-                        days: $row.find('.days').text().trim(),
-                        times: startTime,
-                        debut : $row.find('.times').text().trim(),
-                        fin: $row.find('.fin').text().trim(),
-                        differenceInMinutes: timeDiffInMinutes,
-                        timezone: $row.find('.timezone').text().trim(),
-                        Email : $(this).attr('value'),
+                        nom_eleve           : $row.find('.nom_eleve').text().trim(),
+                        title               : $row.find('.title').text().trim(),
+                        typecours           : $row.find('.typecours').text().trim(),
+                        days                : $row.find('.days').text().trim(),
+                        times               : startTime,
+                        debut               : $row.find('.times').text().trim(),
+                        fin                 : $row.find('.fin').text().trim(),
+                        differenceInMinutes : timeDiffInMinutes,
+                        timezone            : $row.find('.timezone').text().trim(),
+                        Email               : $(this).attr('value'),
+                        nom_professeur      : $(this).attr('data-value'),
                     };
                     selectedRows.push(rowData);
                 }
@@ -469,8 +470,8 @@
                 dataType: "json",
                 beforeSend: function () {
                     // Show overlay with loading animation
-                    $('#overlay').fadeIn();
-                    $('#overlay').css('display','flex');
+                   /*  $('#overlay').fadeIn();
+                    $('#overlay').css('display','flex'); */
                 },
                 success: function (response)
                 {

@@ -224,54 +224,54 @@
 </button>
 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
 <div class="dropdown-menu-header">
-<div class="dropdown-menu-header-inner bg-plum-plate">
+{{-- <div class="dropdown-menu-header-inner bg-plum-plate">
 <div class="menu-header-image" style="background-image: url('assets/images/dropdown-header/abstract4.jpg');"></div>
 <div class="menu-header-content text-white">
 <h5 class="menu-header-title">Grid Dashboard</h5>
 <h6 class="menu-header-subtitle">Easy grid navigation inside dropdowns</h6>
 </div>
-</div>
+</div> --}}
 </div>
 <div class="grid-menu grid-menu-xl grid-menu-3col">
 <div class="no-gutters row">
-<div class="col-sm-6 col-xl-4">
+{{-- <div class="col-sm-6 col-xl-4">
 <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
 <i class="pe-7s-world icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"></i> Automation
 </button>
-</div>
-<div class="col-sm-6 col-xl-4">
+</div> --}}
+{{-- <div class="col-sm-6 col-xl-4">
 <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
 <i class="pe-7s-piggy icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i> Reports
 </button>
-</div>
-<div class="col-sm-6 col-xl-4">
+</div> --}}
+{{-- <div class="col-sm-6 col-xl-4">
 <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
 <i class="pe-7s-config icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i> Settings
 </button>
-</div>
-<div class="col-sm-6 col-xl-4">
+</div> --}}
+{{-- <div class="col-sm-6 col-xl-4">
 <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
 <i class="pe-7s-browser icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i> Content
 </button>
-</div>
-<div class="col-sm-6 col-xl-4">
+</div> --}}
+{{-- <div class="col-sm-6 col-xl-4">
 <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
 <i class="pe-7s-hourglass icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"></i> Activity
 </button>
-</div>
-<div class="col-sm-6 col-xl-4">
+</div> --}}
+{{-- <div class="col-sm-6 col-xl-4">
 <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
 <i class="pe-7s-world icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3"> </i> Contacts
 </button>
+</div> --}}
 </div>
 </div>
-</div>
-<ul class="nav flex-column">
+{{-- <ul class="nav flex-column">
 <li class="nav-item-divider nav-item"></li>
 <li class="nav-item-btn text-center nav-item">
 <button class="btn-shadow btn btn-primary btn-sm">Follow-ups</button>
 </li>
-</ul>
+</ul> --}}
 </div>
 </div>
 <div class="dropdown">
@@ -303,11 +303,11 @@
 <span>Events</span>
 </a>
 </li>
-<li class="nav-item">
+{{-- <li class="nav-item">
 <a role="tab" class="nav-link" data-toggle="tab" href="#tab-errors-header">
 <span>System Errors</span>
 </a>
-</li>
+</li> --}}
 </ul>
 <div class="tab-content">
 <div class="tab-pane active" id="tab-messages-header" role="tabpanel">
@@ -564,7 +564,7 @@ labore et dolore magna elit enim at minim veniam quis nostrud
 </div>
 </div>
 </div>
-<div class="tab-pane" id="tab-errors-header" role="tabpanel">
+{{-- <div class="tab-pane" id="tab-errors-header" role="tabpanel">
 <div class="scroll-area-sm">
 <div class="scrollbar-container">
 <div class="no-results pt-3 pb-0">
@@ -581,7 +581,7 @@ labore et dolore magna elit enim at minim veniam quis nostrud
 </div>
 </div>
 </div>
-</div>
+</div> --}}
 </div>
 <ul class="nav flex-column">
 <li class="nav-item-divider nav-item"></li>
@@ -710,36 +710,10 @@ Profile views since last login
 </div>
 </div>
 </div>
-<div class="scroll-area-xs" style="height: 150px;">
-<div class="scrollbar-container ps">
 
-</div>
-</div>
-<ul class="nav flex-column">
-<li class="nav-item-divider mb-0 nav-item"></li>
-</ul>
-<div class="grid-menu grid-menu-2col">
-<div class="no-gutters row">
-<div class="col-sm-6">
-<button class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning">
-<i class="pe-7s-chat icon-gradient bg-amy-crisp btn-icon-wrapper mb-2"></i> Message Inbox
-</button>
-</div>
-<div class="col-sm-6">
-<button class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger">
-<i class="pe-7s-ticket icon-gradient bg-love-kiss btn-icon-wrapper mb-2"></i>
-<b>Support Tickets</b>
-</button>
-</div>
-</div>
-</div>
-<ul class="nav flex-column">
-<li class="nav-item-divider nav-item">
-</li>
-<li class="nav-item-btn text-center nav-item">
-<button class="btn-wide btn btn-primary btn-sm"> Open Messages </button>
-</li>
-</ul>
+
+
+
 </div>
 </div>
 </div>
