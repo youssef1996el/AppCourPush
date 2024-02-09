@@ -169,6 +169,10 @@ Route::get('Dashboard/cours',function()
     return view('Dashboard.cours');
 });
 
+Route::get('Dashboard/template',function()
+{
+    return view('Dashboard.templateAdmin');
+});
 
 
 
