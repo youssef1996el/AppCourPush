@@ -25,9 +25,9 @@
             .badge {
             --bs-badge-padding-x: -1.35em;
             }
-            .btn-link {
+            /* .btn-link {
                 --bs-btn-color: transparent;
-            }
+            } */
         </style>
     </head>
     <body>
@@ -37,7 +37,7 @@
         <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
-                    <div class="logo-src"></div>
+                    <div class="logo-src">{{ config('app.name', 'APPSoutien') }}</div>
                         <div class="header__pane ml-auto">
                             <div>
                                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -793,8 +793,8 @@ Restore Default
     var urlPatterns = [
             { pattern: 'index.html', index: 0 },
             { pattern: 'Admin/Profile', index: 1 },
-            { pattern: 'professeurs', index: 2 },
-            { pattern: 'eleves', index: 3 },
+            { pattern: 'professeurs', index: 3 },
+            { pattern: 'eleves', index: 4 },
             { pattern: 'CoursPaiement', index: 5 }
         ];
         var activeIndex = 0; // Default to the first item
