@@ -699,12 +699,12 @@ Restore Default
                             <ul>
                                 <li>
                                     <a href="{{ url('professeurs') }}">
-                                        <i class="fa-solid fa-user-tie"></i> <span> Professeur </span>
+                                        <i class="fa-solid fa-user-tie"></i> <span class="iconS">Professeur </span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('eleves') }}">
-                                        <i class="fa-solid fa-users "></i> <span>  Eleves </span>
+                                        <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>  
                                     </a>
                                 </li>
                             </ul>
