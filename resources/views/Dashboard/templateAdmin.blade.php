@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
         <meta name="description" content="This is an example dashboard created using build-in elements and components.">
         <link rel="stylesheet" href="{{asset('css/templateAdmin.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
         <meta name="msapplication-tap-highlight" content="no">
     </head>
     <body>
@@ -44,7 +45,7 @@
                                 </span>
                             </button>
                         </span>
-                    </div> 
+                    </div>
                     <div class="app-header__content">
                         <div class="app-header-right">
                             <div class="header-dots">
@@ -52,7 +53,8 @@
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
                                         <span class="icon-wrapper icon-wrapper-alt rounded-circle">
                                             <span class="icon-wrapper-bg bg-danger"></span>
-                                                <i class="icon text-danger icon-anim-pulse ion-android-notifications"></i>
+                                                <i class="fa-regular fa-bell text-danger"></i>
+                                                {{-- <i class="icon text-danger icon-anim-pulse ion-android-notifications"></i> --}}
                                             <span class="badge badge-dot badge-dot-sm badge-danger">Notifications</span>
                                         </span>
                                     </button>
@@ -596,7 +598,7 @@ Restore Default
 </div>
 </div>
 </div>
-</div> 
+</div>
     <div class="app-main">
         <div class="app-sidebar sidebar-shadow">
             <div class="app-header__logo">
@@ -628,7 +630,7 @@ Restore Default
                         </span>
                     </button>
                 </span>
-            </div> 
+            </div>
             <div class="scrollbar-sidebar">
                 <div class="app-sidebar__inner">
                     <ul class="vertical-nav-menu">
@@ -679,7 +681,7 @@ Restore Default
                                 <i class="metismenu-icon pe-7s-rocket"></i>Dashboards
                                 <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                             </a>
-                           
+
                         </li>
                     </ul>
                 </div>
@@ -691,7 +693,7 @@ Restore Default
             <div class="app-main__inner">
             @yield('navsidebar')
         </main>
-            
+
 
                 <!-- <div class="app-page-title">
                     <div class="page-title-wrapper">
@@ -703,7 +705,7 @@ Restore Default
                                 <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.</div>
                             </div>
                         </div>
-                    </div>                 
+                    </div>
                 </div> -->
           <!--       <div class="tabs-animation">
                     <div class="card text-left">
@@ -714,7 +716,7 @@ Restore Default
                       </div>
                     </div>
                 <div> -->
-            </div>  
+            </div>
         </div>
     </div>
 
