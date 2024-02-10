@@ -322,7 +322,6 @@
 
 
         <main class="py-4" >
-            @yield('navsidebar')
         </main>
 
 
