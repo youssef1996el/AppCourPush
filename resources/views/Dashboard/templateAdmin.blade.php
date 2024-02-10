@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Content-Language" content="en">
@@ -694,7 +694,7 @@ Restore Default
                             <a href="#">
                                 <i class="fa-solid fa-rocket metismenu-icon "></i>Liste des utilisateurs
                                 <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
-                               
+
                             </a>
                             <ul>
                                 <li>

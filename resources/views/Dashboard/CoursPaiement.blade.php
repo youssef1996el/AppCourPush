@@ -62,10 +62,38 @@
 
                             </div>
                         </div>
-                            
-                    </div> 
-                </div>        
+
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="card-prix">
+            <div class="header">
+                <span class="title">Cours particulier</span>
+                <span class="PricePrive"></span>
+            </div>
+            <p class="desc">Cours personnalisé avec une attention individuelle. Idéal pour ceux qui préfèrent un apprentissage sur mesure.</p>
+            <ul class="lists">
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Enseignement adapté</span>
+                </li>
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>4 élèves maximum</span>
+                </li>
+                <li class="list">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Flexibilité d'horaire</span>
+                </li>
+            </ul>
+            <button type="button" class="action" onclick="window.location='{{ url('/Account/store/checkout') }}'">Commencer</button>
         </div>
         {{-- Modal Add Prix --}}
         <div class="modal fade" id="ModalAddPrix" aria-labelledby="settingsModalTitle" aria-hidden="true" tabindex="-1">
@@ -96,18 +124,18 @@
                                     </div>
                                </div>
                             </div>
-                            <button class="Send mt-4" >                             
+                            <button class="Send mt-4" >
                                 <span >valider</span>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
-       
-        
-    
+
+
+
 
         {{-- Modal edit Prix --}}
         <div class="modal fade" id="ModalEditPrix" aria-labelledby="settingsModalTitle" aria-hidden="true" tabindex="-1">
@@ -153,5 +181,91 @@
         var urlGetTypeCours = "{{url('GetTypeCours')}}";
         var urlUpdateData   = "{{url('UpdateDataTypeCourse')}}";
     </script>
+
+    <style>
+        .card-prix {
+    margin-left:18px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-bottom: 2rem;
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.25rem;
+    background-color: rgb(17, 52, 83);
+    padding: 1.5rem;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: #fff
+  }
+
+  .PricePrive , .PriceGroupe {
+    font-size: 3.75rem;
+    line-height: 1;
+    font-weight: 700;
+    color: #fff
+  }
+
+  .desc {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.625;
+    color: rgba(156, 163, 175, 1);
+  }
+  .lists {
+      margin-bottom: 1.5rem;
+    flex: 1 1 0%;
+    color: rgba(156, 163, 175, 1);
+    margin-left: -35px;
+    margin-top: 1rem;
+
+  }
+
+  .lists .list {
+    margin-bottom: 0.5rem;
+    display: flex;
+    margin-left: 0.5rem
+  }
+
+  .lists .list svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    color: rgb(56, 138, 210);
+  }
+
+  .action {
+    border: none;
+    outline: none;
+    display: inline-block;
+    border-radius: 0.25rem;
+    background-color: rgb(56, 138, 210);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: white;
+  }
+
+  .text-p{
+    font-style: oblique;
+    font-weight: bold;
+    color: rgb(8, 30, 57);
+    font-size: 16px;
+  }
+    </style>
 
 @endsection
