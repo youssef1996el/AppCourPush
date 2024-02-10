@@ -8,14 +8,14 @@
         }
         .countryDropdown{
             border-bottom: 1px solid #999;
-  border: none none gray none;
-  border-left: none;
-  border-right: none;
-  border-top: none;
+            border: none none gray none;
+            border-left: none;
+            border-right: none;
+            border-top: none;
         }
         .picture-src{
             width: 160px;
-  height: 160px;
+            height: 160px;
 
         }
 
@@ -33,7 +33,7 @@
         }
 
 
-        .picture-container {
+.picture-container {
   position: relative;
   cursor: pointer;
   text-align: center;

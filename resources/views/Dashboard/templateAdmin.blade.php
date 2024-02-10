@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
     <head>
+        
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Content-Language" content="en">
@@ -11,6 +12,8 @@
         <meta name="description" content="This is an example dashboard created using build-in elements and components.">
         <link rel="stylesheet" href="{{asset('css/templateAdmin.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
         <meta name="msapplication-tap-highlight" content="no">
     </head>
     <body>
@@ -676,18 +679,18 @@ Restore Default
                                 </li>
                             </ul>
                         </li> -->
-                        <li class="mm-active">
+                        <li class="mm-active mb-2">
                             <a href="{{url('Admin/Dashboard')}}">
                                 <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
                             </a>
                         </li>
-                        <li>
+                        <li class="mb-2">
                             <a href="{{url('Admin/Profile')}}">
                                 <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
                             </a>
 
                         </li>
-                        <li>
+                        <li class="mb-2">
                             <a href="#">
                                 <i class="fa-solid fa-rocket metismenu-icon "></i>Liste des utilisateurs
                                 <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
@@ -707,8 +710,8 @@ Restore Default
                             </ul>
 
                         </li>
-                        <li>
-                            <a href="#">
+                        <li class="mb-2">
+                            <a href="{{url('CoursPaiement')}}">
                                 <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
                             </a>
 

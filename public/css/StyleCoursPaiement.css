@@ -8,13 +8,7 @@
        *{
     font-family: times;
   }
-.container{
-    background-color: #ffffff63;
-    padding: 20px 30px 42px 20px;
-    width: 950px;
-    border-radius: 14px;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  }
+
 
 
     
@@ -126,6 +120,47 @@
   padding: 6px 14px;
 }
 
-.cardType{
-  padding: 40px 152px 10px 152px;
+.card-title{
+  font-size: 26px;
+  text-align: center;
+  
+  font-weight: bold;
+  margin: 12px auto;
 }
+.container{
+  width: 900px;
+  margin: 20px auto;
+  padding: 0px;
+}
+.card {
+
+  background-color: #ffffff63;
+  border-radius: 5px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    .cards {
+      margin: auto 38px;
+  }
+}
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+

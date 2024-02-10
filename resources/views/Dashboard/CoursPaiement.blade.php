@@ -4,7 +4,7 @@
 <script src="{{asset('js/ScriptCoursPaiement.js')}}"></script>
 
     <div class="container mt-4">
-        <div class="row" style="  margin-top: 20px;">
+        <!-- <div class="row" style="  margin-top: 20px;">
             <div class="col sm-12 col-md-6 col-xl-6">
                 <h2 style="padding-left: 12px;font-family: times;">Cours de paiement </h2>
             </div>
@@ -34,6 +34,37 @@
 
                     </div>
                 </div>
+            </div>
+        </div> -->
+        <div class="card " style=" background-color: #ffffff63;">
+            <div class="card-body">
+                <h4 class="card-title mb-5">Cours de paiement</h4>
+                <div class="row">
+                    <div class="buttonPrice">
+                            <button class="btn" id="BtnAddPrixCours" data-bs-toggle="modal" data-bs-target="#ModalAddPrix">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
+                                </svg>
+                                <span style="font-size:16px">Ajouter le prix du cours </span>
+                            </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cards">
+                        <div class="col-sm-12 col-md-6 col-xl-6">
+                            <div class="card-item CardTypeGroupe">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-xl-6">
+                            <div class="card-item CardTypePrive">
+
+                            </div>
+                        </div>
+                            
+                    </div> 
+                </div>        
             </div>
         </div>
         {{-- Modal Add Prix --}}
@@ -72,7 +103,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
+
+       
+        
+    
+
         {{-- Modal edit Prix --}}
         <div class="modal fade" id="ModalEditPrix" aria-labelledby="settingsModalTitle" aria-hidden="true" tabindex="-1">
             <div class="modal-dialog modal-dialog-settings modal-l">

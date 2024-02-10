@@ -2,12 +2,16 @@
     font-family: times;
   }
 .container{
-    background-color: #ffffff63;
-    padding: 20px 30px 42px 20px;
-    width: 950px;
-    border-radius: 14px;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  }
+  width: 900px;
+  margin: 20px auto;
+  padding: 0px;
+ }
+ .card{
+  background-color: #ffffff63;
+  border-radius: 5px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+ }
 
   thead{
     background-color: #74a8d5;
@@ -842,4 +846,49 @@
   display: flex;
   flex-direction: column;
   padding: 14px 8px 12px 8px;
+}
+
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+  }
+}
+.cardProfileEleve  form {
+  padding: 20px;
+}
+
+.cardProfileEleve  .form-group {
+margin-bottom: 15px;
+}
+
+.cardProfileEleve label {
+display: block;
+margin-bottom: 5px;
+}
+
+.cardProfileEleve input {
+width: 100%;
+padding: 8px;
+box-sizing: border-box;
+}
+.cardProfileEleve  img {
+width: 120px;
+height: 120px;
+text-align: center;
+margin: auto;
+margin-bottom: auto;
+display: flex;
+border-radius: 50%;
+margin-bottom: 20px;}
+
+.card-title{
+  font-size: 26px;
+  text-align: center;
+  
+  font-weight: bold;
+  margin: 12px auto;
+}
+
+#tableListEleve_filter input{
+  margin-right: 27.5em !important;
 }
