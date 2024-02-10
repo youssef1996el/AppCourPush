@@ -116,34 +116,34 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-<div class="vertical-timeline-item dot-warning vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in"></span>
-<div class="vertical-timeline-element-content bounce-in">
-<p>Yet another one, at <span class="text-success">15:00 PM</span></p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item dot-success vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in"></span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">Build the production release
-<span class="badge badge-danger ml-2">NEW</span>
-</h4>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item dot-primary vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in"></span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">Something not important
-<div class="avatar-wrapper mt-2 avatar-wrapper-overlap">
-<div class="avatar-icon-wrapper avatar-icon-sm">
-<div class="avatar-icon">
+                                                                    <div class="vertical-timeline-item dot-warning vertical-timeline-element">
+                                                                        <div>
+                                                                            <span class="vertical-timeline-element-icon bounce-in"></span>
+                                                                            <div class="vertical-timeline-element-content bounce-in">
+                                                                                <p>Yet another one, at <span class="text-success">15:00 PM</span></p>
+                                                                                <span class="vertical-timeline-element-date"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="vertical-timeline-item dot-success vertical-timeline-element">
+                                                                        <div>
+                                                                            <span class="vertical-timeline-element-icon bounce-in"></span>
+                                                                            <div class="vertical-timeline-element-content bounce-in">
+                                                                                <h4 class="timeline-title">Build the production release
+                                                                                    <span class="badge badge-danger ml-2">NEW</span>
+                                                                                </h4>
+                                                                                <span class="vertical-timeline-element-date"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="vertical-timeline-item dot-primary vertical-timeline-element">
+                                                                        <div>
+                                                                            <span class="vertical-timeline-element-icon bounce-in"></span>
+                                                                                <div class="vertical-timeline-element-content bounce-in">
+                                                                                    <h4 class="timeline-title">Something not important
+                                                                                    <div class="avatar-wrapper mt-2 avatar-wrapper-overlap">
+                                                                                        <div class="avatar-icon-wrapper avatar-icon-sm">
+                                                                                            <div class="avatar-icon">
 {{-- <img src="assets/images/avatars/1.jpg" alt> --}}
 </div>
 </div>
