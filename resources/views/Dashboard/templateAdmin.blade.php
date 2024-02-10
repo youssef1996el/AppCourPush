@@ -389,8 +389,8 @@ labore et dolore magna elit enim at minim veniam quis nostrud
                                                 <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
                                             </div>
                                             <div class="widget-content-left">
-                                                <div class="widget-heading">Alina Mcloughlin</div>
-                                                <div class="widget-subheading opacity-8">A short profile description</div>
+                                                <div class="widget-heading">{{ Auth::user()->name}}</div>
+                                                <div class="widget-subheading opacity-8">{{ Auth::user()->title}}</div>
                                             </div>
                                             <div class="widget-content-right mr-2">
                                                 <button class="btn-pill btn-shadow btn-shine btn btn-focus">Logout</button>
@@ -404,8 +404,8 @@ labore et dolore magna elit enim at minim veniam quis nostrud
                 </div>
             </div>
             <div class="widget-content-left  ml-3 header-user-info">
-                <div class="widget-heading"> Alina Mclourd </div>
-                <div class="widget-subheading"> VP People Manager </div>
+                <div class="widget-heading"> {{ Auth::user()->name}}</div>
+                <div class="widget-subheading"> {{ Auth::user()->title}} </div>
             </div>
             <div class="widget-content-right header-user-info ml-3">
                 <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
