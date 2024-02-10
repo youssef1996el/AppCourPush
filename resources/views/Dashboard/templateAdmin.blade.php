@@ -12,11 +12,28 @@
         <meta name="description" content="This is an example dashboard created using build-in elements and components.">
         <link rel="stylesheet" href="{{asset('css/templateAdmin.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
         <meta name="msapplication-tap-highlight" content="no">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <style>
+            .modal-backdrop {
+                --bs-backdrop-zindex: unset;
+            }
+            .btn .badge {
+                position: absolute !important;
+            }
+            .badge {
+            --bs-badge-padding-x: -1.35em;
+            }
+            .btn-link {
+                --bs-btn-color: transparent;
+            }
+        </style>
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
@@ -127,42 +144,42 @@
 <div class="avatar-wrapper mt-2 avatar-wrapper-overlap">
 <div class="avatar-icon-wrapper avatar-icon-sm">
 <div class="avatar-icon">
-<img src="assets/images/avatars/1.jpg" alt>
+{{-- <img src="assets/images/avatars/1.jpg" alt> --}}
 </div>
 </div>
 <div class="avatar-icon-wrapper avatar-icon-sm">
 <div class="avatar-icon">
-<img src="assets/images/avatars/2.jpg" alt>
+{{-- <img src="assets/images/avatars/2.jpg" alt> --}}
 </div>
 </div>
 <div class="avatar-icon-wrapper avatar-icon-sm">
 <div class="avatar-icon">
-<img src="assets/images/avatars/3.jpg" alt>
+{{-- <img src="assets/images/avatars/3.jpg" alt> --}}
 </div>
 </div>
 <div class="avatar-icon-wrapper avatar-icon-sm">
 <div class="avatar-icon">
-<img src="assets/images/avatars/4.jpg" alt>
+{{-- <img src="assets/images/avatars/4.jpg" alt> --}}
 </div>
 </div>
 <div class="avatar-icon-wrapper avatar-icon-sm">
 <div class="avatar-icon">
-<img src="assets/images/avatars/5.jpg" alt>
+{{-- <img src="assets/images/avatars/5.jpg" alt> --}}
 </div>
 </div>
 <div class="avatar-icon-wrapper avatar-icon-sm">
 <div class="avatar-icon">
-<img src="assets/images/avatars/9.jpg" alt>
+{{-- <img src="assets/images/avatars/9.jpg" alt> --}}
 </div>
 </div>
 <div class="avatar-icon-wrapper avatar-icon-sm">
 <div class="avatar-icon">
-<img src="assets/images/avatars/7.jpg" alt>
+{{-- <img src="assets/images/avatars/7.jpg" alt> --}}
 </div>
 </div>
 <div class="avatar-icon-wrapper avatar-icon-sm">
 <div class="avatar-icon">
-<img src="assets/images/avatars/8.jpg" alt>
+{{-- <img src="assets/images/avatars/8.jpg" alt> --}}
 </div>
 </div>
 <div class="avatar-icon-wrapper avatar-icon-sm avatar-icon-add">
@@ -358,7 +375,7 @@ labore et dolore magna elit enim at minim veniam quis nostrud
             <div class="widget-content-left">
                 <div class="btn-group">
                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                        <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt>
+                        <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                     </a>
                     <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
@@ -369,7 +386,7 @@ labore et dolore magna elit enim at minim veniam quis nostrud
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
-                                                <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt>
+                                                <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
                                             </div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">Alina Mcloughlin</div>
@@ -680,7 +697,7 @@ Restore Default
                             </ul>
                         </li> -->
                         <li class="mm-active mb-2">
-                            <a href="{{url('Admin/Dashboard')}}">
+                            <a href="{{url('Admin/Dashboard')}}" class="mm-active">
                                 <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
                             </a>
                         </li>
@@ -704,7 +721,7 @@ Restore Default
                                 </li>
                                 <li>
                                     <a href="{{ url('eleves') }}">
-                                        <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>  
+                                        <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>
                                     </a>
                                 </li>
                             </ul>
@@ -724,6 +741,7 @@ Restore Default
 
         <div class="app-main__outer">
             <div class="app-main__inner">
+
             @yield('navsidebar')
         </main>
 
@@ -755,7 +773,38 @@ Restore Default
 
 
 
-
+<script>
+    function setActiveItem(index)
+    {
+        var a = document.querySelectorAll('.vertical-nav-menu a')
+        a.forEach(function(li,a)
+        {
+            if(a === index)
+            {
+                li.classList.add('mm-active');
+            }
+            else
+            {
+                li.classList.remove('mm-active');
+            }
+        });
+    }
+    var currentURL = window.location.href;
+    var urlPatterns = [
+            { pattern: 'index.html', index: 0 },
+            { pattern: 'Admin/Profile', index: 1 },
+            { pattern: 'professeurs', index: 2 },
+            { pattern: 'eleves', index: 3 },
+            { pattern: 'CoursPaiement', index: 5 }
+        ];
+        var activeIndex = 0; // Default to the first item
+        urlPatterns.forEach(function(pattern) {
+            if (currentURL.includes(pattern.pattern)) {
+                activeIndex = pattern.index;
+            }
+        });
+        setActiveItem(activeIndex);
+</script>
 
 
 

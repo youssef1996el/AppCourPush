@@ -1,10 +1,11 @@
 @extends('Dashboard.templateAdmin')
 @section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleProfesseurDash.css')}}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
 <div id="overlay">
     <div class="three-body">
         <div class="three-body__dot"></div>
@@ -14,7 +15,7 @@
 </div>
 <div class="container mt-4 ">
     <div class="card">
-        <img class="card-img-top" src="holder.js/100px180/" alt="">
+       {{--  <img class="card-img-top" src="holder.js/100px180/" alt=""> --}}
         <div class="card-body">
             <h4 class="card-title">Liste des professeurs</h4>
             <div class="row">
@@ -72,7 +73,7 @@
                                     </td>
                                     @endif
                                     <td>
-                                        <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}}>
+                                        <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}} data-target="#ModalView">
                                             <i class="fa-solid fa-eye"></i>
                                         </button>
                                     </td>
@@ -91,6 +92,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Dossier de professeur</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -233,6 +235,18 @@
     var scrCertification  ='{{ asset("") }}';
     var verificationCertification = "{{url('verificationProf')}}"
 </script>
+
+<style>
+    .modal-backdrop {
+        --bs-backdrop-zindex: unset;
+    }
+    .btn .badge {
+        position: absolute !important;
+    }
+    .badge {
+    --bs-badge-padding-x: -1.35em;
+    }
+</style>
 
 
 @endsection()
