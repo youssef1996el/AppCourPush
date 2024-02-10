@@ -1,4 +1,4 @@
-@extends('Dashboard.index')
+@extends('Dashboard.templateAdmin')
 @section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleCoursPaiement.css')}}">
 <script src="{{asset('js/ScriptCoursPaiement.js')}}"></script>

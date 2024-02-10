@@ -1,4 +1,4 @@
-@extends('Dashboard.index')
+@extends('Dashboard.templateAdmin')
 @section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleProfesseurDash.css')}}">
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>

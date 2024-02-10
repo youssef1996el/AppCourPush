@@ -635,10 +635,10 @@ Restore Default
                 <div class="app-sidebar__inner">
                     <ul class="vertical-nav-menu">
                         <li class="app-sidebar__heading">Menu</li>
-                        <li class="mm-active">
+                        <!-- <li class="mm-active">
                             <a href="#">
-                                <i class="metismenu-icon pe-7s-rocket"></i>Dashboards
-                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                <i class="fa-solid fa-rocket metismenu-icon "></i>Dashboards
+                                <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
                             </a>
                             <ul>
                                 <li>
@@ -675,11 +675,41 @@ Restore Default
                                         </ul>
                                 </li>
                             </ul>
+                        </li> -->
+                        <li class="mm-active">
+                            <a href="{{url('Admin/Dashboard')}}">
+                                <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{url('Admin/Profile')}}">
+                                <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
+                            </a>
+
                         </li>
                         <li>
                             <a href="#">
-                                <i class="metismenu-icon pe-7s-rocket"></i>Dashboards
-                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                <i class="fa-solid fa-rocket metismenu-icon "></i>Liste des utilisateurs
+                                <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
+                               
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="{{ url('professeurs') }}">
+                                        <i class="fa-solid fa-user-tie"></i> <span> Professeur </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('eleves') }}">
+                                        <i class="fa-solid fa-users "></i> <span>  Eleves </span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
                             </a>
 
                         </li>
