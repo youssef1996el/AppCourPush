@@ -50,14 +50,14 @@
                             </button>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ">
                     <div class="cards">
-                        <div class="col-sm-12 col-md-6 col-xl-6">
-                            <div class="card-item CardTypeGroupe">
+                        <div class="col-sm-12 col-md-6 col-xl-6  rowContentForCours">
+                            <div class="card-item CardTypeGroupe ">
 
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-xl-6">
+                        <div class="col-sm-12 col-md-6 col-xl-6 ">
                             <div class="card-item CardTypePrive">
 
                             </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-  
+
         {{-- Modal Add Prix --}}
         <div class="modal fade" id="ModalAddPrix" aria-labelledby="settingsModalTitle" aria-hidden="true" tabindex="-1">
             <div class="modal-dialog modal-dialog-settings modal-l">

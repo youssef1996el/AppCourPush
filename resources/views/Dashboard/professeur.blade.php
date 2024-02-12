@@ -96,7 +96,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-12 col-md-3 col-xl-3">
+                        <div class="col-sm-12 col-md-12 col-xl-3 resposiveCardProfile">
                             <div class="card bg-light cardProfile shadow-sm">
                                 <img class="img" id="imageProfesseur"  />
                                     <span class="text-uppercase text-black nameProfesseur"></span>
@@ -105,15 +105,15 @@
                                     <p class="info text-black methodeProfesseur"></p>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-9 col-xl-9">
-                            <nav class="navbar navbar-expand-sm navbar-light bg-light shadow-sm">
+                        <div class="col-sm-12 col-md-12 col-xl-9">
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
                                 <div class="container-fluid">
-                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarID"
                                         aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon"></span>
                                     </button>
                                     <div class="collapse navbar-collapse" id="navbarID">
-                                        <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                             <li class="nav-item">
                                                 <a class="nav-link active text-uppercase" aria-current="page" href="#" data-target="CardProfile">Profile</a>
                                             </li>
@@ -129,10 +129,11 @@
                                             <li class="nav-item">
                                                 <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="Cardcertification">certification</a>
                                             </li>
-                                        </div>
+                                        </ul>
                                     </div>
                                 </div>
                             </nav>
+
                             <div class="divLoading" style="display: none">
                                 <div class="newtons-cradle">
                                     <div class="newtons-cradle__dot"></div>
@@ -142,9 +143,9 @@
                                 </div>
                             </div>
 
-                            <div class="card mt-3 p-5 CardProfile" style="height: 314px;">
+                            <div class="card mt-3 p-5 CardProfile" {{-- style="height: 314px;" --}}>
                                 <div class="row">
-                                    <div class="col-6 ">
+                                    <div class="col-sm-12 col-md-6 col-xl-6 p-2">
 
                                         <div class="form-group">
                                             <label for="" class="text-uppercase">Email</label>
@@ -155,7 +156,7 @@
                                             <input type="text" class="form-control datenaissanceProfesseur" disabled>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-sm-12 col-md-6 col-xl-6 p-2">
 
                                         <div class="form-group">
                                             <label for="" class="text-uppercase">Téléphone</label>
@@ -174,7 +175,7 @@
                             </div>
                             <div class="card mt-3 p-4 CardCoursAndDispo" style="display: none; height: 392px;">
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-sm-12 col-md-12 col-xl-3 resposiveCardCours">
                                         <label for="" class="text-uppercase">Cours</label>
                                         <div style=" " class="divScrollCours">
                                             {{-- DivScroll cour --}}
@@ -185,8 +186,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-9">
-                                        <label for="" class="text-uppercase">disponible</label>
+                                    <div class="col-ms-12 col-md-12 col-xl-9">
+                                        <label for="" class="text-uppercase titleCenterResponsive">disponible</label>
                                         <div class="ClassDisponible">
 
                                         </div>
@@ -197,24 +198,29 @@
                             </div>
 
                             <div class="card mt-3 p-5 Cardcertification" style="display: none">
-                            {{--  <a target="_blank" id="FileCertification">Certification</a> --}}
 
-                                <a class="button" id="FileCertification" target="_blank">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6 col-xl-6 p-2">
+                                        <a class="button" id="FileCertification" target="_blank">
 
-                                    <svg class="svg-icon" width="24" viewBox="0 0 24 24" height="24" fill="none">
-                                        <g stroke-width="2" stroke-linecap="round" stroke="#056dfa" fill-rule="evenodd" clip-rule="evenodd">
-                                            <path d="m3 7h17c.5523 0 1 .44772 1 1v11c0 .5523-.4477 1-1 1h-16c-.55228 0-1-.4477-1-1z"></path>
-                                            <path d="m3 4.5c0-.27614.22386-.5.5-.5h6.29289c.13261 0 .25981.05268.35351.14645l2.8536 2.85355h-10z"></path>
-                                        </g>
-                                    </svg>
+                                            <svg class="svg-icon" width="24" viewBox="0 0 24 24" height="24" fill="none">
+                                                <g stroke-width="2" stroke-linecap="round" stroke="#056dfa" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="m3 7h17c.5523 0 1 .44772 1 1v11c0 .5523-.4477 1-1 1h-16c-.55228 0-1-.4477-1-1z"></path>
+                                                    <path d="m3 4.5c0-.27614.22386-.5.5-.5h6.29289c.13261 0 .25981.05268.35351.14645l2.8536 2.85355h-10z"></path>
+                                                </g>
+                                            </svg>
 
-                                    <span class="lable">  Certification</span>
-                                </a>
-                                <div class="radio-input">
-                                    <input value="Verifie" name="verification" id="value-1" type="radio" class="custom-input">
-                                    <label for="value-1">Verifie</label>
-                                    <input value="Refuser" name="verification" id="value-2" type="radio">
-                                    <label for="value-2">Non verifie</label>
+                                            <span class="lable">  Certification</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-xl-6 p-2">
+                                        <div class="radio-input">
+                                            <input value="Verifie" name="verification" id="value-1" type="radio" class="custom-input">
+                                            <label for="value-1">Verifie</label>
+                                            <input value="Refuser" name="verification" id="value-2" type="radio">
+                                            <label for="value-2">Non verifie</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-success BtnVerification" >Enregistrer</button>

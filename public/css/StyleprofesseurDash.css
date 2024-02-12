@@ -38,7 +38,7 @@
     padding: 10px; /* Adjust the value as needed */
 
   }
-  
+
 
   .fa-trash{
     color: #db3939;
@@ -89,9 +89,9 @@
     background: white;
     border-radius: 50%;
     margin: auto;
-    
+
   }
-  
+
   .cardProfile .share {
     margin-top: 1em;
     display: flex;
@@ -394,18 +394,18 @@
   /******************* */
   .ContentDisponible
     {
-        width: 12%;
-        margin: 10px 1px 0px 7px;
+        width: 13%;
+        margin: 10px -5px 0px 5px;
         border: 1px solid gray;
-        display: inline-block;
+        display: inline-table;
         text-align: center !important;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-        min-height: 11rem;
+
         background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
         background-size: 8.76px 11.63px;
         flex-grow: 1;
+        min-height: 27rem;
+        border-radius: 10px
+
     }
     .Days
     {
@@ -427,7 +427,8 @@
         margin:15px 0px;
         min-height: 13rem;
         border-radius: 20px;
-        box-shadow: rgba(0, 0, 0, 0.35)
+        box-shadow: rgba(0, 0, 0, 0.35);
+        padding:9px;
     }
     .divScrollCours
     {
@@ -439,7 +440,7 @@
         overflow-y: auto !important;
         width: 192px;
         border: 1px solid #c9c1c1;
-  
+
     }
 
 
@@ -549,13 +550,13 @@
 .CardFormation , .Cardexperience,.CardCoursAndDispo{
     height: 314px !important;
     overflow: auto;
-   
+
 }
 
-.CardCoursAndDispo label{
+/* .CardCoursAndDispo label{
     margin-bottom: 0px;
     margin-left: 14px;
-}
+} */
 .buttonCours {
     position: relative;
     padding: 8px 10px;
@@ -884,11 +885,93 @@ margin-bottom: 20px;}
 .card-title{
   font-size: 26px;
   text-align: center;
-  
+
   font-weight: bold;
   margin: 12px auto;
+}
+.InfoCours
+{
+    padding: 8px;
 }
 
 #tableListEleve_filter input{
   margin-right: 27.5em !important;
 }
+/* mobile */
+@media only screen and (max-width: 600px) {
+    .ContentDisponible {
+        width: 28%;
+    }
+    .radio-input {
+        justify-content: start;
+    }
+    .modal-footer {
+        justify-content: start;
+    }
+    .resposiveCardCours
+    {
+        justify-items: center;
+        display: grid;
+    }
+    .divScrollCours
+    {
+        width: 100% !important;
+    }
+    .titleCenterResponsive
+    {
+        display: ruby-text;
+    }
+}
+/* ipad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .resposiveCardProfile
+    {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    .resposiveCardCours
+    {
+        justify-items: center;
+        display: grid;
+    }
+    .divScrollCours
+    {
+        width: 100% !important;
+    }
+    .titleCenterResponsive
+    {
+        display: ruby-text;
+    }
+
+
+}
+
+/* iPad Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .resposiveCardProfile
+    {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    .resposiveCardCours
+    {
+        justify-items: center;
+        display: grid;
+    }
+    .divScrollCours
+    {
+        width: 100% !important;
+    }
+    .titleCenterResponsive
+    {
+        display: ruby-text;
+    }
+
+
+}
+
+
+
+

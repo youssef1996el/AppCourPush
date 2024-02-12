@@ -70,7 +70,7 @@
                         <div class="app-header-right">
                             <div class="header-dots">
                                 <div class="dropdown">
-                                    <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
+                                    <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn ">
                                         <span class="icon-wrapper icon-wrapper-alt rounded-circle">
                                             <span class="icon-wrapper-bg bg-danger"></span>
                                                 <i class="fa-regular fa-bell text-danger icon-anim-pulse "></i>

@@ -48,21 +48,25 @@ class AdminController extends Controller
                                 ->where('courprof.iduser','=',$request->id)
                                 ->get();
 
-        $DisponibleProf = DB::select('select jour,debut,fin from disponibleprof where iduser = ?',[$request->id]);
+        $DisponibleProf = DB::select('select jour,debut,fin,c.title,d.typecours from disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[$request->id]);
         $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
         $disponibilityByDay = [];
-        foreach ($day_names_fr as $item)
-        {
-            $disponibilityByDay[$item] = null;
+
+        foreach ($day_names_fr as $item) {
+            $disponibilityByDay[$item] = [];
         }
-        foreach ($DisponibleProf as $item1) {
+
+        foreach ($DisponibleProf as $item1)
+        {
             $debut = new DateTime($item1->debut);
             $fin = new DateTime($item1->fin);
             $diff = $debut->diff($fin);
             $hours = $diff->h + $diff->i / 60;
 
             $item1->calculhour = $hours;
-            $disponibilityByDay[$item1->jour] = $item1;
+
+
+            $disponibilityByDay[$item1->jour][] = $item1;
         }
 
 
@@ -93,13 +97,40 @@ class AdminController extends Controller
 
     public function AdminDashboard()
     {
+        $translations = [
+            'Monday' => 'lundi',
+            'Tuesday' => 'mardi',
+            'Wednesday' => 'mercredi',
+            'Thursday' => 'jeudi',
+            'Friday' => 'vendredi',
+            'Saturday' => 'samedi',
+            'Sunday' => 'dimanche',
+            'January' => 'janvier',
+            'February' => 'février',
+            'March' => 'mars',
+            'April' => 'avril',
+            'May' => 'mai',
+            'June' => 'juin',
+            'July' => 'juillet',
+            'August' => 'août',
+            'September' => 'septembre',
+            'October' => 'octobre',
+            'November' => 'novembre',
+            'December' => 'décembre',
+        ];
+
+        // Format the date as desired
+        $formattedDate = Carbon::now()->translatedFormat('l d F, Y', null, 'fr', $translations);
+
         $professeurActive = DB::table('users')
                             ->join('experinceprof','experinceprof.iduser','=','users.id')
                             ->where('users.verification','=','Verifie')
                             ->count();
         $Eleve            = User::where('role_name','eleve')->count();
+        $professeurNoActive = User::where('role_name','professeur')->where('verification',null)->count();
 
-        return view('Dashboard.dashboard', compact('professeurActive', 'Eleve'));
+        return view('Dashboard.dashboard',
+        compact('professeurActive', 'Eleve','formattedDate','professeurNoActive'));
 
     }
 
@@ -200,9 +231,43 @@ class AdminController extends Controller
                                     months.month;
                                 ",[$request->date]);
 
+
+
+        $translations = [
+            'Monday' => 'lundi',
+            'Tuesday' => 'mardi',
+            'Wednesday' => 'mercredi',
+            'Thursday' => 'jeudi',
+            'Friday' => 'vendredi',
+            'Saturday' => 'samedi',
+            'Sunday' => 'dimanche',
+            'January' => 'janvier',
+            'February' => 'février',
+            'March' => 'mars',
+            'April' => 'avril',
+            'May' => 'mai',
+            'June' => 'juin',
+            'July' => 'juillet',
+            'August' => 'août',
+            'September' => 'septembre',
+            'October' => 'octobre',
+            'November' => 'novembre',
+            'December' => 'décembre',
+        ];
+        $translatedResults = [];
+
+        foreach ($GetChartEleveCount as $result) {
+            $month = $translations[$result->month];
+            $translatedResults[] = (object) [
+                'month' => $month,
+                'user_count' => $result->user_count,
+            ];
+        }
+
+
        return response()->json([
             'status'       => 200,
-            'data'    => $GetChartEleveCount,
+            'data'    => $translatedResults,
 
         ]);
     }

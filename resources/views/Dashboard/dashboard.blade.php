@@ -1,17 +1,12 @@
 @extends('Dashboard.templateAdmin')
 @section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleDashboardAdmin.css')}}">
-<?php
-    use Carbon\Carbon;
-    $today = Carbon::now();
-    $formattedDate = ucfirst(trans($today->format('l'))) . ' ' . ucfirst(trans($today->format('F'))) . ' ' . $today->format('j, Y, H:i:s');
-    $name = $formattedDate . ' GMT' . '-' . ($today->offset / 3600);
-?>
+
     <div class="row">
         <div class="col-12">
             <div class="container">
                 <h1 class="text-uppercase">Dashboard</h1>
-                <h3 class="text-primary">{{$name}}</h3>
+                <h3 class="text-primary">{{ ucfirst($formattedDate)}}</h3>
             </div>
         </div>
     </div>
@@ -27,7 +22,7 @@
                                 </p>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6 p-4 ">
-                                <img class="ImageDashboard" src="{{asset('image/ImageDashboard.svg')}}" height="250px" alt="" srcset="" >
+                                <img class="ImageDashboard" src="{{asset('image/ImageDashboard.svg')}}" height="250px" width="" alt="" srcset="" >
                             </div>
                         </div>
                     </div>
@@ -48,7 +43,7 @@
                 </div>
 
                 <div class="row mt-4">
-                    <div class="col-sm-12 col-md-3 col-xl-3">
+                    <div class="col-sm-12 col-md-4 col-xl-4 p-2">
                         <div class="card shadow" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
@@ -59,7 +54,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-xl-3">
+                    <div class="col-sm-12 col-md-4 col-xl-4 p-2">
+                        <div class="card shadow" style="border-radius: 20px">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
+                                    <h5 class="card-title mt-4" style="margin-left:10px;">Professeur non active</h5>
+                                </div>
+                                <h5>{{$professeurNoActive}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-xl-4 p-2">
                         <div class="card shadow" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
@@ -70,32 +76,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-3 col-xl-3">
-                        <div class="card shadow" style="border-radius: 20px">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
-                                    <h5 class="card-title mt-4" style="margin-left:10px;">test 1</h5>
-                                </div>
-                                <h5>50</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-3 col-xl-3">
-                        <div class="card" style="border-radius: 20px">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
-                                    <h5 class="card-title mt-4" style="margin-left:10px;">test 2</h5>
-                                </div>
-                                <h5>50</h5>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row mt-4">
-                    <div class="col-sm-12 col-md-6 col-xl-6">
+                    <div class="col-sm-12 col-md-6 col-xl-6 p-2">
                         <div class="card shadow" style="border-radius: 20px">
                             <div class="bg-light text-primary p-3" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
                                 <h5>Nombre d'étudiants inscrits sur le site dans chaque pays</h5>
@@ -106,9 +90,6 @@
                                 </div>
                             </div>
                         </div>
-                       {{--  <div class="card" style="border-radius: 20px">
-                            <div id="chartMaps"></div>
-                        </div> --}}
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-6">
                         <div class="card shadow" style="border-radius: 20px">
@@ -117,7 +98,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="card-text">
-                                    <div id="chartColumn"></div>
+                                    <div id="chartdiv"></div>
                                 </div>
                             </div>
                         </div>
