@@ -375,7 +375,7 @@ labore et dolore magna elit enim at minim veniam quis nostrud
             <div class="widget-content-left">
                 <div class="btn-group">
                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                        <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
+                        <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt style="width: 45px;height: 45px;">
                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                     </a>
                     <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
@@ -386,7 +386,7 @@ labore et dolore magna elit enim at minim veniam quis nostrud
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
-                                                <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
+                                                <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt style="width: 45px;height: 45px;">
                                             </div>
                                             <div class="widget-content-left">
                                                 <div class="widget-heading">{{ Auth::user()->name}}</div>
@@ -696,8 +696,8 @@ Restore Default
                                 </li>
                             </ul>
                         </li> -->
-                        <li class="mm-active mb-2">
-                            <a href="{{url('Admin/Dashboard')}}" class="mm-active">
+                        <li class=" mb-2">
+                            <a href="{{url('Admin/Dashboard')}}" class="">
                                 <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
                             </a>
                         </li>
