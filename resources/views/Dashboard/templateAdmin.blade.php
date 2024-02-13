@@ -141,6 +141,255 @@
                                                                             <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                 <div class="vertical-timeline-element-content bounce-in">
                                                                                     <h4 class="timeline-title">Something not important
+<<<<<<< HEAD
+                                                                                    <div class="avatar-wrapper mt-2 avatar-wrapper-overlap">
+                                                                                        <div class="avatar-icon-wrapper avatar-icon-sm">
+                                                                                            <div class="avatar-icon">
+{{-- <img src="assets/images/avatars/1.jpg" alt> --}}
+</div>
+</div>
+<div class="avatar-icon-wrapper avatar-icon-sm">
+<div class="avatar-icon">
+{{-- <img src="assets/images/avatars/2.jpg" alt> --}}
+</div>
+</div>
+<div class="avatar-icon-wrapper avatar-icon-sm">
+<div class="avatar-icon">
+{{-- <img src="assets/images/avatars/3.jpg" alt> --}}
+</div>
+</div>
+<div class="avatar-icon-wrapper avatar-icon-sm">
+<div class="avatar-icon">
+{{-- <img src="assets/images/avatars/4.jpg" alt> --}}
+</div>
+</div>
+<div class="avatar-icon-wrapper avatar-icon-sm">
+<div class="avatar-icon">
+{{-- <img src="assets/images/avatars/5.jpg" alt> --}}
+</div>
+</div>
+<div class="avatar-icon-wrapper avatar-icon-sm">
+<div class="avatar-icon">
+{{-- <img src="assets/images/avatars/9.jpg" alt> --}}
+</div>
+</div>
+<div class="avatar-icon-wrapper avatar-icon-sm">
+<div class="avatar-icon">
+{{-- <img src="assets/images/avatars/7.jpg" alt> --}}
+</div>
+</div>
+<div class="avatar-icon-wrapper avatar-icon-sm">
+<div class="avatar-icon">
+{{-- <img src="assets/images/avatars/8.jpg" alt> --}}
+</div>
+</div>
+<div class="avatar-icon-wrapper avatar-icon-sm avatar-icon-add">
+<div class="avatar-icon"><i>+</i></div>
+</div>
+</div>
+</h4>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item dot-info vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in"></span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title">This dot has an info state</h4>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item dot-danger vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in"></span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title">All Hands Meeting</h4>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item dot-warning vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in"></span>
+<div class="vertical-timeline-element-content bounce-in">
+<p>Yet another one, at <span class="text-success">15:00 PM</span>
+</p><span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item dot-success vertical-timeline-element">
+<div><span class="vertical-timeline-element-icon bounce-in"></span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title">Build the production release
+<span class="badge badge-danger ml-2">NEW</span>
+</h4>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item dot-dark vertical-timeline-element">
+<div><span class="vertical-timeline-element-icon bounce-in"></span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title">This dot has a dark state</h4>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab-events-header" role="tabpanel">
+<div class="scroll-area-sm">
+<div class="scrollbar-container">
+<div class="p-3">
+<div class="vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
+<div class="vertical-timeline-item vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in">
+<i class="badge badge-dot badge-dot-xl badge-success"> </i>
+</span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title">All Hands Meeting</h4>
+<p>Lorem ipsum dolor sic amet, today at
+<a href="javascript:void(0);">12:00 PM</a>
+</p>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in">
+<i class="badge badge-dot badge-dot-xl badge-warning"> </i>
+</span>
+<div class="vertical-timeline-element-content bounce-in">
+<p>Another meeting today, at <b class="text-danger">12:00 PM</b></p>
+<p>Yet another one, at <span class="text-success">15:00 PM</span></p>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in">
+<i class="badge badge-dot badge-dot-xl badge-danger"> </i>
+</span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title">Build the production release</h4>
+<p>Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
+labore et dolore magna elit enim at minim veniam quis nostrud
+</p>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in">
+<i class="badge badge-dot badge-dot-xl badge-primary"> </i>
+</span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title text-success">Something not important</h4>
+<p>Lorem ipsum dolor sit amit,consectetur elit enim at minim veniam quis nostrud</p>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in">
+<i class="badge badge-dot badge-dot-xl badge-success"> </i>
+</span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title">All Hands Meeting</h4>
+<p>Lorem ipsum dolor sic amet, today at
+<a href="javascript:void(0);">12:00 PM</a>
+</p>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in">
+<i class="badge badge-dot badge-dot-xl badge-warning"> </i>
+</span>
+<div class="vertical-timeline-element-content bounce-in">
+<p>Another meeting today, at <b class="text-danger">12:00 PM</b></p>
+<p>Yet another one, at <span class="text-success">15:00 PM</span></p>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in">
+<i class="badge badge-dot badge-dot-xl badge-danger"> </i>
+</span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title">Build the production release</h4>
+<p>Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
+labore et dolore magna elit enim at minim veniam quis nostrud
+</p>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+<div class="vertical-timeline-item vertical-timeline-element">
+<div>
+<span class="vertical-timeline-element-icon bounce-in">
+<i class="badge badge-dot badge-dot-xl badge-primary"> </i>
+</span>
+<div class="vertical-timeline-element-content bounce-in">
+<h4 class="timeline-title text-success">Something not important</h4>
+<p>Lorem ipsum dolor sit amit,consectetur elit enim at minim veniam quis nostrud</p>
+<span class="vertical-timeline-element-date"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<ul class="nav flex-column">
+<li class="nav-item-divider nav-item"></li>
+<li class="nav-item-btn text-center nav-item">
+<button class="btn-shadow btn-wide btn-pill btn btn-focus btn-sm">View Latest Changes</button>
+</li>
+</ul>
+</div>
+</div>
+
+
+</div>
+<div class="header-btn-lg pr-0">
+    <div class="widget-content p-0">
+        <div class="widget-content-wrapper">
+            <div class="widget-content-left">
+                <div class="btn-group">
+                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                        <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt style="width: 45px;height: 45px;">
+                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                    </a>
+                    <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-menu-header">
+                            <div class="dropdown-menu-header-inner bg-info">
+                                <div class="menu-header-image opacity-2" style="background-image: url('assets/images/dropdown-header/city3.jpg');"></div>
+                                <div class="menu-header-content text-left">
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt style="width: 45px;height: 45px;">
+                                            </div>
+=======
                                                                                         <div class="avatar-wrapper mt-2 avatar-wrapper-overlap">
                                                                                             <div class="avatar-icon-wrapper avatar-icon-sm">
                                                                                                 <div class="avatar-icon">
@@ -370,6 +619,7 @@
                                 <div class="header-btn-lg pr-0">
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
+>>>>>>> 7f3cf551f892d3baab9b7e13f65c0ad959f69752
                                             <div class="widget-content-left">
                                                 <div class="btn-group">
                                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
@@ -612,6 +862,46 @@
                                                 </div>
                                             </li>
                                         </ul>
+<<<<<<< HEAD
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li class=" mb-2">
+                            <a href="{{url('Admin/Dashboard')}}" class="">
+                                <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{{url('Admin/Profile')}}">
+                                <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
+                            </a>
+
+                        </li>
+                        <li class="mb-2">
+                            <a href="#">
+                                <i class="fa-solid fa-rocket metismenu-icon "></i>Liste des utilisateurs
+                                <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
+
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="{{ url('professeurs') }}">
+                                        <i class="fa-solid fa-user-tie"></i> <span class="iconS">Professeur </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('eleves') }}">
+                                        <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="mb-2">
+                            <a href="{{url('CoursPaiement')}}">
+                                <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
+                            </a>
+=======
                                     </div>
                                 </div>
                             </div>
@@ -653,6 +943,7 @@
                                 <div class="app-sidebar__inner">
                                     <ul class="vertical-nav-menu">
                                         <li class="app-sidebar__heading">Menu</li>
+>>>>>>> 7f3cf551f892d3baab9b7e13f65c0ad959f69752
 
                                         <li class="mm-active mb-2">
                                             <a href="{{url('Admin/Dashboard')}}" class="mm-active">
