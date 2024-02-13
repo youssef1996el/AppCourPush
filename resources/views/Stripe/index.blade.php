@@ -1,5 +1,7 @@
-@extends('layouts.app')
-@section('content')
+{{-- @extends('layouts.app')
+@section('content') --}}
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleStripe.css')}}">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -30,7 +32,7 @@
             </div>
         @endif
 
-        <div class="col-sm-12 col-md-6 col-xl-6">
+        <div class="col-sm-12 col-md-6 col-xl-6 p-2">
             <div class="card">
                 <div class="card-container mt-3 ">
                     <div class="front">
@@ -216,8 +218,8 @@
 
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-xl-6" style="display: flex;justify-content: flex-end;">
-            <div class="card text-left" style="width:430px ; padding:12px ;height: 50%;">
+        <div class="col-sm-12 col-md-6 col-xl-6 p-2" style="display: flex;justify-content: flex-end;">
+            <div class="card text-left CardInformation" >
               <img class="card-img-top " src="holder.js/100px180/" alt="">
               <div class="card-body">
                 <h4 class="card-title fs-3 mb-4">Votre choix</h4>

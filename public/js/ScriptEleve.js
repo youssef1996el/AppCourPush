@@ -18,6 +18,7 @@ $(document).ready(function () {
         $('#bookCard').css('display', 'none');
         $('.WelcomeEleve').css('display', 'none');
         $('#bookClass').css('display', 'block');
+        $('#CardShowDataProfesseur').css('display', 'block');
     }
     var today = new Date().toISOString().split('T')[0];
     $('.DateSearch').attr('min', today);
@@ -34,6 +35,8 @@ $(document).ready(function () {
     $('#bookCard').on('click',function()
     {
         $('#bookClass').css('display', 'block');
+        $('#CardShowDataProfesseur').css('display', 'block');
+
     });
     var currentPage = 1;
     var ValueCours = '';

@@ -696,9 +696,11 @@
                             </div>
                         </div>
                         <main class="py-4">
+
                         <div class="app-main__outer">
+
                             <div class="app-main__inner">
-                            @yield('navsidebar')
+                                @yield('navsidebar')
                         </main>
                     </div>
                 </div>

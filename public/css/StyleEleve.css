@@ -9,7 +9,7 @@
 
 
 .WelcomeEleve{
-    margin-top: 10%;
+    margin-top: 0%;
 }
 
 .form-inline {
@@ -34,7 +34,7 @@ tbody, td, tfoot, th, thead, tr {
 }
 .dropdownTime
 {
-    width: 70rem;
+    width: 55rem;
 }
 .line {
   width: 100%;
@@ -190,13 +190,105 @@ tbody, td, tfoot, th, thead, tr {
       margin-bottom: 5px
   }
 
-  @media (min-width: 1200px)
-  {
-    .container, .container-lg, .container-md, .container-sm, .container-xl
+  .btn-group>.btn:not(:first-child), .btn-group>.btn-group:not(:first-child)>.btn {
+    border-top-left-radius: 2;
+    border-bottom-left-radius: 2;
+}
+
+.fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp, .fa-solid, .fab, .far, .fas {
+    line-height: 2;
+}
+
+.fa-user-tie, .fa-users {
+
+    position: sticky;
+}
+.btn-group
+{
+    width: 100%;
+}
+
+/* ipad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
+{
+    .reserver
     {
-        max-width: none !important;
+        margin-bottom: 5px;
     }
-  }
+    .details
+    {
+        width: 76%;
+    }
+    .TitleGroupePrive
+    {
+        white-space: nowrap;
+    }
+    .btn-outline-primary
+    {
+        max-width: 70%;
+    }
+    .btn-outline-primary i
+    {
+        margin-left: -5px;
+    }
+
+
+}
+
+/* iPad Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait)
+{
+   .reserver
+   {
+        margin-bottom: 5px;
+   }
+   .details
+   {
+        width: 76%;
+   }
+   .TitleGroupePrive
+    {
+        white-space: nowrap;
+    }
+    .btn-outline-primary
+    {
+        max-width: 70%;
+    }
+    .btn-outline-primary i
+    {
+        margin-left: -5px;
+    }
+
+
+}
+
+@media only screen and (max-width: 600px) {
+    #dropdownMenuButton1
+    {
+        width: 25%;
+    }
+    .fa-refresh
+    {
+        margin-top: 10px;
+    }
+    .DataProfesseur
+    {
+        overflow-x: auto;
+    }
+    .reserver
+   {
+        margin-bottom: 5px;
+   }
+   .details
+   {
+        width: 100%;
+   }
+   #TableProfesseurIsActive_filter input[type="search"]
+   {
+        margin-left: 17rem;
+   }
+}
+
 
 
 

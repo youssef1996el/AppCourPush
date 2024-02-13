@@ -1,6 +1,8 @@
 
 @extends('Dashboard.templateAdmin')
 @section('navsidebar')
+
+
 <link rel="stylesheet" href="{{asset('css/StyleEleve.css')}}">
 <script src="{{asset('js/ScriptEleve.js')}}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,10 +53,10 @@
     </div>
 
     <div id="bookClass" class="card bg-light " style="display: none; margin-top:72px;">
-        <div class="searchSpace mt-5">
+        <div class="searchSpace mt-3">
             <div class="row p-3">
-                <div class="col-sm-12 col-md-4 col-xl-4">
-                    <div class="card">
+                <div class="col-sm-12 col-md-4 col-xl-4 p-2">
+                    <div class="card" style="min-height: 101%">
                         <div class="card-body">
                             <label for="">Cours :</label>
                             <select class="form-select select-course" id="multiple-select-field" data-placeholder="selected cours" multiple>
@@ -65,7 +67,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-8 col-xl-8">
+
+
+                <div class="col-sm-12 col-md-8 col-xl-8 p-2">
                     <div class="card p-3" >
                         <div class="card-body">
                             <div class="row">
@@ -93,47 +97,49 @@
                                                                 $second = ':00';
                                                             @endphp
                                                             @for ($i = 0; $i <= 11; $i++)
-                                                                @if ($i % 6 == 0)
+                                                                @if ($i % 4 == 0)
                                                                     <div class="btn-row">
                                                                 @endif
                                                                 <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
-                                                                @if (($i + 1) % 6 == 0 || $i == 11)
-                                                                </div>
+                                                                @if (($i + 1) % 4 == 0 || $i == 11)
+                                                        </div>
                                                                 @endif
                                                             @endfor
-                                                        </div>
-                                                        <div class="line">
-                                                            <span class="text">Après-midi/soirée</span>
-                                                        </div>
-                                                        <div class="container-hours">
-                                                            @php
-                                                                $firstNumber = '0';
-                                                                $second = ':00';
-                                                            @endphp
-                                                            @for ($i = 12; $i <= 23; $i++)
-                                                                @if ($i % 6 == 0)
-                                                                    <div class="btn-row">
-                                                                @endif
-                                                                <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
-                                                                @if (($i + 1) % 6 == 0 || $i == 23)
-                                                                    </div>
-                                                                @endif
-                                                            @endfor
-                                                        </div>
                                                     </div>
+                                                    <div class="line">
+                                                        <span class="text">Après-midi/soirée</span>
+                                                    </div>
+                                                    <div class="container-hours">
+                                                        @php
+                                                            $firstNumber = '0';
+                                                            $second = ':00';
+                                                        @endphp
+                                                        @for ($i = 12; $i <= 23; $i++)
+                                                            @if ($i % 4 == 0)
+                                                                <div class="btn-row">
+                                                            @endif
+                                                            <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
+                                                            @if (($i + 1) % 4 == 0 || $i == 23)
+                                                    </div>
+                                                            @endif
+                                                        @endfor
                                                 </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-3 col-xl-3">
-                                    <label for="" style="margin-left: 5px">Groupe ou Privé: </label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                                <div class="col-sm-12 col-md-3 col-xl-3 ">
+                                    <label for="" class="TitleGroupePrive">Groupe ou Privé: </label>
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
                                         <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" >
-                                        <label class="btn btn-outline-primary" for="group"><i class="fas fa-users "></i></label>
+                                        <label class="btn btn-outline-primary" for="group" style="border-top-left-radius: 10px;border-bottom-left-radius: 10px;">
+                                            <i class="fas fa-users "></i>
+                                        </label>
 
                                         <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
-                                        <label class="btn btn-outline-primary " for="private" style="width:45px ; "><i class="fas fa-user "></i></label>
+                                        <label class="btn btn-outline-primary " for="private" style="width:45px ;border-top-right-radius: 10px;border-bottom-right-radius: 10px; "><i class="fas fa-user "></i></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 col-xl-3" style="display: flex;justify-content: end;margin-top: -20px;align-items: baseline;">
@@ -142,10 +148,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="NoCoursToday"></div>
+                    {{-- <div class="NoCoursToday"></div>
                     <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
-                   <h5 class="text-secondary mt-4 DateSelected"></h5>
-                    <div class="DataProfesseur">
+                    <h5 class="text-secondary mt-4 DateSelected"></h5> --}}
+                    {{-- <div class="DataProfesseur">
                         <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
                             <thead class="bg-light">
                                 <tr class="sr-only">
@@ -158,12 +164,33 @@
                             </thead>
                             <tbody></tbody>
                         </table>
-                    </div>
+                    </div> --}}
                     <div class="pagination-container"></div>
                 </div>
             </div>
+
         </div>
     </div>
+    <div class="card p-2 mt-2" style="display: none;" id="CardShowDataProfesseur">
+        <div class="NoCoursToday"></div>
+        <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
+        <h5 class="text-secondary mt-4 DateSelected"></h5>
+        <div class="DataProfesseur">
+            <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
+                <thead class="bg-light">
+                    <tr class="sr-only">
+                        <th>Time</th>
+                        <th>Name of the teacher</th>
+                        <th>Course</th>
+                        <th>Group/Particular</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 <script>
