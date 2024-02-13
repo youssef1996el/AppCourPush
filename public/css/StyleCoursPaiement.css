@@ -11,7 +11,7 @@
 
 
 
-    
+
 
   .Send:hover {
     transform: translateY(-3px);
@@ -25,11 +25,11 @@
 
   #modal-body .Send span {
     display: block;
-    
+
     transition: all 0.3s;
   }
 
- 
+
 /***********/
 .ErrorTypeCours, .ErrorPrix {
 
@@ -58,6 +58,7 @@
   background-color: #6B6ECC;
   background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
   width: 250px;
+  min-height: -webkit-fill-available;
 }
 
 .cardTypeCours .content {
@@ -123,7 +124,7 @@
 .card-title{
   font-size: 26px;
   text-align: center;
-  
+
   font-weight: bold;
   margin: 12px auto;
 }
@@ -160,6 +161,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.rowContentForCours
+{
+    display: flex;
+    justify-content: center;
 }
 
 

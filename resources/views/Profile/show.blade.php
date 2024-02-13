@@ -102,27 +102,7 @@
                 <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
                 <div class="card-body ">
                     <div class="ClassDisponible">
-                    {{-- @foreach ($disponibilityByDay as $key => $data)
-                        <div class="ContentDisponible">
-                            <div class="Days">{{$key}}</div>
-                                <div class="ClassCalculHeight" >
-                                    <div class="ClassTimeDisponible"  style="@if($data) color:#0c3c74;background:#00f8ff3b; @else '' @endif">
-                                        <p>
-                                            @if($data)
-                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                            @endif
-                                            {{$data ? $data->debut : "Vide"}}
-                                        </p>
-                                        <p>
-                                            @if($data)
-                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                @endif
-                                            {{$data ? $data->fin : 'Vide'}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                    @endforeach --}} {{-- mate9isich had Code li dayr lih comment --}}
+
                         @foreach ($disponibilityByDay as $key => $data)
 
                             <div class="ContentDisponible" >

@@ -95,31 +95,31 @@ $(document).ready(function () {
                         $.each(response.formation, function (index, value) {
                             $('.CardFormation').append(` <div style="">
                                                             <div class="row">
-                                                                <div class="col-4">
+                                                                <div class="col-sm-12 col-md-4 col-xl-4 p-2">
                                                                     <div class="form-group">
                                                                         <label for="" class="text-uppercase">diplôme</label>
                                                                         <input type="text" class="form-control" value="${value.diplome}" disabled>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-4">
+                                                                <div class="col-sm-12 col-md-4 col-xl-4 p-2">
                                                                     <div class="form-group">
                                                                         <label for="" class="text-uppercase">spécialité</label>
                                                                         <input type="text" class="form-control" value="${value.specialise}"  disabled>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-4">
+                                                                <div class="col-sm-12 col-md-4 col-xl-4 p-2">
                                                                     <div class="form-group">
                                                                         <label for="" class="text-uppercase">Année</label>
                                                                         <input type="text" class="form-control" value="${value.annee}"  disabled>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-6">
+                                                                <div class="col-sm-12 col-md-6 col-xl-6 p-2">
                                                                     <div class="form-group">
                                                                         <label for="" class="text-uppercase">Lycée</label>
                                                                         <input type="text" class="form-control" value="${value.ecole}"  disabled>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-6">
+                                                                <div class="col-sm-12 col-md-6 col-xl-6 p-2">
                                                                     <div class="form-group">
                                                                         <label for="" class="text-uppercase">Pays</label>
                                                                         <input type="text" class="form-control" value="${value.pays}"  disabled>
@@ -140,31 +140,31 @@ $(document).ready(function () {
 
                         $('.Cardexperience .InforCardexperience').append(`
                                                                         <div class="row">
-                                                                            <div class="col-4">
+                                                                            <div class="col-sm-12 col-md-12 col-xl-4 p-2">
                                                                                 <div class="form-group">
                                                                                     <label for="" class="text-uppercase">Filière</label>
                                                                                     <input type="text" class="form-control" value="${valueEx.poste}" disabled>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-4">
+                                                                            <div class="col-sm-12 col-md-12 col-xl-4 p-2">
                                                                                 <div class="form-group">
                                                                                     <label for="" class="text-uppercase">Lycée / Université</label>
                                                                                     <input type="text" class="form-control" value="${valueEx.entreprise}" disabled>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-4">
+                                                                            <div class="col-sm-12 col-md-12 col-xl-4 p-2">
                                                                                 <div class="form-group">
                                                                                     <label for="" class="text-uppercase">Pays</label>
                                                                                     <input type="text" class="form-control" value="${valueEx.pays}" disabled>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-6">
+                                                                            <div class="col-sm-12 col-md-6 col-xl-6 p-2">
                                                                                 <div class="form-group">
                                                                                     <label for="" class="text-uppercase">Du</label>
                                                                                     <input type="text" class="form-control" value="${valueEx.du}" disabled>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-6">
+                                                                            <div class="col-sm-12 col-md-6 col-xl-6 p-2">
                                                                                 <div class="form-group">
                                                                                     <label for="" class="text-uppercase">Au</label>
                                                                                     <input type="text" class="form-control" value="${valueEx.au}" disabled>
@@ -179,24 +179,42 @@ $(document).ready(function () {
                                                                         `+value.title+`
                                                                     </button>`);
                     });
-                    $.each(response.Disponible, function (key, data) {
-                        $('.CardCoursAndDispo .ClassDisponible').append(`
-                            <div class="ContentDisponible">
-                                <div class="Days">${key}</div>
-                                <div class="ClassCalculHeight">
-                                    <div class="ClassTimeDisponible" style="${data ? 'color:#0c3c74;background:#00f8ff3b;' : ''}">
-                                        <p>
-                                            ${data ? '<i class="fa-solid fa-clock" style="color: #0078ff"></i>' : ''}
-                                            ${data ? data.debut : 'Vide'}
-                                        </p>
-                                        <p>
-                                            ${data ? '<i class="fa-solid fa-clock" style="color: #0078ff"></i>' : ''}
-                                            ${data ? data.fin : 'Vide'}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        `);
+                    $.each(response.Disponible, function (key, data)
+                    {
+
+                        var content = `
+                                        <div class="ContentDisponible">
+                                            <div class="Days">${key}</div>
+                                            <div class="ClassCalculHeight">
+                                    `;
+                                    if (data.length > 0) {
+                                        $.each(data, function(index, item) {
+                                            content += `
+                                                <div class="ClassTimeDisponible" style="color:#0c3c74;background:#00f8ff3b;">
+                                                    <p>
+                                                        <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                        ${item.debut}
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                        ${item.fin}
+                                                    </p>
+                                                </div>
+                                            `;
+                                        });
+                                    } else {
+                                        content += `
+                                            <div class="ClassTimeDisponible" style="color: #0c3c74;background: #00f8ff3b;">
+                                                <p>Vide</p>
+                                                <p>Vide</p>
+                                            </div>
+                                        `;
+                                    }
+                                    content += `
+                                            </div>
+                                        </div>
+                                    `;
+                                    $('.CardCoursAndDispo .ClassDisponible').append(content);
                     });
 
 

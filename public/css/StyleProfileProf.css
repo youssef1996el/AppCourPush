@@ -106,15 +106,13 @@ font-size: 26px;
   border: 1px solid gray;
   display: inline-table;
   text-align: center !important;
-  /* justify-content: center;
-  align-content: center;
-  align-items: center; */
-  /* min-height: 90px; */
+
   background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
   background-size: 8.76px 11.63px;
   flex-grow: 1;
   min-height: 300px;
   border-radius: 10px
+
 
 }
 .Days
@@ -128,6 +126,8 @@ font-size: 26px;
     font-family:Gabriola, Times, serif;
     font-size:22px;
     white-space: nowrap;
+
+
 
 }
 
@@ -152,6 +152,7 @@ font-size: 26px;
   margin-left: -12px;
   height: 300px;
   margin-top: -10px;
+
 }
 
 .cardCours{

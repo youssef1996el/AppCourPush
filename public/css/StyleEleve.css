@@ -113,7 +113,7 @@ tbody, td, tfoot, th, thead, tr {
 .BtnIntialiser:first-child, .BtnIntialisertn, .BtnIntialiser{
   box-shadow:none;
   border-radius: 50px;
- 
+
 }
 
 .fa-refresh{
@@ -156,7 +156,7 @@ tbody, td, tfoot, th, thead, tr {
 {
   border-color: lightgray !important;
   box-shadow: none !important;
-} 
+}
 
 #bookCard{
   cursor: pointer;
@@ -189,5 +189,14 @@ tbody, td, tfoot, th, thead, tr {
       margin-left: -23rem;
       margin-bottom: 5px
   }
+
+  @media (min-width: 1200px)
+  {
+    .container, .container-lg, .container-md, .container-sm, .container-xl
+    {
+        max-width: none !important;
+    }
+  }
+
 
 
