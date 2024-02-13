@@ -1,6 +1,6 @@
 
-@extends('layouts.app')
-@section('content')
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleEleve.css')}}">
 <script src="{{asset('js/ScriptEleve.js')}}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
