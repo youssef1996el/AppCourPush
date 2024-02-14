@@ -35,3 +35,24 @@ Copyright (c) 2015 Daniel Eden*/body{-webkit-backface-visibility:hidden}.animate
 } .iconS{
     margin-left: 20px;}
 
+#nameImage{
+  background: transparent;
+  box-shadow: none;
+  border: medium;
+}
+
+.imageAdmin{
+  width: 45px;
+  height: 45px;
+border: 2px solid rgb(13, 202, 240);}
+
+#btn-logout{
+color: #6b6363;
+  background: white;
+font-size:14px;
+box-shadow: 0 0.125rem 2.625rem rgba(68,64,84,.4),0 .0625rem .125rem rgba(68,64,84,.5);}
+  #btn-logout:hover{
+    color: #0dcaf0;
+  background: white;
+box-shadow: 0 .125rem .625rem rgba(68,64,84,.4),0 .0625rem .125rem rgba(68,64,84,.5);}
+#btn-border:active{border: none;}

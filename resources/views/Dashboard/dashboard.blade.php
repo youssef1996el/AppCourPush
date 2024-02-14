@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <div class="container">
-                <h1 class="text-uppercase">Dashboard</h1>
+                <h1 class="text-uppercase">Tableau de bord</h1>
                 <h3 class="text-primary">{{ ucfirst($formattedDate)}}</h3>
             </div>
         </div>
@@ -17,8 +17,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-xl-6 p-4">
-                                <h3 class="text-primary" >Welcome back, your dashboard is ready !</h3>
-                                <p class="text-dark fs-4 ">We're honored to have you with us. Your dashboard is primed and optimized for seamless navigation. Should you require any support or have inquiries, our team is at your service. Let's embark on a productive journey together!
+                                <h3 class="text-primary" >Bonjour et bienvenue de retour, votre tableau de bord est prêt !</h3>
+                                <p class="text-dark mt-3" style="  font-size: 18px;">Le tableau de bord résume les principaux indicateurs de votre établissement éducatif : le nombre de professeurs et d'élèves, les professeurs non actifs, la répartition des étudiants par pays, et un graphique illustrant l'évolution du nombre d'élèves. Ces données fournissent une vue d'ensemble précieuse pour la gestion et l'optimisation de votre institution.
                                 </p>
                             </div>
                             <div class="col-sm-12 col-md-6 col-xl-6 p-4 ">
@@ -47,10 +47,10 @@
                         <div class="card shadow" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
+                                    <img src="{{asset('image/proactive.png')}}"  width="90px" height="90px" alt="" srcset="" style="border-radius: 50px;">
                                     <h5 class="card-title mt-4" style="margin-left:10px;">Professeur</h5>
                                 </div>
-                                <h5>{{$professeurActive}}</h5>
+                                <h5 style="text-align: center;font-size: 24px;color: #416cb0;font-weight:bold">{{$professeurActive}}</h5>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                     <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
                                     <h5 class="card-title mt-4" style="margin-left:10px;">Professeur non active</h5>
                                 </div>
-                                <h5>{{$professeurNoActive}}</h5>
+                                <h5 style="text-align: center;font-size: 24px;color: #416cb0;font-weight:bold">{{$professeurNoActive}}</h5>
                             </div>
                         </div>
                     </div>
@@ -69,10 +69,10 @@
                         <div class="card shadow" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <img src="{{asset('image/student.svg')}}"  width="90px" height="90px" alt="" srcset="">
+                                    <img src="{{asset('image/elevee.jpeg')}}"  width="90px" height="90px" alt="" srcset="" style="border-radius: 50px;">
                                     <h5 class="card-title mt-4" style="margin-left:10px;">Eleve</h5>
                                 </div>
-                                <h5>{{$Eleve}}</h5>
+                                <h5 style="text-align: center;font-size: 24px;color: #416cb0;font-weight:bold">{{$Eleve}}</h5>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                             <div class="bg-light text-primary p-3">
                                 <div class="row bg-light text-primary p-3" >
                                     <div class="col-sm-6 col-md-6 col-xl-6 " >
-                                        <h3>Chart Count Eleve created</h3>
+                                        <h3>Graphique du nombre d'élèves créé</h3>
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-xl-6 ">
                                         <select name="yearpicker" class="form-select" id="yearpicker"></select>

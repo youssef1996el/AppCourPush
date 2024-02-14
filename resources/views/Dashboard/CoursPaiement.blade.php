@@ -36,37 +36,37 @@
                 </div>
             </div>
         </div> -->
-        <div class="card " style=" background-color: #ffffff63;">
-            <div class="card-body">
-                <h4 class="card-title mb-5">Cours de paiement</h4>
-                <div class="row">
-                    <div class="buttonPrice">
-                            <button class="btn" id="BtnAddPrixCours" data-bs-toggle="modal" data-bs-target="#ModalAddPrix">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                    <path fill="none" d="M0 0h24v24H0z"></path>
-                                    <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
-                                </svg>
-                                <span style="font-size:16px">Ajouter le prix du cours </span>
-                            </button>
+        <div class="card" style="background-color: #ffffff63;">
+    <div class="card-body">
+        <h4 class="card-title mb-5">Cours de paiement</h4>
+        <div class="row justify-content-center"> <!-- Center the cards horizontally -->
+            <div class="buttonPrice">
+                <button class="btn" id="BtnAddPrixCours" data-bs-toggle="modal" data-bs-target="#ModalAddPrix">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path>
+                    </svg>
+                    <span style="font-size:16px">Ajouter le prix du cours </span>
+                </button>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-4"> <!-- Center the cards horizontally and add margin-bottom -->
+            <div class="cards d-flex justify-content-center"> <!-- Center the cards inside the row -->
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+                    <div class="card-item-Price CardTypeGroupe">
+
                     </div>
                 </div>
-                <div class="row ">
-                    <div class="cards">
-                        <div class="col-sm-12 col-md-6 col-xl-6  rowContentForCours">
-                            <div class="card-item CardTypeGroupe ">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-xl-6 ">
-                            <div class="card-item CardTypePrive">
-
-                            </div>
-                        </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+                    <div class="card-item-Price CardTypePrive">
 
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
 
         {{-- Modal Add Prix --}}
         <div class="modal fade" id="ModalAddPrix" aria-labelledby="settingsModalTitle" aria-hidden="true" tabindex="-1">
@@ -78,10 +78,10 @@
                     </div>
                     <div class="modal-body">
 
-                        <div class="sectiontablecours mt-1 card p-2 " style="border:none; max-height: 310px;">
+                        <div class="sectiontablecours mt-1 card p-2 " style="border:none; box-shadow:none; max-height: 210px;">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-xl-6">
-                                    <div class="form-group" >
+                                    <div class="form-group mb-3" >
                                         <select name="typeCours" class="form-select TypeCours">
                                             <option value="0">veuillez sélectionner le type de cours</option>
                                             <option value="Cours particulier">Cours particulier</option>
@@ -97,7 +97,7 @@
                                     </div>
                                </div>
                             </div>
-                            <button class="Send mt-4" >
+                            <button class="Send mt-2" >
                                 <span >valider</span>
                             </button>
                         </div>
@@ -120,10 +120,10 @@
                     </div>
                     <div class="modal-body">
 
-                        <div class="sectiontablecours mt-1 card p-2 " style="border:none; max-height: 310px;">
+                        <div class="sectiontablecours mt-1 card p-2 " style="border:none; box-shadow:none; max-height: 210px;">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-xl-6">
-                                    <div class="form-group">
+                                    <div class="form-group mb-3">
                                         <select name="typeCours" class="form-select TypeCoursEdit">
                                             <option value="0">veuillez sélectionner le type de cours</option>
                                             <option value="Cours particulier">Cours particulier</option>
@@ -139,7 +139,7 @@
                                     </div>
                                </div>
                             </div>
-                            <button class="Send SendEdit mt-4" >
+                            <button class="Send SendEdit mt-3" >
                                 <span >Modifier</span>
                             </button>
                         </div>

@@ -61,7 +61,7 @@
                                     @endif
                                     @if ($item->verification === 'Verifie')
                                     <td class="verificationCell" style=" display: inline-flex;margin-top: 14px;color:rgb(0, 149, 246);">
-                                        <svg aria-label="Vérifié" class="x1lliihq x1n2onr6" fill="rgb(0, 149, 246)" height="18" role="img" viewBox="0 0 40 40" width="18">
+                                        <svg aria-label="Vérifié" class="x1lliihq x1n2onr6" fill="rgb(0, 149, 246)" height="18" role="img" viewBox="0 0 40 40" width="18" style="margin-top:4px">
                                             <title>Vérifié</title>
                                             <path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path>
                                         </svg>
@@ -73,7 +73,7 @@
                                     </td>
                                     @endif
                                     <td>
-                                        <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}} data-target="#ModalView">
+                                        <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value="{{$item->id}}" data-target="#ModalView">
                                             <i class="fa-solid fa-eye"></i>
                                         </button>
                                     </td>
@@ -97,10 +97,10 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-xl-3 resposiveCardProfile">
-                            <div class="card bg-light cardProfile shadow-sm">
+                            <div class="card bg-light cardProfile shadow-sm m-auto mb-2">
                                 <img class="img" id="imageProfesseur"  />
-                                    <span class="text-uppercase text-black nameProfesseur"></span>
-                                    <p class="text-secondary text-center titleProfesseur" style="margin-top: 12px;" ></p>
+                                    <span class="text-uppercase nameProfesseur" style="color:rgb(0, 149, 246)"></span>
+                                    <p class=" text-center titleProfesseur" style="margin-top: 16px; color:black ; font-style:italic" ></p>
                                     <p class="text-secondary text-center numberExperince"></p>
                                     <p class="info text-black methodeProfesseur"></p>
                             </div>
@@ -203,7 +203,7 @@
                                     <div class="col-sm-12 col-md-6 col-xl-6 p-2">
                                         <a class="button" id="FileCertification" target="_blank">
 
-                                            <svg class="svg-icon" width="24" viewBox="0 0 24 24" height="24" fill="none">
+                                            <svg class="svg-icon" width="24" viewBox="0 0 24 24" height="24" fill="none" >
                                                 <g stroke-width="2" stroke-linecap="round" stroke="#056dfa" fill-rule="evenodd" clip-rule="evenodd">
                                                     <path d="m3 7h17c.5523 0 1 .44772 1 1v11c0 .5523-.4477 1-1 1h-16c-.55228 0-1-.4477-1-1z"></path>
                                                     <path d="m3 4.5c0-.27614.22386-.5.5-.5h6.29289c.13261 0 .25981.05268.35351.14645l2.8536 2.85355h-10z"></path>

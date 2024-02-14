@@ -70,7 +70,7 @@
                         <div class="app-header-right">
                             <div class="header-dots">
                                 <div class="dropdown">
-                                    <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn ">
+                                    <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn " id="btn-border">
                                         <span class="icon-wrapper icon-wrapper-alt rounded-circle">
                                             <span class="icon-wrapper-bg bg-danger"></span>
                                                 <i class="fa-regular fa-bell text-danger icon-anim-pulse "></i>
@@ -141,255 +141,6 @@
                                                                             <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                 <div class="vertical-timeline-element-content bounce-in">
                                                                                     <h4 class="timeline-title">Something not important
-<<<<<<< HEAD
-                                                                                    <div class="avatar-wrapper mt-2 avatar-wrapper-overlap">
-                                                                                        <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                            <div class="avatar-icon">
-{{-- <img src="assets/images/avatars/1.jpg" alt> --}}
-</div>
-</div>
-<div class="avatar-icon-wrapper avatar-icon-sm">
-<div class="avatar-icon">
-{{-- <img src="assets/images/avatars/2.jpg" alt> --}}
-</div>
-</div>
-<div class="avatar-icon-wrapper avatar-icon-sm">
-<div class="avatar-icon">
-{{-- <img src="assets/images/avatars/3.jpg" alt> --}}
-</div>
-</div>
-<div class="avatar-icon-wrapper avatar-icon-sm">
-<div class="avatar-icon">
-{{-- <img src="assets/images/avatars/4.jpg" alt> --}}
-</div>
-</div>
-<div class="avatar-icon-wrapper avatar-icon-sm">
-<div class="avatar-icon">
-{{-- <img src="assets/images/avatars/5.jpg" alt> --}}
-</div>
-</div>
-<div class="avatar-icon-wrapper avatar-icon-sm">
-<div class="avatar-icon">
-{{-- <img src="assets/images/avatars/9.jpg" alt> --}}
-</div>
-</div>
-<div class="avatar-icon-wrapper avatar-icon-sm">
-<div class="avatar-icon">
-{{-- <img src="assets/images/avatars/7.jpg" alt> --}}
-</div>
-</div>
-<div class="avatar-icon-wrapper avatar-icon-sm">
-<div class="avatar-icon">
-{{-- <img src="assets/images/avatars/8.jpg" alt> --}}
-</div>
-</div>
-<div class="avatar-icon-wrapper avatar-icon-sm avatar-icon-add">
-<div class="avatar-icon"><i>+</i></div>
-</div>
-</div>
-</h4>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item dot-info vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in"></span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">This dot has an info state</h4>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item dot-danger vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in"></span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">All Hands Meeting</h4>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item dot-warning vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in"></span>
-<div class="vertical-timeline-element-content bounce-in">
-<p>Yet another one, at <span class="text-success">15:00 PM</span>
-</p><span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item dot-success vertical-timeline-element">
-<div><span class="vertical-timeline-element-icon bounce-in"></span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">Build the production release
-<span class="badge badge-danger ml-2">NEW</span>
-</h4>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item dot-dark vertical-timeline-element">
-<div><span class="vertical-timeline-element-icon bounce-in"></span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">This dot has a dark state</h4>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="tab-pane" id="tab-events-header" role="tabpanel">
-<div class="scroll-area-sm">
-<div class="scrollbar-container">
-<div class="p-3">
-<div class="vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
-<div class="vertical-timeline-item vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in">
-<i class="badge badge-dot badge-dot-xl badge-success"> </i>
-</span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">All Hands Meeting</h4>
-<p>Lorem ipsum dolor sic amet, today at
-<a href="javascript:void(0);">12:00 PM</a>
-</p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in">
-<i class="badge badge-dot badge-dot-xl badge-warning"> </i>
-</span>
-<div class="vertical-timeline-element-content bounce-in">
-<p>Another meeting today, at <b class="text-danger">12:00 PM</b></p>
-<p>Yet another one, at <span class="text-success">15:00 PM</span></p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in">
-<i class="badge badge-dot badge-dot-xl badge-danger"> </i>
-</span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">Build the production release</h4>
-<p>Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
-labore et dolore magna elit enim at minim veniam quis nostrud
-</p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in">
-<i class="badge badge-dot badge-dot-xl badge-primary"> </i>
-</span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title text-success">Something not important</h4>
-<p>Lorem ipsum dolor sit amit,consectetur elit enim at minim veniam quis nostrud</p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in">
-<i class="badge badge-dot badge-dot-xl badge-success"> </i>
-</span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">All Hands Meeting</h4>
-<p>Lorem ipsum dolor sic amet, today at
-<a href="javascript:void(0);">12:00 PM</a>
-</p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in">
-<i class="badge badge-dot badge-dot-xl badge-warning"> </i>
-</span>
-<div class="vertical-timeline-element-content bounce-in">
-<p>Another meeting today, at <b class="text-danger">12:00 PM</b></p>
-<p>Yet another one, at <span class="text-success">15:00 PM</span></p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in">
-<i class="badge badge-dot badge-dot-xl badge-danger"> </i>
-</span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title">Build the production release</h4>
-<p>Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
-labore et dolore magna elit enim at minim veniam quis nostrud
-</p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-<div class="vertical-timeline-item vertical-timeline-element">
-<div>
-<span class="vertical-timeline-element-icon bounce-in">
-<i class="badge badge-dot badge-dot-xl badge-primary"> </i>
-</span>
-<div class="vertical-timeline-element-content bounce-in">
-<h4 class="timeline-title text-success">Something not important</h4>
-<p>Lorem ipsum dolor sit amit,consectetur elit enim at minim veniam quis nostrud</p>
-<span class="vertical-timeline-element-date"></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-<ul class="nav flex-column">
-<li class="nav-item-divider nav-item"></li>
-<li class="nav-item-btn text-center nav-item">
-<button class="btn-shadow btn-wide btn-pill btn btn-focus btn-sm">View Latest Changes</button>
-</li>
-</ul>
-</div>
-</div>
-
-
-</div>
-<div class="header-btn-lg pr-0">
-    <div class="widget-content p-0">
-        <div class="widget-content-wrapper">
-            <div class="widget-content-left">
-                <div class="btn-group">
-                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                        <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt style="width: 45px;height: 45px;">
-                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
-                    </a>
-                    <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-menu-header">
-                            <div class="dropdown-menu-header-inner bg-info">
-                                <div class="menu-header-image opacity-2" style="background-image: url('assets/images/dropdown-header/city3.jpg');"></div>
-                                <div class="menu-header-content text-left">
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt style="width: 45px;height: 45px;">
-                                            </div>
-=======
                                                                                         <div class="avatar-wrapper mt-2 avatar-wrapper-overlap">
                                                                                             <div class="avatar-icon-wrapper avatar-icon-sm">
                                                                                                 <div class="avatar-icon">
@@ -619,29 +370,28 @@ labore et dolore magna elit enim at minim veniam quis nostrud
                                 <div class="header-btn-lg pr-0">
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
->>>>>>> 7f3cf551f892d3baab9b7e13f65c0ad959f69752
                                             <div class="widget-content-left">
                                                 <div class="btn-group">
-                                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                                        <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
+                                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn " id="btn-border">
+                                                        <img  class="rounded-circle imageAdmin" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
                                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                                     </a>
-                                                    <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
+                                                    <div tabindex="-1" role="menu" aria-hidden="true" id="nameImage" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right ">
                                                         <div class="dropdown-menu-header">
                                                             <div class="dropdown-menu-header-inner bg-info">
-                                                                <div class="menu-header-image opacity-2" style="background-image: url('assets/images/dropdown-header/city3.jpg');"></div>
+                                                                <div class="menu-header-image " ></div>
                                                                 <div class="menu-header-content text-left">
                                                                     <div class="widget-content p-0">
                                                                         <div class="widget-content-wrapper">
                                                                             <div class="widget-content-left mr-3">
-                                                                                <img width="42" class="rounded-circle" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
+                                                                                <img  class="rounded-circle imageAdmin" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
                                                                             </div>
                                                                             <div class="widget-content-left">
                                                                                 <div class="widget-heading">{{ Auth::user()->name}}</div>
                                                                                 <div class="widget-subheading opacity-8">{{ Auth::user()->title}}</div>
                                                                             </div>
                                                                             <div class="widget-content-right mr-2">
-                                                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn-pill btn-shadow btn-shine btn btn-focus">Logout</a>
+                                                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" id="btn-logout" class=" btn-pill  btn-shine btn btn-focus" >Se déconnecter</a>
                                                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                                                     @csrf
                                                                                 </form>
@@ -669,244 +419,7 @@ labore et dolore magna elit enim at minim veniam quis nostrud
                             </div>
                         </div>
                     </div>
-                    <div class="ui-theme-settings">
-                        <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
-                            <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
-                        </button>
-                        <div class="theme-settings__inner">
-                            <div class="scrollbar-container">
-                            <div class="theme-settings__options-wrapper">
-                                <h3 class="themeoptions-heading">Layout Options</h3>
-                                <div class="p-3">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <div class="switch has-switch switch-container-class" data-class="fixed-header">
-                                                            <div class="switch-animate switch-on">
-                                                                <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Fixed Header</div>
-                                                        <div class="widget-subheading">Makes the header top fixed, always visible!</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <div class="switch has-switch switch-container-class" data-class="fixed-sidebar">
-                                                            <div class="switch-animate switch-on">
-                                                                <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Fixed Sidebar</div>
-                                                        <div class="widget-subheading">Makes the sidebar left fixed, always visible!</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <div class="switch has-switch switch-container-class" data-class="fixed-footer">
-                                                            <div class="switch-animate switch-off">
-                                                                <input type="checkbox" data-toggle="toggle" data-onstyle="success">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Fixed Footer</div>
-                                                        <div class="widget-subheading">Makes the app footer bottom fixed, always visible!</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h3 class="themeoptions-heading">
-                                    <div> Header Options </div>
-                                    <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-header-cs-class" data-class>
-                                        Restore Default
-                                    </button>
-                                </h3>
-                                <div class="p-3">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <h5 class="pb-2">Choose Color Scheme</h5>
-                                            <div class="theme-settings-swatches">
-                                                <div class="swatch-holder bg-primary switch-header-cs-class" data-class="bg-primary header-text-light"></div>
-                                                <div class="swatch-holder bg-secondary switch-header-cs-class" data-class="bg-secondary header-text-light"></div>
-                                                <div class="swatch-holder bg-success switch-header-cs-class" data-class="bg-success header-text-light"></div>
-                                                <div class="swatch-holder bg-info switch-header-cs-class" data-class="bg-info header-text-light"></div>
-                                                <div class="swatch-holder bg-warning switch-header-cs-class" data-class="bg-warning header-text-dark"></div>
-                                                <div class="swatch-holder bg-danger switch-header-cs-class" data-class="bg-danger header-text-light"></div>
-                                                <div class="swatch-holder bg-light switch-header-cs-class" data-class="bg-light header-text-dark"></div>
-                                                <div class="swatch-holder bg-dark switch-header-cs-class" data-class="bg-dark header-text-light"></div>
-                                                <div class="swatch-holder bg-focus switch-header-cs-class" data-class="bg-focus header-text-light"></div>
-                                                <div class="swatch-holder bg-alternate switch-header-cs-class" data-class="bg-alternate header-text-light"></div>
-                                                <div class="divider"></div>
-                                                <div class="swatch-holder bg-vicious-stance switch-header-cs-class" data-class="bg-vicious-stance header-text-light"></div>
-                                                <div class="swatch-holder bg-midnight-bloom switch-header-cs-class" data-class="bg-midnight-bloom header-text-light"></div>
-                                                <div class="swatch-holder bg-night-sky switch-header-cs-class" data-class="bg-night-sky header-text-light"></div>
-                                                <div class="swatch-holder bg-slick-carbon switch-header-cs-class" data-class="bg-slick-carbon header-text-light"></div>
-                                                <div class="swatch-holder bg-asteroid switch-header-cs-class" data-class="bg-asteroid header-text-light"></div>
-                                                <div class="swatch-holder bg-royal switch-header-cs-class" data-class="bg-royal header-text-light"></div>
-                                                <div class="swatch-holder bg-warm-flame switch-header-cs-class" data-class="bg-warm-flame header-text-dark"></div>
-                                                <div class="swatch-holder bg-night-fade switch-header-cs-class" data-class="bg-night-fade header-text-dark"></div>
-                                                <div class="swatch-holder bg-sunny-morning switch-header-cs-class" data-class="bg-sunny-morning header-text-dark"></div>
-                                                <div class="swatch-holder bg-tempting-azure switch-header-cs-class" data-class="bg-tempting-azure header-text-dark"></div>
-                                                <div class="swatch-holder bg-amy-crisp switch-header-cs-class" data-class="bg-amy-crisp header-text-dark"></div>
-                                                <div class="swatch-holder bg-heavy-rain switch-header-cs-class" data-class="bg-heavy-rain header-text-dark"></div>
-                                                <div class="swatch-holder bg-mean-fruit switch-header-cs-class" data-class="bg-mean-fruit header-text-dark"></div>
-                                                <div class="swatch-holder bg-malibu-beach switch-header-cs-class" data-class="bg-malibu-beach header-text-light"></div>
-                                                <div class="swatch-holder bg-deep-blue switch-header-cs-class" data-class="bg-deep-blue header-text-dark"></div>
-                                                <div class="swatch-holder bg-ripe-malin switch-header-cs-class" data-class="bg-ripe-malin header-text-light"></div>
-                                                <div class="swatch-holder bg-arielle-smile switch-header-cs-class" data-class="bg-arielle-smile header-text-light"></div>
-                                                <div class="swatch-holder bg-plum-plate switch-header-cs-class" data-class="bg-plum-plate header-text-light"></div>
-                                                <div class="swatch-holder bg-happy-fisher switch-header-cs-class" data-class="bg-happy-fisher header-text-dark"></div>
-                                                <div class="swatch-holder bg-happy-itmeo switch-header-cs-class" data-class="bg-happy-itmeo header-text-light"></div>
-                                                <div class="swatch-holder bg-mixed-hopes switch-header-cs-class" data-class="bg-mixed-hopes header-text-light"></div>
-                                                <div class="swatch-holder bg-strong-bliss switch-header-cs-class" data-class="bg-strong-bliss header-text-light"></div>
-                                                <div class="swatch-holder bg-grow-early switch-header-cs-class" data-class="bg-grow-early header-text-light"></div>
-                                                <div class="swatch-holder bg-love-kiss switch-header-cs-class" data-class="bg-love-kiss header-text-light"></div>
-                                                <div class="swatch-holder bg-premium-dark switch-header-cs-class" data-class="bg-premium-dark header-text-light"></div>
-                                                <div class="swatch-holder bg-happy-green switch-header-cs-class" data-class="bg-happy-green header-text-light"></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h3 class="themeoptions-heading">
-                                    <div>Sidebar Options</div>
-                                    <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-sidebar-cs-class" data-class>
-                                        Restore Default
-                                    </button>
-                                </h3>
-                                <div class="p-3">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <h5 class="pb-2">Choose Color Scheme</h5>
-                                            <div class="theme-settings-swatches">
-                                                <div class="swatch-holder bg-primary switch-sidebar-cs-class" data-class="bg-primary sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-secondary switch-sidebar-cs-class" data-class="bg-secondary sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-success switch-sidebar-cs-class" data-class="bg-success sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-info switch-sidebar-cs-class" data-class="bg-info sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-warning switch-sidebar-cs-class" data-class="bg-warning sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-danger switch-sidebar-cs-class" data-class="bg-danger sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-light switch-sidebar-cs-class" data-class="bg-light sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-dark switch-sidebar-cs-class" data-class="bg-dark sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-focus switch-sidebar-cs-class" data-class="bg-focus sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-alternate switch-sidebar-cs-class" data-class="bg-alternate sidebar-text-light"></div>
-                                                <div class="divider"></div>
-                                                <div class="swatch-holder bg-vicious-stance switch-sidebar-cs-class" data-class="bg-vicious-stance sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-midnight-bloom switch-sidebar-cs-class" data-class="bg-midnight-bloom sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-night-sky switch-sidebar-cs-class" data-class="bg-night-sky sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-slick-carbon switch-sidebar-cs-class" data-class="bg-slick-carbon sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-asteroid switch-sidebar-cs-class" data-class="bg-asteroid sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-royal switch-sidebar-cs-class" data-class="bg-royal sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-warm-flame switch-sidebar-cs-class" data-class="bg-warm-flame sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-night-fade switch-sidebar-cs-class" data-class="bg-night-fade sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-sunny-morning switch-sidebar-cs-class" data-class="bg-sunny-morning sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-tempting-azure switch-sidebar-cs-class" data-class="bg-tempting-azure sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-amy-crisp switch-sidebar-cs-class" data-class="bg-amy-crisp sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-heavy-rain switch-sidebar-cs-class" data-class="bg-heavy-rain sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-mean-fruit switch-sidebar-cs-class" data-class="bg-mean-fruit sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-malibu-beach switch-sidebar-cs-class" data-class="bg-malibu-beach sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-deep-blue switch-sidebar-cs-class" data-class="bg-deep-blue sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-ripe-malin switch-sidebar-cs-class" data-class="bg-ripe-malin sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-arielle-smile switch-sidebar-cs-class" data-class="bg-arielle-smile sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-plum-plate switch-sidebar-cs-class" data-class="bg-plum-plate sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-happy-fisher switch-sidebar-cs-class" data-class="bg-happy-fisher sidebar-text-dark"></div>
-                                                <div class="swatch-holder bg-happy-itmeo switch-sidebar-cs-class" data-class="bg-happy-itmeo sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-mixed-hopes switch-sidebar-cs-class" data-class="bg-mixed-hopes sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-strong-bliss switch-sidebar-cs-class" data-class="bg-strong-bliss sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-grow-early switch-sidebar-cs-class" data-class="bg-grow-early sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-love-kiss switch-sidebar-cs-class" data-class="bg-love-kiss sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-premium-dark switch-sidebar-cs-class" data-class="bg-premium-dark sidebar-text-light"></div>
-                                                <div class="swatch-holder bg-happy-green switch-sidebar-cs-class" data-class="bg-happy-green sidebar-text-light"></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    </div>
-                                    <h3 class="themeoptions-heading">
-                                        <div>Main Content Options</div>
-                                        <button type="button" class="btn-pill btn-shadow btn-wide ml-auto active btn btn-focus btn-sm">Restore Default</button>
-                                    </h3>
-                                    <div class="p-3">
-                                        <ul class="list-group">
-                                            <li class="list-group-item">
-                                                <h5 class="pb-2">Page Section Tabs</h5>
-                                                <div class="theme-settings-swatches">
-                                                    <div role="group" class="mt-2 btn-group">
-                                                        <button type="button" class="btn-wide btn-shadow btn-primary btn btn-secondary switch-theme-class" data-class="body-tabs-line"> Line</button>
-                                                        <button type="button" class="btn-wide btn-shadow btn-primary active btn btn-secondary switch-theme-class" data-class="body-tabs-shadow"> Shadow </button>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <h5 class="pb-2">Light Color Schemes
-                                                </h5>
-                                                <div class="theme-settings-swatches">
-                                                    <div role="group" class="mt-2 btn-group">
-                                                        <button type="button" class="btn-wide btn-shadow btn-primary active btn btn-secondary switch-theme-class" data-class="app-theme-white"> White Theme</button>
-                                                        <button type="button" class="btn-wide btn-shadow btn-primary btn btn-secondary switch-theme-class" data-class="app-theme-gray"> Gray Theme</button>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-<<<<<<< HEAD
-                                </li>
-                            </ul>
-                        </li> -->
-                        <li class=" mb-2">
-                            <a href="{{url('Admin/Dashboard')}}" class="">
-                                <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="{{url('Admin/Profile')}}">
-                                <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
-                            </a>
-
-                        </li>
-                        <li class="mb-2">
-                            <a href="#">
-                                <i class="fa-solid fa-rocket metismenu-icon "></i>Liste des utilisateurs
-                                <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
-
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="{{ url('professeurs') }}">
-                                        <i class="fa-solid fa-user-tie"></i> <span class="iconS">Professeur </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('eleves') }}">
-                                        <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </li>
-                        <li class="mb-2">
-                            <a href="{{url('CoursPaiement')}}">
-                                <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
-                            </a>
-=======
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="app-main">
                         <div class="app-sidebar sidebar-shadow">
                             <div class="app-header__logo">
@@ -943,7 +456,6 @@ labore et dolore magna elit enim at minim veniam quis nostrud
                                 <div class="app-sidebar__inner">
                                     <ul class="vertical-nav-menu">
                                         <li class="app-sidebar__heading">Menu</li>
->>>>>>> 7f3cf551f892d3baab9b7e13f65c0ad959f69752
 
                                         <li class="mm-active mb-2">
                                             <a href="{{url('Admin/Dashboard')}}" class="mm-active">
