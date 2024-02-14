@@ -498,7 +498,7 @@
 
                                         </li>
 
-                                        <!-- Side bar Admin-->
+                                        <!-- Side bar Eleve-->
 
                                         <li class="mm-active mb-2">
                                             <a href="{{ url('Reserver') }}" class="mm-active">
