@@ -55,4 +55,4 @@ box-shadow: 0 0.125rem 2.625rem rgba(68,64,84,.4),0 .0625rem .125rem rgba(68,64,
     color: #0dcaf0;
   background: white;
 box-shadow: 0 .125rem .625rem rgba(68,64,84,.4),0 .0625rem .125rem rgba(68,64,84,.5);}
-#btn-border:active{border: none;}
+#btn-border:active{border: none !important;}

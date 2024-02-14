@@ -58,8 +58,8 @@
                         <div class="card shadow" style="border-radius: 20px">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <img src="{{asset('image/professor.svg')}}"  width="90px" height="90px" alt="" srcset="">
-                                    <h5 class="card-title mt-4" style="margin-left:10px;">Professeur non active</h5>
+                                    <img src="{{asset('image/Apprendre.png')}}"  width="90px" height="90px" alt="" srcset=""  style="border-radius: 50px;">
+                                    <h5 class="card-title mt-4" style="margin-left:10px; text-align:center">Professeur non active</h5>
                                 </div>
                                 <h5 style="text-align: center;font-size: 24px;color: #416cb0;font-weight:bold">{{$professeurNoActive}}</h5>
                             </div>
