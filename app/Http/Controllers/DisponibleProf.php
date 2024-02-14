@@ -48,6 +48,32 @@ class DisponibleProf extends Controller
         if($CheckData >0)
         {
             DB::table('disponibleprof')->where('iduser',Auth::user()->id)->delete();
+
+            $data = $request->input('data');
+
+            foreach ($data as $day => $dayData)
+            {
+                foreach ($dayData as $row)
+                {
+                    $cours = $row['cours'];
+                    $typeCours = $row['typeCours'];
+                    $heureDebut = $row['heureDebut'];
+                    $heureFin = $row['heureFin'];
+
+                    // Insert into the database
+                    DB::table('disponibleprof')->insert([
+                        'jour'          => $day,
+                        'debut'         => $heureDebut,
+                        'fin'           => $heureFin,
+                        'iduser'        => Auth::user()->id,
+                        'idcours'       => $cours,
+                        'typecours'     => $typeCours,
+                        'timezone'      => $request->timezones,
+                        'created_at'    => Carbon::now(),
+                        'updated_at'    => Carbon::now(),
+                    ]);
+                }
+            }
         }
         else
         {
@@ -70,6 +96,7 @@ class DisponibleProf extends Controller
                         'iduser'        => Auth::user()->id,
                         'idcours'       => $cours,
                         'typecours'     => $typeCours,
+                        'timezone'      => $request->timezones,
                         'created_at'    => Carbon::now(),
                         'updated_at'    => Carbon::now(),
                     ]);

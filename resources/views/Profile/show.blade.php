@@ -9,7 +9,7 @@
         <div id="divProfile" class="col-5">
             <div class="card text-center">
                 <img class="card-img-top" src="{{asset($DataProf[0]->image)}}" alt="Profile image"  srcset="" style="border: 2px solid white;">
-                <h2 class="name">{{$DataProf[0]->nom .' '. $DataProf[0]->prenom}}</h2>
+                <h2 class="name">{{$DataProf[0]->name }}</h2>
                 <h4 >{{$DataProf[0]->title}}</h4>
                 <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince}}</span> ans d'expérience</h4>
                 <div class="card-body" >

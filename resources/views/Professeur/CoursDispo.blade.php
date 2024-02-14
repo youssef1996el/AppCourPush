@@ -33,6 +33,7 @@
                     <img class="card-img-top" alt="">
                     <div class="card-body">
                         <h4 class="card-title"></h4>
+                        <select class="form-control dropdownTimeZone" name="timezone"></select>
                         <p class="card-text">
                             <form action="" method="post" id="disponibilityForm">
                                 @csrf
@@ -437,7 +438,11 @@
 
 
 </div>
+<script src="{{asset('js/timezones.full.js')}}" ></script>
 <script>
+     $('.dropdownTimeZone').timezones({
+            lang: 'fr'
+        });
     const $tags = $('#tags');
     const $input = $('#input-tag');
     function GetCoursProfInDropDown()
@@ -828,7 +833,8 @@
                     headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
                     data:
                     {
-                        data : daysData
+                        data : daysData,
+                        timezones : $('.dropdownTimeZone').val(),
                     },
                     dataType: "json",
                     success: function (response)
