@@ -1,5 +1,7 @@
-@extends('layouts.app')
-@section('content')
+{{-- @extends('layouts.app')
+@section('content') --}}
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleCourse.css')}}">
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/evo-calendar.css')}}"/>
@@ -9,7 +11,7 @@
 
 <script src="{{asset('js/CourseScript.js')}}"></script>
 
-<div class="container" style="margin-top:65px;">
+<div class="container" >
     <div class="card shadow bg-light card-apprentissage" >
         <div class="card-body">
             <h3 class="mb-5" style="font-style:italic; text-align:center">Mon apprentissage</h3>
@@ -30,7 +32,7 @@
                             <div class="row">
                                 @if ($hasCours)
                                     @foreach ($MesCours as $item)
-                                        <div class="col-sm-12 col-md-4 col-xl-4 mt-4">
+                                        <div class="col-sm-12 col-md-6 col-xl-6 mt-4">
                                             <div class="card-sl">
                                                 <div class="name-course">{{$item->name_cours}}</div>
                                                 <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>

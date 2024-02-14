@@ -75,7 +75,7 @@ label{
     position: relative;
     height: 250px;
     width: 400px;
-    margin-left: 4.5rem
+    margin-left: 2.5rem
 }
 
 .container .card-container .front{
@@ -167,4 +167,67 @@ label{
 .container .card-container .back .box img{
     margin-top: 30px;
     height: 30px;
+}
+.CardInformation
+{
+    width:430px ;
+     padding:12px ;
+    height: 50%;
+}
+
+
+/* ipad */
+@media only screen and (min-device-width: 768px)  and (orientation: landscape)
+{
+    .container .card-container .front {
+
+        width: 65%;
+    }
+   /*  .cvv-input
+    {
+        margin-top:19px;
+    } */
+
+
+}
+
+/* iPad Portrait */
+@media only screen and (min-device-width: 768px)  and (orientation: portrait)
+{
+
+    .container .card-container .front {
+
+        width: 65%;
+    }
+    .cvv-input
+    {
+        margin-top:19px;
+    }
+
+}
+@media screen and (min-width: 1024px)
+{
+
+    .container .card-container .front {
+
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 600px)
+{
+    .container .card-container .front {
+
+        width: 70%;
+    }
+    .container .card-container {
+        margin-left: 1.5rem;
+    }
+    .cvv-input
+    {
+        margin-top:22px;
+    }
+    .CardInformation
+    {
+        height: 100%;
+    }
 }
