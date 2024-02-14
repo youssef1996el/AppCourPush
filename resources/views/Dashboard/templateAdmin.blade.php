@@ -459,149 +459,144 @@
                                         <li class="app-sidebar__heading">Menu</li>
 
                                         <!-- Side bar Admin-->
-                                        
-                                        <li class="mm-active mb-2">
-                                            <a href="{{url('Admin/Dashboard')}}" class="mm-active">
-                                                <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
-                                            </a>
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="{{url('Admin/Profile')}}">
-                                                <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
-                                            </a>
+                                        @if (Auth::user()->role_name === 'Admin')
+                                            <li class="mm-active mb-2">
+                                                <a href="{{url('Admin/Dashboard')}}" class="mm-active">
+                                                    <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
+                                                </a>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{url('Admin/Profile')}}">
+                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
+                                                </a>
 
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="#">
-                                                <i class="fa-solid fa-rocket metismenu-icon "></i>Liste des utilisateurs
-                                                <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="#">
+                                                    <i class="fa-solid fa-rocket metismenu-icon "></i>Liste des utilisateurs
+                                                    <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
 
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="{{ url('professeurs') }}">
-                                                        <i class="fa-solid fa-user-tie"></i> <span class="iconS">Professeur </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ url('eleves') }}">
-                                                        <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                                </a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{{ url('professeurs') }}">
+                                                            <i class="fa-solid fa-user-tie"></i> <span class="iconS">Professeur </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('eleves') }}">
+                                                            <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
 
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="{{url('CoursPaiement')}}">
-                                                <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
-                                            </a>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{url('CoursPaiement')}}">
+                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
+                                                </a>
 
-                                        </li>
+                                            </li>
+                                        @endif
+
 
                                         <!-- Side bar Admin-->
+                                        @if (Auth::user()->role_name === 'eleve')
+                                            <li class="mm-active mb-2">
+                                                <a href="{{ url('Reserver') }}" class="mm-active">
+                                                    <i class="fa-solid fa-chart-line metismenu-icon"></i>Réserver un cours
+                                                </a>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{ url('InfosProfile') }}">
+                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
+                                                </a>
 
-                                        <li class="mm-active mb-2">
-                                            <a href="{{ url('Reserver') }}" class="mm-active">
-                                                <i class="fa-solid fa-chart-line metismenu-icon"></i>Réserver un cours
-                                            </a>
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="{{ url('InfosProfile') }}">
-                                                <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
-                                            </a>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{ url('Mescours') }}">
+                                                    <i class="fa-solid fa-rocket metismenu-icon "></i>Mes cours
 
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="{{ url('Mescours') }}">
-                                                <i class="fa-solid fa-rocket metismenu-icon "></i>Mes cours
-                                                <!--<i class="fa-solid fa-angle-down metismenu-state-icon"></i>-->
-                                            </a>
-                                            <!-- <ul>
-                                                <li>
-                                                    <a href="{{ url('professeurs') }}">
-                                                        <i class="fa-solid fa-user-tie"></i> <span class="iconS">Professeur </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ url('eleves') }}">
-                                                        <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>
-                                                    </a>
-                                                </li>
-                                            </ul> -->
+                                                </a>
 
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="{{url('CoursPaiement')}}">
-                                                <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
-                                            </a>
 
-                                        </li>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{url('CoursPaiement')}}">
+                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
+                                                </a>
+
+                                            </li>
+                                        @endif
+
                                         <!-- Side bar Professeur-->
-                                        
-                                        <li class="mm-active mb-2">
-                                            <a href="{{url('Admin/Dashboard')}}" class="mm-active">
-                                                <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
-                                            </a>
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="{{url('Admin/Profile')}}">
-                                                <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>Profile
-                                            </a>
+                                        @if (Auth::user()->role_name === 'professeur')
+                                            <li class="mm-active mb-2">
+                                                <a href="{{url('Admin/Dashboard')}}" class="mm-active">
+                                                    <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
+                                                </a>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{url('Admin/Profile')}}">
+                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>Profile
+                                                </a>
 
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="{{url('CoursPaiement')}}">
-                                                <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Liste des éleves
-                                            </a>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{url('CoursPaiement')}}">
+                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Liste des éleves
+                                                </a>
 
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="#">
-                                                <i class="fa-solid fa-rocket metismenu-icon "></i> Cours & Disponibilté
-                                                <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="#">
+                                                    <i class="fa-solid fa-rocket metismenu-icon "></i> Cours & Disponibilté
+                                                    <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
 
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="{{ url('professeurs') }}">
-                                                        <i class="fa-solid fa-user-tie"></i> <span class="iconS">Cours </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ url('eleves') }}">
-                                                        <i class="fa-solid fa-users "></i> <span class="iconS">Disponibilté </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                                </a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{{ url('professeurs') }}">
+                                                            <i class="fa-solid fa-user-tie"></i> <span class="iconS">Cours </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('eleves') }}">
+                                                            <i class="fa-solid fa-users "></i> <span class="iconS">Disponibilté </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
 
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="{{url('CoursPaiement')}}">
-                                                <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Informaion personnelle
-                                            </a>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{url('CoursPaiement')}}">
+                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Informaion personnelle
+                                                </a>
 
-                                        </li>
-                                        <li class="mb-2">
-                                            <a href="#">
-                                                <i class="fa-solid fa-rocket metismenu-icon "></i> Education & Expérience
-                                                <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="#">
+                                                    <i class="fa-solid fa-rocket metismenu-icon "></i> Education & Expérience
+                                                    <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
 
-                                            </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="{{ url('professeurs') }}">
-                                                        <i class="fa-solid fa-user-tie"></i> <span class="iconS">Education </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ url('eleves') }}">
-                                                        <i class="fa-solid fa-users "></i> <span class="iconS">Expérience </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                                </a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{{ url('professeurs') }}">
+                                                            <i class="fa-solid fa-user-tie"></i> <span class="iconS">Education </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('eleves') }}">
+                                                            <i class="fa-solid fa-users "></i> <span class="iconS">Expérience </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
 
-                                        </li>
-                                        
+                                            </li>
+                                        @endif
+
+
                                     </ul>
                                 </div>
                             </div>
