@@ -70,7 +70,7 @@ class AdminController extends Controller
         }
 
 
-
+        $CountFormationProf = FormationProfesseur::where('iduser',$request->id)->count();
         return response()->json([
             'status'            => 200,
             'data'              => $professeur[0],
@@ -82,6 +82,7 @@ class AdminController extends Controller
             'NumberExperince'   => $NumberExperince[0]->numberExperince,
             'CertificationProf' => $CertificationProf[0]->certification,
             'idProf'            => $request->id,
+            'CountFormationProf'=> $CountFormationProf
         ]);
     }
 

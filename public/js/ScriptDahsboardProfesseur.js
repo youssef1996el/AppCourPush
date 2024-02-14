@@ -90,6 +90,14 @@ $(document).ready(function () {
                     $('.Cardexperience .InforCardexperience').empty();
                     $('.CardCoursAndDispo .InfoCours').empty();
                     $('.CardCoursAndDispo .ClassDisponible').empty();
+                    if(response.CountFormationProf > 0)
+                    {
+                        $('#formationTab').css('display', 'block');
+                    }
+                    else
+                    {
+                        $('#formationTab').css('display', 'none');
+                    }
                     if(response.formation.length > 0)
                     {
                         $.each(response.formation, function (index, value) {

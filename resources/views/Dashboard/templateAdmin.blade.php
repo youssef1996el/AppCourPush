@@ -4,6 +4,7 @@
     <head>
 
         <meta charset="utf-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Content-Language" content="en">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -419,7 +420,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="app-main">
                         <div class="app-sidebar sidebar-shadow">
                             <div class="app-header__logo">
