@@ -620,6 +620,8 @@
                         if(a === index)
                         {
                             li.classList.add('mm-active');
+
+
                         }
                         else
                         {
