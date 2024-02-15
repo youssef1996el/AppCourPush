@@ -500,6 +500,9 @@
                                         @endif
 
 
+<<<<<<< HEAD
+                                        <!-- Side bar Eleve-->
+=======
                                         <!-- Side bar Admin-->
                                         @if (Auth::user()->role_name === 'eleve')
                                             <li class="mm-active mb-2">
@@ -511,6 +514,7 @@
                                                 <a href="{{ url('InfosProfile') }}">
                                                     <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
                                                 </a>
+>>>>>>> 90f8ff587a54e3492103d945545dcc488e819d4c
 
                                             </li>
                                             <li class="mb-2">
