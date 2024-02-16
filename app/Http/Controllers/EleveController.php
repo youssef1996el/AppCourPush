@@ -660,7 +660,7 @@ if ($request->hasFile('image')) {
             $MesCours  =$MesReserve;
 
             $AddDebutAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id");
-            dd($AddDebutAndTimeZone);
+
             foreach ($MesCours as &$cours) {
                 foreach ($AddDebutAndTimeZone as $info) {
                     if (
@@ -668,6 +668,7 @@ if ($request->hasFile('image')) {
                         $cours->nom_professeur == $info->name &&
                         $cours->times == $info->debut &&
                         $cours->typecours == $info->typecours
+
                     ) {
                         $cours->fin = $info->fin;
                         $cours->timezone = $info->timezone;
@@ -735,7 +736,7 @@ foreach (range(1, 31) as $day) {
 dd($daysOfWeekDates); */
 
 
-dd($MesCours);
+
 
         return view('Eleve.Cours')
         ->with('hasCours',$hasCours)
