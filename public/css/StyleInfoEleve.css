@@ -1,82 +1,154 @@
+ 
+#showInputsLink{
+    font-weight: bold;
+    font-size: 18px;
+}
+*{
+    font-family:times;
+}
 
-        #showInputsLink{
-            font-weight: bold;
-            font-size: 18px;
-        }
-        *{
-            font-family:times;
-        }
-        .countryDropdown{
-            border-bottom: 1px solid #999;
-            border: none none gray none;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-        }
-        .picture-src{
-            width: 160px;
-            height: 160px;
-
-        }
-
-        .form-control:focus{
-            border-bottom:1px solid black !important;
-            box-shadow: none;
-        }
-        .form-control{
-        border-radius: 0px;}
-        .form-group input {
-            padding: 6px 12px;
-        }
-        .form-control:focus {
-            padding: 6px 12px;
-        }
-
-
-.picture-container {
-  position: relative;
+.form-select{
+    border-bottom: 1px solid #999;
+    border-radius: 0px;
   cursor: pointer;
-  text-align: center;
 }
- .picture {
-  width: 160px;
-  height: 160px;
-  background-color: #999999;
-  border: 4px solid #CCCCCC;
-  color: #FFFFFF;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  margin:auto;
+
+
+
+.form-control:focus{
+    border:1px solid black !important;
+    box-shadow: none;
 }
-.picture:hover {
-  border-color: #4479a7;
+
+.form-control{
+border-radius: 0px;
 }
-.picture input[type="file"] {
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  left: 0;
-  opacity: 0 !important;
-  position: absolute;
-  top: 0;
-  width: 100%;
+.form-group input {
+    padding: 6px 12px;
 }
+
+.form-control:focus {
+    padding: 6px 12px;
+}
+
+
+
+ 
 .hidden-inputs {
       display: none;
     }
 
 .form-group .show-password {
     cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 70%;
-    transform: translateY(-50%);
+  position: absolute;
+  right: 20px;
+
+  transform: translateY(-50%);
+  margin-top: -34px;
 }
+
+
+ *{
+    font-family: 'Times New Roman', Times, serif;
+}
+.container{
+  width: 900px;
+  margin: 20px auto;
+  padding: 0px;
+}
+
+.picture-profile{
+margin-bottom: 34px;
+margin-top: 100px;
+border: 1px solid gray;
+border-radius: 50%;
+box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label{
+    margin-bottom: 8px;
+  }
+.picture-container {
+position: relative;
+cursor: pointer;
+text-align: center;
+}
+.picture {
+width: 150px;
+height: 150px;
+background-color: #999999;
+border: 4px solid #CCCCCC;
+color: #FFFFFF;
+border-radius: 50%;
+margin: 12px auto 40px auto;
+overflow: hidden;
+transition: all 0.2s;
+-webkit-transition: all 0.2s;
+}
+.picture:hover {
+border-color: #3689d3;
+}
+.picture input[type="file"] {
+cursor: pointer;
+display: block;
+height: 100%;
+left: 0;
+opacity: 0 !important;
+position: absolute;
+top: 0;
+width: 100%;
+}
+.picture-src {
+width: 150px !important;
+height: 150px !important;
+}
+
+
+.card {
+ 
+  background-color: #ffffff63;
+  border-radius: 5px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  padding: 6px 12px;
+}
+
+
+
 @media (max-width: 768px) {
-    .card {
-        max-width: 100%;
+    .container {
+        width: 90%;
     }
-    /* Add more CSS rules as needed */
+}
+
+.BtnUpdateDataProfesseur{
+  font-size: 16px;
+  width: 135px;
+  background-color: #3689d3;
+  border-color: #3689d3;
+}
+.BtnUpdateDataProfesseur:hover{
+  font-size: 16px;
+  width: 135px;
+  background-color: #1777cc;
+  border-color: #1777cc;
+}
+
+input::placeholder{
+  font-size: 14px;
+}
+label{
+  font-size: 16px;
+}
+input{
+  margin-bottom:16px ;
+}
+.card-title{
+  font-size: 26px;
+  text-align: center;
+  
+  font-weight: bold;
+  margin: 12px auto;
 }

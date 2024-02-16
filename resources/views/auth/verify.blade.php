@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 mt-5">

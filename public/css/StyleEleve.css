@@ -1,3 +1,12 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
+.container{
+  width: 900px;
+  margin: 20px auto;
+  padding: 0px;
+}
+
 .fa-2xl {
     font-size: 3em;
 
@@ -8,8 +17,10 @@
 }
 
 
-.WelcomeEleve{
+h1{
     margin-top: 0%;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 .form-inline {
@@ -36,6 +47,7 @@ tbody, td, tfoot, th, thead, tr {
 {
     width: 55rem;
 }
+
 .line {
   width: 100%;
   text-align: center;
@@ -209,7 +221,7 @@ tbody, td, tfoot, th, thead, tr {
 }
 
 /* ipad */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
+/* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
 {
     .reserver
     {
@@ -234,8 +246,9 @@ tbody, td, tfoot, th, thead, tr {
 
 
 }
-
+*/
 /* iPad Portrait */
+/*
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait)
 {
    .reserver
@@ -287,8 +300,16 @@ tbody, td, tfoot, th, thead, tr {
    {
         margin-left: 17rem;
    }
+}*/
+
+
+
+@media (max-width: 768px) {
+  .container {
+      width: 92%;
+  }
+  h1{
+    font-size: calc(1rem + 1.5vw)!important;
+    margin-bottom: 16px;
+  }
 }
-
-
-
-

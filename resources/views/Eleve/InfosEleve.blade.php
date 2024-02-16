@@ -1,9 +1,9 @@
-@extends('layouts.app')
-@section('content')
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleInfoEleve.css')}}">
 <script src="{{asset('js/ScriptInfosEleve.js')}}"></script>
-<div class="container" style="margin-top:65px;">
-    <div class="card shadow " style=" width: 600px;margin: auto;padding: 20px 24px; background: #ffffff5c;" >
+<div class="container" >
+    <div class="card shadow " style="margin: auto;padding: 20px 24px; background: #ffffff5c;" >
         <div class="card-body">
             <h3 class="mb-5" style="font-style:italic; text-align:center">Les informations personnelles</h3>
             <form action="{{route('UpdateDataEleve')}}" method="post" enctype="multipart/form-data">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Pays</label>
-                            <select name="pays" id="" class="form-select">
+                            <select name="pays" id="" class="form-select form-control">
                                 @foreach ($Pays as $key => $value)
                                     <option value="{{$key}}" selected>{{$value}} </option>
                                 @endforeach
@@ -47,7 +47,7 @@
                     <div class="col-sm-12 col-md-2 col-xl-2 "></div>
                     <div class="col-sm-12 col-md-8 col-xl-8 ">
                         <div class="showInputs ">
-                            <a href="#" id="showInputsLink" class="d-flex justify-content-center bold">Modifier votre mot de passe</a>
+                            <a href="#" id="showInputsLink" class="d-flex justify-content-center bold mb-5">Modifier votre mot de passe</a>
 
                             <div class="hidden-inputs" id="inputsContainer">
 
@@ -76,8 +76,8 @@
                     <div class="col-sm-12 col-md-2 col-xl-2 "></div>
                 </div>
             </div>
-            <div class="mt-5">
-                <button type="submit" class="btn btn-success  BtnUpdateDataProfesseur" style="display:flex; margin:auto">Valider</button>
+            <div class="mt-5 m-auto">
+                <button type="submit" class="btn btn-success BtnUpdateDataProfesseur " >Valider</button>
             </div>
             </form>
         </div>

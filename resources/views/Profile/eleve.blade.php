@@ -21,8 +21,8 @@
         <h1>Bienvenue , {{Auth::user()->name}}</h1>
     </div>
     <div class="card bg-light p-3 " id="bookCard">
-        <div class="d-flex" style="gap:8px">
-            <svg style="margin: auto 20px; height:54px;width:74px" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2jtx7" focusable="false" aria-hidden="true" viewBox="0 0 56 56" width="56" height="56" fill="none">
+        <div class="d-flex flex-column flex-md-row align-items-center">
+            <svg style="margin: auto 20px; width:100px;" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2jtx7" focusable="false" aria-hidden="true" viewBox="0 0 56 56" width="56" height="56" fill="none">
                 <g clip-path="url(#clip0_1649_12757)">
                     <path d="M3.71566 15.7936L3.7156 45.3574C3.71559 51.2353 8.48054 56.0002 14.3584 56.0002L41.6415 56.0002C47.5194 56.0002 52.2843 51.2353 52.2844 45.3574L52.2844 15.7936H3.71566Z" fill="url(#paint0_linear_1649_12757)"></path>
                     <path d="M3.71558 15.4532C3.71558 10.9415 7.37304 7.28406 11.8848 7.28406H44.1036C48.6153 7.28406 52.2728 10.9415 52.2728 15.4532V20.9588H3.71558V15.4532Z" fill="url(#paint1_linear_1649_12757)"></path>
@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div id="bookClass" class="card bg-light " style="display: none; margin-top:72px;">
+   <div id="bookClass" class="card bg-light " style="display: none; margin-top:72px;">
         <div class="searchSpace mt-3">
             <div class="row p-3">
                 <div class="col-sm-12 col-md-4 col-xl-4 p-2">
@@ -73,7 +73,10 @@
                     <div class="card p-3" >
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                <div class="col-sm-12 col-md-1 col-xl-1" style="display: flex;justify-content: end;margin-top: -20px;align-items: baseline;">
+                                    <button type="button"  class="btn  BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-xl-4">
                                     <label for="">Date:</label>
                                     <input type="date" class="form-control DateSearch " value="@php echo date('Y-m-d') @endphp">
                                 </div>
@@ -83,10 +86,10 @@
                                         <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" value=" __:__">
                                             __:__
                                         </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="dynamicWidthDropdown" style="width: 39%">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="dynamicWidthDropdown" style="width: 39%;">
                                             <li>
                                                 <div class="ContentTime">
-                                                    <div class="container">
+                                                    <div class="container-time">
                                                         <h4>Sélectionner l'heure</h4>
                                                         <div class="line">
                                                             <span class="text">Matin</span>
@@ -98,40 +101,40 @@
                                                             @endphp
                                                             @for ($i = 0; $i <= 11; $i++)
                                                                 @if ($i % 4 == 0)
-                                                                    <div class="btn-row">
+                                                            <div class="btn-row">
                                                                 @endif
                                                                 <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
                                                                 @if (($i + 1) % 4 == 0 || $i == 11)
-                                                        </div>
+                                                            </div>
                                                                 @endif
                                                             @endfor
-                                                    </div>
-                                                    <div class="line">
-                                                        <span class="text">Après-midi/soirée</span>
-                                                    </div>
-                                                    <div class="container-hours">
-                                                        @php
-                                                            $firstNumber = '0';
-                                                            $second = ':00';
-                                                        @endphp
-                                                        @for ($i = 12; $i <= 23; $i++)
-                                                            @if ($i % 4 == 0)
+                                                        </div>
+                                                        <div class="line">
+                                                            <span class="text">Après-midi/soirée</span>
+                                                        </div>
+                                                        <div class="container-hours">
+                                                            @php
+                                                                $firstNumber = '0';
+                                                                $second = ':00';
+                                                            @endphp
+                                                            @for ($i = 12; $i <= 23; $i++)
+                                                                @if ($i % 4 == 0)
                                                                 <div class="btn-row">
-                                                            @endif
-                                                            <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
-                                                            @if (($i + 1) % 4 == 0 || $i == 23)
+                                                                    @endif
+                                                                    <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
+                                                                    @if (($i + 1) % 4 == 0 || $i == 23)
+                                                                </div>
+                                                                @endif
+                                                            @endfor
+                                                        </div>
                                                     </div>
-                                                            @endif
-                                                        @endfor
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                                <div class="col-sm-12 col-md-3 col-xl-3 ">
-                                    <label for="" class="TitleGroupePrive">Groupe ou Privé: </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-xl-4 ">
+                                    <label for="" class="TitleGroupePrive" style="display: block ruby;">Groupe/Particulier: </label>
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
                                         <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" >
                                         <label class="btn btn-outline-primary" for="group" style="border-top-left-radius: 10px;border-bottom-left-radius: 10px;">
@@ -142,9 +145,7 @@
                                         <label class="btn btn-outline-primary " for="private" style="width:45px ;border-top-right-radius: 10px;border-bottom-right-radius: 10px; "><i class="fas fa-user "></i></label>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-3 col-xl-3" style="display: flex;justify-content: end;margin-top: -20px;align-items: baseline;">
-                                    <button type="button"  class="btn  BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -190,6 +191,128 @@
             </table>
         </div>
     </div>
+    <!-- <div id="bookClass" class="card bg-light mt-4">
+    <div class="searchSpace mt-3">
+        <div class="row p-3">
+            <div class="col-md-4 p-2">
+                <div class="card">
+                    <div class="card-body">
+                        <label for="">Cours :</label>
+                        <select class="form-select select-course" id="multiple-select-field" data-placeholder="selected cours" multiple>
+                            @foreach ($cours as $course)
+                            <option value="{{ $course->id }}">{{ $course->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 p-2">
+                <div class="card p-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="">Date:</label>
+                                <input type="date" class="form-control DateSearch " value="@php echo date('Y-m-d') @endphp">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="">l'heure :</label>
+                                <div class="dropdown dropdownTime">
+                                    <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" value=" __:__">
+                                        __:__
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="dynamicWidthDropdown">
+                                        <li>
+                                        <div class="ContentTime">
+                                                    <div class="container">
+                                                        <h4>Sélectionner l'heure</h4>
+                                                        <div class="line">
+                                                            <span class="text">Matin</span>
+                                                        </div>
+                                                        <div class="container-hours">
+                                                            @php
+                                                                $firstNumber = '0';
+                                                                $second = ':00';
+                                                            @endphp
+                                                            @for ($i = 0; $i <= 11; $i++)
+                                                                @if ($i % 4 == 0)
+                                                            <div class="btn-row">
+                                                                @endif
+                                                                <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
+                                                                @if (($i + 1) % 4 == 0 || $i == 11)
+                                                            </div>
+                                                                @endif
+                                                            @endfor
+                                                        </div>
+                                                        <div class="line">
+                                                            <span class="text">Après-midi/soirée</span>
+                                                        </div>
+                                                        <div class="container-hours">
+                                                            @php
+                                                                $firstNumber = '0';
+                                                                $second = ':00';
+                                                            @endphp
+                                                            @for ($i = 12; $i <= 23; $i++)
+                                                                @if ($i % 4 == 0)
+                                                                <div class="btn-row">
+                                                                    @endif
+                                                                    <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
+                                                                    @if (($i + 1) % 4 == 0 || $i == 23)
+                                                                </div>
+                                                                @endif
+                                                            @endfor
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="" class="TitleGroupePrive">Groupe ou Privé: </label>
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
+                                <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" >
+                                        <label class="btn btn-outline-primary" for="group" style="border-top-left-radius: 10px;border-bottom-left-radius: 10px;">
+                                            <i class="fas fa-users "></i>
+                                        </label>
+
+                                        <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
+                                        <label class="btn btn-outline-primary " for="private" style="width:45px ;border-top-right-radius: 10px;border-bottom-right-radius: 10px; "><i class="fas fa-user "></i></label>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-end align-items-baseline">
+                                <button type="button" class="btn BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination-container mt-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card p-2 mt-2" id="CardShowDataProfesseur" style="display: none;">
+    <div class="NoCoursToday"></div>
+    <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
+    <h5 class="text-secondary mt-4 DateSelected"></h5>
+    <div class="DataProfesseur">
+        <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
+            <thead class="bg-light">
+                <tr class="sr-only">
+                    <th>Time</th>
+                    <th>Name of the teacher</th>
+                    <th>Course</th>
+                    <th>Group/Particular</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div> -->
+
 
 </div>
 
