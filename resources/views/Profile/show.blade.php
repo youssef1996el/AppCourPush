@@ -1,5 +1,5 @@
-@extends('Professeur.Sidebar')
-@section('navsidebarProf')
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
 
 <link rel="stylesheet" href="{{asset('css/StyleProfileProf.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>

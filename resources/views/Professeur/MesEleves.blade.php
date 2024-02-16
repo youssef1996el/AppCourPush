@@ -1,5 +1,5 @@
-@extends('Professeur.Sidebar')
-@section('navsidebarProf')
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleProfesseurDash.css')}}">
 <div class="container mt-4">
     <div class="row ">

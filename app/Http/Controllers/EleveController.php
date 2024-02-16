@@ -187,13 +187,13 @@ class EleveController extends Controller
     {
         // Extract id professeur
         $idProfesseur = User::where('name',$NameProfesseur)->get();
-
+       
         if(!empty($idProfesseur))
         {
 
             $DisponibleProf = DB::select('select d.idcours,d.id,jour,debut,fin,c.title,d.typecours,d.timezone from
                 disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[$idProfesseur[0]->id]);
-
+                
             $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
             $disponibilityByDay = [];
 
@@ -217,6 +217,7 @@ class EleveController extends Controller
                     return strtotime($a->debut) - strtotime($b->debut);
                 });
             }
+            
             $CourProf      = DB::select('select c.title from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[$idProfesseur[0]->id]);
             $FormationProf = DB::select('select diplome,specialise,annee,ecole,pays from formationprof where diplome is not null and iduser  =?',[$idProfesseur[0]->id]);
             $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[$idProfesseur[0]->id]);
@@ -225,9 +226,18 @@ class EleveController extends Controller
             $filteredArray = array_filter($DisponibleProf, function($item) use ($TypeCours,$Cours,$Time) {
                 return $item->typecours === $TypeCours && $item->title === $Cours && $item->debut === $Time;
             });
-            $DebutCours = $filteredArray[0]->debut;
-            $FinCours   = $filteredArray[0]->fin;
-            $TimeZone   = $filteredArray[0]->timezone;
+            
+            $DebutCours = '';
+            $FinCours   = '';
+            $TimeZone   = '';
+            foreach($filteredArray as $item)
+            {
+                $DebutCours = $item->debut;
+                $FinCours   = $item->fin;
+                $TimeZone   = $item->timezone;
+            }
+           
+            
             // information Professeur
             $InformationProfesseur = User::where('id',$idProfesseur[0]->id)->first();
             // sum experince professeur
