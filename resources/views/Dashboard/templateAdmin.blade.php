@@ -750,15 +750,8 @@
                                             </li>
                                         @endif
 
-
-<<<<<<< HEAD
-                                        <!-- Side bar Eleve-->
-=======
-
                                         <!-- Side bar Eleve-->
 
-                                        <!-- Side bar Admin-->
->>>>>>> 484aba7e6c4d688015745946285a729cd6a40644
                                         @if (Auth::user()->role_name === 'eleve')
                                             <li class="mm-active mb-2">
                                                 <a href="{{ url('Reserver') }}" class="mm-active">
@@ -769,10 +762,6 @@
                                                 <a href="{{ url('InfosProfile') }}">
                                                     <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
                                                 </a>
-<<<<<<< HEAD
-=======
-
->>>>>>> 484aba7e6c4d688015745946285a729cd6a40644
 
                                             </li>
                                             <li class="mb-2">
