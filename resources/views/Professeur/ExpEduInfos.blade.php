@@ -1,5 +1,5 @@
-@extends('Professeur.Sidebar')
-@section('navsidebarProf')
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
     <script src="{{asset('js/countries.js')}}"></script>
     <div class="container">
         <div class="card shadow" style=" width: 800px;margin: auto;padding: 20px 24px; background: #ffffff4a;" >

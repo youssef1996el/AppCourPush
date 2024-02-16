@@ -1,5 +1,5 @@
-@extends('Professeur.Sidebar')
-@section('navsidebarProf')
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
     <div class="container">
         @if(session('message'))
             <div class="alert alert-success">
