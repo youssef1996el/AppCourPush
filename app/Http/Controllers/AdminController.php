@@ -215,6 +215,15 @@ class AdminController extends Controller
             'yearend'      => $YearStart[0]->yearEnd,
         ]);
     }
+    public function StartPayement()
+    {
+        $YearStart = DB::select("select max(year(created_at)) as yearEnd, min(year(created_at)) as yearStart from payements");
+        return response()->json([
+            'status'       => 200,
+            'yearStart'    => $YearStart[0]->yearStart,
+            'yearend'      => $YearStart[0]->yearEnd,
+        ]);
+    }
     public function GetChartEleveCount(Request $request)
     {
 
@@ -273,6 +282,63 @@ class AdminController extends Controller
         ]);
     }
 
+    public function GetTotalByDate(Request $request)
+    {
+
+        $timestamp = $request->date / 1000; // Assuming it's in milliseconds, convert it to seconds
+        $date = date("Y", $timestamp);
+        /* dd($date); */
+        $getMoneyByDate = DB::select("SELECT months.month_name AS month,COALESCE(sum(payements.total), 0) AS total
+                                        FROM (SELECT 1 AS month, 'January' AS month_name UNION SELECT 2, 'February' UNION SELECT 3,
+                                            'March' UNION SELECT 4, 'April' UNION SELECT 5, 'May' UNION SELECT 6, 'June' UNION SELECT 7,
+                                            'July' UNION SELECT 8, 'August' UNION SELECT 9, 'September' UNION SELECT 10, 'October' UNION SELECT 11,
+                                            'November' UNION SELECT 12, 'December') AS months
+                                        LEFT JOIN
+                                            payements AS payements ON MONTH(payements.created_at) = months.month AND YEAR(payements.created_at) =?
+                                        Left JOIN
+                                            users ON users.id = payements.ideleve
+                                        GROUP BY
+                                            months.month, months.month_name
+                                        ORDER BY
+                                            months.month;",[$request->date]);
+
+        $translations = [
+            'Monday' => 'lundi',
+            'Tuesday' => 'mardi',
+            'Wednesday' => 'mercredi',
+            'Thursday' => 'jeudi',
+            'Friday' => 'vendredi',
+            'Saturday' => 'samedi',
+            'Sunday' => 'dimanche',
+            'January' => 'janvier',
+            'February' => 'février',
+            'March' => 'mars',
+            'April' => 'avril',
+            'May' => 'mai',
+            'June' => 'juin',
+            'July' => 'juillet',
+            'August' => 'août',
+            'September' => 'septembre',
+            'October' => 'octobre',
+            'November' => 'novembre',
+            'December' => 'décembre',
+        ];
+        $translatedResults = [];
+
+        foreach ($getMoneyByDate as $result) {
+            $month = $translations[$result->month];
+            $translatedResults[] = (object) [
+                'month' => $month,
+                'total' => $result->total,
+            ];
+        }
+
+        return response()->json([
+            'status'       => 200,
+            'data'    => $translatedResults,
+
+        ]);
+    }
     public function GetChartByCountry()
     {
         $GetChartByCountry = DB::select("select pays,count(*) as number from users where role_name='eleve' and pays is not null group by pays");

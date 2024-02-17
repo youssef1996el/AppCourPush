@@ -69,7 +69,7 @@ Route::group(['middleware' => ['web','auth']], function ()
         ->middleware('IsProfesser');
 
     Route::get('GetPriceGroupeOrPrive'  ,[ProfesseurController::class,'GetPriceGroupeOrPrive'])
-        ->middleware('IsProfesser');
+        ->middleware('IsEleve');
 
     Route::get('ExpEduInfos'            ,[ProfesseurController::class,'ExpEduInfos'])
         ->name('ExpEduInfos')
@@ -143,6 +143,10 @@ Route::group(['middleware' => ['web','auth']], function ()
 
     Route::get('CalanderCours'                                              ,[EleveController::class,'GetMesCourCalander'])
         ->middleware('IsEleve');
+
+    Route::post('CreatePayement'                                             ,[EleveController::class,'CreatePayement'])
+    ->middleware('IsEleve');
+
     /******************************************** End Eleve  ****************************************************/
 
 
@@ -174,6 +178,9 @@ Route::group(['middleware' => ['web','auth']], function ()
     Route::get('getStartYearAndEnd'       ,[AdminController::class,'getStartYearAndEnd'])
         ->middleware('IsAdmin');
 
+    Route::get('StartPayement'            ,[AdminController::class,'StartPayement'])
+        ->middleware('IsAdmin');
+
     Route::get('GetChartEleveCount'       ,[AdminController::class,'getChartEleveCount'])
         ->middleware('IsAdmin');
 
@@ -198,6 +205,8 @@ Route::group(['middleware' => ['web','auth']], function ()
     Route::post('UpDateAdmin'             ,[AdminController::class,'UpDateAdmin'])
         ->middleware('IsAdmin');
 
+    Route::get('GetTotalByDate'             ,[AdminController::class,'GetTotalByDate'])
+    ->middleware('IsAdmin');
     /******************************************** End Dashboard Admin ***********************************************/
 
 

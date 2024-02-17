@@ -184,6 +184,7 @@ class ProfesseurController extends Controller
 
     public function GetPriceGroupeOrPrive()
     {
+
         $TypeCoursPrive = TypeCours::select('prix')->where('type','=','Cours particulier')->get();
         $TypeCoursGroupe = TypeCours::select('prix')->where('type','=','Cours en groupe')->get();
         return response()->json([
