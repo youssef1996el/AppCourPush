@@ -285,9 +285,7 @@ class AdminController extends Controller
     public function GetTotalByDate(Request $request)
     {
 
-        $timestamp = $request->date / 1000; // Assuming it's in milliseconds, convert it to seconds
-        $date = date("Y", $timestamp);
-        /* dd($date); */
+
         $getMoneyByDate = DB::select("SELECT months.month_name AS month,COALESCE(sum(payements.total), 0) AS total
                                         FROM (SELECT 1 AS month, 'January' AS month_name UNION SELECT 2, 'February' UNION SELECT 3,
                                             'March' UNION SELECT 4, 'April' UNION SELECT 5, 'May' UNION SELECT 6, 'June' UNION SELECT 7,
