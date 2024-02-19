@@ -3,10 +3,11 @@
 @extends('Dashboard.templateAdmin')
 @section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleStripe.css')}}">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
 <div class="container">
-    <div class="row" style="margin-top:5rem">
+    <div class="row" >
         @if (Session::has('success'))
             <div class="alert alert-success text-center">
                 <a href="#" class="close" data-bs-dismiss="alert" aria-label="close"></a>
@@ -249,7 +250,6 @@
                                 </tr>
                             </thead>
                         </table>
-
                     </div>
                 </p>
               </div>
@@ -257,10 +257,9 @@
         </div>
     </div>
 </div>
-<style>
 
 
-</style>
+
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
     $(function()
@@ -300,10 +299,11 @@
         {
             if (response.error)
             {
-                $('.error')
-                    .removeClass('hide')
-                    .find('.alert')
-                    .text(response.error.message);
+                $.notify(response.error.message, {
+                    position: "bottom right",
+                    className: "error",
+                    autoHideDelay: 5000
+                });
             }
             else
             {
