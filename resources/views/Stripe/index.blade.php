@@ -3,10 +3,11 @@
 @extends('Dashboard.templateAdmin')
 @section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleStripe.css')}}">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
 <div class="container">
-    <div class="row" style="margin-top:5rem">
+    <div class="row" >
         @if (Session::has('success'))
             <div class="alert alert-success text-center">
                 <a href="#" class="close" data-bs-dismiss="alert" aria-label="close"></a>
@@ -249,7 +250,6 @@
                                 </tr>
                             </thead>
                         </table>
-
                     </div>
                 </p>
               </div>
@@ -257,56 +257,97 @@
         </div>
     </div>
 </div>
-<style>
 
 
-</style>
+
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
-    $(function() {
-      var $form = $(".require-validation");
-      $('form.require-validation').bind('submit', function(e) {
-        var $form = $(".require-validation"),
-        inputSelector = ['input[type=email]', 'input[type=password]', 'input[type=text]', 'input[type=file]', 'textarea'].join(', '),
-        $inputs = $form.find('.required').find(inputSelector),
-        $errorMessage = $form.find('div.error'),
-        valid = true;
-        $errorMessage.addClass('hide');
-        $('.has-error').removeClass('has-error');
-        $inputs.each(function(i, el) {
-            var $input = $(el);
-            if ($input.val() === '') {
-                $input.parent().addClass('has-error');
-                $errorMessage.removeClass('hide');
+    $(function()
+    {
+        var $form = $(".require-validation");
+        $('form.require-validation').bind('submit', function(e)
+        {
+            var $form = $(".require-validation"),
+            inputSelector = ['input[type=email]', 'input[type=password]', 'input[type=text]', 'input[type=file]', 'textarea'].join(', '),
+            $inputs = $form.find('.required').find(inputSelector),
+            $errorMessage = $form.find('div.error'),
+            valid = true;
+            $errorMessage.addClass('hide');
+            $('.has-error').removeClass('has-error');
+            $inputs.each(function(i, el) {
+                var $input = $(el);
+                if ($input.val() === '') {
+                    $input.parent().addClass('has-error');
+                    $errorMessage.removeClass('hide');
+                    e.preventDefault();
+                }
+            });
+            if (!$form.data('cc-on-file'))
+            {
                 e.preventDefault();
+                Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+                Stripe.createToken({
+                    number: $('.card-number').val(),
+                    cvc: $('.card-cvc').val(),
+                    exp_month: $('.card-expiry-month').val(),
+                    exp_year: $('.card-expiry-year').val()
+                }, stripeResponseHandler);
             }
         });
-        if (!$form.data('cc-on-file')) {
-          e.preventDefault();
-          Stripe.setPublishableKey($form.data('stripe-publishable-key'));
-          Stripe.createToken({
-              number: $('.card-number').val(),
-              cvc: $('.card-cvc').val(),
-              exp_month: $('.card-expiry-month').val(),
-              exp_year: $('.card-expiry-year').val()
-          }, stripeResponseHandler);
-        }
-      });
 
-      function stripeResponseHandler(status, response) {
-          if (response.error) {
-              $('.error')
-                  .removeClass('hide')
-                  .find('.alert')
-                  .text(response.error.message);
-          } else {
-              /* token contains id, last4, and card type */
-              var token = response['id'];
-              $form.find('input[type=text]').empty();
-              $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-              $form.get(0).submit();
-         }
-     }
+        function stripeResponseHandler(status, response)
+        {
+            if (response.error)
+            {
+
+                $.notify(response.error.message, {
+                    position: "bottom right",
+                    className: "error",
+                    autoHideDelay: 5000
+                });
+            }
+            else
+            {
+
+                var token = response['id'];
+                $.ajax({
+                    type: "post",
+                    url: "{{url('CreatePayement')}}",
+                    headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+                    data:
+                    {
+                        number: $('.card-number').val(),
+                        cvc: $('.card-cvc').val(),
+                        exp_month: $('.card-expiry-month').val(),
+                        exp_year: $('.card-expiry-year').val(),
+
+                        total   : @json($Montant)
+                    },
+                    dataType: "json",
+                    beforeSend: function()
+                    {
+                        $('.AllSrean').css({
+                            'display': 'block',
+                            'background-color': 'rgba(255, 255, 255, 0.66)'
+                        });
+                    },
+                    success: function (response)
+                    {
+                        if(response.status == 200)
+                        {
+                            $form.find('input[type=text]').empty();
+                            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+
+                            $form.get(0).submit();
+                            $('.AllSrean').css('display', 'block');
+
+                        }
+                    }
+                });
+
+
+            }
+        }
    });
    </script>
  <script>

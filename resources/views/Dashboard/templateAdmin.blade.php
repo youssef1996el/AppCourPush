@@ -33,7 +33,7 @@
         <style>
            .AllSrean
            {
-            display: block;
+                display: block;
                 position: fixed;
                 top: 50%;
                 left: 50%;
@@ -852,7 +852,7 @@
                                 </div>
                             </div>
                         </div>
-                        <main class="py-4">
+                        <main class="py-4" style="width: 100%">
 
                         <div class="app-main__outer">
 

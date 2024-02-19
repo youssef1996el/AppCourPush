@@ -93,13 +93,18 @@
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-6">
                         <div class="card shadow" style="border-radius: 20px">
-                            <div class="bg-light text-primary p-3" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
-                                <h4>inshalhe hada floas ki roz</h4>
+                            <div class="bg-light text-primary p-3">
+                                <div class="row bg-light text-primary p-3" >
+                                    <div class="col-sm-6 col-md-6 col-xl-6 " >
+                                        <h3>money</h3>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-xl-6 ">
+                                        <select name="yearpicker" class="form-select" id="yearpicker2"></select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
-                                <div class="card-text">
-                                    <div id="chartdiv"></div>
-                                </div>
+                                <div id="chartMoney"></div>
                             </div>
                         </div>
                     </div>
@@ -138,6 +143,8 @@
         var urlStartAndEnd = "{{url('getStartYearAndEnd')}}";
         var urlChartCountEleve = "{{url('GetChartEleveCount')}}";
         var urlChartCountByCountry = "{{url('GetChartByCountry')}}";
+        var urlChartMoney          = "{{url('GetTotalByDate')}}";
+        var urlStartPayement ="{{url('StartPayement')}}";
     </script>
     <script>
 

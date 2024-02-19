@@ -16,6 +16,7 @@ class StripeController extends Controller
 
     public function index($Time,$NameProfesseur,$Cours,$TypeCours,$Nomber,$Montant)
     {
+
         session([
             'Cours' => $Cours,
             'Time' => $Time,
@@ -34,6 +35,8 @@ class StripeController extends Controller
 
     public function StripePost(Request $request)
     {
+
+
         $CoursProf = session('Cours');
         $Time = session('Time');
         $NameProfesseur = session('NameProfesseur');
@@ -87,6 +90,7 @@ class StripeController extends Controller
         try
         {
             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
             $Charge = Stripe\Charge::create ([
                     "amount" => intval($Montant) * 100,
                     "currency" => "EUR",
