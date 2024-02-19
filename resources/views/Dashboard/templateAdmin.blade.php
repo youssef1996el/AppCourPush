@@ -788,7 +788,7 @@
                                                 </a>
                                             </li>
                                             <li class="mb-2">
-                                                <a href="{{url('Admin/Profile')}}">
+                                                <a href="{{ url('ShowProfileProf') }}">
                                                     <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>Profile
                                                 </a>
 
@@ -820,7 +820,7 @@
 
                                             </li>
                                             <li class="mb-2">
-                                                <a href="{{ url('InfosProfile') }}">
+                                                <a href="{{route('InfoProfesseur')}}">
                                                     <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Informaion personnelle
                                                 </a>
 
