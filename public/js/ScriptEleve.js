@@ -135,7 +135,7 @@ $(document).ready(function () {
                         $('.DataProfesseur').css('display', 'block');
                         $('.DateSelected').css('display', 'block');
                         $('.DateSelected').text(response.DateSelected);
-
+                        $('.TitleHasCours').css('display', 'block');
                         if(!dataTableInitialized)
                         {
                             dataTableInitialized = true;
@@ -228,7 +228,8 @@ $(document).ready(function () {
                         $('.NoCoursToday').css('display', 'block');
                         $('.DataProfesseur').css('display', 'none');
                         $('.DateSelected').css('display', 'none');
-                        $('.NoCoursToday').append(`<h3 class="text-uppercase mt-2">Cours disponibles</h3>
+                        $('.TitleHasCours').css('display', 'none');
+                        $('.NoCoursToday').append(`<h3 class="text-uppercase mt-2"</h3>
                                                         <h5 class="text-secondary mt-4 dateNoDisponible">${response.DateSelected}</h5>
                                                         <div class="card bg-light p-3">
                                                             <div class="d-flex">
@@ -256,7 +257,7 @@ $(document).ready(function () {
                                                                 </svg>
                                                                 <div class="card-body">
                                                                     <p class="card-text text-secondary fs-4">Aucun cours n'est disponible à la (aux) date(s) sélectionnée(s)</p>
-                                                                    <p class="card-text text-secondary" style="font-size: 14px">Essayez de changer vos filtres ou <a href="#">Allez à la première date disponible: dimanche, 10 déc. 2023</a> pour l'heure sélectionnée</p>
+                                                                    <p class="card-text text-secondary" style="font-size: 14px">Essayez de changer vos filtres </p>
                                                                 </div>
                                                             </div>
                                                         </div>`);

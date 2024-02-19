@@ -121,32 +121,36 @@ class EleveController extends Controller
 
         $now = Carbon::now();
 
-        // Manually translate day names to French
-        $daysTranslations = [
-            'sunday' => 'dimanche',
-            'monday' => 'lundi',
-            'tuesday' => 'mardi',
+
+        $daysTranslations =
+        [
+            'sunday'    => 'dimanche',
+            'monday'    => 'lundi',
+            'tuesday'   => 'mardi',
             'wednesday' => 'mercredi',
-            'thursday' => 'jeudi',
-            'friday' => 'vendredi',
-            'saturday' => 'samedi',
+            'thursday'  => 'jeudi',
+            'friday'    => 'vendredi',
+            'saturday'  => 'samedi',
         ];
 
-        // Manually translate month names to French
-        $monthsTranslations = [
-            1 => 'janvier',
-            2 => 'février',
-            3 => 'mars',
-            4 => 'avril',
-            5 => 'mai',
-            6 => 'juin',
-            7 => 'juillet',
-            8 => 'août',
-            9 => 'septembre',
-            10 => 'octobre',
-            11 => 'novembre',
-            12 => 'décembre',
+
+        $monthsTranslations =
+        [
+            1   => 'janvier',
+            2   => 'février',
+            3   => 'mars',
+            4   => 'avril',
+            5   => 'mai',
+            6   => 'juin',
+            7   => 'juillet',
+            8   => 'août',
+            9   => 'septembre',
+            10  => 'octobre',
+            11  => 'novembre',
+            12  => 'décembre',
         ];
+
+
 
 
 
