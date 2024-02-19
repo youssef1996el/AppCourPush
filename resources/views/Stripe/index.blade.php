@@ -299,6 +299,7 @@
         {
             if (response.error)
             {
+
                 $.notify(response.error.message, {
                     position: "bottom right",
                     className: "error",
@@ -307,6 +308,7 @@
             }
             else
             {
+
                 var token = response['id'];
                 $.ajax({
                     type: "post",
@@ -322,16 +324,22 @@
                         total   : @json($Montant)
                     },
                     dataType: "json",
+                    beforeSend: function()
+                    {
+                        $('.AllSrean').css({
+                            'display': 'block',
+                            'background-color': 'rgba(255, 255, 255, 0.66)'
+                        });
+                    },
                     success: function (response)
                     {
                         if(response.status == 200)
                         {
-                            /* token contains id, last4, and card type */
-
                             $form.find('input[type=text]').empty();
                             $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
 
                             $form.get(0).submit();
+                            $('.AllSrean').css('display', 'block');
 
                         }
                     }

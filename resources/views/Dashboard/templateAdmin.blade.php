@@ -33,7 +33,7 @@
         <style>
            .AllSrean
            {
-            display: block;
+                display: block;
                 position: fixed;
                 top: 50%;
                 left: 50%;
