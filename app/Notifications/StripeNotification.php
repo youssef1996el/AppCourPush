@@ -13,14 +13,16 @@ class StripeNotification extends Notification
 
     private $iduser;
     private $text;
+    private $Condition;
     /**
      * Create a new notification instance.
      */
-    public function __construct($iduser,$text)
+    public function __construct($iduser,$text,$Condition)
     {
 
         $this->iduser       = $iduser;
         $this->text         = $text;
+        $this->Condition    = $Condition;
     }
 
     /**
@@ -38,8 +40,9 @@ class StripeNotification extends Notification
     {
         return
         [
-            'id'    => $this->iduser,
-            'title' => $this->text,
+            'id'        => $this->iduser,
+            'title'     => $this->text,
+            'condition' => $this->Condition,
         ];
     }
 

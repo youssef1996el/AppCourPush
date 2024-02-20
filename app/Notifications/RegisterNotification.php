@@ -13,16 +13,19 @@ class RegisterNotification extends Notification
     private $name;
     private $role_name;
     private $iduser;
+    private $condition;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($name,$role_name,$iduser)
+    public function __construct($name,$role_name,$iduser,$condition)
     {
         $this->name= $name;
         $this->role_name= $role_name;
         $this->iduser= $iduser;
+        $this->condition= $condition;
     }
+
 
     /**
      * Get the notification's delivery channels.
@@ -41,9 +44,9 @@ class RegisterNotification extends Notification
     {
         return
         [
-            'id'    =>$this->iduser,
-            'title' =>$this->role_name === 'professeur' ? 'Un nouveau professeur a été inscrit '.$this->name : 'Un nouveau élève a été inscrit '.$this->name,
-
+            'id'        => $this->iduser,
+            'title'     => $this->role_name === 'professeur' ? 'Un nouveau professeur a été inscrit '.$this->name : 'Un nouveau élève a été inscrit '.$this->name,
+            'condition' => $this->condition,
         ];
     }
 

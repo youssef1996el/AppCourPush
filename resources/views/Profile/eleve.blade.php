@@ -145,7 +145,7 @@
                                         <label class="btn btn-outline-primary " for="private" style="width:45px ;border-top-right-radius: 10px;border-bottom-right-radius: 10px; "><i class="fas fa-user "></i></label>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
     </div>
     <div class="card p-2 mt-2" style="display: none;" id="CardShowDataProfesseur">
         <div class="NoCoursToday"></div>
-        <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
+        <h4 class="text-uppercase mt-2 TitleHasCours">Cette date pourrait également vous intéresser</h4>
         <h5 class="text-secondary mt-4 DateSelected"></h5>
         <div class="DataProfesseur">
             <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
@@ -278,7 +278,7 @@
 
                                         <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
                                         <label class="btn btn-outline-primary " for="private" style="width:45px ;border-top-right-radius: 10px;border-bottom-right-radius: 10px; "><i class="fas fa-user "></i></label>
-                                    
+
                                 </div>
                             </div>
                             <div class="col-md-3 d-flex justify-content-end align-items-baseline">

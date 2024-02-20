@@ -336,7 +336,7 @@
                                                 <div class="menu-header-image opacity-1" style="background-image: url('assets/images/dropdown-header/city3.jpg');"></div>
                                                 <div class="menu-header-content text-dark">
                                                     <h5 class="menu-header-title">Notifications</h5>
-                                                    <h6 class="menu-header-subtitle">You have <b>21</b> unread messages</h6>
+                                                    <h6 class="menu-header-subtitle">You have <b>{{auth()->user()->unreadNotifications->count()}}</b> unread messages</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -359,7 +359,32 @@
                                                         <div class="p-3">
                                                             <div class="notifications-box">
                                                                 <div class="vertical-time-simple vertical-without-time vertical-timeline vertical-timeline--one-column">
-                                                                    <div class="vertical-timeline-item dot-danger vertical-timeline-element">
+                                                                    @foreach (auth()->user()->unreadNotifications as $notification)
+                                                                        @if( $notification->data['condition'] === 'MSG')
+                                                                            @php
+                                                                                $url = $notification->data['id'];
+                                                                                $hashids = new Hashids\Hashids();
+
+                                                                                $url = $hashids->encode($url);
+
+                                                                                $classes = ['dot-warning', 'dot-success', 'dot-primary', 'dot-info', 'dot-danger'];
+
+                                                                                $randomClass = $classes[array_rand($classes)];
+                                                                            @endphp
+                                                                            <div class="vertical-timeline-item {{$randomClass}} vertical-timeline-element">
+                                                                                <div>
+                                                                                    <span class="vertical-timeline-element-icon bounce-in"></span>
+                                                                                    <div class="vertical-timeline-element-content bounce-in">
+                                                                                        <h4 class="timeline-title">
+                                                                                            <a href="{{url('ShowUsers/'.$url)}}"> {{$notification->data['title']}}</a>
+                                                                                        </h4>
+                                                                                        <span class="vertical-timeline-element-date"></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endif
+                                                                    @endforeach
+                                                                    {{-- <div class="vertical-timeline-item dot-danger vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                             <div class="vertical-timeline-element-content bounce-in">
@@ -387,8 +412,8 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item dot-primary vertical-timeline-element">
+                                                                    </div> --}}
+                                                                    {{-- <div class="vertical-timeline-item dot-primary vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                 <div class="vertical-timeline-element-content bounce-in">
@@ -412,22 +437,22 @@
                                                                                             </div>
                                                                                             <div class="avatar-icon-wrapper avatar-icon-sm">
                                                                                                 <div class="avatar-icon">
-                                                                                                    {{-- <img src="assets/images/avatars/5.jpg" alt> --}}
+
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="avatar-icon-wrapper avatar-icon-sm">
                                                                                                 <div class="avatar-icon">
-                                                                                                    {{-- <img src="assets/images/avatars/9.jpg" alt> --}}
+
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="avatar-icon-wrapper avatar-icon-sm">
                                                                                                 <div class="avatar-icon">
-                                                                                                    {{-- <img src="assets/images/avatars/7.jpg" alt> --}}
+
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="avatar-icon-wrapper avatar-icon-sm">
                                                                                                 <div class="avatar-icon">
-                                                                                                    {{-- <img src="assets/images/avatars/8.jpg" alt> --}}
+
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="avatar-icon-wrapper avatar-icon-sm avatar-icon-add">
@@ -440,8 +465,8 @@
                                                                                     <span class="vertical-timeline-element-date"></span>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="vertical-timeline-item dot-info vertical-timeline-element">
+                                                                        </div> --}}
+                                                                        {{-- <div class="vertical-timeline-item dot-info vertical-timeline-element">
                                                                             <div>
                                                                                 <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                 <div class="vertical-timeline-element-content bounce-in">
@@ -449,8 +474,8 @@
                                                                                     <span class="vertical-timeline-element-date"></span>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="vertical-timeline-item dot-danger vertical-timeline-element">
+                                                                        </div> --}}
+                                                                        {{-- <div class="vertical-timeline-item dot-danger vertical-timeline-element">
                                                                             <div>
                                                                                 <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                 <div class="vertical-timeline-element-content bounce-in">
@@ -458,8 +483,8 @@
                                                                                     <span class="vertical-timeline-element-date"></span>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="vertical-timeline-item dot-warning vertical-timeline-element">
+                                                                        </div> --}}
+                                                                        {{-- <div class="vertical-timeline-item dot-warning vertical-timeline-element">
                                                                             <div>
                                                                                 <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                 <div class="vertical-timeline-element-content bounce-in">
@@ -468,8 +493,8 @@
                                                                                         <span class="vertical-timeline-element-date"></span>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="vertical-timeline-item dot-success vertical-timeline-element">
+                                                                        </div> --}}
+                                                                        {{-- <div class="vertical-timeline-item dot-success vertical-timeline-element">
                                                                             <div>
                                                                                 <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                 <div class="vertical-timeline-element-content bounce-in">
@@ -479,8 +504,8 @@
                                                                                     <span class="vertical-timeline-element-date"></span>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="vertical-timeline-item dot-dark vertical-timeline-element">
+                                                                        </div> --}}
+                                                                        {{-- <div class="vertical-timeline-item dot-dark vertical-timeline-element">
                                                                             <div>
                                                                                 <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                 <div class="vertical-timeline-element-content bounce-in">
@@ -488,7 +513,7 @@
                                                                                     <span class="vertical-timeline-element-date"></span>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
+                                                                        </div> --}}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -610,12 +635,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <ul class="nav flex-column">
+                                            {{-- <ul class="nav flex-column">
                                                 <li class="nav-item-divider nav-item"></li>
                                                 <li class="nav-item-btn text-center nav-item">
                                                     <button class="btn-shadow btn-wide btn-pill btn btn-focus btn-sm">View Latest Changes</button>
                                                 </li>
-                                            </ul>
+                                            </ul> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -659,11 +684,6 @@
                                             <div class="widget-content-left  ml-3 header-user-info">
                                                 <div class="widget-heading"> {{ Auth::user()->name}}</div>
                                                 <div class="widget-subheading"> {{ Auth::user()->title}} </div>
-                                            </div>
-                                            <div class="widget-content-right header-user-info ml-3">
-                                                <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
-                                                    <i class="fa text-white fa-calendar pr-1 pl-1"></i>
-                                                </button>
                                             </div>
                                         </div>
                                     </div>
