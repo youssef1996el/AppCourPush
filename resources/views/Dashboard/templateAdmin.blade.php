@@ -772,12 +772,7 @@
 
 
                                             </li>
-                                            <li class="mb-2">
-                                                <a href="{{url('CoursPaiement')}}">
-                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
-                                                </a>
-
-                                            </li>
+                                            
                                         @endif
 
                                         <!-- Side bar Professeur-->
@@ -794,31 +789,18 @@
 
                                             </li>
                                             <li class="mb-2">
-                                                <a href="{{url('CoursPaiement')}}">
+                                                <a href="{{url('MesEleves')}}">
                                                     <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Liste des éleves
                                                 </a>
 
                                             </li>
                                             <li class="mb-2">
-                                                <a href="#">
-                                                    <i class="fa-solid fa-rocket metismenu-icon "></i> Cours & Disponibilté
-                                                    <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
-
+                                                <a href="{{ url('Cours&Disponibilite') }}">
+                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Cours & Disponibilté
                                                 </a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="{{ url('professeurs') }}">
-                                                            <i class="fa-solid fa-user-tie"></i> <span class="iconS">Cours </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('eleves') }}">
-                                                            <i class="fa-solid fa-users "></i> <span class="iconS">Disponibilté </span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
 
                                             </li>
+                                            
                                             <li class="mb-2">
                                                 <a href="{{route('InfoProfesseur')}}">
                                                     <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Informaion personnelle
@@ -833,12 +815,12 @@
                                                 </a>
                                                 <ul>
                                                     <li>
-                                                        <a href="{{ url('professeurs') }}">
+                                                        <a href="{{ url('professeur/education') }}">
                                                             <i class="fa-solid fa-user-tie"></i> <span class="iconS">Education </span>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ url('eleves') }}">
+                                                        <a href="{{ url('professeur/experience') }}">
                                                             <i class="fa-solid fa-users "></i> <span class="iconS">Expérience </span>
                                                         </a>
                                                     </li>

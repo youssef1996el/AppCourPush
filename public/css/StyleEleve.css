@@ -17,10 +17,9 @@
 }
 
 
-h1{
+.WelcomeEleve{
     margin-top: 0%;
-    font-size: 2rem;
-    margin-bottom: 20px;
+    
 }
 
 .form-inline {
@@ -47,7 +46,6 @@ tbody, td, tfoot, th, thead, tr {
 {
     width: 55rem;
 }
-
 .line {
   width: 100%;
   text-align: center;

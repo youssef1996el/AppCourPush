@@ -9,8 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('css/StyleReserver.css')}}">
 
-    <div class="container mt-5">
-        <div class="pervious" style="margin-top:5rem;">
+    <div class="container">
+        <div class="pervious" >
             <a href="{{ url()->previous() }}">
                 <i class="fa fa-arrow-left" aria-hidden="true">
                     <span>Retour</span>

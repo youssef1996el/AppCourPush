@@ -180,11 +180,11 @@
             <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
                 <thead class="bg-light">
                     <tr class="sr-only">
-                        <th>Time</th>
-                        <th>Name of the teacher</th>
-                        <th>Course</th>
-                        <th>Group/Particular</th>
-                        <th>Actions</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Name of the teacher</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Group/Particular</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody></tbody>

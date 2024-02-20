@@ -6,13 +6,13 @@
                 {{ session('message') }}
             </div>
         @endif
-        <div class="card shadow" style=" width: 800px;margin: auto;padding: 20px 24px; background: #ffffff4a;" >
+        <div class="card shadow" style=" margin: auto; background: #ffffff4a;" >
             <form action="{{url('UpdateInfoProfesseur')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <h3 class="mb-5" style="font-style:italic">Les informations personnelles</h3>
                     <div class="row">
-                        <div class="picture-container">
+                        <div class="picture-container mb-5">
                             <div class="picture">
 
                                 <img src="{{ $DataProfesseur->image == '' ? asset('image/default-avatar.png') : $DataProfesseur->image}}" class="picture-src" id="wizardPicturePreview" title=""/>
@@ -21,7 +21,7 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                        <div class="col-sm-12 col-md-6 col-xl-6 ">
                             <div class="form-group mb-3">
                                 <label for="" class="mb-1">Nom complet</label>
                                 <input type="text" class="form-control" placeholder="nom" value="{{$DataProfesseur->name}}" name="name">
@@ -36,7 +36,7 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                        <div class="col-sm-12 col-md-6 col-xl-6 ">
                             <div class="form-group mb-3">
                                 <label for="" class="mb-1">Email</label>
                                 <input type="email" class="form-control" placeholder="nom" value="{{$DataProfesseur->email}}" name="email">

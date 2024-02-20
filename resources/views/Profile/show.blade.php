@@ -89,7 +89,7 @@
     
     <div class="row ">
         <div class="col-sm-12 col-md-8 col-xl-8 " id="divDispo">
-            <div class="card cardDispo text-left">
+            <div class="card cardDispo text-left mb-5">
                 <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
                 <div class="card-body ">
                     <div class="ClassDisponible">
@@ -120,6 +120,12 @@
                         @endforeach
                     
                     </div>
+                    <div class="courses">
+                        <ul>
+                            <li class="circle-checkmark"> Day () <i class="fa fa-angle-right" aria-hidden="true"> </i> title
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -159,6 +165,41 @@
   border: 2px solid black;
   margin: 16px auto;
     }
+                
+li.circle-checkmark::before {
+  content: ""; 
+  position: absolute; 
+  left: 0; 
+  top: 2px; 
+  border: solid 8px #f9dd94;
+  border-radius: 8px;
+}
+
+li.circle-checkmark::after {
+  content: ""; 
+  position: absolute; 
+  left: 4px;
+  top: 4px;
+  width: 7px;
+  height: 10px;
+  border: solid #7eb4e2;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+    
+        
+ul {
+  line-height: 1.5em;
+  margin: 5px 0 15px;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  position: relative;
+  padding: 0 0 0 20px;
+}
+    
 </style>
 
 @endsection

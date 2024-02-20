@@ -316,11 +316,25 @@ Route::get('/prof/{name}/{id}',function()
 Route::post('StoreData',[HomeController::class,'Store']);
 
 
-/* Route::get('profile/admin',function()
+ Route::get('professeur/cours',function()
 {
-    return view('profile.admin');
-}); */
+    return view('professeur.Cours');
+}); 
 
+Route::get('professeur/disponibilte',function()
+{
+    return view('professeur.Dispo');
+}); 
+
+Route::get('professeur/education',function()
+{
+    return view('professeur.Education');
+}); 
+
+Route::get('professeur/experience',function()
+{
+    return view('professeur.Experience');
+}); 
 
 
 

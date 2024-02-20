@@ -95,8 +95,8 @@ font-size: 26px;
 
 
 .ContentDisponible {
-  width: 74px;
-  margin: 10px -5px 0px 5px;
+ /*  width: 13%;
+  
   border: 1px solid gray;
   display: inline-table;
   text-align: center !important;
@@ -105,7 +105,16 @@ font-size: 26px;
   background-size: 8.76px 11.63px;
   flex-grow: 1;
   min-height: 300px;
-  border-radius: 10px
+  border-radius: 10px */
+  width: 13%;
+  border: 1px solid gray;
+  display: inline-table;
+  text-align: center !important;
+
+  flex-grow: 1;
+  min-height: 300px;
+  border-radius: 10px;
+  background: #f0f1f3;
 
 
 }
@@ -133,14 +142,7 @@ font-size: 26px;
 }
 
 .ClassDisponible {
-  background: #F0f1f3;
-  max-width: 564px;
-     min-height: 10px;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35);
-  margin-left: -12px;
-  height: 322px;
-  margin-top: -10px;
+display: flex;
 
 }
 
