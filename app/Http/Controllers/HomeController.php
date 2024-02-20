@@ -73,7 +73,8 @@ class HomeController extends Controller
         $name  = Auth::user()->name;
         $role_name = Auth::user()->role_name;
         $iduser   = Auth::user()->id;
-        Notification::send($users,new RegisterNotification($name,$role_name,$iduser));
+        $Condition ='MSG';
+        Notification::send($users,new RegisterNotification($name,$role_name,$iduser,$Condition));
 
         $response = App::call('App\Http\Controllers\FormationProf@Store', [
             'request' => $request

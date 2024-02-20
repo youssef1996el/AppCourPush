@@ -109,17 +109,20 @@ class StripeController extends Controller
                     if($item->role_name === 'eleve')
                     {
                         $textEleve     = "Une notification immédiate confirmant que la réservation du cours a été effectuée avec succès.";
-                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textEleve));
+                        $Condition     = "MSG";
+                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textEleve,$Condition));
                     }
                     if($item->role_name === 'professeur')
                     {
                         $textProfesseur = "Un éleve ".$Name_Eleve." a réserver votre cours intitulé ".$Cours->title." pour le ".$Days." et ".$Time;
-                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textProfesseur));
+                        $Condition     = "MSG";
+                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textProfesseur,$Condition));
                     }
                     if($item->role_name === 'Admin')
                     {
                         $textAdmin     = "Un élève ".$Name_Eleve." a réservé un cours dans le système pour le ".$Days." et ".$Time;
-                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textAdmin));
+                        $Condition     = "MSG";
+                        Notification::send($userModel,new StripeNotification(Auth::user()->id,$textAdmin,$Condition));
                     }
                 }
                 return redirect()->route('Mescours');

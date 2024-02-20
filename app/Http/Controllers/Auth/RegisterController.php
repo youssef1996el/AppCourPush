@@ -125,7 +125,8 @@ class RegisterController extends Controller
             $name = $user->nom.' '.$user->prenom;
             $iduser   = DB::select('select id from users where email = ?',[$user->email]);
             $iduser = (int)$iduser[0]->id;
-            Notification::send($users,new RegisterNotification($name,$user->role_name,$iduser));
+            $Condition ='MSG';
+            Notification::send($users,new RegisterNotification($name,$user->role_name,$iduser,$Condition));
         }
 
         return redirect($this->redirectPath());
