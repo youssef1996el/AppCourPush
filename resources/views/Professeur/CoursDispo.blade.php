@@ -1,7 +1,7 @@
 @extends('Dashboard.templateAdmin')
 @section('navsidebar')
  <div class="container">
-    <div class="card shadow"  style="margin: auto background: #ffffff4a;">
+    <div class="card shadow"  style="margin: auto; background: #ffffff4a;">
         <div class="card-body">
             <h4 class="card-title">Liste des cours</h4>
             <div class="List-Courses">
@@ -23,8 +23,7 @@
         </div>
     </div>
 
-    <div class="card shadow mt-2"  style="margin: auto; background: #ffffff4a;">
-        <img class="card-img-top" src="holder.js/100px180/" alt="">
+    <div class="card shadow mt-5"  style="margin: auto; background: #ffffff4a;">
         <div class="card-body">
             <h4 class="card-title">Disponibilite</h4>
             <p class="card-text">
@@ -32,15 +31,15 @@
                     <img class="card-img-top" alt="">
                     <div class="card-body">
                         <h4 class="card-title"></h4>
-                        <select class="form-control dropdownTimeZone" name="timezone"></select>
+                        <select class="form-control dropdownTimeZone mb-5" name="timezone"></select>
                         <p class="card-text">
                             <form action="" method="post" id="disponibilityForm">
                                 @csrf
                                 @foreach ($disponibilityByDay as $day => $items)
-                                <div class="row border mb-3 DataDisponible">
-                                    <div class="col-sm-12 col-md-2 col-xl-2">
+                                <div class="row mb-3 DataDisponible ">
+                                    <div class="col-sm-12 col-md-2 col-xl-2 daysCheck">
                                         <input name="Days[]" type="checkbox" {{ count($items) > 0 ? 'checked'  : '' }} class="DaysIsRemoveDisponible">
-                                        <label for="" class="nameDays">{{ $day }}</label>
+                                        <label for="" class="nameDays" >{{ $day }}</label>
                                         <span class="checkmark"></span>
                                     </div>
                                     <div class="col-sm-10 col-md-10 col-xl-10">
@@ -49,14 +48,14 @@
                                                 @for ($i = 0; $i < max(3, count($items)); $i++)
                                                     <div class="row">
                                                         @if ($i < count($items))
-                                                            <div class="col-md-3 labelhide">
+                                                            <div class="col-md-3 labelhide selection ">
                                                             <label for="" style="white-space: nowrap" {{ $i >= 2 ? 'class=labelhidden' : '' }}>Choisir un cours</label>
 
                                                                 <select name="Cours[]" id="" class="form-select">
                                                                     <option value="{{$items[$i]->idcours}}">{{ $items[$i]->title }}</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-md-3 labelhide">
+                                                            <div class="col-md-3 labelhide radio-buttons">
                                                                 <label for="">Groupe / Privé</label>
                                                                 <div class="radio-inputs">
                                                                     <label>
@@ -81,20 +80,20 @@
                                                                     </label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-2 g-0 labelhide">
+                                                            <div class="col-md-2  labelhide timeHour">
                                                                 <label for=""> Début</label>
                                                                 <input type="time" name="heuredebut[]" class="form-control heuredebut" value="{{ $items[$i]->debut }}">
                                                             </div>
-                                                            <div class="col-md-2 g-0 labelhide">
+                                                            <div class="col-md-2 labelhide timeHour">
                                                                 <label for=""> Fin</label>
                                                                 <input type="time" name="heurefin[]" class="form-control heurefin" value="{{ $items[$i]->fin }}">
                                                             </div>
                                                         @else
-                                                            <div class="col-md-3 labelhide colAppEnd">
+                                                            <div class="col-md-3 labelhide colAppEnd selection ">
                                                                 <label for="" class="labelhidden" style="white-space: nowrap">Choisir un cours</label>
                                                                 <select name="Cours[]" id="" class="form-select dropDownCoursAppEnd"></select>
                                                             </div>
-                                                            <div class="col-md-3 labelhide colAppEnd">
+                                                            <div class="col-md-3 labelhide radio-buttons colAppEnd">
 
                                                                 <label for="" class="labelhidden">Groupe / Privé</label>
                                                                 <div class="radio-inputs">
@@ -120,11 +119,11 @@
                                                                     </label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-2 labelhide g-0">
+                                                            <div class="col-md-2 labelhide timeHour">
                                                                 <label for="" class="labelhidden"> Début</label>
                                                                 <input type="time" name="heuredebut[]" class="form-control heuredebut" >
                                                             </div>
-                                                            <div class="col-md-2 labelhide g-0">
+                                                            <div class="col-md-2 labelhide timeHour">
                                                                 <label for="" class="labelhidden"> Fin</label>
                                                                 <input type="time" name="heurefin[]" class="form-control heurefin">
                                                             </div>
@@ -144,8 +143,14 @@
                                                                 </svg>
                                                             @endif
                                                         </div>
+                                                      
                                                     </div>
+                                                    @if ($i != 2) 
+                                                    <hr class="line ">
+                                                    @endif
+
                                                 @endfor
+                                                
                                             </div>
                                         @else
 
@@ -156,11 +161,11 @@
                                                 <div class="col-md-12 ColDataNonDisponible" style="display: none">
                                                     @for ($i = 0; $i < max(3, count($items)); $i++)
                                                     <div class="row">
-                                                        <div class="col-md-3 colAppEnd labelhide">
+                                                        <div class="col-md-3 colAppEnd labelhide selection">
                                                             <label for="" class="labelhidden" style="white-space: nowrap">Choisir un cours</label>
                                                             <select name="Cours[]" id="" class="form-select dropDownCoursAppEnd"></select>
                                                         </div>
-                                                        <div class="col-md-3 colAppEnd labelhide">
+                                                        <div class="col-md-3 colAppEnd labelhide radio-buttons">
                                                             <label for="" class="labelhidden">Groupe / Privé</label>
                                                             <div class="radio-inputs">
                                                                 <label>
@@ -185,11 +190,11 @@
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-2 g-0 labelhide">
+                                                        <div class="col-md-2 timeHour labelhide">
                                                             <label for="" class="labelhidden "> Début</label>
                                                             <input type="time" name="heuredebut[]" class="form-control heuredebut" >
                                                         </div>
-                                                        <div class="col-md-2 g-0 labelhide">
+                                                        <div class="col-md-2 timeHour labelhide">
                                                             <label for="" class="labelhidden"> Fin</label>
                                                             <input type="time" name="heurefin[]" class="form-control heurefin">
                                                         </div>
@@ -198,18 +203,22 @@
                                                                 <circle cx="15" cy="15" r="13.5" stroke="rgb(48,72,500)" stroke-width="2.25" fill="rgb(255, 1, 1)" />
                                                                 <text x="50%" y="50%" font-size="15" text-anchor="middle" fill="white" dy=".3em">X</text>
                                                             </svg>
+
                                                         </div>
+                                                        
                                                     </div>
                                                     @endfor
                                                 </div>
                                             </div>
                                         @endif
+                                        <hr>
                                     </div>
                                 </div>
                                 @endforeach
                             </form>
+                            
 
-                            <button type="button" id="UpDateDisponible" >sauvegarde</button>
+                            <button type="button" id="UpDateDisponible" class="d-flex m-auto" >sauvegarder</button>
                         </p>
                      </div>
                 </div>
@@ -221,12 +230,23 @@
     *{
         font-family:times;
     }
+    .ListeCours{
+        background:white;
+    }
+    .card-title{
+        font-size: 28px;
+        text-align: center;
+    }
+
     .input-text{
         margin: 30px 0px 4px 0;
         display:flex;
         gap:20px;
     }
-
+    .input-div{
+        display: flex;
+    gap: 4px;
+    }
     .input-text .input-div{
         width:100%;
         position:relative;
@@ -239,7 +259,7 @@
         font-weight:600;
     }
     #input-tag{
-        width: 86%;
+        width:100%;
         height: 40px;
         border: none;
         outline: 0;
@@ -281,6 +301,10 @@
         padding: 0;
         margin: 0;
     }
+    .nameDays{
+        font-size: 18px;
+        font-weight: bold;
+    }
 
     .tags-input li
     {
@@ -316,8 +340,15 @@
     .labelhidden{
             display:none;
         }
+<<<<<<< HEAD
 
 
+=======
+    
+        .line{
+            display: none;
+        }
+>>>>>>> 195edd08cd6b94076e9b32e9bf1f7264c6d3f3a9
     @media only screen and (max-width: 768px) {
         .labelhidden{
             display:block;
@@ -330,9 +361,42 @@
         {
             justify-content: flex-start !important;
         }
+        .radio-buttons,.selection,.timeHour
+        {
+            display: flex;
+            justify-content: space-between;   
+            gap:20px;     
+        }
+     
         .form-select, .form-control , .radio-inputs{
             margin-bottom:22px;
         }
+        .heuredebut, .heurefin{
+            width: 66%;
+            text-align: center;
+        }
+        .daysCheck{
+            text-align: center;
+            margin: 16px auto;
+        }
+
+        .removeDisponible{
+          
+            background: #3174dc;
+            width: 70px;
+            margin-top: 0px !important;
+            height: 36px;
+            margin-bottom: 20px;
+
+        }
+        circle{
+            display: none;
+        }
+        .line{
+            display: block;
+        }
+     
+
       /*  .labelhide{
             display: flex ;
             gap: 20px;

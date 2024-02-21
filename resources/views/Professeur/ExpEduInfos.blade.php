@@ -2,12 +2,14 @@
 @section('navsidebar')
     <script src="{{asset('js/countries.js')}}"></script>
     <div class="container">
-        <div class="card shadow" style=" width: 800px;margin: auto;padding: 20px 24px; background: #ffffff4a;" >
+        <div class="card shadow" style=" margin: auto; background: #ffffff4a;" >
             <div class="card-body">
                 <div class="card text-left">
                     <div class="card-body">
-                        <h4 class="card-title">Modification de l'education</h4>
-                        <button type="button" class="btn btn-primary  BtnAjoutEducationProf float-end mb-3" >Ajouter</button>
+                        <h4 class="card-title mt-3">Modification de l'education</h4>
+                        <div class="d-flex justify-content-end mt-5 mb-3">
+                            <button type="button" class="btn btn-primary  BtnAjoutEducationProf " >Ajouter</button>
+                        </div>
                         <form action="{{url('UpdateFormation')}}" method="post" id="SubmitFormFormation">
                             @csrf
                             <input type="text" name="IdFormation" class="" value="{{$idFormation}}" hidden>
@@ -15,9 +17,9 @@
 
                                 @foreach ($Formation as $item)
                                     <div class="row education-row">
-                                        <div class="FormEduction w-100 row">
+                                        <div class="FormEduction row m-auto mt-3">
 
-                                            <div class="col-sm-12 col-md-6 col-xl-6 mt-3 ">
+                                            <div class="col-sm-12 col-md-6 col-xl-6  ">
                                                 <div class="form-group mb-3">
                                                     <label for="" class="mb-1">Dernier diplôme</label>
                                                     <input type="text" class="form-control diplome" name="diplome[]" placeholder="Dernier diplôme" value="{{$item->diplome}}">
@@ -38,7 +40,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-12 col-md-6 col-xl-6 mt-3 ">
+                                            <div class="col-sm-12 col-md-6 col-xl-6  ">
                                                 <div class="form-group mb-3">
                                                     <label for="" class="mb-1">Spécialité</label>
                                                     <input type="text" class="form-control specialise" name="specialise[]" placeholder="Spécialité" value="{{$item->specialise}}">
@@ -53,26 +55,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 @endforeach
-                                <div class="form-group mb-3 form-groupEducation">
+                                <div class="form-group mb-3 form-groupEducation mt-5">
                                     <button type="button" class="btn btn-success  BtnUpdateEducationProf" style="display:flex; margin:auto">Valider</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="card text-left">
+                <div class="card text-left mt-5">
                     <div class="card-body">
-                        <h4 class="card-title">Modification de l'experience</h4>
-                        <button type="button" class="btn btn-primary  BtnAjoutExperienceProf float-end mb-3" >Ajouter</button>
+                        <h4 class="card-title mt-3">Modification de l'experience</h4>
+                        <div class="d-flex justify-content-end mt-5 mb-3">
+                            <button type="button" class="btn btn-primary  BtnAjoutExperienceProf " >Ajouter</button>
+                        </div>
                         <form action="{{url('UpdateExperince')}}" method="post" id="SubmitFormExperience">
                             @csrf
                             <input type="text" name="IdExperince" class="" value="{{$idExperince}}" hidden>
                             <div class="HeightExperince">
                                 @foreach ($Experince as $item)
                                     <div class="row Experince-row">
-                                        <div class="FormExperince w-100 row">
-                                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                                        <div class="FormExperince row mt-3 m-auto">
+                                            <div class="col-sm-12 col-md-6 col-xl-6 ">
                                                 <div class="form-group mb-3">
                                                     <label for="" class="mb-1">Filière</label>
                                                     <input type="text" name="poste[]" class="form-control" placeholder="Filière" value="{{$item->poste}}">
@@ -93,7 +98,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                                            <div class="col-sm-12 col-md-6 col-xl-6 ">
                                                 <div class="form-group mb-3">
                                                     <label for="" class="mb-1">Lycée / Université</label>
                                                     <input type="text" name="entreprise[]" class="form-control" placeholder="Lycée / Université" value="{{$item->entreprise}}">
@@ -112,7 +117,7 @@
 
                                     </div>
                                 @endforeach
-                                <div class="form-group mb-3 form-groupExperince">
+                                <div class="form-group mb-3 form-groupExperince mt-5">
                                     <button type="button" class="btn btn-success  BtnUpdateExperienceProf" style="display:flex; margin:auto">Valider</button>
                                 </div>
                             </div>
@@ -127,11 +132,7 @@
         *{
             font-family:times;
         }
-        .picture-src
-        {
-            width: 160px;
-            height: 160px;
-        }
+     
 
         .form-control:focus{
             border-bottom:1px solid black !important;
@@ -140,62 +141,17 @@
         .form-control{
         border-radius: 0px;}
 
-        .picture-container {
-  position: relative;
-  cursor: pointer;
-  text-align: center;
-}
- .picture {
-  width: 160px;
-  height: 160px;
-  background-color: #999999;
-  border: 4px solid #CCCCCC;
-  color: #FFFFFF;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  margin:auto;
-}
-.picture:hover {
-  border-color: #4479a7;
-}
-.picture input[type="file"] {
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  left: 0;
-  opacity: 0 !important;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
+        
 
 
     </style>
   
     <style>
-        .HeightEduction
-        {
-            max-height: 23rem;
-            overflow: auto;
-            min-width: 43rem;
-            overflow-x: hidden;
-            border: 2px solid #304767;
-            border-radius: 11px;
-            padding: 0px 10px;
-
-        }
-        .HeightExperince
-        {
-            max-height: 23rem;
-            overflow: auto;
-            min-width: 43rem;
-            overflow-x: hidden;
-            border: 2px solid #304767;
-            border-radius: 11px;
-            padding: 0px 10px;
-        }
+          .card-title{
+        font-size: 28px;
+        text-align: center;
+    }
+       
         select{
             width:100%;
             height:40px;
@@ -206,26 +162,17 @@
             gap:20px;
             box-sizing:border-box;
             padding:0px 10px;
+            border-radius:0px !important;
         }
-        .HeightEduction::-webkit-scrollbar {
-            width: 15px;
+        .BtnUpdateEducationProf, .BtnUpdateExperienceProf{
+            width: 120px;
         }
-        .HeightExperince::-webkit-scrollbar {
-            width: 15px;
+        @media only screen and (max-width: 768px) {
+            .btn-success{
+                float: left;
+            }
         }
-        .HeightEduction::-webkit-scrollbar-thumb {
-            background-color: #304767;
-            border-radius: 10px;
-            border: 3px solid #ffffff;
-        }
-        .HeightExperince::-webkit-scrollbar-thumb {
-            background-color: #304767;
-            border-radius: 10px;
-            border: 3px solid #ffffff;
-        }
-        .form-control.border-danger {
-            border-color: red;
-        }
+        
     </style>
 
     <script>
@@ -364,8 +311,8 @@ $(document).ready(function ()
         function AppEndFormation()
         {
             var newEducationForm = $(`<div class="FormEduction">
-                                            <div class="row education-row">
-                                                <div class="col-sm-12 col-md-6 col-xl-6 mt-3">
+                                            <div class="row education-row mt-3 m-auto">
+                                                <div class="col-sm-12 col-md-6 col-xl-6 ">
                                                     <div class="form-group mb-3">
                                                         <label for="" class="mb-1">Dernier diplôme</label>
                                                         <input type="text" class="form-control" name="diplome[]" placeholder="Dernier diplôme" >
@@ -381,7 +328,7 @@ $(document).ready(function ()
 
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-12 col-md-6 col-xl-6 mt-3">
+                                                <div class="col-sm-12 col-md-6 col-xl-6">
                                                     <div class="form-group mb-3">
                                                         <label for="" class="mb-1">Spécialité</label>
                                                         <input type="text" class="form-control" name="specialise[]" placeholder="Spécialité" >
@@ -409,8 +356,9 @@ $(document).ready(function ()
             else
             {
                 $('<div class="FormEduction">\
-                    <div class="row education-row">\
-                        <div class="col-sm-12 col-md-6 col-xl-6 mt-3">\
+                <hr>\
+                    <div class="row education-row mt-3 m-auto">\
+                        <div class="col-sm-12 col-md-6 col-xl-6 ">\
                             <div class="form-group mb-3">\
                                 <label for="" class="mb-1">Dernier diplôme</label>\
                                 <input type="text" class="form-control" name="diplome[]" placeholder="Dernier diplôme">\
@@ -424,7 +372,7 @@ $(document).ready(function ()
                                 <select class="countryDropdown" onchange="print_state(\'state\', this.selectedIndex);" name="pays[]" required require></select>\
                             </div>\
                         </div>\
-                        <div class="col-sm-12 col-md-6 col-xl-6 mt-3">\
+                        <div class="col-sm-12 col-md-6 col-xl-6">\
                             <div class="form-group mb-3">\
                                 <label for="" class="mb-1">Spécialité</label>\
                                 <input type="text" class="form-control" name="specialise[]" placeholder="Spécialité">\

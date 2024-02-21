@@ -10,7 +10,7 @@
             <form action="{{url('UpdateInfoProfesseur')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-                    <h3 class="mb-5" style="font-style:italic">Les informations personnelles</h3>
+                    <h3 class="mb-5 mt-3 text-center" >LES INFORMATIONS PERSONNELLES </h3>
                     <div class="row">
                         <div class="picture-container mb-5">
                             <div class="picture">
@@ -63,9 +63,14 @@
         *{
             font-family:times;
         }
+        .card-title{
+        font-size: 28px;
+        text-align: center;
+        }
+      
         .picture-src{
             width: 160px;
-  height: 160px;
+            height: 160px;
 
         }
 

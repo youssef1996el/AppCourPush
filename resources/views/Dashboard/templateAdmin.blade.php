@@ -797,56 +797,45 @@
 
                                         <!-- Side bar Professeur-->
                                         @if (Auth::user()->role_name === 'professeur')
+                                            
                                             <li class="mm-active mb-2">
-                                                <a href="{{url('Admin/Dashboard')}}" class="mm-active">
-                                                    <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
-                                                </a>
-                                            </li>
-                                            <li class="mb-2">
-                                                <a href="{{ url('ShowProfileProf') }}">
-                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>Profile
+                                                <a href="{{ url('ShowProfileProf') }}" class="mm-active">
+                                                <i class="fa-solid fa-user-tie metismenu-icon"></i> Profile
                                                 </a>
 
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{url('MesEleves')}}">
-                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Liste des éleves
+                                                <i class="fa-solid fa-users metismenu-icon"></i> Liste des éleves
                                                 </a>
 
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{ url('Cours&Disponibilite') }}">
-                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Cours & Disponibilté
+                                                <i class="fa-solid fa-school-circle-check metismenu-icon"></i> Cours & Disponibilté
                                                 </a>
 
                                             </li>
                                             
                                             <li class="mb-2">
                                                 <a href="{{route('InfoProfesseur')}}">
-                                                    <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Informaion personnelle
+                                                <i class="fa-solid fa-user-pen metismenu-icon"></i>  Informaion personnelle
                                                 </a>
 
                                             </li>
                                             <li class="mb-2">
-                                                <a href="#">
-                                                    <i class="fa-solid fa-rocket metismenu-icon "></i> Education & Expérience
-                                                    <i class="fa-solid fa-angle-down metismenu-state-icon"></i>
-
+                                                <a href="{{route('ExpEduInfos')}}">
+                                                <i class="fa fa-briefcase metismenu-icon"></i> Education & Expérience
                                                 </a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="{{ url('professeur/education') }}">
-                                                            <i class="fa-solid fa-user-tie"></i> <span class="iconS">Education </span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('professeur/experience') }}">
-                                                            <i class="fa-solid fa-users "></i> <span class="iconS">Expérience </span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
 
                                             </li>
+                                            <li class="mb-2">
+                                                <a href="{{url('ElevesReserve')}}">
+                                                <i class="fa-regular fa-handshake metismenu-icon"></i> Réunion zoom
+                                                </a>
+
+                                            </li>
+                                            
                                         @endif
 
 
@@ -898,6 +887,7 @@
                     }
                 });
                 setActiveItem(activeIndex);
+                
             </script>
             <script type="text/javascript" src="{{asset('js/templateAdmin.js')}}"></script>
 </body>
