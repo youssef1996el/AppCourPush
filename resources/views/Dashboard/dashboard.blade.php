@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-4">
+                <div class="row mt-4 mb-5">
                     <div class="col-sm-12 col-md-6 col-xl-6 p-2">
                         <div class="card shadow" style="border-radius: 20px">
                             <div class="bg-light text-primary p-3" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
@@ -91,12 +91,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-xl-6">
+                    <div class="col-sm-12 col-md-6 col-xl-6 mt-2">
                         <div class="card shadow" style="border-radius: 20px">
-                            <div class="bg-light text-primary p-3">
+                            <div class="bg-light text-primary p-3 " style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
                                 <div class="row bg-light text-primary p-3" >
                                     <div class="col-sm-6 col-md-6 col-xl-6 " >
-                                        <h3>money</h3>
+                                        <h3>Cours achetés</h3>
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-xl-6 ">
                                         <select name="yearpicker" class="form-select" id="yearpicker2"></select>
@@ -108,9 +108,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-xl-12">
+                    <div class="col-sm-12 col-md-12 col-xl-12 mt-4">
                         <div class="card shadow" style="border-radius: 20px">
-                            <div class="bg-light text-primary p-3">
+                            <div class="bg-light text-primary p-3" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
                                 <div class="row bg-light text-primary p-3" >
                                     <div class="col-sm-6 col-md-6 col-xl-6 " >
                                         <h3>Graphique du nombre d'élèves créé</h3>

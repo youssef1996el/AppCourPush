@@ -4,17 +4,17 @@
 <link rel="stylesheet" href="{{asset('css/StyleProfileProf.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 
-<div class="container mt-4">
-    <div class="card text-center">
+<div class="container mt-4 " >
+    <div class="card text-center padding:20px 10px">
         <img class="imageprof" src="{{asset($DataProf[0]->image)}}" alt="Profile image"  srcset="" >
         <h2 class="name">{{$DataProf[0]->name }}</h2>
         <h4 >{{$DataProf[0]->title}}</h4>
         <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince}}</span> ans d'expérience</h4>
-        <div class="card-body" >
+        <div class="card-body"  >
             <p class="card-text">{{$DataProf[0]->description}}</p>
         </div>
-        <div class="card-footer">
-            <p style="display:inline;">contactez-moi via</p>
+        <div class="card-footer d-flex justify-content-center">
+            <p style="display: contents;">contactez-moi via</p>
             <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" onclick="showPhoneNumber('{{ $DataProf[0]->telephone }}')" >
                 <i class="fa-solid fa-phone"></i>
             </button>
@@ -83,8 +83,8 @@
             </div>
         </div> 
     </div>
-  
-  
+
+
 
     
     <div class="row ">
@@ -143,6 +143,7 @@
             </div>
         </div>
     </div>
+ 
 </div>
  
 
@@ -162,43 +163,11 @@
         width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid rgb(13, 202, 240);
   margin: 16px auto;
     }
                 
-li.circle-checkmark::before {
-  content: ""; 
-  position: absolute; 
-  left: 0; 
-  top: 2px; 
-  border: solid 8px #f9dd94;
-  border-radius: 8px;
-}
 
-li.circle-checkmark::after {
-  content: ""; 
-  position: absolute; 
-  left: 4px;
-  top: 4px;
-  width: 7px;
-  height: 10px;
-  border: solid #7eb4e2;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-    
-        
-ul {
-  line-height: 1.5em;
-  margin: 5px 0 15px;
-  padding: 0;
-}
-
-li {
-  list-style: none;
-  position: relative;
-  padding: 0 0 0 20px;
-}
     
 </style>
 
