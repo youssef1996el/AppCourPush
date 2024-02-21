@@ -66,7 +66,7 @@ class ProfesseurController extends Controller
         {
             $HasMeeting = true;
         }
-
+       /*  dd($FormationProf); */
         return view('Profile.show')
         ->with('FormationProf'          ,$FormationProf)
         ->with('ExperinceProf'          ,$ExperinceProf)

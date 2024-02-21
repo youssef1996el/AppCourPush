@@ -25,8 +25,8 @@
         </div>
     </div>
 
-    
-    <div class="row mt-4">   
+
+    <div class="row mt-4">
         <div class="col-sm-12 col-md-6 col-xl-6 ">
             <div class="card cardExperience mb-3" >
                 <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Experience</h4>
@@ -54,39 +54,43 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-xl-6 ">
-            <div class="card cardFormation mb-5" >
-                <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
-                <div class="card-body timeline" >
-                    <ul class="list-unstyled " id="ListFormation">
-                        @foreach ($FormationProf as $key => $item)
-                            <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}">
-                                <li class="timeline-item" >
-                                    <div class="timeline-element">
-                                        <a href="#">{{ $item->diplome }} </a>
-                                        <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
-                                        <span class="pays">{{ $item->pays }}</span>
-                                        <span class="circle"></span>
-                                        <div class="timeline-content">
-                                            <p>{{ $item->specialise }}</p>
-                                        </div>
+        @if (count($FormationProf) > 0)
+            <div class="col-sm-12 col-md-6 col-xl-6 ">
+                <div class="card cardFormation mb-5" >
+                    <h4 class="title-card "  style="  border-bottom: 1px solid #c0c1c1;"> Formation</h4>
+                    <div class="card-body timeline" >
+                        <ul class="list-unstyled " id="ListFormation">
+                            @foreach ($FormationProf as $key => $item)
+                                @if (!is_null($item->diplome) || !is_null($item->specialise) || !is_null($item->annee) || !is_null($item->ecole) || !is_null($item->pays))
+                                    <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}">
+                                        <li class="timeline-item" >
+                                            <div class="timeline-element">
+                                                <a href="#">{{ $item->diplome }} </a>
+                                                <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                <span class="pays">{{ $item->pays }}</span>
+                                                <span class="circle"></span>
+                                                <div class="timeline-content">
+                                                    <p>{{ $item->specialise }}</p>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </div>
-                                </li>
-                            </div>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="show"  >
-                    <button id="showMoreFormation" class="btn showMore">Voir plus</button>
-                    <button id="showFirstItemFormation" class="btn showLess " style="display: none">Voir moins</button>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="show"  >
+                        <button id="showMoreFormation" class="btn showMore">Voir plus</button>
+                        <button id="showFirstItemFormation" class="btn showLess " style="display: none">Voir moins</button>
+                    </div>
                 </div>
             </div>
-        </div> 
+        @endif
     </div>
 
 
 
-    
+
     <div class="row ">
         <div class="col-sm-12 col-md-8 col-xl-8 " id="divDispo">
             <div class="card cardDispo text-left mb-5">
@@ -94,7 +98,7 @@
                 <div class="card-body ">
                     <div class="ClassDisponible">
                         @foreach ($disponibilityByDay as $key => $data)
-                            <div class="ContentDisponible" >
+                            <div class="ContentDisponible {{ empty($data) ? 'ContentNonDisponible' : '' }}">
                                 <div class="Days">{{$key}}</div>
                                     <div class="ClassCalculHeight">
                                         @foreach($data as $item)
@@ -110,7 +114,7 @@
                                             </div>
                                         @endforeach
                                         @if(empty($data))
-                                            <div class="ClassTimeDisponible" style="color: #0c3c74;background: #00f8ff3b;">
+                                            <div class="ClassTimeDisponible " style="color: #0c3c74;background: #00f8ff3b;">
                                                 <p>Vide</p>
                                                 <p>Vide</p>
                                             </div>
@@ -118,11 +122,31 @@
                                     </div>
                                 </div>
                         @endforeach
-                    
+
                     </div>
                     <div class="courses">
                         <ul>
-                            <li class="circle-checkmark"> Day () <i class="fa fa-angle-right" aria-hidden="true"> </i> title
+                            <table>
+                                @foreach ($DisponibleProf as $item)
+                                <tr>
+                                    <th>
+                                        <li class="circle-checkmark">{{$item->jour}} </li>
+                                    </th>
+                                    <th>
+                                        ({{$item->debut}} || {{$item->fin}})
+                                    </th>
+                                    <th>
+                                        <i class="fa fa-angle-right" aria-hidden="true"> </i>
+                                    </th>
+                                    <th>
+                                        {{$item->title}}
+                                    </th>
+                                </tr>
+                                    {{-- <li class="circle-checkmark"> {{$item->jour}} ({{$item->debut}} || {{$item->fin}}) <i class="fa fa-angle-right" aria-hidden="true"> </i>  {{$item->title}} --}}
+                                @endforeach
+                            </table>
+
+
                         </ul>
                     </div>
 
@@ -143,9 +167,9 @@
             </div>
         </div>
     </div>
- 
+
 </div>
- 
+
 
 <script>
     function sendMessage(email) {
@@ -166,9 +190,9 @@
   border: 2px solid rgb(13, 202, 240);
   margin: 16px auto;
     }
-                
 
-    
+
+
 </style>
 
 @endsection

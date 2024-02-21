@@ -792,12 +792,12 @@
 
 
                                             </li>
-                                            
+
                                         @endif
 
                                         <!-- Side bar Professeur-->
                                         @if (Auth::user()->role_name === 'professeur')
-                                            
+
                                             <li class="mm-active mb-2">
                                                 <a href="{{ url('ShowProfileProf') }}" class="mm-active">
                                                 <i class="fa-solid fa-user-tie metismenu-icon"></i> Profile
@@ -816,7 +816,7 @@
                                                 </a>
 
                                             </li>
-                                            
+
                                             <li class="mb-2">
                                                 <a href="{{route('InfoProfesseur')}}">
                                                 <i class="fa-solid fa-user-pen metismenu-icon"></i>  Informaion personnelle
@@ -835,7 +835,7 @@
                                                 </a>
 
                                             </li>
-                                            
+
                                         @endif
 
 
@@ -872,14 +872,33 @@
                     });
                 }
                 var currentURL = window.location.href;
-                var urlPatterns =
-                [
-                    { pattern: 'index.html', index: 0 },
-                    { pattern: 'Admin/Profile', index: 1 },
-                    { pattern: 'professeurs', index: 3 },
-                    { pattern: 'eleves', index: 4 },
-                    { pattern: 'CoursPaiement', index: 5 }
-                ];
+                var role_name  = @Json(Auth::user()->role_name);
+                console.log(role_name);
+                if(role_name === 'professeur')
+                {
+                    var urlPatterns =
+                    [
+                        { pattern: 'ShowProfileProf', index: 0 },
+                        { pattern: 'MesEleves', index: 1 },
+                        { pattern: 'Cours&Disponibilite', index: 2 },
+                        { pattern: 'InfoProfesseur', index: 3 },
+                        { pattern: 'ExpEduInfos', index: 4 },
+                        { pattern: 'ElevesReserve', index: 5 },
+                    ];
+                }
+                else if(role_name == 'Admin')
+                {
+                    var urlPatterns =
+                    [
+
+                        { pattern: 'index.html', index: 0 },
+                        { pattern: 'Admin/Profile', index: 1 },
+                        { pattern: 'professeurs', index: 3 },
+                        { pattern: 'eleves', index: 4 },
+                        { pattern: 'CoursPaiement', index: 5 },
+                    ];
+                }
+
                 var activeIndex = 0; // Default to the first item
                 urlPatterns.forEach(function(pattern) {
                     if (currentURL.includes(pattern.pattern)) {
@@ -887,7 +906,7 @@
                     }
                 });
                 setActiveItem(activeIndex);
-                
+
             </script>
             <script type="text/javascript" src="{{asset('js/templateAdmin.js')}}"></script>
 </body>
