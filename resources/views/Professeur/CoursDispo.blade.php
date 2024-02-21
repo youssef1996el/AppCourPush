@@ -128,17 +128,17 @@
                                                                 <label for="" class="labelhidden"> Fin</label>
                                                                 <input type="time" name="heurefin[]" class="form-control heurefin">
                                                             </div>
-                                                            
+
 
                                                         @endif
                                                         <div class="col-md-2">
                                                             @if ($i < count($items))
-                                                                <svg id="{{$items[$i]->id}}" class="removeDisponible"  height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="margin-top: 32px; cursor: pointer;margin-left: 12px;" class="RemoveFormDisponiblite">
+                                                                <svg id="{{$items[$i]->id}}" class="removeDisponible"  height="30" width="30" xmlns="http://www.w3.org/2000/svg"  >
                                                                     <circle cx="15" cy="15" r="13.5" stroke="rgb(48,72,500)" stroke-width="2.25" fill="rgb(255, 1, 1)" />
                                                                     <text x="50%" y="50%" font-size="15" text-anchor="middle" fill="white" dy=".3em">X</text>
                                                                 </svg>
                                                             @else
-                                                                <svg class="removeDisponible"  height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="cursor: pointer;margin-left: 12px;" class="RemoveFormDisponiblite">
+                                                                <svg class="removeDisponible"  height="30" width="30" xmlns="http://www.w3.org/2000/svg"  >
                                                                     <circle cx="15" cy="15" r="13.5" stroke="rgb(48,72,500)" stroke-width="2.25" fill="rgb(255, 1, 1)" />
                                                                     <text x="50%" y="50%" font-size="15" text-anchor="middle" fill="white" dy=".3em">X</text>
                                                                 </svg>
@@ -194,7 +194,7 @@
                                                             <input type="time" name="heurefin[]" class="form-control heurefin">
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <svg class="removeDisponible"  height="30" width="30" xmlns="http://www.w3.org/2000/svg" style=" cursor: pointer;margin-left: 12px;" class="RemoveFormDisponiblite">
+                                                            <svg class="removeDisponible"  height="30" width="30" xmlns="http://www.w3.org/2000/svg"  >
                                                                 <circle cx="15" cy="15" r="13.5" stroke="rgb(48,72,500)" stroke-width="2.25" fill="rgb(255, 1, 1)" />
                                                                 <text x="50%" y="50%" font-size="15" text-anchor="middle" fill="white" dy=".3em">X</text>
                                                             </svg>
@@ -311,13 +311,13 @@
     .heuredebut, .heurefin
     {
         width: 80%;
-       
+
     }
     .labelhidden{
             display:none;
         }
-    
-        
+
+
     @media only screen and (max-width: 768px) {
         .labelhidden{
             display:block;
@@ -340,10 +340,10 @@
         /*.heuredebut, .heurefin
     {
         width: 20%;
-        
+
     }*/
 
-    
+
 }
 
     /******************************** CSS GRoupe Prive*/
@@ -472,7 +472,65 @@
     white-space: nowrap;
     width: 1px;
 }
+.removeDisponible
+{
+    margin-top: 32px;
+    cursor: pointer;
+    margin-left: 12px;
 
+}
+/*************** youssef button delete dispo */
+@media (width: 360px) and (height: 720px) {
+    .removeDisponible {
+        left: 205px;
+         position: relative;
+        top: -400px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+}
+
+@media (width: 375px) and (height: 667px) {
+    .removeDisponible {
+        left: 219px;
+         position: relative;
+        top: -400px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+}
+
+@media (width: 390px) and (height: 844px) {
+    .removeDisponible {
+        left: 233px;
+         position: relative;
+        top: -400px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+}
+
+@media (width: 412px) and (height: 914px),
+       (width: 414px) and (height: 896px),
+       (width: 412px) and (height: 915px) {
+    .removeDisponible {
+        left: 256px;
+         position: relative;
+        top: -400px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+}
+
+@media (width: 430px) and (height: 932px) {
+    .removeDisponible {
+        left: 272px;
+         position: relative;
+        top: -400px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+}
 </style>
 
 
