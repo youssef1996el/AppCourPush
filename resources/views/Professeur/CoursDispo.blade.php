@@ -143,14 +143,14 @@
                                                                 </svg>
                                                             @endif
                                                         </div>
-                                                      
+
                                                     </div>
-                                                    @if ($i != 2) 
+                                                    @if ($i != 2)
                                                     <hr class="line ">
                                                     @endif
 
                                                 @endfor
-                                                
+
                                             </div>
                                         @else
 
@@ -205,7 +205,7 @@
                                                             </svg>
 
                                                         </div>
-                                                        
+
                                                     </div>
                                                     @endfor
                                                 </div>
@@ -216,7 +216,7 @@
                                 </div>
                                 @endforeach
                             </form>
-                            
+
 
                             <button type="button" id="UpDateDisponible" class="d-flex m-auto" >sauvegarder</button>
                         </p>
@@ -344,7 +344,7 @@
 
 
 =======
-    
+
         .line{
             display: none;
         }
@@ -364,10 +364,10 @@
         .radio-buttons,.selection,.timeHour
         {
             display: flex;
-            justify-content: space-between;   
-            gap:20px;     
+            justify-content: space-between;
+            gap:20px;
         }
-     
+
         .form-select, .form-control , .radio-inputs{
             margin-bottom:22px;
         }
@@ -381,7 +381,7 @@
         }
 
         .removeDisponible{
-          
+
             background: #3174dc;
             width: 70px;
             margin-top: 0px !important;
@@ -395,7 +395,7 @@
         .line{
             display: block;
         }
-     
+
 
       /*  .labelhide{
             display: flex ;
@@ -820,6 +820,14 @@
                                     }
                                 });
 
+                            }
+                            else
+                            {
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Oops...",
+                                    text: "Impossible de supprimer. L'article est disponible!",
+                                });
                             }
                         }
                     });

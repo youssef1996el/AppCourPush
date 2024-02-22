@@ -886,7 +886,7 @@
                         { pattern: 'ElevesReserve', index: 5 },
                     ];
                 }
-                else if(role_name == 'Admin')
+                else if(role_name === 'Admin')
                 {
                     var urlPatterns =
                     [

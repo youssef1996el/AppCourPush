@@ -267,10 +267,24 @@ class ProfesseurController extends Controller
     {
         try
         {
-            $DeleteDisponibleProf = DB::table('disponibleprof')->where('id',$request->id)->delete();
-            return response()->json([
-                'status' =>200,
-            ]);
+            // Extract idCours
+            $IdCours = DB::table('disponibleprof')->select('idcours')->where('id',$request->id)->first();
+            // Check Prof Is Reserve Cours
+            $checkProfIsReserveCours = DB::table('reserves')->where('idcours',$IdCours->idcours)->where('nom_professeur',Auth::user()->name)->count();
+            if($checkProfIsReserveCours == 0)
+            {
+                $DeleteDisponibleProf = DB::table('disponibleprof')->where('id',$request->id)->delete();
+                return response()->json([
+                    'status' =>200,
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status' => 400
+                ]);
+            }
+
         }
         catch (\Throwable $th)
         {
