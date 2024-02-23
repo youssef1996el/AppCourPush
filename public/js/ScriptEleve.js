@@ -203,10 +203,10 @@ $(document).ready(function () {
                                                         </div>
                                                 </div>`;
                             var FourTd     =   `${value.typecours === 'prive' ? `
-                                                    <p class="text-muted mb-0 ClassTypeCours">Cours particulier</p>
+                                                    <p class="text-muted mb-0 ClassTypeCours" style="white-space: nowrap;">Cours particulier</p>
                                                     <p class="text-muted mb-0">Un enseignant sera attribué</p>
                                                     ` : `
-                                                    <p class="text-muted mb-0 ClassTypeCours">Cours en groupe</p>
+                                                    <p class="text-muted mb-0 ClassTypeCours" style="white-space: nowrap;">Cours en groupe</p>
                                                 `}`;
                             var FiveTd = `<td class="buttonsRD">
                                                     <button type="button" class="btn btn-primary reserver">Reserver</button>
