@@ -52,7 +52,7 @@
         </div>
     </div>
 
-   <div id="bookClass" class="card bg-light " style="display: none; margin-top:72px;">
+   <div id="bookClass" class="card bg-light " style="display: none; margin-top:22px;">
         <div class="searchSpace mt-3">
             <div class="row p-3">
                 <div class="col-sm-12 col-md-4 col-xl-4 p-2">
@@ -76,21 +76,21 @@
                                 <div class="col-sm-12 col-md-1 col-xl-1" style="display: flex;justify-content: end;margin-top: -20px;align-items: baseline;">
                                     <button type="button"  class="btn  BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                                 </div>
-                                <div class="col-sm-12 col-md-4 col-xl-4">
+                                <div class="col-sm-12 col-md-4 col-xl-4 mb-3">
                                     <label for="">Date:</label>
                                     <input type="date" class="form-control DateSearch " value="@php echo date('Y-m-d') @endphp">
                                 </div>
-                                <div class="col-sm-12 col-md-3 col-xl-3">
+                                <div class="col-sm-12 col-md-3 col-xl-3 mb-3">
                                     <label for="">l'heure :</label>
                                     <div class="dropdown dropdownTime">
                                         <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" value=" __:__">
                                             __:__
                                         </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="dynamicWidthDropdown" style="width: 39%;">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="dynamicWidthDropdown" style="background:transparent;width: 39%;border:none">
                                             <li>
-                                                <div class="ContentTime">
+                                                <div class="ContentTime" style="background:white">
                                                     <div class="container-time">
-                                                        <h4>Sélectionner l'heure</h4>
+                                                        <h4 style="text-align: center;margin: 16px;">Sélectionner l'heure</h4>
                                                         <div class="line">
                                                             <span class="text">Matin</span>
                                                         </div>
@@ -133,12 +133,12 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-4 col-xl-4 ">
+                                <div class="col-sm-12 col-md-4 col-xl-4 mb-3 ">
                                     <label for="" class="TitleGroupePrive" style="display: block ruby;">Groupe/Particulier: </label>
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
                                         <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" >
                                         <label class="btn btn-outline-primary" for="group" style="border-top-left-radius: 10px;border-bottom-left-radius: 10px;">
-                                            <i class="fas fa-users "></i>
+                                            <i class="fas fa-users " style=" margin-top: 0px;"></i>
                                         </label>
 
                                         <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
@@ -172,23 +172,26 @@
 
         </div>
     </div>
-    <div class="card p-2 mt-2" style="display: none;" id="CardShowDataProfesseur">
+    <div class="card  mt-2" style="display: none; padding: 22px 22px 22px 22px !important;" id="CardShowDataProfesseur">
         <div class="NoCoursToday"></div>
         <h4 class="text-uppercase mt-2 TitleHasCours">Cette date pourrait également vous intéresser</h4>
         <h5 class="text-secondary mt-4 DateSelected"></h5>
-        <div class="DataProfesseur">
-            <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
-                <thead class="bg-light">
-                    <tr class="sr-only">
-                        <th scope="col">Time</th>
-                        <th scope="col">Name of the teacher</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Group/Particular</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+        <div class="DataProfesseur ">
+            <div class="table-responsive">
+                <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
+                    <thead class="bg-light">
+                        <tr class="sr-only">
+                            <th scope="col">Time</th>
+                            <th scope="col">Name of the teacher</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">Group/Particular</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div> 
+            
         </div>
     </div>
     <!-- <div id="bookClass" class="card bg-light mt-4">
@@ -313,7 +316,26 @@
     </div>
 </div> -->
 
+<style>
+    @media only screen and (max-width: 500px) {
+        .dropdown-toggle{
+            /* width:32%; */
+        }
+    
+}
+@media only screen and (max-width: 800px) {
+        .dropdown-toggle{
+            width:51%;
+        }
+        .table-responsive {
+        overflow-x: auto;
+    }
 
+
+    
+}
+
+</style>
 </div>
 
 <script>

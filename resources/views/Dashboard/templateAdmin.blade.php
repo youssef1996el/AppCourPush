@@ -756,7 +756,7 @@
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('eleves') }}">
-                                                            <i class="fa-solid fa-users "></i> <span class="iconS">Eleves </span>
+                                                            <i class="fa-solid fa-users users "></i> <span class="iconS">Eleves </span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -775,7 +775,7 @@
                                         @if (Auth::user()->role_name === 'eleve')
                                             <li class="mm-active mb-2">
                                                 <a href="{{ url('Reserver') }}" class="mm-active">
-                                                    <i class="fa-solid fa-chart-line metismenu-icon"></i>Réserver un cours
+                                                    <i class="fa fa-cart-plus metismenu-icon" aria-hidden="true"></i> Réserver un cours
                                                 </a>
                                             </li>
                                             <li class="mb-2">
@@ -786,7 +786,7 @@
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{ url('Mescours') }}">
-                                                    <i class="fa-solid fa-rocket metismenu-icon "></i>Mes cours
+                                                    <i class="fas fa-book-reader metismenu-icon "></i>Mes cours
 
                                                 </a>
 
