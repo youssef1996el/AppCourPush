@@ -80,9 +80,9 @@
                                     <label for="">Date:</label>
                                     <input type="date" class="form-control DateSearch " value="@php echo date('Y-m-d') @endphp">
                                 </div>
-                                <div class="col-sm-12 col-md-3 col-xl-3 mb-3">
+                                <div class="col-sm-12 col-md-3 col-xl-3 mb-3 ">
                                     <label for="">l'heure :</label>
-                                    <div class="dropdown dropdownTime">
+                                    <div class="dropdown dropdownTime " >
                                         <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" value=" __:__">
                                             __:__
                                         </button>
@@ -190,8 +190,8 @@
                     </thead>
                     <tbody></tbody>
                 </table>
-            </div> 
-            
+            </div>
+
         </div>
     </div>
     <!-- <div id="bookClass" class="card bg-light mt-4">
@@ -321,7 +321,7 @@
         .dropdown-toggle{
             /* width:32%; */
         }
-    
+
 }
 @media only screen and (max-width: 800px) {
         .dropdown-toggle{
@@ -332,7 +332,7 @@
     }
 
 
-    
+
 }
 
 </style>
