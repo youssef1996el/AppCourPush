@@ -266,6 +266,7 @@ Route::group(['middleware' => ['web','auth']], function ()
 
 });
 
+Route::get('Details/{id}' ,[EleveController::class,'DetailsProfesseur']);
 
 
 
@@ -319,22 +320,22 @@ Route::post('StoreData',[HomeController::class,'Store']);
  Route::get('professeur/cours',function()
 {
     return view('professeur.Cours');
-}); 
+});
 
 Route::get('professeur/disponibilte',function()
 {
     return view('professeur.Dispo');
-}); 
+});
 
 Route::get('professeur/education',function()
 {
     return view('professeur.Education');
-}); 
+});
 
 Route::get('professeur/experience',function()
 {
     return view('professeur.Experience');
-}); 
+});
 
 
 

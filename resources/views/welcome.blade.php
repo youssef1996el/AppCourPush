@@ -29,7 +29,7 @@
                 <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
                 <i class="fa fa-user" id="user" aria-hidden="true"></i>
                 </a>
-     
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -61,14 +61,14 @@
                             <h5 class="animated bounceInRight mb-4" style="animation-delay:1s"> Apprenez à parler l'arabe avec aisance</h5>
                             <p class="animated bounceInLeft mb-3" style="animation-delay:2s">
                                 <i class="fa-solid fa-check"></i>
-                                <span>Cours en ligne 24 h/24 et 7 j/7</span> 
-                            </p> 
+                                <span>Cours en ligne 24 h/24 et 7 j/7</span>
+                            </p>
                             <p class="animated bounceInRight " style="animation-delay:3s">
                                 <i class="fa-solid fa-check"></i>
                                 <span>Apprenez en petits groupes ou individuellement</span>
-                            </p>  
-                                    
-                                
+                            </p>
+
+
                         </div>
                     </div>
 
@@ -79,13 +79,13 @@
                                 <h5 class="animated bounceInRight mb-4" style="animation-delay:1s"> Apprenez à parler l'arabe avec aisance</h5>
                                 <p class="animated bounceInLeft  mb-3" style="animation-delay:2s">
                                     <i class="fa-solid fa-check"></i>
-                                    <span>Cours en ligne 24 h/24 et 7 j/7</span> 
-                                </p> 
+                                    <span>Cours en ligne 24 h/24 et 7 j/7</span>
+                                </p>
                                 <p class="animated bounceInRight " style="animation-delay:3s">
                                     <i class="fa-solid fa-check"></i>
                                     <span>Apprenez en petits groupes ou individuellement</span>
-                                </p>  
-                                                            
+                                </p>
+
                         </div>
                     </div>
 
@@ -110,7 +110,7 @@
                 <div class="section-title">
                     <h2><span class="ligne"> Bienvenue </span>sur la plateforme pédagogique pour apprendrelarabe.fr</h2>
                 </div>
-                
+
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-4 col-lg-4 mb-3 text-center">
                         <div class="card">
@@ -189,7 +189,13 @@
                 <div class="row mt-5">
                     @foreach ($listProf as $item)
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <a href="#" style="text-decoration: none; color: black;">
+                        @php
+                            $url = $item->id;
+                            $hashids = new Hashids\Hashids();
+
+                            $url = $hashids->encode($url);
+                        @endphp
+                        <a href="{{url('Details/'.$url)}}" style="text-decoration: none; color: black;">
                             <div class="card bg-light">
                                 <div class="text-center">
                                     <img class="card-img-top img-fluid" src="{{$item->image}}" alt="{{$item->name}}">
@@ -205,7 +211,7 @@
 
 
 
-                                    
+
                                     <div class="teletemail mt-4">
                                         <p class="card-text mb-4" style=" font-size: 24px; "> titre</p>
                                         <p class="card-text mb-2" style="font-size: 1rem;"><i class="fa fa-phone" aria-hidden="true"></i> {{$item->telephone}}</p>

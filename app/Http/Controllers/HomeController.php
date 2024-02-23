@@ -26,7 +26,7 @@ class HomeController extends Controller
         ->join('experinceprof','experinceprof.iduser','=','users.id')
         ->where('users.verification','=','Verifie')
         ->where('users.role_name','=','professeur')
-        ->select('users.name','users.image','users.description','users.telephone')
+        ->select('users.name','users.image','users.description','users.telephone','users.id')
         ->get();
 
         return view('welcome')->with('listProf',$listProf);

@@ -191,7 +191,7 @@ $(document).ready(function () {
                             var SecoundTd   =  `<div class="d-flex align-items-center">
                                                     <img src="${value.image}" class="rounded-circle" style="width: 45px; height: 45px; " alt="">
                                                         <div class="ms-3">
-                                                        <p class="fw-bold mb-1 NameProfesseur" style="display:inline;">${value.name}</p>
+                                                        <p class="fw-bold mb-1 NameProfesseur" style="display:inline;white-space: nowrap;">${value.name}</p>
                                                             <div style="display:inline;" class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1gslohp x1i64zmx x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
                                                                 <svg aria-label="Vérifié" class="x1lliihq x1n2onr6" fill="rgb(0, 149, 246)" height="18" role="img" viewBox="0 0 40 40" width="18">
                                                                 <title>Vérifié</title>
@@ -208,7 +208,7 @@ $(document).ready(function () {
                                                     ` : `
                                                     <p class="text-muted mb-0 ClassTypeCours" style="white-space: nowrap;">Cours en groupe</p>
                                                 `}`;
-                            var FiveTd = `<td class="buttonsRD">
+                            var FiveTd = `<td class="buttonsRD" >
                                                     <button type="button" class="btn btn-primary reserver">Reserver</button>
                                                     <button type="button" class="btn details">Details</button>
                                                 </td>`;

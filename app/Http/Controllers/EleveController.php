@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Lang;
 use App\Models\Reserves;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Payement;
+use Vinkla\Hashids\Facades\Hashids;
 class EleveController extends Controller
 {
     public function index()
@@ -223,7 +224,7 @@ class EleveController extends Controller
                 });
             }
 
-            $CourProf      = DB::select('select c.title from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[$idProfesseur[0]->id]);
+            $CourProf      = DB::select('select c.title,c.id from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[$idProfesseur[0]->id]);
             $FormationProf = DB::select('select diplome,specialise,annee,ecole,pays from formationprof where diplome is not null and iduser  =?',[$idProfesseur[0]->id]);
             $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[$idProfesseur[0]->id]);
 
@@ -249,7 +250,7 @@ class EleveController extends Controller
             $CalculExperince = DB::select('select sum(timestampdiff(year,du,au) ) as experince from experinceprof where iduser = ?',[$idProfesseur[0]->id]);
         }
 
-        $getIdCours = DB::select("select id from cours where title = ?",[$Cours]);
+        $getIdCours = DB::select("select id,title from cours where title = ?",[$Cours]);
 
         $nomberReserveThisCours = DB::select("select  count(*) as c from reserves where nom_professeur = ? and idcours = ? and typecours ='groupe' group by nom_eleve ;",[$NameProfesseur,$getIdCours[0]->id]);
 
@@ -306,6 +307,7 @@ class EleveController extends Controller
         ->with('TypeCours'               , $TypeCours)
         ->with('NameProfesseur'          , $NameProfesseur)
         ->with('imageProfesseur'         , $imageProfesseur)
+        ->with('getIdCours'              , $getIdCours)
         ->with('nomberReserveThisCours'  , $nomberReserveThisCours !== null && count($nomberReserveThisCours) > 0 ? count($nomberReserveThisCours) : 1);
     }
 
@@ -693,62 +695,7 @@ if ($request->hasFile('image')) {
         }
 
 
-        /* $query = DB::select('select r.id,times,days,typecours,c.title as name_cours,r.nom_professeur from reserves r, cours c where r.idcours = c.id;');
 
-        $daysTranslations = [
-            'dimanche' => 'Sunday',
-            'lundi' => 'Monday',
-            'mardi' => 'Tuesday',
-            'mercredi' => 'Wednesday',
-            'jeudi' => 'Thursday',
-            'vendredi' => 'Friday',
-            'samedi' => 'Saturday',
-        ];
-
-        $englishDaysArray = [];
-
-        foreach ($query as $item) {
-            $dayFrench = strtolower($item->days);
-
-            if (array_key_exists($dayFrench, $daysTranslations)) {
-                $dayEnglish = $daysTranslations[$dayFrench];
-                $englishDaysArray[] = $dayEnglish;
-            } else {
-                $englishDaysArray[] = 'UnknownDay';
-            }
-        }
-
-        $currentMonth = date('n');
-
-        $daysOfWeekDates = [];
-$currentMonth = date('n');
-
-foreach (range(1, 31) as $day) {
-    $date = date("Y-m-$day");
-
-    foreach ($query as $item) {
-        $dayFrench = strtolower($item->days);
-
-        if (array_key_exists($dayFrench, $daysTranslations)) {
-            $dayEnglish = $daysTranslations[$dayFrench];
-
-            if (date('l', strtotime($date)) == $dayEnglish && date('n', strtotime($date)) == $currentMonth) {
-                $formattedDate = date('M d, Y', strtotime($date));
-
-                $daysOfWeekDates[] = [
-                    'id' => $item->id,
-                    'name_cours' => $item->name_cours,
-                    'date' => $formattedDate,
-                    'typecours' => $item->typecours,
-                    'name_professeur' => $item->nom_professeur,
-                    'time' => $item->times,
-                ];
-            }
-        }
-    }
-}
-
-dd($daysOfWeekDates); */
 
 
 
@@ -869,5 +816,120 @@ dd($daysOfWeekDates); */
             throw $th;
         }
 
+    }
+
+    public function DetailsProfesseur($id)
+    {
+        $actualId = Hashids::decode($id);
+        $Professuer = User::where('id',$actualId)->first();
+
+        $DisponibleProf = DB::select('select d.idcours,d.id,jour,debut,fin,c.title,d.typecours,d.timezone from
+                disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[$Professuer->id]);
+
+        $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        $disponibilityByDay = [];
+
+        foreach ($day_names_fr as $item)
+        {
+            $disponibilityByDay[$item] = [];
+        }
+        foreach ($DisponibleProf as $item1)
+        {
+            $debut = new DateTime($item1->debut);
+            $fin = new DateTime($item1->fin);
+            $diff = $debut->diff($fin);
+            $hours = $diff->h + $diff->i / 60;
+
+            $item1->calculhour = $hours;
+
+
+            $disponibilityByDay[$item1->jour][] = $item1;
+        }
+        foreach ($disponibilityByDay as &$dayArray) {
+            usort($dayArray, function($a, $b) {
+                return strtotime($a->debut) - strtotime($b->debut);
+            });
+        }
+
+        $CourProf      = DB::select('select c.title,c.id from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[$Professuer->id]);
+        $FormationProf = DB::select('select diplome,specialise,annee,ecole,pays from formationprof where diplome is not null and iduser  =?',[$Professuer->id]);
+        $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[$Professuer->id]);
+
+        // Extract debut and fin from disponible
+
+
+        $DebutCours = '';
+        $FinCours   = '';
+        $TimeZone   = '';
+        foreach($DisponibleProf as $item)
+        {
+            $DebutCours = $item->debut;
+            $FinCours   = $item->fin;
+            $TimeZone   = $item->timezone;
+        }
+
+
+
+        // information Professeur
+        $InformationProfesseur = User::where('id',$Professuer->id)->first();
+        // sum experince professeur
+        $CalculExperince = DB::select('select sum(timestampdiff(year,du,au) ) as experince from experinceprof where iduser = ?',[$Professuer->id]);
+
+
+
+        $imageProfesseur = User::where('name',$InformationProfesseur->name)->first();
+
+
+
+        // Convert the date to a Carbon instance
+        $carbonDate = Carbon::now();
+
+        // Array for translating days and months
+        $translations = [
+            'Monday' => 'lundi',
+            'Tuesday' => 'mardi',
+            'Wednesday' => 'mercredi',
+            'Thursday' => 'jeudi',
+            'Friday' => 'vendredi',
+            'Saturday' => 'samedi',
+            'Sunday' => 'dimanche',
+            'January' => 'janvier',
+            'February' => 'février',
+            'March' => 'mars',
+            'April' => 'avril',
+            'May' => 'mai',
+            'June' => 'juin',
+            'July' => 'juillet',
+            'August' => 'août',
+            'September' => 'septembre',
+            'October' => 'octobre',
+            'November' => 'novembre',
+            'December' => 'décembre',
+        ];
+
+        // Format the date as desired
+        $formattedDate = $carbonDate->translatedFormat('l d F, Y', null, 'fr', $translations);
+
+        // Output the result
+
+
+        return view('Eleve.Details')
+        ->with('CalculExperince'         , $CalculExperince)
+        ->with('InformationProfesseur'   , $InformationProfesseur)
+        ->with('DebutCours'              , $DebutCours)
+        ->with('TimeZone'                , $TimeZone)
+        ->with('FinCours'                , $FinCours)
+        ->with('DateSelected'            , $formattedDate)
+        ->with('disponibilityByDay'      , $disponibilityByDay)
+        ->with('CourProf'                , $CourProf)
+        ->with('FormationProf'           , $FormationProf)
+        ->with('ExperinceProf'           , $ExperinceProf)
+        /* ->with('Time'                    , $Time)
+        ->with('Cours'                   , $Cours)
+        ->with('TypeCours'               , $TypeCours)
+        ->with('NameProfesseur'          , $NameProfesseur) */
+        ->with('imageProfesseur'         , $imageProfesseur);
+        /* ->with('getIdCours'              , $getIdCours) */
+        /* ->with('nomberReserveThisCours'  , $nomberReserveThisCours !== null && count($nomberReserveThisCours) > 0 ? count($nomberReserveThisCours) : 1); */
     }
 }

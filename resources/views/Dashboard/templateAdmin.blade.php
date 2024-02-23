@@ -336,7 +336,7 @@
                                                 <div class="menu-header-image opacity-1" style="background-image: url('assets/images/dropdown-header/city3.jpg');"></div>
                                                 <div class="menu-header-content text-dark">
                                                     <h5 class="menu-header-title">Notifications</h5>
-                                                    <h6 class="menu-header-subtitle">You have <b>{{auth()->user()->unreadNotifications->count()}}</b> unread messages</h6>
+                                                    <h6 class="menu-header-subtitle">You have <b>{{ auth()->check() ? auth()->user()->unreadNotifications->count() : 0 }}</b> unread messages</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -359,31 +359,42 @@
                                                         <div class="p-3">
                                                             <div class="notifications-box">
                                                                 <div class="vertical-time-simple vertical-without-time vertical-timeline vertical-timeline--one-column">
-                                                                    @foreach (auth()->user()->unreadNotifications as $notification)
-                                                                        @if( $notification->data['condition'] === 'MSG')
-                                                                            @php
-                                                                                $url = $notification->data['id'];
-                                                                                $hashids = new Hashids\Hashids();
+                                                                    @guest
+                                                                    <div>
+                                                                        <span class="vertical-timeline-element-icon bounce-in"></span>
+                                                                        <div class="vertical-timeline-element-content bounce-in">
+                                                                            <h4 class="timeline-title">All Hands Meeting</h4>
+                                                                            <span class="vertical-timeline-element-date"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    @else
+                                                                        @foreach (auth()->user()->unreadNotifications as $notification)
+                                                                            @if( $notification->data['condition'] === 'MSG')
+                                                                                @php
+                                                                                    $url = $notification->data['id'];
+                                                                                    $hashids = new Hashids\Hashids();
 
-                                                                                $url = $hashids->encode($url);
+                                                                                    $url = $hashids->encode($url);
 
-                                                                                $classes = ['dot-warning', 'dot-success', 'dot-primary', 'dot-info', 'dot-danger'];
+                                                                                    $classes = ['dot-warning', 'dot-success', 'dot-primary', 'dot-info', 'dot-danger'];
 
-                                                                                $randomClass = $classes[array_rand($classes)];
-                                                                            @endphp
-                                                                            <div class="vertical-timeline-item {{$randomClass}} vertical-timeline-element">
-                                                                                <div>
-                                                                                    <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                                    <div class="vertical-timeline-element-content bounce-in">
-                                                                                        <h4 class="timeline-title">
-                                                                                            <a href="{{url('ShowUsers/'.$url)}}"> {{$notification->data['title']}}</a>
-                                                                                        </h4>
-                                                                                        <span class="vertical-timeline-element-date"></span>
+                                                                                    $randomClass = $classes[array_rand($classes)];
+                                                                                @endphp
+                                                                                <div class="vertical-timeline-item {{$randomClass}} vertical-timeline-element">
+                                                                                    <div>
+                                                                                        <span class="vertical-timeline-element-icon bounce-in"></span>
+                                                                                        <div class="vertical-timeline-element-content bounce-in">
+                                                                                            <h4 class="timeline-title">
+                                                                                                <a href="{{url('ShowUsers/'.$url)}}"> {{$notification->data['title']}}</a>
+                                                                                            </h4>
+                                                                                            <span class="vertical-timeline-element-date"></span>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        @endif
-                                                                    @endforeach
+                                                                            @endif
+                                                                        @endforeach
+                                                                    @endguest
+
                                                                     {{-- <div class="vertical-timeline-item dot-danger vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in"></span>
@@ -650,9 +661,12 @@
                                             <div class="widget-content-left">
                                                 <div class="btn-group">
                                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn " id="btn-border">
-                                                        <img  class="rounded-circle imageAdmin" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
+                                                        <img  class="rounded-circle imageAdmin" src="@guest {{ asset('image/default-avatar.png') }} @else {{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }} @endguest" alt>
                                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                                     </a>
+                                                    @guest
+
+                                                    @else
                                                     <div tabindex="-1" role="menu" aria-hidden="true" id="nameImage" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right ">
                                                         <div class="dropdown-menu-header">
                                                             <div class="dropdown-menu-header-inner bg-info">
@@ -661,7 +675,7 @@
                                                                     <div class="widget-content p-0">
                                                                         <div class="widget-content-wrapper">
                                                                             <div class="widget-content-left mr-3">
-                                                                                <img  class="rounded-circle imageAdmin" src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt>
+                                                                                <img  class="rounded-circle imageAdmin" src="@guest {{ asset('image/default-avatar.png') }} @else {{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }} @endguest" alt>
                                                                             </div>
                                                                             <div class="widget-content-left">
                                                                                 <div class="widget-heading">{{ Auth::user()->name}}</div>
@@ -679,12 +693,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    @endguest
+
                                                 </div>
                                             </div>
-                                            <div class="widget-content-left  ml-3 header-user-info">
-                                                <div class="widget-heading"> {{ Auth::user()->name}}</div>
-                                                <div class="widget-subheading"> {{ Auth::user()->title}} </div>
-                                            </div>
+                                            @guest
+                                                @else
+                                                <div class="widget-content-left  ml-3 header-user-info">
+                                                    <div class="widget-heading"> {{ Auth::user()->name}}</div>
+                                                    <div class="widget-subheading"> {{ Auth::user()->title}} </div>
+                                                </div>
+                                            @endguest
+
                                         </div>
                                     </div>
                                 </div>
@@ -730,7 +750,9 @@
                                         <li class="app-sidebar__heading">Menu</li>
 
                                         <!-- Side bar Admin-->
-                                        @if (Auth::user()->role_name === 'Admin')
+                                        @guest
+                                        @else
+                                            @if (Auth::user()->role_name === 'Admin')
                                             <li class="mm-active mb-2">
                                                 <a href="{{url('Admin/Dashboard')}}" class="mm-active">
                                                     <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
@@ -837,6 +859,8 @@
                                             </li>
 
                                         @endif
+                                        @endguest
+
 
 
                                     </ul>
@@ -853,61 +877,65 @@
                     </div>
                 </div>
             </div>
-            <script>
-                function setActiveItem(index)
-                {
-                    var a = document.querySelectorAll('.vertical-nav-menu a')
-                    a.forEach(function(li,a)
+            @guest
+                @else
+                <script>
+                    function setActiveItem(index)
                     {
-                        if(a === index)
+                        var a = document.querySelectorAll('.vertical-nav-menu a')
+                        a.forEach(function(li,a)
                         {
-                            li.classList.add('mm-active');
+                            if(a === index)
+                            {
+                                li.classList.add('mm-active');
 
 
-                        }
-                        else
-                        {
-                            li.classList.remove('mm-active');
+                            }
+                            else
+                            {
+                                li.classList.remove('mm-active');
+                            }
+                        });
+                    }
+                    var currentURL = window.location.href;
+                    var role_name  = @Json(Auth::user()->role_name);
+                    console.log(role_name);
+                    if(role_name === 'professeur')
+                    {
+                        var urlPatterns =
+                        [
+                            { pattern: 'ShowProfileProf', index: 0 },
+                            { pattern: 'MesEleves', index: 1 },
+                            { pattern: 'Cours&Disponibilite', index: 2 },
+                            { pattern: 'InfoProfesseur', index: 3 },
+                            { pattern: 'ExpEduInfos', index: 4 },
+                            { pattern: 'ElevesReserve', index: 5 },
+                        ];
+                    }
+                    else if(role_name === 'Admin')
+                    {
+                        var urlPatterns =
+                        [
+
+                            { pattern: 'index.html', index: 0 },
+                            { pattern: 'Admin/Profile', index: 1 },
+                            { pattern: 'professeurs', index: 3 },
+                            { pattern: 'eleves', index: 4 },
+                            { pattern: 'CoursPaiement', index: 5 },
+                        ];
+                    }
+
+                    var activeIndex = 0; // Default to the first item
+                    urlPatterns.forEach(function(pattern) {
+                        if (currentURL.includes(pattern.pattern)) {
+                            activeIndex = pattern.index;
                         }
                     });
-                }
-                var currentURL = window.location.href;
-                var role_name  = @Json(Auth::user()->role_name);
-                console.log(role_name);
-                if(role_name === 'professeur')
-                {
-                    var urlPatterns =
-                    [
-                        { pattern: 'ShowProfileProf', index: 0 },
-                        { pattern: 'MesEleves', index: 1 },
-                        { pattern: 'Cours&Disponibilite', index: 2 },
-                        { pattern: 'InfoProfesseur', index: 3 },
-                        { pattern: 'ExpEduInfos', index: 4 },
-                        { pattern: 'ElevesReserve', index: 5 },
-                    ];
-                }
-                else if(role_name === 'Admin')
-                {
-                    var urlPatterns =
-                    [
+                    setActiveItem(activeIndex);
 
-                        { pattern: 'index.html', index: 0 },
-                        { pattern: 'Admin/Profile', index: 1 },
-                        { pattern: 'professeurs', index: 3 },
-                        { pattern: 'eleves', index: 4 },
-                        { pattern: 'CoursPaiement', index: 5 },
-                    ];
-                }
+                </script>
+            @endguest
 
-                var activeIndex = 0; // Default to the first item
-                urlPatterns.forEach(function(pattern) {
-                    if (currentURL.includes(pattern.pattern)) {
-                        activeIndex = pattern.index;
-                    }
-                });
-                setActiveItem(activeIndex);
-
-            </script>
             <script type="text/javascript" src="{{asset('js/templateAdmin.js')}}"></script>
 </body>
 </html>
