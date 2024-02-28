@@ -1,6 +1,6 @@
-@extends('Professeur.Sidebar')
-@section('navsidebarProf')
-<link rel="stylesheet" href="{{asset('css/StyleProfesseurDash.css')}}">
+@extends('Dashboard.templateAdmin')
+@section('navsidebar')
+<link rel="stylesheet" href="{{asset('css/StyleMeet.css')}}">
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 <div id="overlay">
@@ -11,68 +11,73 @@
     </div>
 </div>
 <div class="container mt-4">
-    <div class="row ">
-        <div class="col-sm-12 col-md-12 col-xl-12">
-          <h2 style="padding-left: 12px;font-family: times;">Liste des Réunion </h2>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Liste des Réunions</h4>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-xl-12">
+                    <div class="table-responsive ">
+                        <table class="table-primary table-bordered  align-middle mb-0 bg-white " id="tableListEleveMeeting" style="margin-top: 20px;width: 100%;">
 
-          <table class="table-primary table-bordered  align-middle mb-0 bg-white " id="tableListEleveMeeting" style="margin-top: 20px;width: 100%;">
+                            <thead class="">
+                            <tr>
+                                <th >Nom complet</th>
+                                <th>Cours</th>
+                                <th >Type cours</th>
+                                <th>Jours</th>
+                                <th>Debut</th>
+                                <th>Fin</th>
+                                <th>Fuseau horaire</th>
+                                <th>Meeting</th>
+                                {{-- <th>Actions</th> --}}
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($ElevesMeeting as $item)
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                {{-- <img src="{{$item->image}}" class="rounded-circle" id="imgEleve" alt="" /> --}}
+                                                <div class="ms-3">
+                                                <p class="text-muted fw-bold mb-1 nom_eleve">{{$item->nom_eleve}}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="text-muted mb-0 text-center title">{{$item->title}}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-muted mb-0 text-center typecours">
+                                                @if($item->typecours === "groupe")
+                                                    Cours en groupe
+                                                @else
+                                                    Cours particulier <br> Un enseignant sera attribué
+                                                @endif
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p class="text-muted mb-0 text-center days">{{$item->days}}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-muted mb-1 text-center times">{{$item->times}}</p>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted mb-1 text-center fin" style="text-align: center">{{$item->fin}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->timezone}}</span>
+                                        </td>
+                                        <td>
 
-            <thead class="">
-              <tr>
-                <th >Nom complet</th>
-                <th>Cours</th>
-                <th >Type cours</th>
-                <th>Days</th>
-                <th>Debut</th>
-                <th>Fin</th>
-                <th>Time zone</th>
-                <th>Meeting</th>
-                {{-- <th>Actions</th> --}}
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($ElevesMeeting as $item)
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                {{-- <img src="{{$item->image}}" class="rounded-circle" id="imgEleve" alt="" /> --}}
-                                <div class="ms-3">
-                                <p class="text-muted fw-bold mb-1 nom_eleve">{{$item->nom_eleve}}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="text-muted mb-0 text-center title">{{$item->title}}</p>
-                        </td>
-                        <td>
-                            <p class="text-muted mb-0 text-center typecours">
-                                @if($item->typecours === "groupe")
-                                    Cours en groupe
-                                @else
-                                    Cours particulier <br> Un enseignant sera attribué
-                                @endif
-                            </p>
-                        </td>
-                        <td>
-                            <p class="text-muted mb-0 text-center days">{{$item->days}}</p>
-                        </td>
-                        <td>
-                            <p class="text-muted mb-1 text-center times">{{$item->times}}</p>
-                        </td>
-                        <td>
-                            <span class="text-muted mb-1 text-center fin" style="text-align: center">{{$item->fin}}</span>
-                        </td>
-                        <td>
-                            <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->timezone}}</span>
-                        </td>
-                        <td>
-
-                            <input type="checkbox" value="{{$item->email}}" data-value="{{$item->nom_professeur}}" class="SelectedEleve" {{$item->hasCours == false ? 'disabled' : ''}}>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-          </table>
+                                            <input type="checkbox" value="{{$item->email}}" data-value="{{$item->nom_professeur}}" class="SelectedEleve" {{$item->hasCours == false ? 'disabled' : ''}}>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal fade" id="ModalEnvoyeLink" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
@@ -98,7 +103,7 @@
     </div>
 
 </div>
-<style>
+<!-- <style>
     @media (min-width: 768px)
     {
         .col-md-6
@@ -248,7 +253,7 @@
 
 
 
-</style>
+</style> -->
 <script>
     $(document).ready(function ()
     {
@@ -356,7 +361,7 @@
                 }
             }
         });
-        $('#tableListEleveMeeting_filter').append('<button type="button" class="btn btn-info float-end btnSendMeeting">Create meet</button>');
+        $('#tableListEleveMeeting_filter').append('<button type="button" class="btn btn-info float-end btnSendMeeting ">Créer meet</button>');
 
         $(document).on('click','.btnSendMeeting',function()
         {

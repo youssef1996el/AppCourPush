@@ -1,4 +1,6 @@
-.card-apprentissage{
+*{
+    font-family: 'Times New Roman', Times, serif;
+}.card-apprentissage{
   /*   width: 1170px; */
     margin: auto;
     padding: 20px 24px;

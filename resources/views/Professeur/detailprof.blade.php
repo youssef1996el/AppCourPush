@@ -3,57 +3,8 @@
 <link  rel="stylesheet" href="{{asset('css/StyleDetails.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 
-<div class="container">
-    @guest
-        @php
-            echo ' no auth';
-        @endphp
-    @else
-        <div class="card text-left RCourse">
-            <div class="titreImage">
-                <h4 class="card-title " style="text-transform:initial"> Cours en {{$TypeCours}} de {{$NameProfesseur}}</h4>
-                <img src="{{ $imageProfesseur->image == '' ? asset('image/default-avatar.png') : $imageProfesseur->image}}" class="picture-src imagep" id="wizardPicturePreview" title="" width="50"/>
-
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-3 col-xl-3 mb-3">
-                            <label>
-                                <i class="fa fa-book fa-xl" id="iconColor" aria-hidden="true"></i>
-                                {{$Cours}}
-                            </label>
-                        </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3 mb-3">
-                            <label>
-                                <i class="fa fa-clock fa-xl" id="iconColor" aria-hidden="true"></i>
-                                {{$DateSelected}}
-                                <span style="font-weight:bolder"> {{$DebutCours}} - {{$FinCours}} </span> {{($TimeZone)}}
-                            </label>
-                        </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3 mb-3">
-                            <label>
-                                <i class="fa fa-users  fa-xl" id="iconColor" aria-hidden="true"></i>
-                                {{$nomberReserveThisCours}} Participants
-                            </label>
-                        </div>
-                        <div class="col-sm-12 col-md-3 col-xl-3 mb-3">
-                            <label>
-                                <i class="fa fa-video-camera fa-xl" id="iconColor" aria-hidden="true"></i>
-                                Hébergé sur Meet
-                            </label>
-                        </div>
-
-                    </div>
-                </p>
-                <a name="" id="" class="btn btn-primary btn-reserver1" href="#" role="button" style="border-radius:0px">Reserver</a>
-            </div>
-        </div>
-    @endguest
-
-
-
-    <!-- <div class="card text-left mt-3">
+<div class="container">  
+    <div class="card text-left mt-3">
         <div class="card-body">
             <h4 class="card-title">Réservation de cours</h4>
             <p class="card-text">
@@ -61,24 +12,7 @@
                     <div class="col-sm-12 col-md-4 col-xl-4  mb-3">
                         <label for="cours" >Sélectionner un cours :</label>
                         <select id="cours" class="form-select">
-                            @guest
-                                @foreach ($CourProf as $item)
-                                    <option value={{$item->title}} >{{$item->title}}</option>
-                                @endforeach
-                            @else
-                                {{-- Auth --}}
-                                @foreach ($getIdCours as $item)
-                                    <option value={{$item->title}} selected>{{$item->title}}</option>
-                                @endforeach
-
-                                @foreach ($CourProf as $item)
-                                    @if (!collect($getIdCours)->contains('title', $item->title))
-                                        <option value="{{ $item->title }}">{{ $item->title }}</option>
-                                    @endif
-                                @endforeach
-                            @endguest
-
-
+                                <option value="cours" >cours</option> 
                         </select>
                     </div>
                     <div class="col-sm-12 col-md-3 col-xl-3 mb-3 ">
@@ -105,17 +39,17 @@
                 </div>
             </p>
         </div>
-    </div> -->
+    </div>
 
         <div class="card text-left mt-3">
           <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
-            <h4 class="card-title">A propos de @guest {{$InformationProfesseur->name}} @else {{$NameProfesseur}} @endguest </h4>
+            <h4 class="card-title">A propos de name</h4>
             <p class="card-text">
                 <div class="card cardProfile text-center">
                 <img class=" prof-image " src="{{ $imageProfesseur->image == '' ? asset('image/default-avatar.png') : $imageProfesseur->image}}" alt="Profile image"  srcset="" >
                     <div class="card-body">
-                        <h2 class="name"> @guest {{$InformationProfesseur->name}} @else {{$NameProfesseur}} @endguest</h2>
+                        <h2 class="name"> name </h2>
                         <h4 >Prof d'arabe</h4>
                         <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince[0]->experince}}</span> ans d'expérience</h4>
                     <p class="card-text">{{$InformationProfesseur->description}}</p>

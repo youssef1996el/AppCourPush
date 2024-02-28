@@ -1,5 +1,6 @@
 @extends('Dashboard.templateAdmin')
 @section('navsidebar')
+<link rel="stylesheet" href="{{asset('css/CoursDispoStyle.css')}}">
  <div class="container">
     <div class="card shadow"  style="margin: auto; background: #ffffff4a;">
         <div class="card-body">
@@ -80,7 +81,7 @@
                                                                     </label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-2  labelhide timeHour">
+                                                            <div class="col-md-2  labelhide timeHour">  
                                                                 <label for=""> Début</label>
                                                                 <input type="time" name="heuredebut[]" class="form-control heuredebut" value="{{ $items[$i]->debut }}">
                                                             </div>
@@ -132,7 +133,7 @@
                                                         @endif
                                                         <div class="col-md-2">
                                                             @if ($i < count($items))
-                                                                <svg id="{{$items[$i]->id}}" class="removeDisponible"  height="30" width="30" xmlns="http://www.w3.org/2000/svg"  >
+                                                                <svg id="{{$items[$i]->id}}" class="removeDisponible first"  height="30" width="30" xmlns="http://www.w3.org/2000/svg"  >
                                                                     <circle cx="15" cy="15" r="13.5" stroke="rgb(48,72,500)" stroke-width="2.25" fill="rgb(255, 1, 1)" />
                                                                     <text x="50%" y="50%" font-size="15" text-anchor="middle" fill="white" dy=".3em">X</text>
                                                                 </svg>
@@ -146,7 +147,7 @@
 
                                                     </div>
                                                     @if ($i != 2)
-                                                    <hr class="line ">
+                                                    <hr class="line mt-2 mb-4 ">
                                                     @endif
 
                                                 @endfor
@@ -199,7 +200,7 @@
                                                             <input type="time" name="heurefin[]" class="form-control heurefin">
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <svg class="removeDisponible"  height="30" width="30" xmlns="http://www.w3.org/2000/svg"  >
+                                                            <svg class="removeDisponible "  height="30" width="30" xmlns="http://www.w3.org/2000/svg"  >
                                                                 <circle cx="15" cy="15" r="13.5" stroke="rgb(48,72,500)" stroke-width="2.25" fill="rgb(255, 1, 1)" />
                                                                 <text x="50%" y="50%" font-size="15" text-anchor="middle" fill="white" dy=".3em">X</text>
                                                             </svg>
@@ -225,378 +226,6 @@
             </p>
         </div>
     </div>
-<style>
-
-    *{
-        font-family:times;
-    }
-    .ListeCours{
-        background:white;
-    }
-    .card-title{
-        font-size: 28px;
-        text-align: center;
-    }
-
-    .input-text{
-        margin: 30px 0px 4px 0;
-        display:flex;
-        gap:20px;
-    }
-    .input-div{
-        display: flex;
-    gap: 4px;
-    }
-    .input-text .input-div{
-        width:100%;
-        position:relative;
-
-    }
-    .input-div input:focus ~ span,.input-div input:valid ~ span  {
-        top:-20px;
-        left:6px;
-        font-size:14px;
-        font-weight:600;
-    }
-    #input-tag{
-        width:100%;
-        height: 40px;
-        border: none;
-        outline: 0;
-        border-radius: 5px;
-        border: 1px solid #cbced4;
-        gap: 20px;
-        box-sizing: border-box;
-
-    }
-    #AddCours, #UpDateDisponible
-    {
-        background-color: #4e99e9;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-        padding: 8px 20px;
-        border-radius: 4px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-        transition: .9s ease;
-    }
-    .tags-input
-    {
-
-        Position: relative;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 12px 10px;
-        box-shadow: 2px 2px 5px #00000033;
-        width: 100%;
-        margin-top: 9px;
-        max-height: 212px;
-        overflow-y: auto;
-        height: 195px;
-    }
-    .tags-input ul
-    {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .nameDays{
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .tags-input li
-    {
-        display: inline-block;
-        background-color: #c1dae8;
-        color: #333;
-        border-radius: 20px;
-        padding: 5px 10px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-    }
-    .tags-input input[type="text"]
-    {
-        border: none;
-        outline: none;
-        padding: 5px;
-        font-size: 14px;
-
-    }
-    .tags-input .delete-button
-    {
-        background-color: transparent;
-        border: none;
-        color: #999;
-        cursor: pointer;
-        margin-left: 5px;
-    }
-    .heuredebut, .heurefin
-    {
-        width: 80%;
-
-    }
-    .labelhidden{
-            display:none;
-        }
-<<<<<<< HEAD
-
-
-=======
-
-        .line{
-            display: none;
-        }
->>>>>>> 195edd08cd6b94076e9b32e9bf1f7264c6d3f3a9
-    @media only screen and (max-width: 768px) {
-        .labelhidden{
-            display:block;
-        }
-        .row > * {
-            padding-left: 17px ;
-            margin:auto;
-        }
-        .radio-inputs
-        {
-            justify-content: flex-start !important;
-        }
-        .radio-buttons,.selection,.timeHour
-        {
-            display: flex;
-            justify-content: space-between;
-            gap:20px;
-        }
-
-        .form-select, .form-control , .radio-inputs{
-            margin-bottom:22px;
-        }
-        .heuredebut, .heurefin{
-            width: 66%;
-            text-align: center;
-        }
-        .daysCheck{
-            text-align: center;
-            margin: 16px auto;
-        }
-
-        .removeDisponible{
-
-            background: #3174dc;
-            width: 70px;
-            margin-top: 0px !important;
-            height: 36px;
-            margin-bottom: 20px;
-
-        }
-        circle{
-            display: none;
-        }
-        .line{
-            display: block;
-        }
-
-
-      /*  .labelhide{
-            display: flex ;
-            gap: 20px;
-        } */
-        /*.heuredebut, .heurefin
-    {
-        width: 20%;
-
-    }*/
-
-
-}
-
-    /******************************** CSS GRoupe Prive*/
-.radio-inputs
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 176px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.radio-inputs > *
-{
-    margin: 2px;
-}
-
-.radio-input:checked + .radio-tile
-{
-    border-color: #2260ff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    color: #2260ff;
-}
-
-.radio-input:checked + .radio-tile:before
-{
-    transform: scale(1);
-    opacity: 1;
-    background-color: #2260ff;
-    border-color: #2260ff;
-}
-
-.radio-input:checked + .radio-tile .radio-icon svg
-{
-    fill: #2260ff;
-}
-
-.radio-input:checked + .radio-tile .radio-label
-{
-    color: #2260ff;
-}
-
-.radio-input:focus + .radio-tile
-{
-    border-color: #2260ff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
-}
-
-.radio-input:focus + .radio-tile:before
-{
-    transform: scale(1);
-    opacity: 1;
-}
-
-.radio-tile
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 51px;
-    min-height: 39px;
-    border-radius: 0.5rem;
-    border: 2px solid #b5bfd9;
-    background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    transition: 0.15s ease;
-    cursor: pointer;
-    position: relative;
-}
-
-.radio-tile:before
-{
-    content: "";
-    position: absolute;
-    display: block;
-    width: 0.75rem;
-    height: 0.75rem;
-    border: 2px solid #b5bfd9;
-    background-color: #fff;
-    border-radius: 50%;
-    top: 0.25rem;
-    left: 0.1rem;
-    opacity: 0;
-    transform: scale(0);
-    transition: 0.25s ease;
-}
-
-.radio-tile:hover
-{
-    border-color: #2260ff;
-}
-
-.radio-tile:hover:before
-{
-    transform: scale(1);
-    opacity: 1;
-}
-
-.radio-icon svg
-{
-    width: 2rem;
-    height: 2rem;
-    fill: #494949;
-}
-
-.radio-label
-{
-    color: #707070;
-    transition: 0.375s ease;
-    text-align: center;
-    font-size: 13px;
-}
-
-.radio-input
-{
-    clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-}
-.removeDisponible
-{
-    margin-top: 32px;
-    cursor: pointer;
-    margin-left: 12px;
-
-}
-/*************** youssef button delete dispo */
-@media (width: 360px) and (height: 720px) {
-    .removeDisponible {
-        left: 205px;
-         position: relative;
-        top: -400px;
-        margin-top: 0;
-        margin-left: 0;
-    }
-}
-
-@media (width: 375px) and (height: 667px) {
-    .removeDisponible {
-        left: 219px;
-         position: relative;
-        top: -400px;
-        margin-top: 0;
-        margin-left: 0;
-    }
-}
-
-@media (width: 390px) and (height: 844px) {
-    .removeDisponible {
-        left: 233px;
-         position: relative;
-        top: -400px;
-        margin-top: 0;
-        margin-left: 0;
-    }
-}
-
-@media (width: 412px) and (height: 914px),
-       (width: 414px) and (height: 896px),
-       (width: 412px) and (height: 915px) {
-    .removeDisponible {
-        left: 256px;
-         position: relative;
-        top: -400px;
-        margin-top: 0;
-        margin-left: 0;
-    }
-}
-
-@media (width: 430px) and (height: 932px) {
-    .removeDisponible {
-        left: 272px;
-         position: relative;
-        top: -400px;
-        margin-top: 0;
-        margin-left: 0;
-    }
-}
-</style>
-
 
 </div>
 <script src="{{asset('js/timezones.full.js')}}" ></script>

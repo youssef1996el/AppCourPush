@@ -337,6 +337,10 @@ Route::get('professeur/experience',function()
     return view('professeur.Experience');
 });
 
+Route::get('professeur/detailprof',function()
+{
+    return view('professeur.detailprof');
+});
 
 
 

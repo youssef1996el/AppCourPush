@@ -7,9 +7,10 @@
 <div class="container mt-4 " >
     <div class="card text-center padding:20px 10px">
         <img class="imageprof" src="{{asset($DataProf[0]->image)}}" alt="Profile image"  srcset="" >
-        <h2 class="name">{{$DataProf[0]->name }}</h2>
-        <h4 >{{$DataProf[0]->title}}</h4>
-        <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince}}</span> ans d'expérience</h4>
+        <h2 class="name" style="font-weight: bold ;">{{$DataProf[0]->name }}</h2>
+        <hr id="underName" class="mb-4">
+        <h4 class="profwork">{{$DataProf[0]->title}}</h4>
+        <div class="profexperience"><h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince}}</span> ans d'expérience</h4></div>
         <div class="card-body"  >
             <p class="card-text">{{$DataProf[0]->description}}</p>
         </div>
@@ -124,9 +125,13 @@
                         @endforeach
 
                     </div>
-                    <div class="courses">
-                        <ul>
+                    <div class="courses mt-4">
+                        <div class="card cardList text-left">
+                          <img class="card-img-top" src="holder.js/100px180/" alt="">
+                          <div class="card-body">
+                          <ul class="checklist">
                             <table>
+                            
                                 @foreach ($DisponibleProf as $item)
                                 <tr>
                                     <th>
@@ -148,6 +153,9 @@
 
 
                         </ul>
+                          </div>
+                        </div>
+                        
                     </div>
 
                 </div>
@@ -183,6 +191,10 @@
     }
 </script>
 <style>
+    .cardList{
+        border: none;
+        box-shadow: none;
+    }
     .imageprof{
         width: 150px;
   height: 150px;
@@ -191,6 +203,27 @@
   margin: 16px auto;
     }
 
+    .checklist {
+  list-style-type: none; /* Remove default list style */
+}
+
+.checklist li {
+  /* Adjust spacing between items */
+}
+
+.checklist li:before {
+  content: "\2714"; /* Unicode checkmark character */
+  display: inline-block;
+  width: 1em;
+  margin-right: 5px; /* Adjust space between checkmark and text */
+}
+
+/* Optional: Style the checkmark */
+.checklist li {
+  color: #1685b8; /* Green color for the checkmark */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make the text bold */
+}
 
 
 </style>

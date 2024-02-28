@@ -2,9 +2,12 @@
 @section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleProfesseurDash.css')}}">
 <div class="container mt-4">
-    <div class="row ">
+    <div class="card text-left">
+      <img class="card-img-top" src="holder.js/100px180/" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Liste des élèves</h4>
+        <div class="row ">
         <div class="col-sm-12 col-md-12 col-xl-12">
-            <h2 style="padding-left: 12px;font-family: times;">Liste des élèves </h2>
             <div class="SliderTable">
                 <table class="table-primary   align-middle mb-0 bg-white w-100" id="tableListEleve" style="margin-top: 20px;width: 84%;">
                     <thead class="">
@@ -51,7 +54,9 @@
             </div>
 
         </div>
+    </div>      </div>
     </div>
+    
 </div>
 <style>
     .SliderTable
