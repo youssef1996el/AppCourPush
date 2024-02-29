@@ -50,14 +50,14 @@
                                                     <div class="row">
                                                         @if ($i < count($items))
                                                             <div class="col-md-3 labelhide selection ">
-                                                            <label for="" style="white-space: nowrap" {{ $i >= 2 ? 'class=labelhidden' : '' }}>Choisir un cours</label>
+                                                            <label for="" style="white-space: nowrap" {{ $i >=1  ? 'class=labelhidden' : '' }}>Choisir un cours</label>
 
                                                                 <select name="Cours[]" id="" class="form-select">
                                                                     <option value="{{$items[$i]->idcours}}">{{ $items[$i]->title }}</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-3 labelhide radio-buttons">
-                                                                <label for="">Groupe / Privé</label>
+                                                                <label for="" {{ $i >=1  ? 'class=labelhidden' : '' }}>Groupe / Privé</label>
                                                                 <div class="radio-inputs">
                                                                     <label>
                                                                         <input  {{ $items[$i]->typecours == 'groupe' ? 'checked' : '' }} class="radio-input" value="groupe" type="checkbox" name="typeCours[]">
@@ -70,7 +70,7 @@
                                                                         </span>
                                                                     </label>
                                                                     <label>
-                                                                        <input  {{ $items[$i]->typecours == 'prive' ? 'checked' : '' }} class="radio-input" value="prive" type="checkbox" name="typeCours[]">
+                                                                        <input  {{ $items[$i]->typecours == 'prive' ? 'checked' : '' }} class="radio-input " value="prive" type="checkbox" name="typeCours[]">
                                                                         <span class="radio-tile">
                                                                             <span class="radio-icon">
                                                                                 <svg class="svg-icon" viewBox="0 0 20 20" id="{{ $items[$i]->id }}">
@@ -82,11 +82,11 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2  labelhide timeHour">
-                                                                <label for=""> Début</label>
+                                                                <label for="" {{ $i >=1  ? 'class=labelhidden' : '' }}> Début</label>
                                                                 <input type="time" name="heuredebut[]" class="form-control heuredebut" value="{{ $items[$i]->debut }}">
                                                             </div>
                                                             <div class="col-md-2 labelhide timeHour">
-                                                                <label for=""> Fin</label>
+                                                                <label for="" {{ $i >=1  ? 'class=labelhidden' : '' }}> Fin</label>
                                                                 <input type="time" name="heurefin[]" class="form-control heurefin" value="{{ $items[$i]->fin }}">
                                                             </div>
                                                         @else
