@@ -25,7 +25,7 @@ font-size: 16px;
 
 #divProfile .name{
   font-size: 1.5rem;
-  
+
 }
 #underName{
   display: flex;
@@ -36,7 +36,7 @@ font-size: 16px;
   color: black;
 }
 .profexperience{
-  
+
 
 }
 .profwork{
@@ -425,8 +425,23 @@ overflow-x: auto;
 .cardList{
   border: none;
   box-shadow: none;
-  max-height: 150px;
+  max-height: 153px;
   overflow: auto;
+}
+.cardList::-webkit-scrollbar
+{
+    width: 15px;
+}
+.cardList::-webkit-scrollbar-thumb
+{
+    background-color: #094a68;
+    border-radius: 10px;
+    border: 3px solid #fff;
+}
+.cardList::-webkit-scrollbar-track
+{
+    background-color: #99c2e9;
+    border-radius: 10px;
 }
 .imageprof{
   width: 150px;

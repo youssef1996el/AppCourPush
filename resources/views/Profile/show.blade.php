@@ -131,14 +131,14 @@
                           <div class="card-body">
                           <ul class="checklist">
                             <table>
-                            
+
                                 @foreach ($DisponibleProf as $item)
                                 <tr>
                                     <th>
                                         <li class="circle-checkmark">{{$item->jour}} </li>
                                     </th>
                                     <th>
-                                        ({{$item->debut}} || {{$item->fin}}) 
+                                        ({{$item->debut}} || {{$item->fin}})
                                     </th>
                                     <th>
                                         <i class="fa fa-angle-right" aria-hidden="true"> </i>
@@ -155,7 +155,7 @@
                         </ul>
                           </div>
                         </div>
-                        
+
                     </div>
 
                 </div>

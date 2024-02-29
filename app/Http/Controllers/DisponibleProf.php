@@ -45,11 +45,16 @@ class DisponibleProf extends Controller
     {
         // check Professeur has disponoble
         $CheckData = DB::table('disponibleprof')->where('iduser',Auth::user()->id)->count();
+
         if($CheckData >0)
         {
-            DB::table('disponibleprof')->where('iduser',Auth::user()->id)->delete();
+
 
             $data = $request->input('data');
+
+
+
+            DB::table('disponibleprof')->where('iduser',Auth::user()->id)->delete();
 
             foreach ($data as $day => $dayData)
             {

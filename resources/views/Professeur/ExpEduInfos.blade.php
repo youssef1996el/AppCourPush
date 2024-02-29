@@ -16,7 +16,7 @@
                         <input type="text" name="IdFormation" class="" value="{{$idFormation}}" hidden>
                         <div class="HeightEduction ">
 
-                            @foreach ($Formation as $item)
+                            @foreach ($Formation as $key => $item)
                                 <div class="row education-row">
                                     <div class="FormEduction row m-auto mt-3">
 
@@ -55,8 +55,9 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
-                                
+
                             @endforeach
                             <div class="form-group mb-3 form-groupEducation mt-5">
                                 <button type="button" class="btn btn-success  BtnUpdateEducationProf" style="display:flex; margin:auto">Valider</button>
@@ -73,15 +74,16 @@
                 <div class="d-flex justify-content-end  mb-3">
                     <button type="button" class="btn btn-primary  BtnAjoutExperienceProf " >Ajouter</button>
                 </div>
-            <div class="card text-left"> 
+            <div class="card text-left">
                 <div class="card-body cardEx">
                     <form action="{{url('UpdateExperince')}}" method="post" id="SubmitFormExperience">
                         @csrf
                         <input type="text" name="IdExperince" class="" value="{{$idExperince}}" hidden>
                         <div class="HeightExperince">
-                            @foreach ($Experince as $item)
+                            @foreach ($Experince as $key => $item)
                                 <div class="row Experince-row">
                                     <div class="FormExperince row mt-3 m-auto">
+
                                         <div class="col-sm-12 col-md-6 col-xl-6 ">
                                             <div class="form-group mb-3">
                                                 <label for="" class="mb-1">Filière</label>
@@ -117,6 +119,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if ($key != count($Experince) - 1)
+                                        <hr class="lineeduform mb-4 mt-4">
+                                    @endif
 
 
 
@@ -133,7 +138,7 @@
     </div>
 </div>
 
-  
+
 <script>
 $(document).ready(function ()
 {

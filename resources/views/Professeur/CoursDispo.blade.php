@@ -81,7 +81,7 @@
                                                                     </label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-2  labelhide timeHour">  
+                                                            <div class="col-md-2  labelhide timeHour">
                                                                 <label for=""> Début</label>
                                                                 <input type="time" name="heuredebut[]" class="form-control heuredebut" value="{{ $items[$i]->debut }}">
                                                             </div>
@@ -647,6 +647,15 @@
                                 if (result.isConfirmed || result.isDismissed) {
                                     location.reload();
                                 }
+                            });
+                        }
+                        else if(response.status == 430)
+                        {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: response.msg,
+
                             });
                         }
 

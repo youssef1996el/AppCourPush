@@ -335,6 +335,42 @@ class ProfesseurController extends Controller
     {
         try
         {
+            $data = $request->input('data');
+            foreach ($data as $day => $entries) {
+                $seen = array();
+
+                foreach ($entries as $entry) {
+                    $key = $entry['heureDebut'] . '-' . $entry['heureFin'];
+
+                    // Check for duplicates
+                    if (isset($seen[$key])) {
+                        return response()->json([
+                            'status' => 430,
+                            'msg' => "Doublons trouvés pour $day sur heure debut et heure fin"
+                        ]);
+                    } else {
+                        $seen[$key] = true;
+                    }
+
+                    // Check for overlaps with previous entries
+                    foreach ($entries as $otherEntry) {
+                        if ($entry !== $otherEntry) {
+                            $entryStart = strtotime($entry['heureDebut']);
+                            $entryEnd = strtotime($entry['heureFin']);
+                            $otherStart = strtotime($otherEntry['heureDebut']);
+                            $otherEnd = strtotime($otherEntry['heureFin']);
+
+                            if (($entryStart >= $otherStart && $entryStart < $otherEnd) || ($entryEnd > $otherStart && $entryEnd <= $otherEnd)) {
+                                return response()->json([
+                                    'status' => 430,
+                                    'msg' => "Chevauchement trouvé pour $day entre {$entry['heureDebut']} et {$entry['heureFin']}"
+                                ]);
+                            }
+                        }
+                    }
+                }
+            }
+
             $response = App::call('App\Http\Controllers\DisponibleProf@UpdateDisponible', [
                 'request' => $request
             ]);
