@@ -209,8 +209,8 @@ $(document).ready(function () {
                                                     ` : `
                                                     <p class="text-muted mb-0 ClassTypeCours" style="white-space: nowrap;">Cours en groupe</p>
                                                 `}`;
-                            var FiveTd = `<td class="buttonsRD" >
-                                                    <button type="button" class="btn btn-primary reserver">Reserver</button>
+                            var FiveTd = `<td class="buttonsRD " >
+                                                    <button type="button" class="btn btn-primary reserver mr-1">Reserver</button>
                                                     <button type="button" class="btn details">Details</button>
                                                 </td>`;
                             dataTable.row.add([
@@ -221,6 +221,7 @@ $(document).ready(function () {
                                 FiveTd,
                             ]);
                             dataTable.draw();
+                            dataTable.cell(':last', -1).node().classList.add('d-flex', 'mt-4');
                         });
                     }
                     else

@@ -1,7 +1,11 @@
 *{
   font-family: 'Times New Roman', Times, serif;
 }
-
+.container{
+  width: 900px;
+  margin: 20px auto;
+  padding: 0px;
+}
 
 .fa-2xl {
     font-size: 3em;
@@ -109,6 +113,11 @@ tbody, td, tfoot, th, thead, tr {
   border-radius: 0px;
   cursor: pointer;
 }
+.ContainerEleve
+{
+    overflow-x: hidden;
+    min-height: 154vh;
+}
 
 
 
@@ -194,47 +203,9 @@ tbody, td, tfoot, th, thead, tr {
   }
   #TableProfesseurIsActive_filter
   {
-     display: flex;
-     justify-content: center;
+      margin-left: -23rem;
+      margin-bottom: 5px
   }
-
-  #TableProfesseurIsActive_filter input::placeholder{
-    font-size: 16px ;
-  }
-  
-  
-  #TableProfesseurIsActive_filter label
-      {
-          font-size: 14px;
-      }
-  
-  #TableProfesseurIsActive_filter input{
-      width: 300px !important;
-      padding: 10px;
-      border: none;
-      appearance: none;
-      border-radius: 0;
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-      border-bottom: 1.5px solid darkgray;
-      background: transparent;
-  
-  }
-  
-  #TableProfesseurIsActive_filter input[type="search"]:focus
-  {
-      padding: 8px;
-      color: #888f96;
-      background-color: #fff;
-      border-color: #86b7fe;
-      border-radius: 0px;
-      width: 300px;
-      padding: 10px;
-      border-bottom: 1.5px solid #86b7fe;
-      box-shadow: none;
-      background-color: transparent;
-      
-  }
-  /*  */
 
   .btn-group>.btn:not(:first-child), .btn-group>.btn-group:not(:first-child)>.btn {
     border-top-left-radius: 2;
@@ -338,7 +309,7 @@ tbody, td, tfoot, th, thead, tr {
 
 
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .container {
       width: 92%;
   }
@@ -346,14 +317,4 @@ tbody, td, tfoot, th, thead, tr {
     font-size: calc(1rem + 1.5vw)!important;
     margin-bottom: 16px;
   }
-} */
-
-.details{
-  border-radius: 5px;
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .details{
-   
-  }
-  
 }
