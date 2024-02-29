@@ -22,7 +22,6 @@
         </style>
     </head>
     <body class="antialiased">
-
         <nav class="navbar navbar-expand-lg bg-light shadow fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">LOGO</a>

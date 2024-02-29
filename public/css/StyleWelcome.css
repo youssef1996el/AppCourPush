@@ -31,6 +31,8 @@
     padding: 22px;
     color: orange;
     border: 2px solid orange;
+    width: 80px;
+    margin: auto;
 
 
     }
@@ -63,7 +65,7 @@
      }
 
 
-     @media (max-width: 768px) {
+     @media (max-width: 1000px) {
         #about .section-title h2{
             font-size: 24px;        }
         #about .ligne{
@@ -77,6 +79,19 @@
             font-size: 14px;
     
         }
+        #service .section-title h2{
+            font-size: 24px!important;       }
+      
+        #service .card-title{
+            font-size: 18px !important;
+    
+        }
+        #service .card-text{
+            font-size: 14px !important;
+    
+        }
+        #liste-profs .section-title h2{
+            font-size: 24px !important;        }
         
     }
     
@@ -94,6 +109,24 @@
         font-size: 14px;
 
     }
+    #about, #service,#liste-profs{
+        padding: 0px 0px 0px 30px;
+    }
+    #service .section-title h2{ 
+        font-size: 18px;        
+    }
+    #liste-profs .section-title h2{ 
+        font-size: 18px;        
+    }
+
+#service .card-title{
+    font-size: 18px;
+
+}
+#service .card-text{
+    font-size: 14px;
+
+}
     }
 
 
@@ -130,36 +163,9 @@
     border-radius: 20px;
 }
 
-@media (max-width: 768px) {
-    #service .section-title h2{
-        font-size: 24px;        }
-  
-    #about .card-title{
-        font-size: 18px;
 
-    }
-    #about .card-text{
-        font-size: 14px;
 
-    }
-    
-}
 
-/* Media query for even smaller screens */
-@media (max-width: 576px) {
-    #about .section-title h2{ 
-        font-size: 18px;        
-    }
-
-#service .card-title{
-    font-size: 18px;
-
-}
-#service .card-text{
-    font-size: 14px;
-
-}
-}
 
 
 footer.fab{
