@@ -50,6 +50,98 @@
                             </div>
                             
                         @endforeach
+                        @foreach ($MesCours as $item)
+                            <div class="card-sl " style="max-width:280px">
+                                <div class="name-course">{{$item->name_cours}}</div>
+                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
+                                <div class="card-heading" style="white-space: normal">
+                                    {{$item->nom_professeur}}
+                                </div>
+
+                                <div class="card-text">
+                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
+                                </div>
+                                <div class="card-text d-flex">
+                                    <i class="fa fa-calendar"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
+                                </div>
+                                <div class="card-text">
+                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
+                                </div>
+                                <div class="card-text">
+                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
+                                </div>
+                            </div>
+                            
+                        @endforeach
+                        @foreach ($MesCours as $item)
+                            <div class="card-sl " style="max-width:280px">
+                                <div class="name-course">{{$item->name_cours}}</div>
+                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
+                                <div class="card-heading" style="white-space: normal">
+                                    {{$item->nom_professeur}}
+                                </div>
+
+                                <div class="card-text">
+                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
+                                </div>
+                                <div class="card-text d-flex">
+                                    <i class="fa fa-calendar"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
+                                </div>
+                                <div class="card-text">
+                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
+                                </div>
+                                <div class="card-text">
+                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
+                                </div>
+                            </div>
+                            
+                        @endforeach
+                        @foreach ($MesCours as $item)
+                            <div class="card-sl " style="max-width:280px">
+                                <div class="name-course">{{$item->name_cours}}</div>
+                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
+                                <div class="card-heading" style="white-space: normal">
+                                    {{$item->nom_professeur}}
+                                </div>
+
+                                <div class="card-text">
+                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
+                                </div>
+                                <div class="card-text d-flex">
+                                    <i class="fa fa-calendar"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
+                                </div>
+                                <div class="card-text">
+                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
+                                </div>
+                                <div class="card-text">
+                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
+                                </div>
+                            </div>
+                            
+                        @endforeach
+                        @foreach ($MesCours as $item)
+                            <div class="card-sl " style="max-width:280px">
+                                <div class="name-course">{{$item->name_cours}}</div>
+                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
+                                <div class="card-heading" style="white-space: normal">
+                                    {{$item->nom_professeur}}
+                                </div>
+
+                                <div class="card-text">
+                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
+                                </div>
+                                <div class="card-text d-flex">
+                                    <i class="fa fa-calendar"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
+                                </div>
+                                <div class="card-text">
+                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
+                                </div>
+                                <div class="card-text">
+                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
+                                </div>
+                            </div>
+                            
+                        @endforeach
 
                         @else
                         <div class="text-center">

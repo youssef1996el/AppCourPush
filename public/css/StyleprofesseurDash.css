@@ -453,9 +453,10 @@
 
 #tableListProfesseur_filter
 {
-    float: left;
+    
     margin-bottom: 14px;
-    margin-left: 57px;
+    display: flex;
+    justify-content: center;
     margin-top: 40px;
 
 
@@ -949,8 +950,9 @@ margin-bottom: 20px;}
     padding: 8px;
 }
 
-#tableListEleve_filter input{
-  margin-right: 31.5em !important;
+#tableListEleve_filter {
+  display: flex !important;
+  justify-content: center !important;
 
 }
 /* mobile */

@@ -407,13 +407,12 @@ class ProfesseurController extends Controller
     {
         // name professuer
         $myName        = Auth::user()->name;
-
         // Extract name my eleves
         $NamesEleves   = Reserves::where('nom_professeur',$myName)->select('nom_eleve')->groupBy('nom_eleve')->get();
         $nomEleveArray = $NamesEleves->pluck('nom_eleve')->toArray();
 
         // Extract Data My Eleves
-        $DataEleves    = User::whereIn('name', $nomEleveArray)->get();
+        $DataEleves    = User::whereIn('name', $nomEleveArray)->where('role_name','eleve')->get();
 
         $codeCountry =
         [

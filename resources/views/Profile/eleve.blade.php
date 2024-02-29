@@ -138,7 +138,7 @@
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
                                         <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" >
                                         <label class="btn btn-outline-primary" for="group" style="border-top-left-radius: 10px;border-bottom-left-radius: 10px;">
-                                            <i class="fas fa-users " style=" margin-top: 0px;"></i>
+                                            <i class="fas fa-users " ></i>
                                         </label>
 
                                         <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
@@ -153,7 +153,7 @@
                     <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
                     <h5 class="text-secondary mt-4 DateSelected"></h5> --}}
                     {{-- <div class="DataProfesseur">
-                        <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
+                        <table class="table table-stripped mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
                             <thead class="bg-light">
                                 <tr class="sr-only">
                                     <th>Time</th>

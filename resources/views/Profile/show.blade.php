@@ -138,13 +138,13 @@
                                         <li class="circle-checkmark">{{$item->jour}} </li>
                                     </th>
                                     <th>
-                                        ({{$item->debut}} || {{$item->fin}})
+                                        ({{$item->debut}} || {{$item->fin}}) 
                                     </th>
                                     <th>
                                         <i class="fa fa-angle-right" aria-hidden="true"> </i>
                                     </th>
                                     <th>
-                                        {{$item->title}}
+                                         Cours {{$item->title}} en {{$item->typecours}}
                                     </th>
                                 </tr>
                                     {{-- <li class="circle-checkmark"> {{$item->jour}} ({{$item->debut}} || {{$item->fin}}) <i class="fa fa-angle-right" aria-hidden="true"> </i>  {{$item->title}} --}}
@@ -190,42 +190,6 @@
         alert('Numéro de téléphone : ' + phoneNumber);
     }
 </script>
-<style>
-    .cardList{
-        border: none;
-        box-shadow: none;
-    }
-    .imageprof{
-        width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px solid rgb(13, 202, 240);
-  margin: 16px auto;
-    }
 
-    .checklist {
-  list-style-type: none; /* Remove default list style */
-}
-
-.checklist li {
-  /* Adjust spacing between items */
-}
-
-.checklist li:before {
-  content: "\2714"; /* Unicode checkmark character */
-  display: inline-block;
-  width: 1em;
-  margin-right: 5px; /* Adjust space between checkmark and text */
-}
-
-/* Optional: Style the checkmark */
-.checklist li {
-  color: #1685b8; /* Green color for the checkmark */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Make the text bold */
-}
-
-
-</style>
 
 @endsection

@@ -753,8 +753,8 @@
                                         @guest
                                         @else
                                             @if (Auth::user()->role_name === 'Admin')
-                                            <li class="mm-active mb-2">
-                                                <a href="{{url('Admin/Dashboard')}}" class="mm-active">
+                                            <li class=" mb-2">
+                                                <a href="{{url('Admin/Dashboard')}}" class="">
                                                     <i class="fa-solid fa-chart-line metismenu-icon"></i>Tableau de bord
                                                 </a>
                                             </li>
@@ -795,8 +795,8 @@
                                         <!-- Side bar Eleve-->
 
                                         @if (Auth::user()->role_name === 'eleve')
-                                            <li class="mm-active mb-2">
-                                                <a href="{{ url('Reserver') }}" class="mm-active">
+                                            <li class=" mb-2">
+                                                <a href="{{ url('Reserver') }}" class="">
                                                     <i class="fa fa-cart-plus metismenu-icon" aria-hidden="true"></i> Réserver un cours
                                                 </a>
                                             </li>
@@ -820,15 +820,15 @@
                                         <!-- Side bar Professeur-->
                                         @if (Auth::user()->role_name === 'professeur')
 
-                                            <li class="mm-active mb-2">
-                                                <a href="{{ url('ShowProfileProf') }}" class="mm-active">
-                                                <i class="fa-solid fa-user-tie metismenu-icon"></i> Profile
+                                            <li class="mb-2">
+                                                <a href="{{ url('ShowProfileProf') }}" class="">
+                                                <i class="fa-solid fa-user-tie metismenu-icon user-tie"></i> Profile
                                                 </a>
 
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{url('MesEleves')}}">
-                                                <i class="fa-solid fa-users metismenu-icon"></i> Liste des éleves
+                                                <i class="fa-solid fa-users metismenu-icon users"></i> Liste des éleves
                                                 </a>
 
                                             </li>

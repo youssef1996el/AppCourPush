@@ -145,6 +145,7 @@ $(document).ready(function () {
                                 pageLength: 2,
                                 lengthChange: false,
                                 info: false,
+                                responsive:true,
                                 "language":
                                 {
                                     "search": "_INPUT_",
