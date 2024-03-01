@@ -103,6 +103,8 @@ Route::group(['middleware' => ['web','auth']], function ()
     Route::post('SendLinkMeet'          ,[ProfesseurController::class,'SendLinkToEleves'])
         ->middleware('IsProfesser');
 
+    Route::get('Validation/Cours/Professeur'           ,[AdminController::class,'Validation'])
+        ->middleware('IsProfesser');
     /******************************************* End Professeur *************************************************/
 
     /********************************************** Formation **************************************************/
@@ -206,6 +208,9 @@ Route::group(['middleware' => ['web','auth']], function ()
         ->middleware('IsAdmin');
 
     Route::get('GetTotalByDate'             ,[AdminController::class,'GetTotalByDate'])
+    ->middleware('IsAdmin');
+
+    Route::get('Validation/Cours'           ,[AdminController::class,'Validation'])
     ->middleware('IsAdmin');
     /******************************************** End Dashboard Admin ***********************************************/
 

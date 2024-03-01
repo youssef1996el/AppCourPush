@@ -41,7 +41,7 @@
 
 
 /* Meet */
-#tableListEleveMeeting_filter
+#tableListValidationCours_filter
 {
     float: right;
     margin-bottom: 14px;
@@ -50,17 +50,17 @@
 
 }
 
-#tableListEleveMeeting_filter input::placeholder{
+#tableListValidationCours_filter input::placeholder{
   font-size: 16px ;
 }
 
 
-#tableListEleveMeeting_filter label
+#tableListValidationCours_filter label
     {
         font-size: 14px;
     }
 
-#tableListEleveMeeting_filter input{
+#tableListValidationCours_filter input{
     width: 300px;
     padding: 10px;
     border: none;
@@ -71,7 +71,7 @@
     background: transparent;
 
 }
-#tableListEleveMeeting_filter input[type="search"]:focus
+#tableListValidationCours_filter input[type="search"]:focus
 {
     padding: 8px;
     color: #888f96;
@@ -93,7 +93,7 @@
  }
 
 
- #tableListEleveMeeting
+ #tableListValidationCours
  {
      border-radius: 5px 5px 0 0;
      overflow: hidden;
@@ -101,7 +101,7 @@
      margin: auto;
      width: 84%;
  }
- #tableListEleveMeeting thead tr
+ #tableListValidationCours thead tr
  {
      color:#fff;
  }

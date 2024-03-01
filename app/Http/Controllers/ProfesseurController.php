@@ -730,7 +730,7 @@ class ProfesseurController extends Controller
         // Extract Eleves Reserve Cours with my name
         $Reserve = DB::table('reserves')
                     ->join('cours','reserves.idcours','=','cours.id')
-                    ->select('reserves.times','reserves.typecours','reserves.days','cours.title','reserves.nom_eleve','reserves.nom_professeur')
+                    ->select('reserves.id','reserves.times','reserves.typecours','reserves.days','cours.title','reserves.nom_eleve','reserves.nom_professeur')
                     ->get();
 
 

@@ -683,4 +683,61 @@ class AdminController extends Controller
         }
     }
 
+    public function Validation()
+    {
+        $Reserve = DB::table('reserves')
+                    ->join('cours','reserves.idcours','=','cours.id')
+                    ->select('reserves.times','reserves.typecours','reserves.days','cours.title','reserves.nom_eleve','reserves.nom_professeur','reserves.status','reserves.valide')
+                    ->get();
+        // Extract name eleves and email
+        $DataEleves = User::where('role_name','eleve')->get();
+
+        foreach($Reserve as $item)
+        {
+            foreach($DataEleves as $item1)
+            {
+                if($item->nom_eleve === $item1->name)
+                {
+                    $item->email = $item1->email;
+                }
+            }
+        }
+        // Add Id Professeur
+        $DataProf    = User::where('role_name','professeur')->get();
+        foreach($Reserve as $item)
+        {
+            foreach($DataProf as $item1)
+            {
+                if($item->nom_professeur === $item1->name)
+                {
+                    $item->idProf = $item1->id;
+                }
+            }
+        }
+
+        foreach($Reserve as $item)
+        {
+            $AddFinAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id and d.iduser = ?",
+                [$item->idProf]);
+        }
+        foreach ($Reserve as &$cours) {
+            foreach ($AddFinAndTimeZone as $info) {
+                if (
+                    $cours->title == $info->title &&
+                    $cours->nom_professeur == $info->name &&
+                    $cours->times == $info->debut &&
+                    $cours->typecours == $info->typecours
+                ) {
+                    $cours->fin = $info->fin;
+                    $cours->timezone = $info->timezone;
+                }
+            }
+        }
+
+
+
+        return view('Dashboard.Validation')
+        ->with('Data',$Reserve);
+    }
+
 }

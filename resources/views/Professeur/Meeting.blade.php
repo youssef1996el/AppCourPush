@@ -21,7 +21,7 @@
                             <table class="table-primary table-bordered  align-middle mb-0 bg-white " id="tableListEleveMeeting" style="margin-top: 20px;width: 100%;">
                                 <thead class="">
                                 <tr>
-                                    <th >Nom complet</th>
+                                    <th>Nom complet</th>
                                     <th>Cours</th>
                                     <th >Type cours</th>
                                     <th>Jours</th>
@@ -78,14 +78,16 @@
                         </div>
                     </div>
                 </div>
+            @else
+                <!-- else -->
+                <div class="text-center">
+                    <img  class="" src="{{asset('image/nomeet.png') }}" alt="cours" style="width:200px">
+                    <h5 class="mt-3">Rien de prévu pour le moment</h5>
+                    <p class="text-muted">Pas d'élèves présents à la réunion pour le moment. Nous vous tiendrons informé si quelqu'un rejoint.</p>
+                </div>
             @endif
 
-            <!-- else -->
-            <div class="text-center">
-                <img  class="" src="{{asset('image/nomeet.png') }}" alt="cours" style="width:200px">
-                <h5 class="mt-3">Rien de prévu pour le moment</h5>
-                <p class="text-muted">Pas d'élèves présents à la réunion pour le moment. Nous vous tiendrons informé si quelqu'un rejoint.</p>
-            </div>
+
         </div>
     </div>
     <div class="modal fade" id="ModalEnvoyeLink" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
@@ -219,7 +221,7 @@
                 }
             }
         });
-        $('#tableListEleveMeeting_wrapper .col-sm-12.col-md-6:first-child').append('<button type="button" class="btn btn-info float-end btnSendMeeting " style="margin-top:3rem">Créer meet</button>');
+        $('#tableListEleveMeeting_wrapper .col-sm-12.col-md-6:first-child').append('<button type="button" class="btn btn-info  btnSendMeeting " style="margin-top:3rem">Créer meet</button>');
 
         $(document).on('click','.btnSendMeeting',function()
         {

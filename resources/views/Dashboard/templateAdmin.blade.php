@@ -788,7 +788,12 @@
                                                 <a href="{{url('CoursPaiement')}}">
                                                     <i class="fa-solid fa-dollar-sign metismenu-icon"></i> Paiement
                                                 </a>
-
+                                            </li>
+                                            <li class="mb-2">
+                                                <a href="{{url('Validation/Cours')}}">
+                                                    <i class="fa-solid fa-list-check metismenu-icon"></i>
+                                                    Valde Cours
+                                                </a>
                                             </li>
                                         @endif
 
@@ -853,9 +858,14 @@
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{url('ElevesReserve')}}">
-                                                <i class="fa-regular fa-handshake metismenu-icon"></i> Réunion zoom
+                                                <i class="fa-regular fa-handshake metismenu-icon"></i> Réunion
                                                 </a>
+                                            </li>
 
+                                            <li class="mb-2">
+                                                <a href="{{url('Validation/Cours/Professeur')}}">
+                                                <i class="fa-regular fa-handshake metismenu-icon"></i> Douha Diri Chi harka hna
+                                                </a>
                                             </li>
 
                                         @endif
@@ -910,6 +920,7 @@
                             { pattern: 'InfoProfesseur', index: 3 },
                             { pattern: 'ExpEduInfos', index: 4 },
                             { pattern: 'ElevesReserve', index: 5 },
+                            { pattern: 'Validation/Cours/Professeur', index: 6 },
                         ];
                     }
                     else if(role_name === 'Admin')
@@ -922,6 +933,7 @@
                             { pattern: 'professeurs', index: 3 },
                             { pattern: 'eleves', index: 4 },
                             { pattern: 'CoursPaiement', index: 5 },
+                            { pattern: 'Validation/Cours', index: 6 },
                         ];
                     }
                     else
