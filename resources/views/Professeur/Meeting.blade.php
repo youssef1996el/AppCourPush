@@ -14,70 +14,72 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Liste des Réunions</h4>
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-xl-12">
-                    <div class="table-responsive ">
-                        <table class="table-primary table-bordered  align-middle mb-0 bg-white " id="tableListEleveMeeting" style="margin-top: 20px;width: 100%;">
-
-                            <thead class="">
-                            <tr>
-                                <th >Nom complet</th>
-                                <th>Cours</th>
-                                <th >Type cours</th>
-                                <th>Jours</th>
-                                <th>Debut</th>
-                                <th>Fin</th>
-                                <th>Fuseau horaire</th>
-                                <th>Meeting</th>
-                                {{-- <th>Actions</th> --}}
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($ElevesMeeting as $item)
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                {{-- <img src="{{$item->image}}" class="rounded-circle" id="imgEleve" alt="" /> --}}
-                                                <div class="ms-3">
-                                                <p class="text-muted fw-bold mb-1 nom_eleve">{{$item->nom_eleve}}</p>
+            @if ($HasMeeting)
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-xl-12">
+                        <div class="table-responsive ">
+                            <table class="table-primary table-bordered  align-middle mb-0 bg-white " id="tableListEleveMeeting" style="margin-top: 20px;width: 100%;">
+                                <thead class="">
+                                <tr>
+                                    <th >Nom complet</th>
+                                    <th>Cours</th>
+                                    <th >Type cours</th>
+                                    <th>Jours</th>
+                                    <th>Debut</th>
+                                    <th>Fin</th>
+                                    <th>Fuseau horaire</th>
+                                    <th>Meeting</th>
+                                    {{-- <th>Actions</th> --}}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($ElevesMeeting as $item)
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    {{-- <img src="{{$item->image}}" class="rounded-circle" id="imgEleve" alt="" /> --}}
+                                                    <div class="ms-3">
+                                                    <p class="text-muted fw-bold mb-1 nom_eleve">{{$item->nom_eleve}}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted mb-0 text-center title">{{$item->title}}</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted mb-0 text-center typecours">
-                                                @if($item->typecours === "groupe")
-                                                    Cours en groupe
-                                                @else
-                                                    Cours particulier <br> Un enseignant sera attribué
-                                                @endif
-                                            </p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted mb-0 text-center days">{{$item->days}}</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted mb-1 text-center times">{{$item->times}}</p>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted mb-1 text-center fin" style="text-align: center">{{$item->fin}}</span>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->timezone}}</span>
-                                        </td>
-                                        <td>
+                                            </td>
+                                            <td>
+                                                <p class="text-muted mb-0 text-center title">{{$item->title}}</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-muted mb-0 text-center typecours">
+                                                    @if($item->typecours === "groupe")
+                                                        Cours en groupe
+                                                    @else
+                                                        Cours particulier <br> Un enseignant sera attribué
+                                                    @endif
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="text-muted mb-0 text-center days">{{$item->days}}</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-muted mb-1 text-center times">{{$item->times}}</p>
+                                            </td>
+                                            <td>
+                                                <span class="text-muted mb-1 text-center fin" style="text-align: center">{{$item->fin}}</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->timezone}}</span>
+                                            </td>
+                                            <td>
 
-                                            <input type="checkbox" value="{{$item->email}}" data-value="{{$item->nom_professeur}}" class="SelectedEleve" {{$item->hasCours == false ? 'disabled' : ''}}>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                                <input type="checkbox" value="{{$item->email}}" data-value="{{$item->nom_professeur}}" class="SelectedEleve" {{$item->hasCours == false ? 'disabled' : ''}}>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
+
             <!-- else -->
             <div class="text-center">
                 <img  class="" src="{{asset('image/nomeet.png') }}" alt="cours" style="width:200px">
@@ -109,157 +111,7 @@
     </div>
 
 </div>
-<!-- <style>
-    @media (min-width: 768px)
-    {
-        .col-md-6
-        {
-            flex: 0 0 auto;
-            width: 100% !important
-        }
-    }
-    @media (min-width: 768px)
-    {
-        .col-md-7 {
-            flex: 0 0 auto;
-            width: 100% !important;
-        }
-    }
 
-    #tableListEleveMeeting thead th:first-child {
-        /* Set the desired width */
-        width: 130px; /* You can change this value to whatever you need */
-    }
-
-    #tableListEleveMeeting thead th:nth-child(3) {
-        /* Set the desired width */
-        width: 200px; /* You can change this value to whatever you need */
-    }
-
-    #tableListEleveMeeting tbody td:nth-child
-    {
-        padding: 0px;
-    }
-
-    #overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.09);
-   /*  display: flex; */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Set a high z-index to ensure it appears on top */
-}
-  .three-body {
-    --uib-size: 35px;
-    --uib-speed: 0.8s;
-    --uib-color: #5D3FD3;
-    position: relative;
-    display: inline-block;
-    height: var(--uib-size);
-    width: var(--uib-size);
-    animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
-   }
-
-   .three-body__dot {
-    position: absolute;
-    height: 100%;
-    width: 30%;
-   }
-
-   .three-body__dot:after {
-    content: '';
-    position: absolute;
-    height: 0%;
-    width: 100%;
-    padding-bottom: 100%;
-    background-color: var(--uib-color);
-    border-radius: 50%;
-   }
-
-   .three-body__dot:nth-child(1) {
-    bottom: 5%;
-    left: 0;
-    transform: rotate(60deg);
-    transform-origin: 50% 85%;
-   }
-
-   .three-body__dot:nth-child(1)::after {
-    bottom: 0;
-    left: 0;
-    animation: wobble1 var(--uib-speed) infinite ease-in-out;
-    animation-delay: calc(var(--uib-speed) * -0.3);
-   }
-
-   .three-body__dot:nth-child(2) {
-    bottom: 5%;
-    right: 0;
-    transform: rotate(-60deg);
-    transform-origin: 50% 85%;
-   }
-
-   .three-body__dot:nth-child(2)::after {
-    bottom: 0;
-    left: 0;
-    animation: wobble1 var(--uib-speed) infinite
-       calc(var(--uib-speed) * -0.15) ease-in-out;
-   }
-
-   .three-body__dot:nth-child(3) {
-    bottom: -5%;
-    left: 0;
-    transform: translateX(116.666%);
-   }
-
-   .three-body__dot:nth-child(3)::after {
-    top: 0;
-    left: 0;
-    animation: wobble2 var(--uib-speed) infinite ease-in-out;
-   }
-
-   @keyframes spin78236 {
-    0% {
-     transform: rotate(0deg);
-    }
-
-    100% {
-     transform: rotate(360deg);
-    }
-   }
-
-   @keyframes wobble1 {
-    0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
-    }
-
-    50% {
-     transform: translateY(-66%) scale(0.65);
-     opacity: 0.8;
-    }
-   }
-
-   @keyframes wobble2 {
-    0%,
-     100% {
-     transform: translateY(0%) scale(1);
-     opacity: 1;
-    }
-
-    50% {
-     transform: translateY(66%) scale(0.65);
-     opacity: 0.8;
-    }
-   }
-
-
-
-</style> -->
 <script>
     $(document).ready(function ()
     {
@@ -367,7 +219,7 @@
                 }
             }
         });
-        $('#tableListEleveMeeting_filter').append('<button type="button" class="btn btn-info float-end btnSendMeeting ">Créer meet</button>');
+        $('#tableListEleveMeeting_wrapper .col-sm-12.col-md-6:first-child').append('<button type="button" class="btn btn-info float-end btnSendMeeting " style="margin-top:3rem">Créer meet</button>');
 
         $(document).on('click','.btnSendMeeting',function()
         {
@@ -479,7 +331,8 @@
                     link: linkMeetValue
                 },
                 dataType: "json",
-                beforeSend: function () {
+                beforeSend: function ()
+                {
                     // Show overlay with loading animation
                    /*  $('#overlay').fadeIn();
                     $('#overlay').css('display','flex'); */

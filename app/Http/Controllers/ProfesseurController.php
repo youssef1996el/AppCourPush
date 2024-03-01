@@ -800,6 +800,7 @@ class ProfesseurController extends Controller
         {
             $HasMeeting = true;
         }
+
         return view('Professeur.Meeting')
         ->with('ElevesMeeting',$sortedReserve)
         ->with('HasMeeting',$HasMeeting);
