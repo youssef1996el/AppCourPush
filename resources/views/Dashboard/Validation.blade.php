@@ -58,7 +58,7 @@
                                                 <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->status == 0 ? "En Cours" : ($item->status == 2 ? "Professor has completed the course" : "Valide")}}</span>
                                             </td>
                                             <td>
-                                                <input type="checkbox" value="" data-value="" class="SelectedEleve" >
+                                                <input type="checkbox" value="{{$item->id}}" data-value="" class="SelectedCours" >
                                             </td>
                                         </tr>
                                     @endforeach
@@ -118,7 +118,83 @@
                 }
             },
         });
-        $('#tableListValidationCours_wrapper .col-sm-12.col-md-6:first-child').append('<button type="button" class="btn btn-info  btnSendMeeting " style="margin-top:3rem">Valide Cours</button>');
+        $('#tableListValidationCours_wrapper .col-sm-12.col-md-6:first-child').append('<button type="button" class="btn btn-info  btnValidCours " style="margin-top:3rem">Valide Cours</button>');
+
+        $(document).on('click','.btnValidCours',function()
+        {
+            var selectedRows = [];
+            var atLeastOneChecked = false;
+            $('.SelectedCours').each(function() {
+                if (!$(this).prop('disabled') && $(this).prop('checked'))
+                {
+                    atLeastOneChecked = true;
+                    var $row = $(this).closest('tr');
+
+                    var rowData = {
+                        id: $row.find('.SelectedCours').val(),
+                    };
+                    selectedRows.push(rowData);
+                }
+            });
+            if (!atLeastOneChecked)
+            {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Veuillez sélectionner au moins un cours.",
+                });
+
+                return;
+            }
+            $.ajax({
+                type: "post",
+                url: "{{url('ValidationCours')}}",
+                headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+                data:
+                {
+                    data : selectedRows,
+                },
+                dataType: "json",
+                success: function (response)
+                {
+                    if(response.status == 400)
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: response.message,
+                        });
+
+                        return;
+                    }
+                    else if(response.status == 200)
+                    {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Votre travail a été enregistré",
+                        }).then((result) => {
+                            if (result.isConfirmed)
+                            {
+                                location.reload();
+                            }
+                        });
+
+                    }
+                    else if(response.status == 404)
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: response.message,
+                        });
+
+                        return;
+                    }
+                }
+            });
+
+        });
+
     });
 </script>
 @endsection

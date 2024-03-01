@@ -16,6 +16,9 @@ use App\Models\TypeCours;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Reserves;
+
+use Illuminate\Support\Facades\App;
 class AdminController extends Controller
 {
     public function professeurs()
@@ -687,7 +690,7 @@ class AdminController extends Controller
     {
         $Reserve = DB::table('reserves')
                     ->join('cours','reserves.idcours','=','cours.id')
-                    ->select('reserves.times','reserves.typecours','reserves.days','cours.title','reserves.nom_eleve','reserves.nom_professeur','reserves.status','reserves.valide')
+                    ->select('reserves.id','reserves.times','reserves.typecours','reserves.days','cours.title','reserves.nom_eleve','reserves.nom_professeur','reserves.status','reserves.valide')
                     ->get();
         // Extract name eleves and email
         $DataEleves = User::where('role_name','eleve')->get();
@@ -734,10 +737,80 @@ class AdminController extends Controller
             }
         }
 
-
-
         return view('Dashboard.Validation')
         ->with('Data',$Reserve);
+    }
+
+
+    public function ValidationCoursProf(Request $request)
+    {
+        $role_name = Auth::user()->role_name;
+        if($role_name === 'Admin')
+        {
+
+            $data = $request->input('data');
+            $ids = array_column($data, 'id');
+
+            $reserves = DB::table('reserves')
+                        ->join('cours','cours.id','=','reserves.idcours')
+                        ->select('reserves.*','cours.title')
+                        ->whereIn('reserves.id', $ids)
+                        ->get();
+            foreach ($reserves as $reserve)
+            {
+                if ($reserve->status === '0')
+                {
+                    return response()->json([
+                        'status'  => 400,
+                        'message' => "Cours ".$reserve->title." is not completed"
+                    ]);
+                }
+                else
+                {
+                    $upDateReserves  =  Reserves::where('id',$reserve->id)->update([
+                        'status' => '1',
+                        'valide' => '1',
+                    ]);
+                }
+            }
+            return response()->json([
+                'status'   => 200,
+            ]);
+
+
+        }
+        else
+        {
+
+            $data = $request->input('data');
+            $ids = array_column($data, 'id');
+            $reserves = DB::table('reserves')
+                            ->join('cours','cours.id','=','reserves.idcours')
+                            ->select('reserves.*','cours.title')
+                            ->whereIn('reserves.id', $ids)
+                            ->get();
+            foreach ($reserves as $reserve)
+            {
+                if ($reserve->status === '1')
+                {
+                    return response()->json([
+                        'status'  => 404,
+                        'message' => "Cours ".$reserve->title." is  completed"
+                    ]);
+                }
+                else if($reserve->status === '0')
+                {
+                    $upDateReserves  =  Reserves::where('id',$reserve->id)->update([
+                        'status' => '2',
+                        'valide' => '0',
+                    ]);
+                }
+            }
+            return response()->json([
+                'status'   => 200,
+            ]);
+
+        }
     }
 
 }

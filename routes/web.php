@@ -212,6 +212,9 @@ Route::group(['middleware' => ['web','auth']], function ()
 
     Route::get('Validation/Cours'           ,[AdminController::class,'Validation'])
     ->middleware('IsAdmin');
+
+    Route::post('ValidationCours'          ,[AdminController::class,'ValidationCoursProf'])
+   ;
     /******************************************** End Dashboard Admin ***********************************************/
 
 
