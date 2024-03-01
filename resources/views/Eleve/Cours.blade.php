@@ -26,6 +26,7 @@
 
             <div class="tab-content">
                 <div id="programmes" class="tab-pane fade show active mt-4 ">
+                <div class="card-container">
                     @if ($hasCours)
                         @foreach ($MesCours as $item)
                             <div class="card-sl " style="max-width:280px">
@@ -152,7 +153,7 @@
                         </div>
                         @endif
                 </div>
-
+</div>
                 <div id="cours" class="tab-pane fade text-center">
                     <div class="courspris mt-4  ">
                         <img  class="" src="{{asset('image/nonpris.png')}}" alt="cours" style="width:200px">
@@ -170,7 +171,18 @@
 
     </div>
 </div>
+<style>
+    .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
+
+
+
+}
+</style>
     <script>
         var url = "{{url('CalanderCours')}}";
     </script>
