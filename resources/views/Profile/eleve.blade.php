@@ -178,7 +178,7 @@
         <h5 class="text-secondary mt-4 DateSelected"></h5>
         <div class="DataProfesseur ">
             <div class="table-responsive">
-                <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
+                <table class="table mb-0 bg-white border table-hover" id="TableProfesseurIsActive">
                     <thead class="bg-light">
                         <tr class="sr-only">
                             <th scope="col">Time</th>
@@ -317,27 +317,6 @@
 </div> -->
 
 <style>
-    @media only screen and (max-width: 500px) {
-        .dropdown-toggle{
-            /* width:32%; */
-        }
-
-}
-@media only screen and (max-width: 800px) {
-        .dropdown-toggle{
-            width:51%;
-        }
-        .table-responsive {
-        overflow-x: auto;
-    }
-
-
-
-}
-.table>:not(caption)>*>* {
-    border-top-width: 0px !important;
-    border-bottom-width: 0px !important;
-}
 
 .button-container {
     white-space: nowrap; /* Ensures buttons stay in one line */

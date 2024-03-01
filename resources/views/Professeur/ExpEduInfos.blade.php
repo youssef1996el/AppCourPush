@@ -360,7 +360,7 @@ $(document).ready(function ()
         {
             var newExperinceForm = $(`<div class="FormExperince">
                                         <div class="row Experince-row mt-3 m-auto">
-                                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                                            <div class="col-sm-12 col-md-6 col-xl-6 ">
                                                 <div class="form-group mb-3">
                                                     <label for="" class="mb-1">Filière</label>
                                                     <input type="text" name="poste[]" class="form-control" placeholder="Filière" >
@@ -376,7 +376,7 @@ $(document).ready(function ()
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                                            <div class="col-sm-12 col-md-6 col-xl-6 ">
                                                 <div class="form-group mb-3">
                                                     <label for="" class="mb-1">Lycée / Université</label>
                                                     <input type="text" name="entreprise[]" class="form-control" placeholder="Lycée / Université" >
@@ -407,7 +407,7 @@ $(document).ready(function ()
                 $(`<div class="FormExperince ">
                     <hr class="lineeduform mb-4 mt-4">\
                         <div class="row Experince-row mt-3 m-auto">
-                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                            <div class="col-sm-12 col-md-6 col-xl-6 ">
                                 <div class="form-group mb-3">
                                     <label for="" class="mb-1">Filière</label>
                                     <input type="text" name="poste[]" class="form-control" placeholder="Filière" >
@@ -422,7 +422,7 @@ $(document).ready(function ()
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 col-xl-6 mt-5">
+                            <div class="col-sm-12 col-md-6 col-xl-6 ">
                                 <div class="form-group mb-3">
                                     <label for="" class="mb-1">Lycée / Université</label>
                                     <input type="text" name="entreprise[]" class="form-control" placeholder="Lycée / Université" >
