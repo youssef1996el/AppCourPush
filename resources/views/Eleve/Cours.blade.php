@@ -26,10 +26,15 @@
 
             <div class="tab-content">
                 <div id="programmes" class="tab-pane fade show active mt-4 ">
+<<<<<<< HEAD
                 <div class="card-container">
                     @if ($hasCours)
+=======
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 ">
+                        @if ($hasCours)
+>>>>>>> c8a764c63bf4f087f69b4c293a84844419785d04
                         @foreach ($MesCours as $item)
-                            <div class="card-sl " style="max-width:280px">
+                            <div class="card-sl mr-2" style="max-width:280px">
                                 <div class="name-course">{{$item->name_cours}}</div>
                                 <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
                                 <div class="card-heading" style="white-space: normal">
@@ -49,100 +54,9 @@
                                     <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
                                 </div>
                             </div>
-                            
-                        @endforeach
-                        @foreach ($MesCours as $item)
-                            <div class="card-sl " style="max-width:280px">
-                                <div class="name-course">{{$item->name_cours}}</div>
-                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
-                                <div class="card-heading" style="white-space: normal">
-                                    {{$item->nom_professeur}}
-                                </div>
 
-                                <div class="card-text">
-                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
-                                </div>
-                                <div class="card-text d-flex">
-                                    <i class="fa fa-calendar"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
-                                </div>
-                                <div class="card-text">
-                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
-                                </div>
-                                <div class="card-text">
-                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
-                                </div>
-                            </div>
-                            
                         @endforeach
-                        @foreach ($MesCours as $item)
-                            <div class="card-sl " style="max-width:280px">
-                                <div class="name-course">{{$item->name_cours}}</div>
-                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
-                                <div class="card-heading" style="white-space: normal">
-                                    {{$item->nom_professeur}}
-                                </div>
 
-                                <div class="card-text">
-                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
-                                </div>
-                                <div class="card-text d-flex">
-                                    <i class="fa fa-calendar"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
-                                </div>
-                                <div class="card-text">
-                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
-                                </div>
-                                <div class="card-text">
-                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
-                                </div>
-                            </div>
-                            
-                        @endforeach
-                        @foreach ($MesCours as $item)
-                            <div class="card-sl " style="max-width:280px">
-                                <div class="name-course">{{$item->name_cours}}</div>
-                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
-                                <div class="card-heading" style="white-space: normal">
-                                    {{$item->nom_professeur}}
-                                </div>
-
-                                <div class="card-text">
-                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
-                                </div>
-                                <div class="card-text d-flex">
-                                    <i class="fa fa-calendar"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
-                                </div>
-                                <div class="card-text">
-                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
-                                </div>
-                                <div class="card-text">
-                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
-                                </div>
-                            </div>
-                            
-                        @endforeach
-                        @foreach ($MesCours as $item)
-                            <div class="card-sl " style="max-width:280px">
-                                <div class="name-course">{{$item->name_cours}}</div>
-                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
-                                <div class="card-heading" style="white-space: normal">
-                                    {{$item->nom_professeur}}
-                                </div>
-
-                                <div class="card-text">
-                                    <i class="fa fa-clock"></i> <label>{{$item->times}}</label>
-                                </div>
-                                <div class="card-text d-flex">
-                                    <i class="fa fa-calendar"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
-                                </div>
-                                <div class="card-text">
-                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }}"></i><label> {{ $item->typecours }}</label>
-                                </div>
-                                <div class="card-text">
-                                    <a class="link-zoom" href="#"><i class="fa fa-video-camera" aria-hidden="true"></i>  <label>Cliquer ici</label></a>
-                                </div>
-                            </div>
-                            
-                        @endforeach
 
                         @else
                         <div class="text-center">
@@ -152,6 +66,8 @@
                             <p>Pour commencer, <a href="#"> resever un cours</a></p>
                         </div>
                         @endif
+                    </div>
+
                 </div>
 </div>
                 <div id="cours" class="tab-pane fade text-center">

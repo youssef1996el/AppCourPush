@@ -221,7 +221,7 @@ $(document).ready(function () {
                                 FiveTd,
                             ]);
                             dataTable.draw();
-                            dataTable.cell(':last', -1).node().classList.add('d-flex', 'mt-4');
+                            dataTable.cell(':last', -1).node().classList.add('button-container', 'mt-4');
                         });
                     }
                     else

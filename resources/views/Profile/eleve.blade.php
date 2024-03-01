@@ -318,6 +318,24 @@
 
 <style>
 
+.button-container {
+    white-space: nowrap; /* Ensures buttons stay in one line */
+  }
+
+
+  .button-container button {
+    display: inline-block;
+  /*   margin-right: 5px; /* Adjust spacing between buttons */
+   /*  padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;  */
+   /*  border-radius: 5px; */
+    cursor: pointer;
+   /*  font-size: 14px;
+    font-weight: bold; */
+  }
+
 </style>
 </div>
 

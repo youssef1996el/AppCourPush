@@ -924,6 +924,18 @@
                             { pattern: 'CoursPaiement', index: 5 },
                         ];
                     }
+                    else
+                    {
+                        var urlPatterns =
+                        [
+
+                            { pattern: 'profile/eleve', index: 0 },
+                            { pattern: 'Reserver', index: 0 },
+                            { pattern: 'InfosProfile', index: 1 },
+                            { pattern: 'Mescours', index: 2 },
+
+                        ];
+                    }
 
                     var activeIndex = 0; // Default to the first item
                     urlPatterns.forEach(function(pattern) {
