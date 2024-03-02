@@ -838,7 +838,8 @@ class ProfesseurController extends Controller
                 $userModel = User::find($item->id);
                 $textEleve = "Vous avez rendez-vous avec le Professeur ".$request['Data'][0]['nom_professeur']." pour le cours de ".$request['Data'][0]['title'].".
                               Veuillez cliquer sur le lien suivant pour rejoindre la réunion avec le professeur: <a href='".$meetingLink."' target='_blank'>lien de réunion</a>.";
-                Notification::send($userModel,new SendLinkMeetNotification(Auth::user()->id,$textEleve));
+                $Condition = "Event";
+                Notification::send($userModel,new SendLinkMeetNotification(Auth::user()->id,$textEleve,$Condition));
 
                 // Send Notification to Email
                 Mail::send('email.Send',

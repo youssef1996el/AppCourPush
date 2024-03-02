@@ -395,136 +395,7 @@
                                                                         @endforeach
                                                                     @endguest
 
-                                                                    {{-- <div class="vertical-timeline-item dot-danger vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <h4 class="timeline-title">All Hands Meeting</h4>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item dot-warning vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <p>Yet another one, at <span class="text-success">15:00 PM</span></p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item dot-success vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <h4 class="timeline-title">Build the production release
-                                                                                    <span class="badge badge-danger ml-2">NEW</span>
-                                                                                </h4>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> --}}
-                                                                    {{-- <div class="vertical-timeline-item dot-primary vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                                <div class="vertical-timeline-element-content bounce-in">
-                                                                                    <h4 class="timeline-title">Something not important
-                                                                                        <div class="avatar-wrapper mt-2 avatar-wrapper-overlap">
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                                <div class="avatar-icon">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                                <div class="avatar-icon">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                                <div class="avatar-icon">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                                <div class="avatar-icon">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                                <div class="avatar-icon">
 
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                                <div class="avatar-icon">
-
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                                <div class="avatar-icon">
-
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm">
-                                                                                                <div class="avatar-icon">
-
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="avatar-icon-wrapper avatar-icon-sm avatar-icon-add">
-                                                                                                <div class="avatar-icon">
-                                                                                                    <i>+</i>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </h4>
-                                                                                    <span class="vertical-timeline-element-date"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> --}}
-                                                                        {{-- <div class="vertical-timeline-item dot-info vertical-timeline-element">
-                                                                            <div>
-                                                                                <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                                <div class="vertical-timeline-element-content bounce-in">
-                                                                                    <h4 class="timeline-title">This dot has an info state</h4>
-                                                                                    <span class="vertical-timeline-element-date"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> --}}
-                                                                        {{-- <div class="vertical-timeline-item dot-danger vertical-timeline-element">
-                                                                            <div>
-                                                                                <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                                <div class="vertical-timeline-element-content bounce-in">
-                                                                                    <h4 class="timeline-title">All Hands Meeting</h4>
-                                                                                    <span class="vertical-timeline-element-date"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> --}}
-                                                                        {{-- <div class="vertical-timeline-item dot-warning vertical-timeline-element">
-                                                                            <div>
-                                                                                <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                                <div class="vertical-timeline-element-content bounce-in">
-                                                                                    <p>Yet another one, at <span class="text-success">15:00 PM</span>
-                                                                                    </p>
-                                                                                        <span class="vertical-timeline-element-date"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> --}}
-                                                                        {{-- <div class="vertical-timeline-item dot-success vertical-timeline-element">
-                                                                            <div>
-                                                                                <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                                <div class="vertical-timeline-element-content bounce-in">
-                                                                                    <h4 class="timeline-title">Build the production release
-                                                                                        <span class="badge badge-danger ml-2">NEW</span>
-                                                                                    </h4>
-                                                                                    <span class="vertical-timeline-element-date"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> --}}
-                                                                        {{-- <div class="vertical-timeline-item dot-dark vertical-timeline-element">
-                                                                            <div>
-                                                                                <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                                <div class="vertical-timeline-element-content bounce-in">
-                                                                                    <h4 class="timeline-title">This dot has a dark state</h4>
-                                                                                    <span class="vertical-timeline-element-date"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> --}}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -536,7 +407,37 @@
                                                         <div class="scrollbar-container">
                                                             <div class="p-3">
                                                                 <div class="vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
-                                                                    <div class="vertical-timeline-item vertical-timeline-element">
+                                                                    @foreach (auth()->user()->unreadNotifications as $notification)
+                                                                            @if( $notification->data['condition'] === 'Event')
+                                                                                @php
+                                                                                    $classes = ['badge-warning', 'badge-success', 'badge-primary', 'badge-info', 'badge-danger'];
+                                                                                    $randomClass = $classes[array_rand($classes)];
+                                                                                    // Extract link
+                                                                                    $pattern = '/<a\s+(?:[^>]*?\s+)?href=(["\'])(.*?)\1/';
+                                                                                    preg_match($pattern, $notification->data['title'], $matches);
+                                                                                    $href = isset($matches[2]) ? $matches[2] : '';
+                                                                                    // Remove tag a from text
+                                                                                    $patternRemove = '/<a\b[^>]*>(.*?)<\/a>/i';
+                                                                                    $Text = preg_replace($patternRemove, '', $notification->data['title']);
+
+                                                                                @endphp
+                                                                                <div class="vertical-timeline-item vertical-timeline-element">
+                                                                                    <div>
+                                                                                        <span class="vertical-timeline-element-icon bounce-in">
+                                                                                            <i class="badge badge-dot badge-dot-xl {{$randomClass}}"> </i>
+                                                                                        </span>
+                                                                                        <div class="vertical-timeline-element-content bounce-in">
+                                                                                            <h4 class="timeline-title">Réunion</h4>
+                                                                                            <p>{{$Text}}
+                                                                                                <a href="javascript:void(0);">{{$href}}</a>
+                                                                                            </p>
+                                                                                            <span class="vertical-timeline-element-date"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in">
                                                                                 <i class="badge badge-dot badge-dot-xl badge-success"> </i>
@@ -549,8 +450,8 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item vertical-timeline-element">
+                                                                    </div> --}}
+                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in">
                                                                                 <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
@@ -561,8 +462,8 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item vertical-timeline-element">
+                                                                    </div> --}}
+                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in">
                                                                                 <i class="badge badge-dot badge-dot-xl badge-danger"> </i>
@@ -575,8 +476,8 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item vertical-timeline-element">
+                                                                    </div> --}}
+                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in">
                                                                                 <i class="badge badge-dot badge-dot-xl badge-primary"> </i>
@@ -587,8 +488,8 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item vertical-timeline-element">
+                                                                    </div> --}}
+                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in">
                                                                                 <i class="badge badge-dot badge-dot-xl badge-success"> </i>
@@ -601,8 +502,8 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item vertical-timeline-element">
+                                                                    </div> --}}
+                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in">
                                                                                 <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
@@ -613,8 +514,8 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item vertical-timeline-element">
+                                                                    </div> --}}
+                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in">
                                                                                 <i class="badge badge-dot badge-dot-xl badge-danger"> </i>
@@ -627,8 +528,8 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="vertical-timeline-item vertical-timeline-element">
+                                                                    </div> --}}
+                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
                                                                             <span class="vertical-timeline-element-icon bounce-in">
                                                                                 <i class="badge badge-dot badge-dot-xl badge-primary"> </i>
@@ -639,7 +540,7 @@
                                                                                 <span class="vertical-timeline-element-date"></span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> --}}
                                                                 </div>
                                                             </div>
                                                         </div>

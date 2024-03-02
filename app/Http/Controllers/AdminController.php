@@ -781,7 +781,6 @@ class AdminController extends Controller
         }
         else
         {
-
             $data = $request->input('data');
             $ids = array_column($data, 'id');
             $reserves = DB::table('reserves')
@@ -809,7 +808,6 @@ class AdminController extends Controller
             return response()->json([
                 'status'   => 200,
             ]);
-
         }
     }
 

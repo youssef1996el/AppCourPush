@@ -12,13 +12,15 @@ class SendLinkMeetNotification extends Notification
     use Queueable;
     private $iduser;
     private $title;
+    private $Condition;
     /**
      * Create a new notification instance.
      */
-    public function __construct($iduser,$title)
+    public function __construct($iduser,$title,$Condition)
     {
         $this->iduser = $iduser;
         $this->title  = $title;
+        $this->Condition    = $Condition;
     }
 
     /**
@@ -40,6 +42,7 @@ class SendLinkMeetNotification extends Notification
         [
             'id'   =>$this->iduser,
             'title'=>$this->title,
+            'condition' => $this->Condition,
         ];
     }
 
