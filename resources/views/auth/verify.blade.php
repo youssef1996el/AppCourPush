@@ -1,5 +1,5 @@
-@extends('Dashboard.templateAdmin')
-@section('navsidebar')
+@extends('layouts.app')
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 mt-5">
@@ -24,4 +24,9 @@
         </div>
     </div>
 </div>
+<style>
+    *{
+        font-family:times;
+    }
+</style>
 @endsection

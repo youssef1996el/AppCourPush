@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Content-Language" content="en">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+        <title>iqraa</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
         <meta name="description" content="This is an example dashboard created using build-in elements and components.">
         <link rel="stylesheet" href="{{asset('css/templateAdmin.css')}}">
@@ -773,9 +773,10 @@
                                                 <ul>
                                                     <li>
                                                         <a href="{{ url('professeurs') }}">
-                                                            <i class="fa-solid fa-user-tie"></i> <span class="iconS">Professeur </span>
+                                                            <i class="fa-solid fa-user-tie users"></i> <span class="iconS">Professeur </span>
                                                         </a>
                                                     </li>
+                                                 
                                                     <li>
                                                         <a href="{{ url('eleves') }}">
                                                             <i class="fa-solid fa-users users "></i> <span class="iconS">Eleves </span>
@@ -791,8 +792,8 @@
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{url('Validation/Cours')}}">
-                                                    <i class="fa-solid fa-list-check metismenu-icon"></i>
-                                                    Valde Cours
+                                                    <i class="fa fa-check metismenu-icon" aria-hidden="true"></i>
+                                                    Cours validés
                                                 </a>
                                             </li>
                                         @endif
@@ -864,7 +865,7 @@
 
                                             <li class="mb-2">
                                                 <a href="{{url('Validation/Cours/Professeur')}}">
-                                                <i class="fa-regular fa-handshake metismenu-icon"></i> Douha Diri Chi harka hna
+                                                <i class="fa-solid fa-list-check metismenu-icon"></i> Réunion terminés
                                                 </a>
                                             </li>
 

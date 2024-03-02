@@ -59,7 +59,7 @@
                     <div class="card" style="min-height: 101%">
                         <div class="card-body">
                             <label for="">Cours :</label>
-                            <select class="form-select select-course" id="multiple-select-field" data-placeholder="selected cours" multiple>
+                            <select class="form-select select-course" id="multiple-select-field" data-placeholder="Rechercher sur un cours" multiple>
                                 @foreach ($cours as $course)
                                     <option value="{{ $course->id }}">{{ $course->title }}</option>
                                 @endforeach

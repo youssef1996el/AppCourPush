@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+@extends('layouts.app')
+
+@section('content')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,308 +10,307 @@
     <link rel="stylesheet" href="{{asset('css/Step.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Iqraa</title>
-</head>
-<body>
-
-    <div class="containerCss">
-
-        <div class="cardCss">
-            <div class="form">
-                <div class="left-side">
-                    <div class="left-heading">
-                        <h3><small><b>CRÉEZ </b> VOTRE PROFILE <br></small></h3>
-                    </div>
-
-                    <div class="steps-content">
-                        <h5><i>Étape </i><span class="step-number">1</span></h5>
-                        <p class="step-number-content active">Ces informations nous permettront d'en savoir plus sur vous. </p>
-                        <p class="step-number-content d-none">Get to know better by adding your diploma,certificate and education life.</p>
-                        <p class="step-number-content d-none">Help companies get to know you better by telling then about your past experiences.</p>
-                        <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
-                        <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
-                        <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
-                        <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
-                        <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
-                    </div>
-                    <ul class="progress-bar">
-                        <li class="active">informations personnelles</li>
-                        <li>Éducation</li>
-                        <li>Expériences professionnelles</li>
-                        <li>Vos méthodes</li>
-                        <li>Certification</li>
-                        <li>Cours</li>
-                        <li>Disponibilité</li>
-                    </ul>
-
-
-
+<div class="container">
+    <div class="cardCss ">
+        <div class="form">
+            <div class="left-side">
+                <div class="left-heading">
+                    <h3><small><b>CRÉEZ </b> VOTRE PROFILE <br></small></h3>
                 </div>
-                <div class="right-side">
 
-                    <form action="{{url('StoreData')}}" method="post" id="FormDetailProf" enctype="multipart/form-data">
-                        @csrf
-                        {{-- Step 1 --}}
-                        <div class="main active">
-                            <div class="text">
-                                <h2>Vos informations personnelles</h2>
-                                <p>Saisissez vos informations personnelles pour vous rapprocher des étudiants.</p>
-                            </div>
-                            <div class="picture-container">
-                                <div class="ContentImage">
-                                    <img src="{{asset('image/default-avatar.png')}}"  class="picture-src" id="wizardPicturePreview" alt="" width="60px" height="60px" required require >
-                                    <input type="file" id="wizard-picture" name="image"  require required >
-                                </div>
-                            </div>
-                            <div class="input-text" style="margin-top: 2.5rem;">
-                                <div class="input-div">
-                                    <input type="text" name="titre" required require id="user_name">
-                                    <span>Titre de votre annonce</span>
-                                </div>
-                                <div class="input-div">
-                                    <input type="date" id="DateNaissanceProf" name="datenaissance" require  required>
-                                    <span class="textDateNaissance">Date de naissance</span>
-                                </div>
-                            </div>
-                            <div class="input-text" style="margin-top: 2.5rem;">
-                                <div class="input-div">
-                                    <input type="text" id="phone" name="phone" required require>
-                                    <span>Numéro de téléphone</span>
-                                </div>
+                <div class="steps-content">
+                    <h5><i>Étape </i><span class="step-number">1</span></h5>
+                    <p class="step-number-content active">Ces informations nous permettront d'en savoir plus sur vous. </p>
+                    <p class="step-number-content d-none">Get to know better by adding your diploma,certificate and education life.</p>
+                    <p class="step-number-content d-none">Help companies get to know you better by telling then about your past experiences.</p>
+                    <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+                    <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+                    <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+                    <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+                    <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+                </div>
+                <ul class="progress-bar">
+                    <li class="active">informations personnelles</li>
+                    <li>Éducation</li>
+                    <li>Expériences professionnelles</li>
+                    <li>Vos méthodes</li>
+                    <li>Certification</li>
+                    <li>Cours</li>
+                    <li>Disponibilité</li>
+                </ul>
 
-                            </div>
-                            <div class="buttons mt-3 float-end">
-                                <button type="button" class="next_button ">Suivant</button>
+
+
+            </div>
+            <div class="right-side">
+
+                <form action="{{url('StoreData')}}" method="post" id="FormDetailProf" enctype="multipart/form-data">
+                    @csrf
+                    {{-- Step 1 --}}
+                    <div class="main active">
+                        <div class="text">
+                            <h2>Vos informations personnelles</h2>
+                            <p>Saisissez vos informations personnelles pour vous rapprocher des étudiants.</p>
+                        </div>
+                        <div class="picture-container">
+                            <div class="ContentImage">
+                                <img src="{{asset('image/default-avatar.png')}}"  class="picture-src" id="wizardPicturePreview" alt="" width="60px" height="60px" required require >
+                                <input type="file" id="wizard-picture" name="image"  require required >
                             </div>
                         </div>
-                        {{-- End Step 1 --}}
-
-                        {{-- Step 2 --}}
-                        <div class="main">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-10 col-xl-10">
-                                    <h2>Éducation</h2>
-                                    <p>Informez les étudiants et leurs parents de votre vie éducative.</p>
-                                </div>
-                                <div class="col-sm-12 col-md-2 col-xl-2">
-                                    <button class="btn btn-secondary float-end " id="AddFormation">Ajouter</button>
-                                </div>
+                        <div class="input-text" style="margin-top: 2.5rem;">
+                            <div class="input-div">
+                                <input type="text" name="titre" required require id="user_name">
+                                <span>Titre de votre annonce</span>
                             </div>
-                            <div class="HeightEducation ">
-
-                                <div class="input-text">
-                                    <div class="input-div">
-                                        <input type="text" name="diplome[]" required require>
-                                        <span>Dernier diplôme</span>
-                                    </div>
-                                    <div class="input-div">
-                                        <input type="text" name="Specialise[]" require required>
-                                        <span>Spécialité</span>
-                                    </div>
-                                </div>
-                                <div class="input-text" style="margin-top: 2.5rem;">
-                                    <div class="input-div">
-                                        <input type="text" name="annee[]" required require>
-                                        <span>Année d'obtention</span>
-                                    </div>
-                                    <div class="input-div">
-                                        <input type="text" name="ecole[]" required require>
-                                        <span>Lycée / Université</span>
-                                    </div>
-
-                                </div>
-                                <div class="input-text">
-                                    <div class="input-div">
-                                        <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysFormation[]" required require></select>
-                                    </div>
-                                </div>
-                                <hr style="border-style: dashed">
-                            </div>
-                            <div class="buttons button_space float-end">
-                                <button type="button" class="back_button">Précédent</button>
-                                <button type="button" class="next_button">Suivant</button>
+                            <div class="input-div">
+                                <input type="date" id="DateNaissanceProf" name="datenaissance" require  required>
+                                <span class="textDateNaissance">Date de naissance</span>
                             </div>
                         </div>
-                        {{-- End Stpe 2 --}}
-
-                        {{-- Step 3 --}}
-                        <div class="main">
-
-                            <div class="row">
-                                <div class="col-sm-12 col-md-10 col-xl-10">
-                                    <h2>Expériences professionnelles</h2>
-                                    <p>Pouvez-vous parler de votre expérience professionnelle passée ?</p>
-                                </div>
-                                <div class="col-sm-12 col-md-2 col-xl-2">
-                                    <button class="btn btn-secondary float-end " id="AddExperience">Ajouter</button>
-                                </div>
+                        <div class="input-text" style="margin-top: 2.5rem;">
+                            <div class="input-div">
+                                <input type="text" id="phone" name="phone" required require>
+                                <span>Numéro de téléphone</span>
                             </div>
-                            <div class="heightExperience">
-                                <div class="input-text">
-                                    <div class="input-div">
-                                        <input type="text" name="poste[]" required require>
-                                        <span>Filière</span>
-                                    </div>
-                                    <div class="input-div">
-                                        <input type="text" name="entreprise[]" required require>
-                                        <span>Lycée / Université</span>
-                                    </div>
-                                </div>
-                                <div class="input-text " style="margin-top: 1rem !important; font-weight:bold;font-size:14px;">
-                                    <div class="input-div">
-                                        <label style="margin-left: 6px;">Du</label>
-                                        <input type="date" name="du[]" required require>
-                                        <!-- <span>Du</span> -->
-                                     </div>
-                                     <div class="input-div">
-                                        <label  style="margin-left: 6px;">Au</label>
-                                        <input type="date" name="au[]" required require>
-                                        <!-- <span>Au</span> -->
-                                     </div>
-                                </div>
-                                <div class="input-text">
-                                    <div class="input-div">
-                                        <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysExperience[]" required require></select>
-                                    </div>
-                                </div>
-                                <hr style="border-style: dashed">
+
+                        </div>
+                        <div class="buttons mb-3 mt-3 float-end">
+                            <button type="button" class="next_button ">Suivant</button>
+                        </div>
+                    </div>
+                    {{-- End Step 1 --}}
+
+                    {{-- Step 2 --}}
+                    <div class="main">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-10 col-xl-10 text">
+                                <h2>Education</h2>
+                                <p>Informez les étudiants et leurs parents de votre vie éducative.</p>
                             </div>
-                            <div class="buttons button_space float-end">
-                                <button type="button" class="back_button">Précédent</button>
-                                <button type="button" class="next_button">Suivant</button>
+                            <div class="col-sm-12 col-md-2 col-xl-2">
+                                <button class="btn btn-secondary float-end " id="AddFormation">Ajouter</button>
                             </div>
                         </div>
-                        {{-- End step 3 --}}
+                        <div class="HeightEducation ">
 
-                        {{-- Step 4 --}}
-                        <div class="main">
-                            <div class="text">
-                                <h2>Vos méthodes</h2>
-                                <p>Vos expériences en cours de soutien et en pédagogie .</p>
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" name="diplome[]" >
+                                    <span >Dernier diplôme</span>
+                                </div>
+                                <div class="input-div">
+                                    <input type="text" name="Specialise[]" >
+                                    <span>Spécialité</span>
+                                </div>
+                            </div>
+                            <div class="input-text" >
+                                <div class="input-div">
+                                    <input type="text" name="annee[]" >
+                                    <span>Année d'obtention</span>
+                                </div>
+                                <div class="input-div">
+                                    <input type="text" name="ecole[]" >
+                                    <span>Lycée / Université</span>
+                                </div>
+
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <label for="" class="mb-2">
-                                        Plus votre description sera détaillée, plus vous aurez de chances d'avoir des élèves.
-                                        Vous pouvez rajouter les résultats et/ou les retours de vos élèves.
-                                        Cette présentation sera affichée sur votre profil.
-                                    </label>
-                                    <textarea name="methode" id="" cols="65" rows="5" required require></textarea>
-
+                                    <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysFormation[]" ></select>
                                 </div>
                             </div>
-                            <div class="buttons button_space mt-3 float-end">
-                                <button type="button" class="back_button">Précédent</button>
-                                <button type="button" class="next_button">Suivant</button>
+                            <hr style="border-style: dashed">
+                        </div>
+                        <div class="buttons button_space float-end">
+                            <button type="button" class="back_button">Précédent</button>
+                            <button type="button" class="next_button">Suivant</button>
+                        </div>
+                    </div>
+                    {{-- End Stpe 2 --}}
 
+                    {{-- Step 3 --}}
+                    <div class="main">
+
+                        <div class="row">
+                            <div class="text col-sm-12 col-md-10 col-xl-10">
+                                <h2>Expériences professionnelles</h2>
+                                <p>Pouvez-vous parler de votre expérience professionnelle passée ?</p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-xl-2">
+                                <button class="btn btn-secondary float-end " id="AddExperience">Ajouter</button>
                             </div>
                         </div>
-                        {{-- End Step 4 --}}
-
-                        {{-- Step 5 --}}
-                        <div class="main">
-                            <div class="text">
-                                <h2>Certification</h2>
-                                <p>Veuillez ajouter votre dernier certificat de travail.</p>
+                        <div class="heightExperience">
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" name="poste[]" required require>
+                                    <span>Filière</span>
+                                </div>
+                                <div class="input-div">
+                                    <input type="text" name="entreprise[]" required require>
+                                    <span>Lycée / Université</span>
+                                </div>
+                            </div>
+                            <div class="input-text " style="margin-top: 1rem !important; font-weight:bold;font-size:14px;">
+                                <div class="input-div du">
+                                    <label style="margin-left: 6px;">Du</label>
+                                    <input type="date" name="du[]" required require>
+                                    <!-- <span>Du</span> -->
+                                    </div>
+                                    <div class="input-div au">
+                                    <label  style="margin-left: 6px;">Au</label>
+                                    <input type="date" name="au[]" required require>
+                                    <!-- <span>Au</span> -->
+                                    </div>
                             </div>
                             <div class="input-text">
                                 <div class="input-div">
-                                    <label for="" class="sr-only">Attestation de travail</label>
-                                    <input type="file" name="attestation" class="form-control">
+                                    <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysExperience[]" required require></select>
                                 </div>
                             </div>
-                            <div class="buttons button_space mt-5 float-end">
-                                <button type="button" class="back_button">Précédent</button>
-                                <button type="button" class="next_button">Suivant</button>
+                            <hr style="border-style: dashed">
+                        </div>
+                        <div class="buttons button_space float-end">
+                            <button type="button" class="back_button">Précédent</button>
+                            <button type="button" class="next_button">Suivant</button>
+                        </div>
+                    </div>
+                    {{-- End step 3 --}}
+
+                    {{-- Step 4 --}}
+                    <div class="main">
+                        <div class="text">
+                            <h2>Vos méthodes</h2>
+                            <p>Vos expériences en cours de soutien et en pédagogie .</p>
+                        </div>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <label for="" class="mb-2">
+                                    Plus votre description sera détaillée, plus vous aurez de chances d'avoir des élèves.
+                                    Vous pouvez rajouter les résultats et/ou les retours de vos élèves.
+                                    Cette présentation sera affichée sur votre profil.
+                                </label>
+                                <textarea name="methode" id="" cols="65" rows="5" required require></textarea>
+
                             </div>
                         </div>
-                        {{-- End Step 5 --}}
+                        <div class="buttons button_space mt-3 float-end">
+                            <button type="button" class="back_button">Précédent</button>
+                            <button type="button" class="next_button">Suivant</button>
 
-                         {{-- Step 6 --}}
-                        <div class="main ">
-                            <div class="text">
-                                <h2>Cours</h2>
-                                <p>Quelles sont les cours dans lesquelles vous pouvez aider des élèves ?</p>
-                            </div>
-                            <div class="List-Courses">
-                                <div class="input-cours">
-                                    <div class="input-text">
-                                        <div class="input-div" class="d-flex">
-                                            <input type="text" id="input-tag">
-                                            <button type="button" id="AddCours" >Ajouter</button>
-                                        </div>
+                        </div>
+                    </div>
+                    {{-- End Step 4 --}}
 
-                                    </div>
-
-                                    <div class="errorCours"></div>
-                                </div>
-                                <div class="ListeCours" >
-                                    <div class="tags-input" >
-                                        <ul id="tags"></ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="buttons button_space mt-4 float-end">
-                                <button type="button" class="back_button">Précédent</button>
-                                <button type="button" class="next_button">Suivant</button>
+                    {{-- Step 5 --}}
+                    <div class="main">
+                        <div class="text">
+                            <h2>Certification</h2>
+                            <p>Veuillez ajouter votre dernier certificat de travail.</p>
+                        </div>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <label for="" class="sr-only">Attestation de travail</label>
+                                <input type="file" name="attestation" class="form-control">
                             </div>
                         </div>
-                        {{-- End Step 6 --}}
-
-                        {{-- Step 7 --}}
-                        <div class="main ">
-                            <div class="text">
-                                <h2>Disponibilité</h2>
-                                <p>Quelles sont vos disponibilités pour donner des cours ?</p>
-                                <h5 style="color:red">NB. Les cours particuliers coûtent <span class="PricePrive"></span> euros et les cours collectifs coûtent <span class="PriceGroupe"></span> euros</h5>
-                            </div>
-                            <div class="row rowDays">
-                                <div class="days-list">
-                                    <div class="day-item d-inline ml-2">Lundi</div>
-                                    <div class="day-item d-inline ml-2">Mardi</div>
-                                    <div class="day-item d-inline ml-2">Mercredi</div>
-                                    <div class="day-item d-inline ml-2">Jeudi</div>
-                                    <div class="day-item d-inline ml-2">Vendredi</div>
-                                    <div class="day-item d-inline ml-2">Samedi</div>
-                                    <div class="day-item d-inline ml-2">Dimanche</div>
-                                </div>
-                                <select class="form-control dropdownTimeZone" name="timezone"></select>
-                                <br>
-                                <div class="divHours">
-
-                                </div>
-                            </div>
-                            <div class="buttons button_space mt-2 float-end">
-                                <button type="button" class="back_button">Précédent</button>
-                                <button type="button" class="submit_button finish" >Valider</button>
-                            </div>
+                        <div class="buttons button_space mt-5 float-end">
+                            <button type="button" class="back_button">Précédent</button>
+                            <button type="button" class="next_button">Suivant</button>
                         </div>
-                        {{-- End Step 7 --}}
+                    </div>
+                    {{-- End Step 5 --}}
 
-                        {{-- Modal Finish --}}
-                        <div class="modal fade" tabindex="-1" role="dialog" id="ModalConfirm">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Confirmer la sauvegarde</h4>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        {{-- Step 6 --}}
+                    <div class="main ">
+                        <div class="text">
+                            <h2>Cours</h2>
+                            <p>Quelles sont les cours dans lesquelles vous pouvez aider des élèves ?</p>
+                        </div>
+                        <div class="List-Courses">
+                            <div class="input-cours">
+                                <div class="input-text">
+                                    <div class="input-div d-flex" style="gap:12px">
+                                        <input type="text" id="input-tag" >
+                                        <button type="button" id="AddCours" >Ajouter</button>
                                     </div>
-                                    <div class="modal-body">
-                                        <p>Voulez-vous sauvegarder vos donnees personnelles ?*</p>
-                                        <input type="checkbox" id="confirmCheckbox">
-                                        <label for="confirmCheckbox">Oui, j'accepte </label>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
-                                        <button type="submit" class="btn btn-primary" id="btnSaveData">sauvegarder</button>
-                                    </div>
+
+                                </div>
+
+                                <div class="errorCours"></div>
+                            </div>
+                            <div class="ListeCours" >
+                                <div class="tags-input" >
+                                    <ul id="tags"></ul>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
+                        <div class="buttons button_space mt-4 float-end">
+                            <button type="button" class="back_button">Précédent</button>
+                            <button type="button" class="next_button">Suivant</button>
+                        </div>
+                    </div>
+                    {{-- End Step 6 --}}
+
+                    {{-- Step 7 --}}
+                    <div class="main ">
+                        <div class="text">
+                            <h2>Disponibilité</h2>
+                            <p>Quelles sont vos disponibilités pour donner des cours ?</p>
+                            <h5 style="color:red">NB. Les cours particuliers coûtent <span class="PricePrive"></span> euros et les cours collectifs coûtent <span class="PriceGroupe"></span> euros</h5>
+                        </div>
+                        <div class="row rowDays">
+                            <div class="days-list">
+                                <div class="day-item d-inline ml-2">Lundi</div>
+                                <div class="day-item d-inline ml-2">Mardi</div>
+                                <div class="day-item d-inline ml-2">Mercredi</div>
+                                <div class="day-item d-inline ml-2">Jeudi</div>
+                                <div class="day-item d-inline ml-2">Vendredi</div>
+                                <div class="day-item d-inline ml-2">Samedi</div>
+                                <div class="day-item d-inline ml-2">Dimanche</div>
+                            </div>
+                            <select class="form-control dropdownTimeZone mt-3 form-select" name="timezone"></select>
+                            <br>
+                            <div class="card mt-3 shadow">
+                              <div class="card-body divHours ">
+                                
+                              </div>
+                            </div>
+                            
+                        </div>
+                        <div class="buttons button_space mt-2 float-end">
+                            <button type="button" class="back_button">Précédent</button>
+                            <button type="button" class="submit_button finish" >Valider</button>
+                        </div>
+                    </div>
+                    {{-- End Step 7 --}}
+
+                    {{-- Modal Finish --}}
+                    <div class="modal fade" tabindex="-1" role="dialog" id="ModalConfirm">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Confirmer la sauvegarde</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Voulez-vous sauvegarder vos donnees personnelles ?*</p>
+                                    <input type="checkbox" id="confirmCheckbox">
+                                    <label for="confirmCheckbox">Oui, j'accepte </label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
+                                    <button type="submit" class="btn btn-primary" id="btnSaveData">sauvegarder</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -364,7 +363,7 @@
                 var lenghtFormFormation =$('.HeightEducation .formFormation').length ;
                 if(lenghtFormFormation >=0)
                 {
-                    $('.HeightEducation').addClass('card shadow');
+                    $('.HeightEducation').addClass('card ');
                 }
                 $('.HeightEducation').append(`<div class="formFormation">
                                                 <div class="input-text">
@@ -377,7 +376,7 @@
                                                         <span>Spécialité</span>
                                                     </div>
                                                 </div>
-                                                <div class="input-text" style="margin-top: 2.5rem;">
+                                                <div class="input-text">
                                                     <div class="input-div">
                                                         <input type="text" name="annee[]" required require>
                                                         <span>Année d'obtention</span>
@@ -392,12 +391,13 @@
                                                         <select class="countryDropdown" onchange="print_state('state', this.selectedIndex);" name="paysFormation[]" required require></select>
                                                     </div>
                                                     <div class="input-div">
-                                                        <button class="btn btn-danger float-end">Supprimer</button>
+                                                        <button class="btn btn-danger float-end" id="deleteAppend">Supprimer</button>
                                                     </div>
                                                 </div>
 
-                                                <hr style="border-style: dashed">
-                                            </div>`);
+                                            </div>
+                                            <hr style="border-style: dashed">
+`);
                                             print_country("countryDropdown");
             });
             $('#AddExperience').on('click', function()
@@ -418,12 +418,12 @@
                                                                 <span>Lycée / Université</span>
                                                             </div>
                                                         </div>
-                                                        <div class="input-text" style="margin-top: 1rem !important; font-weight:bold;font-size:14px;">
-                                                            <div class="input-div">
+                                                        <div class="input-text du" style="margin-top: 1rem !important; font-weight:bold;font-size:14px;">
+                                                            <div class="input-div du">
                                                                 <label style="margin-left:6px">Du</label>
                                                                 <input type="date"  name="du[]" required require>
                                                         </div>
-                                                        <div class="input-div">
+                                                        <div class="input-div au">
                                                                 <label style="margin-left:6px">Au</label>
                                                                 <input type="date" name="au[]" required require>
                                                             </div>
@@ -433,12 +433,12 @@
                                                                 <select  onchange="print_state('state',this.selectedIndex);" class="countryDropdown" {{-- id="country" --}} name="paysExperience[]" required require></select>
                                                             </div>
                                                             <div class="input-div">
-                                                                <button class="btn btn-danger float-end">Supprimer</button>
+                                                                <button class="btn btn-danger float-end" id="deleteAppend">Supprimer</button>
                                                             </div>
                                                         </div>
 
-                                                    <hr style="border-style: dashed">
-                                                </div>`);
+                                                </div>
+                                                <hr style="border-style: dashed">`);
                                                 print_country("countryDropdown");
             });
 
@@ -446,7 +446,7 @@
                 var lenghtFormFormation =$('.HeightEducation .formFormation').length ;
                 if(lenghtFormFormation ==1)
                 {
-                    $('.HeightEducation').removeClass('card shadow');
+                    $('.HeightEducation').removeClass('card ');
                 }
                 $(this).closest('.formFormation').remove();
             });
@@ -527,13 +527,13 @@
                                     </div>
                                 </div>
 
-                                <div class="row mt-3">
-                                    <div class="col-sm-12 col-md-3 col-xl-3">
+                                <div class="row mt-3 text-center">
+                                    <div class="col-sm-12 col-md-4 col-xl-4 mt-2">
                                         <label for="" style="white-space: nowrap">Choisir un cours</label>
                                         ${finalSelect}
                                     </div>
-                                    <div class="col-sm-12 col-md-3 col-xl-3">
-                                        <label for="">Groupe / Privé</label>
+                                    <div class="col-sm-12 col-md-4 col-xl-4 mt-2">
+                                        <label for="">Groupe/Privé</label>
                                         <div class="radio-inputs">
                                             <label>
                                                 <input class="radio-input" value="groupe" type="checkbox" name="typeCours[]">
@@ -558,12 +558,12 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-3 col-xl-3">
-                                        <label for="">Heure de début</label>
+                                    <div class="col-sm-12 col-md-2 col-xl-2 mt-2">
+                                        <label for="">Début</label>
                                         <input type="time" name="heuredebut[]" class="form-control heuredebut">
                                     </div>
-                                    <div class="col-sm-12 col-md-3 col-xl-3">
-                                        <label for="">Heure de fin</label>
+                                    <div class="col-sm-12 col-md-2 col-xl-2 mt-2">
+                                        <label for="">Fin</label>
                                         <input type="time" name="heurefin[]" class="form-control heurefin">
                                     </div>
 
@@ -901,6 +901,5 @@
 
         }
     </script>
-
-</body>
-</html>
+</div>
+@endsection

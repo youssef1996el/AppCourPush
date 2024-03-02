@@ -33,7 +33,7 @@
         {
             background-color: #3b5170;
         }
-        .divHours
+       /*  .divHours
         {
             border: 2px solid #304767;
             border-radius: 20px;
@@ -46,7 +46,7 @@
             margin-bottom: 7px;
             overflow-x: clip;
             min-width: 530px;
-        }
+        } */
         .divHours label
         {
             font-weight: bold;
@@ -64,33 +64,31 @@
         }
         /*********** */
         *{
-            padding:0;
-            margin:0;
+           
             font-family:times;
         }
-        .containerCss{
+       /*  .containerCss{
             min-height:100vh;
             display:flex;
             justify-content:center;
             align-items:center;
             background-color:#eee;
-        }
-        .containerCss .cardCss{
-            height: 550px;
-            width: 830px;
+        } */
+         .cardCss{
+            margin-top:4rem !important;
             background-color: #fff;
             position: relative;
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             font-family: 'Poppins', sans-serif;
             border-radius: 20px;
         }
-        .containerCss .cardCss .form{
+        .cardCss .form{
             width:100%;
             height:100%;
 
             display:flex;
         }
-        .containerCss .cardCss .left-side{
+       .cardCss .left-side{
             width:35%;
             background-color:#304767;
             height:100%;
@@ -98,6 +96,7 @@
         border-bottom-left-radius:20px;
         padding:20px 30px;
         box-sizing:border-box;
+        height: auto;
 
         }
 /*left-side-start*/
@@ -119,17 +118,18 @@
     /* margin-top:30px; */
     font-size:13px;
     font-weight:700;
-    counter-reset:containerCss 0;
+    counter-reset:cardCss 0;
+    margin-left: -40px;
 }
 .progress-bar li{
        position:relative;
        margin-left:40px;
        margin-top:26px;
-       counter-increment:containerCss 1;
+       counter-increment:cardCss 1;
       color:#4f6581;
 }
 .progress-bar li::before{
-    content:counter(containerCss);
+    content:counter(cardCss);
     line-height:25px;
     text-align:center;
     position:absolute;
@@ -183,8 +183,8 @@
 
 
 /*left-side-end*/
-.containerCss .cardCss .right-side{
-    width:65%;
+ .cardCss .right-side{
+    width:100%;
     background-color:#fff;
     height:100%;
   border-radius:20px;
@@ -197,7 +197,7 @@
     display:block;
 }
 .main{
-    padding:35px;
+    padding: 40px 16px 0px 16px;
 }
 .main small{
     display:flex;
@@ -211,9 +211,7 @@
     color:yellow;
     font-size:19px;
 }
-.text{
-    margin-top:10px;
-}
+
 .congrats{
     text-align:center;
 }
@@ -225,7 +223,7 @@
 }
 .input-text{
     margin: 30px 0px 4px 0;
-     display:flex;
+    display:flex;
     gap:20px;
 }
 
@@ -260,7 +258,6 @@ input[type="date"]{
     padding:0px 10px;
 }
 input[type="time"]{
-    width:111%;
     height:40px;
     border:none;
     outline:0;
@@ -270,6 +267,7 @@ input[type="time"]{
     box-sizing:border-box;
     padding:0px 10px;
     margin-right: 5rem;
+    text-align: center;
 }
 .ContentImage
 {
@@ -277,7 +275,7 @@ input[type="time"]{
     justify-content: center;
     align-items: center
 }
-.HeightEducation
+/* .HeightEducation
 {
 
   padding: 8px;
@@ -292,52 +290,52 @@ input[type="time"]{
     max-height: 20rem;
     overflow-y: auto;
     margin-bottom: 16px;
-}
+} */
 
-.heightExperience, .card{
-    width: 508px;
-  margin-left: -20px;
-  padding: 10px;
-}
-.HeightEducation, .card{
+/* .heightExperience, .card{
     width: 508px;
   margin-left: -20px;
   padding: 10px;
 } */
+/* .HeightEducation, .card{
+    width: 508px;
+  margin-left: -20px;
+  padding: 10px;
+} */ 
 /********** */
-.heightExperience::-webkit-scrollbar {
+/* .heightExperience::-webkit-scrollbar {
     width: 15px;
-}
-.HeightEducation::-webkit-scrollbar {
+} */
+/* .HeightEducation::-webkit-scrollbar {
     width: 15px;
-}
+} */
 .divHours::-webkit-scrollbar {
     width: 15px;
 }
 /******** */
 
-.heightExperience::-webkit-scrollbar-thumb {
+/* .heightExperience::-webkit-scrollbar-thumb {
     background-color: #304767;
     border-radius: 10px;
     border: 3px solid #ffffff;
-}
-.HeightEducation::-webkit-scrollbar-thumb {
+} */
+/* .HeightEducation::-webkit-scrollbar-thumb {
     background-color: #304767;
     border-radius: 10px;
     border: 3px solid #ffffff;
-}
+} */
 .divHours::-webkit-scrollbar-thumb {
     background-color: #304767;
     border-radius: 10px;
     border: 3px solid #ffffff;
 }
 /************ */
-.HeightEducation::-webkit-scrollbar-track {
+/* .HeightEducation::-webkit-scrollbar-track {
     background-color: #eee;
-}
-.heightExperience::-webkit-scrollbar-track {
+} */
+/* .heightExperience::-webkit-scrollbar-track {
     background-color: #eee;
-}
+} */
 .divHours::-webkit-scrollbar-track {
     background-color: #eee;
 }
@@ -384,7 +382,7 @@ input[type="time"]{
 
 }
 #input-tag{
-  width: 78%;
+  width: 100%;
   height: 40px;
   border: none;
   outline: 0;
@@ -452,7 +450,7 @@ select{
     transition:all 0.5s;
 }
 .input-div input:focus ~ span,.input-div input:valid ~ span  {
-    top:-20px;
+    top:-25px;
     left:6px;
     font-size:14px;
     font-weight:600;
@@ -473,16 +471,16 @@ select{
     color:#fff;
     cursor:pointer;
 }
-.button_space{
-    display:flex;
-    gap:20px;
 
-}
 .button_space button:nth-child(1){
     background-color:#fff;
     color:#000;
     border:1px solid#000;
 }
+.button_space {
+    margin-top: 20px;
+}
+
 .user_card{
     margin-top:20px;
     margin-bottom:40px;
@@ -637,9 +635,13 @@ select{
 
 
 
+/* #deleteAppend{
+   
+    font-size: 16px;
+    text-transform: initial;
+}
 
-
-
+ */
 
 .warning{
     border:1px solid red !important;
@@ -647,18 +649,8 @@ select{
 
 
 /*right-side-end*/
-@media (max-width:750px) {
-    .containerCss{
-        height:scroll;
-
-
-    }
-    .containerCss .cardCss {
-        max-width: 350px;
-        height:auto !important;
-        margin:30px 0;
-    }
-    .containerCss .cardCss .right-side {
+@media (max-width:800px) {
+ .cardCss .right-side {
      width:100%;
 
     }
@@ -667,14 +659,26 @@ select{
      }
 
      .input-text .input-div{
-  margin-top:20px;
+  margin-top:34px;
 
 }
+.du{
+    margin-top: 12px !important;
+}
+.au{
+    margin-top: 12px !important;
+}
 
-    .containerCss .cardCss .left-side {
+
+ .cardCss .left-side {
 
      display: none;
     }
+
+    .button_space {
+        margin: 20px 0px !important;
+    }
+    
 }
     .textDateNaissance
     {
@@ -721,7 +725,6 @@ select{
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 176px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -827,3 +830,68 @@ select{
   white-space: nowrap;
   width: 1px;
 }
+
+
+.HeightEducation, .card{
+  max-height: 340px;
+  overflow: auto;
+  padding: 12px;
+  box-shadow: none;
+}
+.HeightExperience, .card{
+    max-height: 340px;
+    overflow: auto;
+    padding: 12px;
+    box-shadow: none;
+  }
+  #deleteAppend{
+    font-size: 18px;
+    text-transform: initial;
+  }
+#AddFormation,#AddExperience{
+    background-color:#304767 ;
+    color: white;
+    border-color: #304767;
+    font-size: 18px;
+    text-transform: initial;
+    margin-bottom: 10px;
+}
+#AddFormation,#AddExperience:hover{
+    background-color:#284977 ;
+    color: white;
+    border-color: #284977;
+}
+
+@media only screen and (max-width: 750px) {
+    .HeightEducation, .card, .input-text{
+        margin:0px
+    }
+   
+    #AddFormation{
+        font-size: 16px;
+        text-transform: initial;
+        margin-bottom: 10px;
+    }
+    #AddExperience{
+        font-size: 16px;
+        text-transform: initial;
+        margin-bottom: 10px;
+    }
+    #deleteAppend{
+        font-size: 16px;
+        text-transform: initial;
+      }
+    .HeightEducation,.HeightExperience, .card{
+        max-height: 430px;
+      }
+   
+  }
+  /* .button_space {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  } */
+
+  .form-select{
+cursor: pointer;  }

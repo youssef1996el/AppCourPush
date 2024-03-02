@@ -1,6 +1,6 @@
 *{
-    font-family:times;
-}
+    font-family: 'Times New Roman', Times, serif;
+  }
 .card-title{
 font-size: 26px;
 text-align: center;
@@ -48,4 +48,27 @@ opacity: 0 !important;
 position: absolute;
 top: 0;
 width: 100%;
+}
+
+#showInputsLink{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+
+
+ 
+.hidden-inputs {
+      display: none;
+    }
+
+.form-group .show-password {
+    cursor: pointer;
+  position: absolute;
+  right: 20px;
+
+  transform: translateY(-50%);
+  margin-top: -18px;
 }

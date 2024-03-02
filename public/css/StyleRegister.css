@@ -1,4 +1,8 @@
-.input-control input:focus {
+
+*{
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .input-control input:focus {
     outline: 0;
 }
 
@@ -54,7 +58,7 @@
     }    
 
 
-      .btn-google{
+      .btn-google-register{
         margin-bottom: 7px;
         width: 90px;
         height: 60px;
@@ -171,7 +175,7 @@
             }
         
             .tab-pane {
-                padding: 0 15px; /* Add padding to tab content */
+                padding: 0px !important; /* Add padding to tab content */
             }}
 
 
@@ -186,7 +190,7 @@
             @media (max-width: 576px) {
                 /* Your CSS styles for phones here */
                .form-eleve {
-                width: 90%; /* Make the form full width on smaller screens */
+                width: 95%; /* Make the form full width on smaller screens */
             }
             }
             
@@ -204,7 +208,7 @@
             @media (min-width: 992px) {
                 /* Your CSS styles for laptops and desktops here */
                 .form-eleve {
-                    width: 500px; /* Set card width for larger screens */
+                    width:500px; /* Set card width for larger screens */
                     margin: auto; /* Center align the card */
                 }
                 

@@ -1,3 +1,6 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
 .form-group i.fa-envelope {
     position: absolute;
     left: 10px; /* Adjust the left value as needed */

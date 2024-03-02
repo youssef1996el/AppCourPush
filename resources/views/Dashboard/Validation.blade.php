@@ -55,7 +55,10 @@
                                                 <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->fin}}</span>
                                             </td>
                                             <td>
-                                                <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->status == 0 ? "En Cours" : ($item->status == 2 ? "Professor has completed the course" : "Valide")}}</span>
+                                            <span class=" mb-1 text-center timezone" style="text-align: center;font-weight:bold; color: {{ $item->status == 0 ? '#fc0' : ($item->status == 2 ? '#00b40c' : 'gray') }}">
+    {{ $item->status == 0 ? 'En Cours' : ($item->status == 2 ? 'Professor has completed the course' : 'Valide') }}
+</span>
+
                                             </td>
                                             <td>
                                                 <input type="checkbox" value="{{$item->id}}" data-value="" class="SelectedCours" >
@@ -118,7 +121,7 @@
                 }
             },
         });
-        $('#tableListValidationCours_wrapper .col-sm-12.col-md-6:first-child').append('<button type="button" class="btn btn-info  btnValidCours " style="margin-top:3rem">Valide Cours</button>');
+        $('#tableListValidationCours_wrapper .col-sm-12.col-md-6:first-child').append('<button type="button" class="btn btn-info  btnValidCours " style="margin-top:3rem">Valider un cours</button>');
 
         $(document).on('click','.btnValidCours',function()
         {

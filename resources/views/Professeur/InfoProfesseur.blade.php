@@ -54,6 +54,39 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-4">
+                <div class="col-sm-12 col-md-3 col-xl-3 "></div>
+                <div class="col-sm-12 col-md-6 col-xl-6 ">
+                    <div class="showInputs m-auto">
+                        <a href="#" id="showInputsLink" class="d-flex justify-content-center bold mb-5">Modifier votre mot de passe</a>
+                        <div class="hidden-inputs" id="inputsContainer">
+
+                            <div class="form-group mb-3">
+                                <label for="" class="mb-1">Mot de passe actuelle</label>
+                                <input type="password" class="form-control" id="mdpActuelle" name="mypassword" placeholder="Entrer votre mot de passe actuelle" value="" >
+                                <i class="fa-solid fa-eye-slash show-password" id="actualEye" ></i>
+
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="" class="mb-1">Nouveau mot de passe </label>
+                                <input type="password" class="form-control"  id="nouveaumdp" name="newpassword" placeholder="Entrer votre nouveau mot de passe " value="" >
+                                <i class="fa-solid fa-eye-slash show-password" id="newEye" ></i>
+                                <span class="error-message" id="errorNewPassword"></span>
+
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="" class="mb-1">Confirmer votre mot de passe </label>
+                                <input type="password" class="form-control"  id="Confirmermdp" name="confirmpassword" placeholder="Confirmer votre mot de passe " value="" >
+                                <i class="fa-solid fa-eye-slash show-password" id="cfrmEye" ></i>
+                                <span class="error-message" id="errorConfirmPassword"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-xl-3 "></div>
+
+            </div>
+
             <div class="mt-5">
             <button type="submit" class="btn btn-success  BtnUpdateDataProfesseur" style="display:flex; margin:auto">Valider</button>
             </div>
@@ -82,5 +115,33 @@ function readURL(input) {
         readURL(this);
     });
 });
+document.getElementById('showInputsLink').addEventListener('click', function()
+    {
+        var inputsContainer = document.getElementById('inputsContainer');
+        inputsContainer.style.display = (inputsContainer.style.display === 'none' || inputsContainer.style.display === '') ? 'block' : 'none';
+    });
+    const passwordInputIds =
+    [
+        { inputId: "mdpActuelle", eyeId: "actualEye" },
+        { inputId: "nouveaumdp", eyeId: "newEye" },
+        { inputId: "Confirmermdp", eyeId: "cfrmEye" },
+
+    ];
+
+    passwordInputIds.forEach(function(pair) {
+        const passwordInput = document.getElementById(pair.inputId);
+        const togglePasswordButton = document.getElementById(pair.eyeId);
+
+        if (passwordInput && togglePasswordButton) {
+            togglePasswordButton.addEventListener("click", function () {
+                const type = passwordInput.getAttribute("type");
+                passwordInput.setAttribute("type", type === "password" ? "text" : "password");
+
+                // Toggle the eye icon
+                togglePasswordButton.classList.toggle("fa-eye");
+                togglePasswordButton.classList.toggle("fa-eye-slash");
+            });
+        }
+    });
     </script>
 @endsection

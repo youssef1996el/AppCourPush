@@ -48,7 +48,7 @@
                                         <p class="fw-normal mb-1 " style="text-align: center;width: 116px;">{{$item->title}}</p>
                                     </td>
                                     <td>
-                                        <span class="">Active</span>
+                                        <span class="activeText">Active</span>
                                     </td>
                                     @if ($item->numberExperince <= 3)
                                     <td>
