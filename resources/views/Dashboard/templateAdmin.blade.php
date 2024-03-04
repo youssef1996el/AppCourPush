@@ -435,7 +435,7 @@
                                                                                         <div class="vertical-timeline-element-content bounce-in">
                                                                                             <h4 class="timeline-title">Réunion</h4>
                                                                                             <p>{{$Text}}
-                                                                                                <a href="javascript:void(0);">{{$href}}</a>
+                                                                                                <a href="{{$href}}" target="_blank" >{{$href}}</a>
                                                                                             </p>
                                                                                             <span class="vertical-timeline-element-date"></span>
                                                                                         </div>

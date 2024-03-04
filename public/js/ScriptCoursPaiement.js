@@ -56,7 +56,7 @@ $(document).ready(function () {
                             $('.CardTypePrive').append('<div class="card cardTypeCours">\
                                                             <div class="content">\
                                                                 <div class="title">'+value.type+'</div>\
-                                                                <div class="price">'+parseInt(value.prix)+' $</div>\
+                                                                <div class="price">'+parseInt(value.prix)+' €</div>\
                                                                 <div class="description">\
                                                                 Apprentissage en groupe pour favoriser l\'interaction sociale. Idéal pour ceux qui apprécient la dynamique de groupe.\
                                                                 </div>\
@@ -168,18 +168,7 @@ $(document).ready(function () {
     });
     $('.SendEdit').on('click',function()
     {
-       /*  if($('.TypeCoursEdit').val() == 0)
-        {
-            $('.ErrorTypeCours').css('display', 'block');
-            $('.ErrorTypeCours').text('veuillez sélectionner le type de cours').delay(4000).fadeOut('slow');
-            return 0;
-        }
-        if($('.PrixTypeEdit').val() == '')
-        {
-            $('.ErrorPrix').css('display', 'block');
-            $('.ErrorPrix').text('veuillez entrer le prix').delay(4000).fadeOut('slow');
-            return 0;
-        } */
+
         $.ajax({
             type: "post",
             url: urlUpdateData,
