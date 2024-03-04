@@ -350,6 +350,10 @@ Route::get('professeur/detailprof',function()
     return view('professeur.detailprof');
 });
 
+Route::get('SendEmail',function()
+{
+    return view('email.Send');
+});
 
 
 

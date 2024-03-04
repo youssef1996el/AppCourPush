@@ -832,6 +832,31 @@ class ProfesseurController extends Controller
 
             // Extract link meeting
             $meetingLink = $request['link'];
+            $translations = [
+                'Monday' => 'lundi',
+                'Tuesday' => 'mardi',
+                'Wednesday' => 'mercredi',
+                'Thursday' => 'jeudi',
+                'Friday' => 'vendredi',
+                'Saturday' => 'samedi',
+                'Sunday' => 'dimanche',
+                'January' => 'janvier',
+                'February' => 'février',
+                'March' => 'mars',
+                'April' => 'avril',
+                'May' => 'mai',
+                'June' => 'juin',
+                'July' => 'juillet',
+                'August' => 'août',
+                'September' => 'septembre',
+                'October' => 'octobre',
+                'November' => 'novembre',
+                'December' => 'décembre',
+            ];
+
+            // Format the date as desired
+            $formattedDate = Carbon::now()->translatedFormat('l F d', null, 'fr', $translations);
+
 
             foreach($DataEleves as $item)
             {
@@ -844,11 +869,12 @@ class ProfesseurController extends Controller
                 // Send Notification to Email
                 Mail::send('email.Send',
                                         [
-                                            'meetingLink' => $meetingLink,
-                                            'name_eleve'  => $item->name,
-                                            'Debut'       => $request['Data'][0]['debut'],
-                                            'Cours'       => $request['Data'][0]['title'],
-                                            'EmailProf'   => Auth::user()->email,
+                                            'meetingLink'   => $meetingLink,
+                                            'name_eleve'    => $item->name,
+                                            'Debut'         => $request['Data'][0]['debut'],
+                                            'Cours'         => $request['Data'][0]['title'],
+                                            'EmailProf'     => Auth::user()->email,
+                                            'formattedDate' => $formattedDate
                                         ],
                                         function ($message) use ($item)
                                         {
