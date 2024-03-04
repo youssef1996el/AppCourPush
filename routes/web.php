@@ -69,7 +69,7 @@ Route::group(['middleware' => ['web','auth']], function ()
         ->middleware('IsProfesser');
 
     Route::get('GetPriceGroupeOrPrive'  ,[ProfesseurController::class,'GetPriceGroupeOrPrive'])
-        ->middleware('IsProfesser');
+        /* ->middleware('IsProfesser') */;
 
     Route::get('ExpEduInfos'            ,[ProfesseurController::class,'ExpEduInfos'])
         ->name('ExpEduInfos')
