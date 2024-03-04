@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <script src="{{asset('js/niceCountryInput.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('css/niceCountryInput.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/StyleRegister.css')}}">
-    <script src="{{asset('js/ScriptRegister.js')}}"></script>
+<script src="{{asset('js/niceCountryInput.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{asset('css/niceCountryInput.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/StyleRegister.css')}}">
+<script src="{{asset('js/ScriptRegister.js')}}"></script>
 
 <div class="container mt-5">
     <div class="row justify-content-center ">
@@ -25,7 +25,7 @@
             <!-- Pills navs -->
 
             <!-- Pills content -->
-            <div class="tab-content">
+            <div class="tab-content" style="padding:0px">
                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                     @if($errors->any())
                         <div class="alert alert-danger" id="error-alert">
@@ -110,7 +110,7 @@
 
                         <div class="text-center mb-3 ">
                             <p  style="color: gray;" class="mb-3">Liez un compte pour continuer </p>
-                            <a href="{{url('auth/google')}}" type="submit" class="btn btn-lg  btn-light btn-google" ><i class="fab fa-google me-2"></i></a>
+                            <a href="{{url('auth/google')}}" type="submit" class="btn btn-lg  btn-light btn-google-register" ><i class="fab fa-google me-2"></i></a>
 
                             <a class="btn btn-lg  btn-primary mb-2 btn-facebook" href="" type="submit">
                             <i class="fa-brands fa-facebook me-2"></i></a>

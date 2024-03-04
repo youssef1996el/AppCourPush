@@ -1,6 +1,6 @@
 *{
-    font-family: times;
-  }
+  font-family: 'Times New Roman', Times, serif;
+}
 
  .card{
   background-color: #ffffff63;
@@ -266,3 +266,15 @@
       font-size: 26px;
       text-align: center;
   }
+
+  .btnSendMeeting{
+    color: white;
+    background: #74a8d5;
+    border-color: #74a8d5;
+  }
+  .btnSendMeeting:hover{
+    color: white;
+    background: #5899d3;
+    border-color: #5899d3;
+  }
+

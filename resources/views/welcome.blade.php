@@ -163,7 +163,7 @@
                             <img class="card-img-top" src="{{asset('image/cours.webp')}}" alt="">
                             <div class="card-body">
                                 <h4 class="card-title">Cours en groupe ou cours particuliers</h4>
-                                <p class="card-text">Système ludique d'acquisition de grades et de compétences accessible à tous les niveaux. Apprenez en petits groupes de 5 étudiants maximum ou, si vous souhaitez plus d'intensité, en cours particuliers.</p>
+                                <p class="card-text">Système ludique d'acquisition de grades et de compétences accessible à tous les niveaux. Apprenez en petits groupes de 4 étudiants maximum ou, si vous souhaitez plus d'intensité, en cours particuliers.</p>
                             </div>
                         </div>
                     </div>

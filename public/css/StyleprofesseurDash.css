@@ -1,6 +1,6 @@
 *{
-    font-family: times;
-  }
+  font-family: 'Times New Roman', Times, serif;
+}
 /* .container{
   width: 900px;
   margin: 20px auto;
@@ -820,6 +820,7 @@
    .pic-prof{
     width:45px;
     height: 45px;
+    border: 1px solid rgb(145, 145, 145);
    }
 
    #tableListEleve_wrapper{
@@ -873,7 +874,7 @@
 #imgEleve{
   width: 45px;
   height: 45px;
-  border: 2px solid #48f148;
+  border: 1px solid rgb(145, 145, 145);
 }
 .custom-input{
   color: #3498db; /* Change to your desired color */
@@ -1028,4 +1029,9 @@ margin-bottom: 20px;}
     }
 
 
+}
+
+.activeText{
+  color: #00b40c;
+  font-weight: bold;
 }

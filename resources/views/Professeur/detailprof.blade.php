@@ -56,42 +56,43 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div id="divDispo" class="col-sm-12 col-md-8 col-xl-8  mt-5">
+                <div id="divDispo" class="col-sm-12 col-md-8 col-xl-8  mt-5">
                         <div class="card cardDispo text-left">
                             <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
                             <div class="card-body ">
                                 <div class="ClassDisponible">
-
                                     @foreach ($disponibilityByDay as $key => $data)
-
-                                        <div class="ContentDisponible" >
+                                        <div class="ContentDisponible {{ empty($data) ? 'ContentNonDisponible' : '' }}">
                                             <div class="Days">{{$key}}</div>
-                                            <div class="ClassCalculHeight">
-                                                @foreach($data as $item)
-                                                    <div class="ClassTimeDisponible" style="color:#0c3c74;background:#00f8ff3b;">
-                                                        <p>
-                                                            <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                            {{$item->debut}}
-                                                        </p>
-                                                        <p>
-                                                            <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                            {{$item->fin}}
-                                                        </p>
-                                                    </div>
-                                                @endforeach
-                                                @if(empty($data))
-                                                    <div class="ClassTimeDisponible" style="color: #0c3c74;background: #00f8ff3b;">
-                                                        <p>Vide</p>
-                                                        <p>Vide</p>
-                                                    </div>
-                                                @endif
+                                                <div class="ClassCalculHeight">
+                                                    @foreach($data as $item)
+                                                        <div class="ClassTimeDisponible" style="color:#0c3c74;background:#00f8ff3b;">
+                                                            <p>
+                                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                                {{$item->debut}}
+                                                            </p>
+                                                            <p>
+                                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                                {{$item->fin}}
+                                                            </p>
+                                                        </div>
+                                                    @endforeach
+                                                    @if(empty($data))
+                                                        <div class="ClassTimeDisponible " style="color: #0c3c74;background: #00f8ff3b;">
+                                                            <p>Vide</p>
+                                                            <p>Vide</p>
+                                                        </div>
+                                                    @endif
+                                                </div>
                                             </div>
-                                        </div>
                                     @endforeach
+
                                 </div>
+
                             </div>
+                            
                         </div>
-                    </div>
+                    </div>>
                     <div id="divCours" class="col-sm-12 col-md-4 col-xl-4 mt-5">
                         <div class="card cardCours">
                             <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Les cours </h4>

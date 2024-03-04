@@ -64,21 +64,7 @@
                                 @endif
                             </li>
                         @else
-                            <li class="nav-item d-flex" style="align-items: center;">
-                            <a href="{{ url('Reserver') }}">
-                                <button class="cta">
-                                <span>Reserver des cours</span>
-                                <svg width="15px" height="10px" viewBox="0 0 13 10">
-                                    <path d="M1,5 L11,5"></path>
-                                    <polyline points="8 1 12 5 8 9"></polyline>
-                                </svg>
-                            </button>
-                            </li>
-                            <li class="nav-item d-flex" style="align-items: center;">
-                                <a class="nav-link" href="#" id="notification-icon">
-                                    <i class="fas fa-bell fa-lg"></i>
-                                </a>
-                            </li>
+                            
 
                             <li class="nav-item dropdown d-flex" style="align-items: center;">
 
@@ -89,12 +75,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('InfosProfile') }}">
+                                    <!-- <a class="dropdown-item" href="{{ url('InfosProfile') }}">
                                         {{ __('Profile') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ url('Mescours') }}">
                                         {{ __('Mes cours') }}
-                                    </a>
+                                    </a> -->
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -1,5 +1,5 @@
 *{
-    font-family: times;
+    font-family: 'Times New Roman', Times, serif;
   }
 
  .card{
@@ -265,4 +265,16 @@
   .card-title{
       font-size: 26px;
       text-align: center;
+  }
+
+
+  .btnValidCours{
+    color: white;
+    background: #74a8d5;
+    border-color: #74a8d5;
+  }
+  .btnValidCours:hover{
+    color: white;
+    background: #5899d3;
+    border-color: #5899d3;
   }

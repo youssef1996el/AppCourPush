@@ -1,7 +1,6 @@
 *{
-    font-family:times;
-}
-
+    font-family: 'Times New Roman', Times, serif;
+  }
 
 .form-control:focus{
     border-bottom:1px solid black !important;

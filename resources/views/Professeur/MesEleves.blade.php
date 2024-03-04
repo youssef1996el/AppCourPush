@@ -37,7 +37,7 @@
                                         <p class="fw-normal mb-1 text-center">{{$item->pays}}</p>
                                     </td>
                                     <td>
-                                        <span class="text-center">Active</span>
+                                        <span class="text-center activeText">Active</span>
                                     </td>
                                     {{-- <td class="d-flex align-items-end">
                                         <button type="button" class="btn btn-link showEleve" data-mdb-ripple-color="dark" data-value={{$item->id}}>

@@ -125,7 +125,7 @@
                         @endforeach
 
                     </div>
-                    <div class="courses mt-4">
+                    <!-- <div class="courses mt-4">
                         <div class="card cardList text-left">
                           <img class="card-img-top" src="holder.js/100px180/" alt="">
                           <div class="card-body">
@@ -156,7 +156,7 @@
                           </div>
                         </div>
 
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

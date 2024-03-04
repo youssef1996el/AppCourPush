@@ -100,7 +100,7 @@
                 <form action="{{url('SendLinkMeet')}}" method="post" id="FormLink">
                     @csrf
                     <div class="modal-body">
-                        <input type="text" placeholder="Entre your link meet" class="form-control LinkMeet" name="link" >
+                        <input type="text" placeholder="Entrer votre lien meet" class="form-control LinkMeet" name="link" >
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-success BtnSendLink" type="button">Envoyé</button>

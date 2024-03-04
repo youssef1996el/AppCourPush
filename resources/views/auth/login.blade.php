@@ -63,7 +63,7 @@
                         <div class="line" ></div>
                   </div>
 
-                    <a href="{{url('auth/google')}}" class="btn btn-lg btn-block btn-light btn-google" ><i class="fab fa-google me-2"></i>Se connecter avec google</a>
+                    <a href="{{url('auth/google')}}" class="btn btn-lg btn-block btn-light btn-secondary btn-google" ><i class="fab fa-google me-2"></i>Se connecter avec google</a>
 
                     <button class="btn btn-lg btn-block btn-primary mb-2"
                         type="submit"><i class="fa-brands fa-facebook me-2"></i>Se connecter avec facebook</button>

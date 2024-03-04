@@ -1,6 +1,6 @@
 *{
-    font-family:times;
-}
+    font-family: 'Times New Roman', Times, serif;
+  }
 .ListeCours{
     background:white;
 }
@@ -315,7 +315,7 @@ width: 1px;
 }
 .first
 {
-margin-top: 32px;
+
 cursor: pointer;
 
 }
