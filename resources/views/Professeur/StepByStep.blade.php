@@ -227,6 +227,7 @@
                         <div class="text">
                             <h2>Cours</h2>
                             <p>Quelles sont les cours dans lesquelles vous pouvez aider des élèves ?</p>
+                            <h5 style="color:red">Vous devez ajouter au moins un cours ?</h5>
                         </div>
                         <div class="List-Courses">
                             <div class="input-cours">
