@@ -39,15 +39,15 @@
                                             <p class="fw-normal mb-1">Maroc</p>
                                         </td>
                                         <td>
-                                            <span class="">Active</span>
+                                            <span class="activeText">Active</span>
                                         </td>
                                         <td class="d-flex align-items-end">
                                             <button type="button" class="btn btn-link showEleve" data-mdb-ripple-color="dark" data-value="{{$item->id}}">
                                                 <i class="fa-solid fa-eye"></i>
                                             </button>
-                                            <button type="button" class="btn btn-link " data-mdb-ripple-color="dark" data-value="{{$item->id}}">
+                                           <!--  <button type="button" class="btn btn-link " data-mdb-ripple-color="dark" data-value="{{$item->id}}">
                                                 <i class="fa-solid fa-trash"></i>
-                                            </button>
+                                            </button> -->
                                         </td>
                                     </tr>
                                 @endforeach
