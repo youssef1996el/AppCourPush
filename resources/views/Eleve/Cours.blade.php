@@ -26,40 +26,40 @@
 
             <div class="tab-content">
                 <div id="programmes" class="tab-pane fade show active mt-4 ">
-                <div class="card-container">
-                    @if ($hasCours)
-                    @foreach ($MesCours as $item)
-                            <div class="card-sl " style="max-width:280px">
-                            <img class="card-img-top" src="{{asset('image/courseimg.png')}}" alt="" style="background: #dbecfa;height: 150px;">
-                                <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
-                                <div class="card-heading" style="white-space: normal">
-                                    {{$item->nom_professeur}}
-                                </div>
+                    <div class="card-container">
+                        @if ($hasCours)
+                        @foreach ($MesCours as $item)
+                                <div class="card-sl " style="max-width:280px">
+                                <img class="card-img-top" src="{{asset('image/courseimg.png')}}" alt="" style="background: #dbecfa;height: 150px;">
+                                    <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
+                                    <div class="card-heading" style="white-space: normal">
+                                        {{$item->nom_professeur}}
+                                    </div>
 
-                                <div class="card-text">
-                                    <i class="fa fa-book iconCourse"></i> <label>{{$item->name_cours}}</label>
-                                </div>
-                                <div class="card-text d-flex">
-                                    <i class="fa fa-calendar iconCourse"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
-                                </div>
-                                <div class="card-text">
-                                    <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }} iconCourse"></i><label> {{ $item->typecours }}</label>
+                                    <div class="card-text">
+                                        <i class="fa fa-book iconCourse"></i> <label>{{$item->name_cours}}</label>
+                                    </div>
+                                    <div class="card-text d-flex">
+                                        <i class="fa fa-calendar iconCourse"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
+                                    </div>
+                                    <div class="card-text">
+                                        <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }} iconCourse"></i><label> {{ $item->typecours }}</label>
+                                    </div>
+                                    
                                 </div>
                                 
-                            </div>
-                            
-                        @endforeach
+                            @endforeach
 
-                        @else
-                        <div class="text-center">
-                            <img  class="" src="{{asset('image/cours.png') }}" alt="cours" style="width:200px">
-                            <h5 class="mt-3">Rien de prévu pour le moment</h5>
-                            <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
-                            <p>Pour commencer, <a href="#"> resever un cours</a></p>
-                        </div>
-                        @endif
+                            @else
+                            <div class="text-center">
+                                <img  class="" src="{{asset('image/cours.png') }}" alt="cours" style="width:200px">
+                                <h5 class="mt-3">Rien de prévu pour le moment</h5>
+                                <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
+                                <p>Pour commencer, <a href="#"> resever un cours</a></p>
+                            </div>
+                            @endif
+                    </div>
                 </div>
-</div>
                 <div id="cours" class="tab-pane fade text-center">
                     <div class="courspris mt-4  ">
                         <img  class="" src="{{asset('image/nonpris.png')}}" alt="cours" style="width:200px">

@@ -55,13 +55,20 @@
                                                 <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->fin}}</span>
                                             </td>
                                             <td>
-                                            <span class=" mb-1 text-center timezone" style="text-align: center;font-weight:bold; color: {{ $item->status == 0 ? '#fc0' : ($item->status == 2 ? '#00b40c' : 'gray') }}">
-    {{ $item->status == 0 ? 'En Cours' : ($item->status == 2 ? 'Professor has completed the course' : 'Valide') }}
-</span>
 
+                                            <span class=" mb-1 text-center timezone" style="text-align: center;font-weight:bold; color: {{ $item->status == 0 ? '#fc0' : ($item->status == 2 ? '#00b40c' : 'gray') }}">
+                                                {{ $item->status == 0 ? 'En Cours' : ($item->status == 2 ? 'Professor has completed the course' : 'Valide') }}
+                                            </span>
+
+                                                
                                             </td>
                                             <td>
-                                                <input type="checkbox" value="{{$item->id}}" data-value="" class="SelectedCours" >
+                                                @if (Auth::user()->role_name === "Admin")
+                                                    <input type="checkbox" value="{{$item->id}}" data-value="" class="SelectedCours" {{$item->status != 2 ? 'Disabled' :  ''}}>
+                                                @elseif(Auth::user()->role_name === "professeur")
+                                                    <input type="checkbox" value="{{$item->id}}" data-value="" class="SelectedCours" {{$item->status == 1 ? 'Disabled' : ''}}>
+                                                @endif
+
                                             </td>
                                         </tr>
                                     @endforeach
