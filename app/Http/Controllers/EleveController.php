@@ -661,7 +661,7 @@ if ($request->hasFile('image')) {
 
             $nomProfesseursString = "'" . implode("', '", $nomProfesseurs) . "'";
 
-            $MesProfesseur = DB::select("SELECT image, name FROM users WHERE name IN ($nomProfesseursString)");
+            $MesProfesseur = DB::select("SELECT image, name FROM users WHERE name IN ($nomProfesseursString) and role_name ='professeur'");
 
             $imageLookup = [];
             foreach ($MesProfesseur as $images) {

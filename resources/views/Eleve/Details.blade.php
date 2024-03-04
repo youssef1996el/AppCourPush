@@ -4,11 +4,7 @@
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 
 <div class="container">
-    @guest
-        @php
-            echo ' no auth';
-        @endphp
-    @else
+
         <div class="card text-left RCourse">
             <div class="titreImage">
                 <h4 class="card-title " style="text-transform:initial"> Cours en {{$TypeCours}} de {{$NameProfesseur}}</h4>
@@ -49,73 +45,21 @@
                 <a name="" id="" class="btn btn-primary btn-reserver1" href="#" role="button" style="border-radius:0px">Reserver</a>
             </div>
         </div>
-    @endguest
 
 
 
-    <!-- <div class="card text-left mt-3">
-        <div class="card-body">
-            <h4 class="card-title">Réservation de cours</h4>
-            <p class="card-text">
-                <div class="row">
-                    <div class="col-sm-12 col-md-4 col-xl-4  mb-3">
-                        <label for="cours" >Sélectionner un cours :</label>
-                        <select id="cours" class="form-select">
-                            @guest
-                                @foreach ($CourProf as $item)
-                                    <option value={{$item->title}} >{{$item->title}}</option>
-                                @endforeach
-                            @else
-                                {{-- Auth --}}
-                                @foreach ($getIdCours as $item)
-                                    <option value={{$item->title}} selected>{{$item->title}}</option>
-                                @endforeach
-
-                                @foreach ($CourProf as $item)
-                                    @if (!collect($getIdCours)->contains('title', $item->title))
-                                        <option value="{{ $item->title }}">{{ $item->title }}</option>
-                                    @endif
-                                @endforeach
-                            @endguest
 
 
-                        </select>
-                    </div>
-                    <div class="col-sm-12 col-md-3 col-xl-3 mb-3 ">
-                        <label for="" style="display:block">Groupe/Parliculier: </label>
-                        <div class="btn-group stylebtngrp" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
-                            <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" @guest @else {{$TypeCours == "groupe" ? 'checked' : ''}} @endguest  >
-                            <label class="btn btn-outline-primary" for="group"><i class="fas fa-users "></i></label>
-
-                            <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off" @guest @else  {{$TypeCours == "prive" ? 'checked' : ''}}  @endguest>
-                            <label class="btn btn-outline-primary " for="private" style="width:45px ; border-radius:0px"><i class="fas fa-user "></i></label>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-xl-4  mb-3 ">
-                        <label for="dateCours"  style=" display:block">Sélectionner une date :</label>
-                        <input type="date" class="form-control" id="dateCours" >
-
-                    </div>
-                    <div class="col-sm-12 col-md-1 col-xl-1  mb-3">
-                        <a name="" id="" class="btn btn-primary btn-reserver2" href="#" role="button" style="border-radius:0px"><i class="fas fa-check"></i></a>
-
-                    </div>
-
-
-                </div>
-            </p>
-        </div>
-    </div> -->
 
         <div class="card text-left mt-3">
           <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
-            <h4 class="card-title">A propos de @guest {{$InformationProfesseur->name}} @else {{$NameProfesseur}} @endguest </h4>
+            <h4 class="card-title">A propos de  {{$NameProfesseur}}  </h4>
             <p class="card-text">
                 <div class="card cardProfile text-center">
                 <img class=" prof-image " src="{{ $imageProfesseur->image == '' ? asset('image/default-avatar.png') : $imageProfesseur->image}}" alt="Profile image"  srcset="" >
                     <div class="card-body">
-                        <h2 class="name"> @guest {{$InformationProfesseur->name}} @else {{$NameProfesseur}} @endguest</h2>
+                        <h2 class="name">  {{$NameProfesseur}} </h2>
                         <h4 >Prof d'arabe</h4>
                         <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince[0]->experince}}</span> ans d'expérience</h4>
                     <p class="card-text">{{$InformationProfesseur->description}}</p>
@@ -156,7 +100,7 @@
                                 </div>
 
                             </div>
-                            
+
                         </div>
                     </div>
                     <div id="divCours" class="col-sm-12 col-md-4 col-xl-4 mt-5">
@@ -251,12 +195,32 @@
 <script>
     function sendMessage(email) {
         // Use the nom parameter as needed
-        alert('Sending message to: ' + email);
+        alert('Sending message to: ' + @json($InformationProfesseur->email));
     }
 
     function showPhoneNumber(phoneNumber) {
         // Use the phoneNumber parameter as needed
-        alert('Numéro de téléphone : ' + phoneNumber);
+        alert('Numéro de téléphone : ' + @json($InformationProfesseur->telephone));
     }
+
+    $('.btn-reserver1').on('click',function()
+    {
+        var Time = @json($DebutCours);
+        var NameProfesseur  = @json($NameProfesseur);
+        var cours           = @json($Cours);
+        var typeCours       = @json($TypeCours);
+        if(typeCours === 'Cours particulier')
+        {
+            typeCours = 'prive';
+        }
+        else
+        {
+            typeCours = 'groupe';
+        }
+        var reservationUrl = "/Reservation/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours);
+
+
+        window.location.href = reservationUrl;
+    });
 </script>
 @endsection

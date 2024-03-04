@@ -149,23 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="NoCoursToday"></div>
-                    <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
-                    <h5 class="text-secondary mt-4 DateSelected"></h5> --}}
-                    {{-- <div class="DataProfesseur">
-                        <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
-                            <thead class="bg-light">
-                                <tr class="sr-only">
-                                    <th>Time</th>
-                                    <th>Name of the teacher</th>
-                                    <th>Course</th>
-                                    <th>Group/Particular</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div> --}}
+
                     <div class="pagination-container"></div>
                 </div>
             </div>
@@ -194,146 +178,20 @@
 
         </div>
     </div>
-    <!-- <div id="bookClass" class="card bg-light mt-4">
-    <div class="searchSpace mt-3">
-        <div class="row p-3">
-            <div class="col-md-4 p-2">
-                <div class="card">
-                    <div class="card-body">
-                        <label for="">Cours :</label>
-                        <select class="form-select select-course" id="multiple-select-field" data-placeholder="selected cours" multiple>
-                            @foreach ($cours as $course)
-                            <option value="{{ $course->id }}">{{ $course->title }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-8 p-2">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label for="">Date:</label>
-                                <input type="date" class="form-control DateSearch " value="@php echo date('Y-m-d') @endphp">
-                            </div>
-                            <div class="col-md-3">
-                                <label for="">l'heure :</label>
-                                <div class="dropdown dropdownTime">
-                                    <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" value=" __:__">
-                                        __:__
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="dynamicWidthDropdown">
-                                        <li>
-                                        <div class="ContentTime">
-                                                    <div class="container">
-                                                        <h4>Sélectionner l'heure</h4>
-                                                        <div class="line">
-                                                            <span class="text">Matin</span>
-                                                        </div>
-                                                        <div class="container-hours">
-                                                            @php
-                                                                $firstNumber = '0';
-                                                                $second = ':00';
-                                                            @endphp
-                                                            @for ($i = 0; $i <= 11; $i++)
-                                                                @if ($i % 4 == 0)
-                                                            <div class="btn-row">
-                                                                @endif
-                                                                <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
-                                                                @if (($i + 1) % 4 == 0 || $i == 11)
-                                                            </div>
-                                                                @endif
-                                                            @endfor
-                                                        </div>
-                                                        <div class="line">
-                                                            <span class="text">Après-midi/soirée</span>
-                                                        </div>
-                                                        <div class="container-hours">
-                                                            @php
-                                                                $firstNumber = '0';
-                                                                $second = ':00';
-                                                            @endphp
-                                                            @for ($i = 12; $i <= 23; $i++)
-                                                                @if ($i % 4 == 0)
-                                                                <div class="btn-row">
-                                                                    @endif
-                                                                    <button type="button" class="btn w-25 border border-primary py-2 mt-2 btnTime" style="margin: 5px 5px 5px 5px;" value="{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}">{{$i >= 10 ? $i.$second : $firstNumber.$i.$second}}</button>
-                                                                    @if (($i + 1) % 4 == 0 || $i == 23)
-                                                                </div>
-                                                                @endif
-                                                            @endfor
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="" class="TitleGroupePrive">Groupe ou Privé: </label>
-                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
-                                <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" >
-                                        <label class="btn btn-outline-primary" for="group" style="border-top-left-radius: 10px;border-bottom-left-radius: 10px;">
-                                            <i class="fas fa-users "></i>
-                                        </label>
-
-                                        <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off">
-                                        <label class="btn btn-outline-primary " for="private" style="width:45px ;border-top-right-radius: 10px;border-bottom-right-radius: 10px; "><i class="fas fa-user "></i></label>
-
-                                </div>
-                            </div>
-                            <div class="col-md-3 d-flex justify-content-end align-items-baseline">
-                                <button type="button" class="btn BtnIntialiser"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pagination-container mt-3"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="card p-2 mt-2" id="CardShowDataProfesseur" style="display: none;">
-    <div class="NoCoursToday"></div>
-    <h4 class="text-uppercase mt-2 ">Cette date pourrait également vous intéresser</h4>
-    <h5 class="text-secondary mt-4 DateSelected"></h5>
-    <div class="DataProfesseur">
-        <table class="table mb-0 bg-white table-hover border " id="TableProfesseurIsActive">
-            <thead class="bg-light">
-                <tr class="sr-only">
-                    <th>Time</th>
-                    <th>Name of the teacher</th>
-                    <th>Course</th>
-                    <th>Group/Particular</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-</div> -->
 
 <style>
 
 .button-container {
-    white-space: nowrap; /* Ensures buttons stay in one line */
+    white-space: nowrap;
   }
 
 
   .button-container button {
     display: inline-block;
-  /*   margin-right: 5px; /* Adjust spacing between buttons */
-   /*  padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;  */
-   /*  border-radius: 5px; */
+
     cursor: pointer;
-   /*  font-size: 14px;
-    font-weight: bold; */
+
   }
 
 </style>
