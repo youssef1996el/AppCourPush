@@ -53,7 +53,7 @@
                             <p>Saisissez vos informations personnelles pour vous rapprocher des étudiants.</p>
                         </div>
                         <div class="picture-container">
-                            <div class="ContentImage">
+                            <div class="ContentImage ">
                                 <img src="{{asset('image/default-avatar.png')}}"  class="picture-src" id="wizardPicturePreview" alt="" width="60px" height="60px" required require >
                                 <input type="file" id="wizard-picture" name="image"  require required >
                             </div>
@@ -275,10 +275,10 @@
                             <br>
                             <div class="card mt-3 shadow">
                               <div class="card-body divHours ">
-                                
+
                               </div>
                             </div>
-                            
+
                         </div>
                         <div class="buttons button_space mt-2 float-end">
                             <button type="button" class="back_button">Précédent</button>
@@ -881,17 +881,42 @@
                 vaildate_input.classList.remove('warning');
                 if(vaildate_input.hasAttribute('require')){
                     if(vaildate_input.value.length==0){
+
                         validate=false;
                         vaildate_input.classList.add('warning');
+
                     }
+
                 }
             });
+           if(validate == false)
+           {
+                setTimeout(function() {
+                    validate_inputs.forEach(function(validate_input){
+
+                        if (validate_input.hasAttribute('require')) {
+                            if (validate_input.type === 'file') {
+                                if (validate_input.files.length == 0) {
+                                    validate_input.closest('.ContentImage').classList.add('warning');
+                                } else {
+                                    validate_input.closest('.ContentImage').classList.remove('warning');
+                                }
+                            } else if (validate_input.value.length == 0) {
+                                validate_input.closest('.ContentImage').classList.add('warning');
+                            } else {
+                                validate_input.closest('.ContentImage').classList.remove('warning');
+                            }
+                        }
+                    });
+                }, 100);
+           }
             validate_selects.forEach(function(validate_select){
                 validate_select.classList.remove('warning');
                 if(validate_select.hasAttribute('require')){
                     if(validate_select.value.length==0){
                         validate=false;
                         validate_select.classList.add('warning');
+                        /* validate_select.closest('.ContentImage').classList.add('warning'); */
                     }
                 }
             });

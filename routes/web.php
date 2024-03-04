@@ -69,7 +69,7 @@ Route::group(['middleware' => ['web','auth']], function ()
         ->middleware('IsProfesser');
 
     Route::get('GetPriceGroupeOrPrive'  ,[ProfesseurController::class,'GetPriceGroupeOrPrive'])
-        ->middleware('IsEleve');
+        ->middleware('IsProfesser');
 
     Route::get('ExpEduInfos'            ,[ProfesseurController::class,'ExpEduInfos'])
         ->name('ExpEduInfos')
@@ -174,8 +174,7 @@ Route::group(['middleware' => ['web','auth']], function ()
     Route::get('Admin/Profile'            ,[AdminController::class,'AdminProfile'])
         ->middleware('IsAdmin');
 
-    Route::get('ShowUsers/{id}'           ,[AdminController::class,'ShowUser'])
-        ->middleware('IsAdmin');
+    Route::get('ShowUsers/{id}'           ,[AdminController::class,'ShowUser']);
 
     Route::get('getStartYearAndEnd'       ,[AdminController::class,'getStartYearAndEnd'])
         ->middleware('IsAdmin');

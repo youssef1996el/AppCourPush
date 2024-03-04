@@ -87,7 +87,7 @@ class SocialiteController extends Controller
                     'password'          => Hash::make('my-google'),
                 ]);
                 Auth::login($newUser);
-                return $request->role_name == 'eleve' ? redirect('profile/eleve') : redirect('professeur/StepByStep');
+                return $request->role_name == 'eleve' ? redirect('profile/eleve') : redirect('StepByStep');
 
 
         } catch (\Throwable $th) {

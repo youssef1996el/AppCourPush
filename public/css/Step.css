@@ -64,7 +64,7 @@
         }
         /*********** */
         *{
-           
+
             font-family:times;
         }
        /*  .containerCss{
@@ -301,7 +301,7 @@ input[type="time"]{
     width: 508px;
   margin-left: -20px;
   padding: 10px;
-} */ 
+} */
 /********** */
 /* .heightExperience::-webkit-scrollbar {
     width: 15px;
@@ -636,7 +636,7 @@ select{
 
 
 /* #deleteAppend{
-   
+
     font-size: 16px;
     text-transform: initial;
 }
@@ -678,7 +678,7 @@ select{
     .button_space {
         margin: 20px 0px !important;
     }
-    
+
 }
     .textDateNaissance
     {
@@ -866,7 +866,7 @@ select{
     .HeightEducation, .card, .input-text{
         margin:0px
     }
-   
+
     #AddFormation{
         font-size: 16px;
         text-transform: initial;
@@ -884,7 +884,7 @@ select{
     .HeightEducation,.HeightExperience, .card{
         max-height: 430px;
       }
-   
+
   }
   /* .button_space {
     display: flex;

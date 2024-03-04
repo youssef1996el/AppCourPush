@@ -325,9 +325,15 @@
                                     <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn " id="btn-border">
                                         <span class="icon-wrapper icon-wrapper-alt rounded-circle">
                                             <span class="icon-wrapper-bg bg-danger"></span>
+                                                @if(auth()->check() && auth()->user()->unreadNotifications->count() > 0)
                                                 <i class="fa-regular fa-bell text-danger icon-anim-pulse "></i>
                                                 {{-- <i class="icon text-danger icon-anim-pulse ion-android-notifications"></i> --}}
-                                            <span class="badge badge-dot badge-dot-sm badge-danger">Notifications</span>
+
+                                                <span class="badge badge-dot badge-dot-sm badge-danger">Notifications</span>
+                                                @else
+                                                    <i class="fa-regular fa-bell text-danger  "></i>
+                                                    <span class="badge badge-dot badge-dot-sm">Notifications</span>
+                                                @endif
                                         </span>
                                     </button>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
@@ -677,7 +683,7 @@
                                                             <i class="fa-solid fa-user-tie users"></i> <span class="iconS">Professeur </span>
                                                         </a>
                                                     </li>
-                                                 
+
                                                     <li>
                                                         <a href="{{ url('eleves') }}">
                                                             <i class="fa-solid fa-users users "></i> <span class="iconS">Eleves </span>

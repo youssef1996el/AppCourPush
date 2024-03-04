@@ -434,6 +434,10 @@ class ProfesseurController extends Controller
         $user->title            = $request->title;
         $user->email            = $request->email;
         $user->description      = $request->description;
+        if ($request->filled('newpassword') && $request->filled('confirmpassword'))
+        {
+            $user->password = Hash::make($request->newpassword);
+        }
 
         $user->save();
         return redirect()->back()->with('message', 'Your success message here');
@@ -711,14 +715,15 @@ class ProfesseurController extends Controller
                 $user->pays = 'Unknown';
             }
         }
-        $HasMeeting = false;
-        $checkHasMeeting = Reserves::where('nom_professeur',Auth::user()->name)->count();
-        if($checkHasMeeting > 0)
+        $HasEleve = false;
+        $checkHasEleve = Reserves::where('nom_professeur',Auth::user()->name)->count();
+        if($checkHasEleve > 0)
         {
-            $HasMeeting = true;
+            $HasEleve = true;
         }
+
         return view('Professeur.MesEleves')
-        ->with('HasMeeting',$HasMeeting)
+        ->with('HasEleve',$HasEleve)
         ->with('MesEleves',$DataEleves);
     }
 

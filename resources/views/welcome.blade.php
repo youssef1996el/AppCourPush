@@ -212,9 +212,9 @@
 
 
                                     <div class="teletemail mt-4">
-                                        <p class="card-text mb-4" style=" font-size: 24px; "> titre</p>
+                                        <p class="card-text mb-4" style=" font-size: 24px; "> {{$item->title}}</p>
                                         <p class="card-text mb-2" style="font-size: 1rem;"><i class="fa fa-phone" aria-hidden="true"></i> {{$item->telephone}}</p>
-                                        <p class="card-text" style="font-size: 1rem;"><i class="fa fa-envelope" aria-hidden="true"></i> email</p>
+                                        <p class="card-text" style="font-size: 1rem;"><i class="fa fa-envelope" aria-hidden="true"></i> {{$item->email}}</p>
                                     </div>
                                 </div>
                             </div>
