@@ -36,7 +36,7 @@ class SocialiteController extends Controller
                     $Experince = ExperinceProfesseur::where('iduser',$users[0]->id)->count();
                     if($Experince == 0)
                     {
-                        return redirect('professeur/StepByStep');
+                        return redirect('StepByStep');
                     }
                 }
                 else
