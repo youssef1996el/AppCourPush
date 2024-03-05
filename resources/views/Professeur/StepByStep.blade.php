@@ -395,9 +395,9 @@
                                                         <button class="btn btn-danger float-end" id="deleteAppend">Supprimer</button>
                                                     </div>
                                                 </div>
-
+                                                <hr style="border-style: dashed">
                                             </div>
-                                            <hr style="border-style: dashed">
+
 `);
                                             print_country("countryDropdown");
             });
@@ -437,9 +437,9 @@
                                                                 <button class="btn btn-danger float-end" id="deleteAppend">Supprimer</button>
                                                             </div>
                                                         </div>
-
+                                                        <hr style="border-style: dashed">
                                                 </div>
-                                                <hr style="border-style: dashed">`);
+                                                `);
                                                 print_country("countryDropdown");
             });
 
@@ -874,8 +874,10 @@
 
         function validateform(){
             validate=true;
-            var validate_inputs=document.querySelectorAll(".main.active input ");
-            var validate_selects=document.querySelectorAll(".main.active select ");
+            var validate_inputs =document.querySelectorAll(".main.active input ");
+            var validate_selects =document.querySelectorAll(".main.active select ");
+            var validate_textarea =document.querySelectorAll(".main.active textarea ");
+            var validate_tags = document.querySelectorAll(".main .ListeCours #tags li");
 
             validate_inputs.forEach(function(vaildate_input){
                 vaildate_input.classList.remove('warning');
@@ -910,6 +912,19 @@
                     });
                 }, 100);
            }
+
+           validate_textarea.forEach(function(vaildate_textarea) {
+                vaildate_textarea.classList.remove('warning');
+                if(vaildate_textarea.hasAttribute('require')){
+                    if(vaildate_textarea.value.length==0){
+
+                        validate=false;
+                        vaildate_textarea.classList.add('warning');
+
+                    }
+
+                }
+            });
             validate_selects.forEach(function(validate_select){
                 validate_select.classList.remove('warning');
                 if(validate_select.hasAttribute('require')){
@@ -920,6 +935,16 @@
                     }
                 }
             });
+
+            if (validate_tags.length == 0)
+            {
+                validate = false;
+                document.querySelector(".ListeCours").classList.add('warning');
+            }
+            else
+            {
+                document.querySelector(".ListeCours").classList.remove('warning');
+            }
 
             return validate;
 
