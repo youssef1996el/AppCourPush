@@ -284,21 +284,25 @@ $(document).ready(function () {
     });
    $('#confirmPasswordEleve').on('input',function()
    {
-        if($(this).val() !== passwordEleveCheck)
-        {
-            console.log('Le mot de passe n\'est pas correct');
+    if ($(this).val() !== passwordProfCheck) {
+        if ($(this).val().length <= 8) { // Check if the password length is less than or equal to 8
             $('.checkPassword').css({
                 'display': 'block',
                 'color'  : 'red',
-                'font-size':'14px '
-
+                'font-size': '14px'
             });
-            $('.checkPassword').text('Le mot de passe n\'est pas correct')
+            $('.checkPassword').text('Le mot de passe doit contenir plus de 8 caractères.');
+        } else {
+            $('.checkPassword').css({
+                'display': 'block',
+                'color'  : 'red',
+                'font-size': '14px'
+            });
+            $('.checkPassword').text('Les mots de passe ne correspondent pas.');
         }
-        else
-        {
-            $('.checkPassword').css('display', 'none');
-        }
+    } else {
+        $('.checkPassword').css('display', 'none');
+    }
    });
    /***************** Prof *******/
    $('#confirmpasswordProfesseur').on("focus",function()
@@ -307,20 +311,25 @@ $(document).ready(function () {
    });
    $('#confirmpasswordProfesseur').on('input',function()
    {
-        if($(this).val() !== passwordProfCheck)
-        {
-
+    if ($(this).val() !== passwordProfCheck) {
+        if ($(this).val().length <= 8) { // Check if the password length is less than or equal to 8
             $('.checkPassword').css({
                 'display': 'block',
                 'color'  : 'red',
-                'font-size':'14px '
+                'font-size': '14px'
             });
-            $('.checkPassword').text('Le mot de passe n\'est pas correct')
+            $('.checkPassword').text('Le mot de passe doit contenir plus de 8 caractères.');
+        } else {
+            $('.checkPassword').css({
+                'display': 'block',
+                'color'  : 'red',
+                'font-size': '14px'
+            });
+            $('.checkPassword').text('Les mots de passe ne correspondent pas.');
         }
-        else
-        {
-            $('.checkPassword').css('display', 'none');
-        }
+    } else {
+        $('.checkPassword').css('display', 'none');
+    }
    });
 
 

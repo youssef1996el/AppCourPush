@@ -72,11 +72,11 @@
     border-color: #09c372;
 }
 .input-control.error input {
-    border-color: #ff3860;
+    border-color: red;
 }
 
 .input-control .error {
-    color: #ff3860;
+    color: red;
     font-size: 14px !important;
     height: 13px;
     float: left;
