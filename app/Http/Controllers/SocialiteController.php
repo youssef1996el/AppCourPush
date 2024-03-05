@@ -24,6 +24,7 @@ class SocialiteController extends Controller
         {
             $user = Socialite::driver('google')->user();
 
+
             $finduser = User::where('social_id',$user->id)->first();
 
             if($finduser)
@@ -50,18 +51,7 @@ class SocialiteController extends Controller
                 ->with('Email',$user->email)
                 ->with('name',$user->name)
                 ->with('idUser',$user->id);
-                /* return redirect('spaces/index'); */
-               /*  $newUser = User::create([
-                    'name'  => $user->name,
-                    'nom'   => $user->name,
-                    'prenom' => $user->name,
-                    'email' => $user->email,
-                    'social_id' =>$user->id,
-                    'social_name' => 'google',
-                    'password' =>Hash::make('my-google'),
-                ]);
-                Auth::login($newUser);
-                return redirect('/home'); */
+
             }
         }
         catch(Exception $e)
@@ -75,6 +65,7 @@ class SocialiteController extends Controller
 
         try
         {
+
             $newUser = User::create([
                     'name'              => $request->nom,
                     'nom'               => $request->nom,
@@ -87,6 +78,14 @@ class SocialiteController extends Controller
                     'password'          => Hash::make('my-google'),
                 ]);
                 Auth::login($newUser);
+
+
+                if (!$newUser->email_verified)
+                {
+                    $newUser->sendEmailVerificationNotification();
+
+                    return view('auth.verify');
+                }
                 return $request->role_name == 'eleve' ? redirect('profile/eleve') : redirect('StepByStep');
 
 

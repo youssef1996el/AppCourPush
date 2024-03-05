@@ -395,9 +395,9 @@
                                                         <button class="btn btn-danger float-end" id="deleteAppend">Supprimer</button>
                                                     </div>
                                                 </div>
-
+                                                <hr style="border-style: dashed">
                                             </div>
-                                            <hr style="border-style: dashed">
+
 `);
                                             print_country("countryDropdown");
             });
@@ -437,9 +437,9 @@
                                                                 <button class="btn btn-danger float-end" id="deleteAppend">Supprimer</button>
                                                             </div>
                                                         </div>
-
+                                                        <hr style="border-style: dashed">
                                                 </div>
-                                                <hr style="border-style: dashed">`);
+                                                `);
                                                 print_country("countryDropdown");
             });
 
