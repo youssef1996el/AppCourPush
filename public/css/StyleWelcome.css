@@ -214,7 +214,7 @@ footer hr{
 @media only screen and (max-width: 767px) {
 
 	.carousel-caption {
-		bottom: 165px;
+        bottom: 260px;
 	}
 	.carousel-caption h5 {
 		font-size: 18px;

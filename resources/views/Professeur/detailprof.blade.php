@@ -41,22 +41,22 @@
         </div>
     </div>
 
-        <div class="card text-left mt-3">
+    <div class="card text-left mt-3">
           <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
-            <h4 class="card-title">A propos de name</h4>
+            <h4 class="card-title">A propos de  {{$NameProfesseur}}  </h4>
             <p class="card-text">
                 <div class="card cardProfile text-center">
                 <img class=" prof-image " src="{{ $imageProfesseur->image == '' ? asset('image/default-avatar.png') : $imageProfesseur->image}}" alt="Profile image"  srcset="" >
                     <div class="card-body">
-                        <h2 class="name"> name </h2>
+                        <h2 class="name">  {{$NameProfesseur}} </h2>
                         <h4 >Prof d'arabe</h4>
                         <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince[0]->experince}}</span> ans d'expérience</h4>
                     <p class="card-text">{{$InformationProfesseur->description}}</p>
                     </div>
                 </div>
                 <div class="row">
-                <div id="divDispo" class="col-sm-12 col-md-8 col-xl-8  mt-5">
+                    <div id="divDispo" class="col-sm-12 col-md-8 col-xl-8  mt-5">
                         <div class="card cardDispo text-left">
                             <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
                             <div class="card-body ">
@@ -90,9 +90,9 @@
                                 </div>
 
                             </div>
-                            
+
                         </div>
-                    </div>>
+                    </div>
                     <div id="divCours" class="col-sm-12 col-md-4 col-xl-4 mt-5">
                         <div class="card cardCours">
                             <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Les cours </h4>
@@ -176,12 +176,10 @@
                 </button>
             </div>
         </div>
+    </div>
 </div>
 
-<style>
 
-
-</style>
 <script>
     function sendMessage(email) {
         // Use the nom parameter as needed
