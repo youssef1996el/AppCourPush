@@ -42,9 +42,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top " style="height:70px">
+        <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top " >
             <div class="container">
-                <a class="navbar-brand" href="{{url('/')}}">LOGO</a>
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <img src="{{asset('image/kottabnobg.png')}}"  alt="" style="height:80px; width:80px ; ">
+                </a>
                 @if (Route::currentRouteName() === "login")
                     <a class="navbar-toggler" href="{{ route('register') }}" aria-label="User Profile">
                         <i class="fa fa-user-plus " id="user-plus" aria-hidden="true"></i>

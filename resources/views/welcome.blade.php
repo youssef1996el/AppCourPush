@@ -25,13 +25,8 @@
     <body class="antialiased">
         <nav class="navbar navbar-expand-lg bg-light shadow fixed-top">
             <div class="container">
-<<<<<<< HEAD
-                <a class="navbar-brand" href="#">
-                    <img src="{{asset('image/kottabnobg.png')}}" alt="" style="height:80px; width:80px ; ">
-=======
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('image/kottaborange.png')}}" alt="" style="height:60px; width:60px ; ">
->>>>>>> e820222b7bf9edb5d8ace358fc9eaedc6f61e028
+                    <img src="{{asset('image/kottabnobg.png')}}"  alt="" style="height:80px; width:80px ; ">
                 </a>
                 <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
                 <i class="fa fa-user fa-lg" id="user" aria-hidden="true"></i>
