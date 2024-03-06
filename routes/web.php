@@ -323,11 +323,11 @@ Route::get('/prof/{name}/{id}',function()
 
 Route::post('StoreData',[HomeController::class,'Store']);
 
-
-Route::get('professeur/detailprof',function()
+Route::get('professeur/detailprof/{id}',[HomeController::class,'DetailProfesseur']);
+/* Route::get(,function()
 {
     return view('professeur.detailprof');
-});
+}); */
 
 Route::get('SendEmail',function()
 {

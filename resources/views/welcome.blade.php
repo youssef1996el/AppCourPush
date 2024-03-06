@@ -214,7 +214,7 @@
 
                             $url = $hashids->encode($url);
                         @endphp
-                        <a href="{{url('professeur/detailprof')}}" style="text-decoration: none; color: black;">
+                        <a href="{{url('professeur/detailprof',$url)}}" style="text-decoration: none; color: black;">
                             <div class="card bg-light">
                                 <div class="text-center">
                                     <img class="card-img-top img-fluid" src="{{$item->image}}" alt="{{$item->name}}">

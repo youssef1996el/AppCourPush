@@ -1,9 +1,9 @@
-@extends('Dashboard.templateAdmin')
-@section('navsidebar')
+@extends('layouts.app')
+@section('content')
 <link  rel="stylesheet" href="{{asset('css/StyleDetails.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 
-<div class="container">  
+<div class="container">
     <div class="card text-left mt-3">
         <div class="card-body">
             <h4 class="card-title">Réservation de cours</h4>
@@ -12,7 +12,7 @@
                     <div class="col-sm-12 col-md-4 col-xl-4  mb-3">
                         <label for="cours" >Sélectionner un cours :</label>
                         <select id="cours" class="form-select">
-                                <option value="cours" >cours</option> 
+                                <option value="cours" >cours</option>
                         </select>
                     </div>
                     <div class="col-sm-12 col-md-3 col-xl-3 mb-3 ">
@@ -44,12 +44,12 @@
     <div class="card text-left mt-3">
           <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
-            <h4 class="card-title">A propos de  {{$NameProfesseur}}  </h4>
+            <h4 class="card-title">A propos de  {{$InformationProfesseur->name}}  </h4>
             <p class="card-text">
                 <div class="card cardProfile text-center">
                 <img class=" prof-image " src="{{ $imageProfesseur->image == '' ? asset('image/default-avatar.png') : $imageProfesseur->image}}" alt="Profile image"  srcset="" >
                     <div class="card-body">
-                        <h2 class="name">  {{$NameProfesseur}} </h2>
+                        <h2 class="name">  {{$InformationProfesseur->name}} </h2>
                         <h4 >Prof d'arabe</h4>
                         <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince[0]->experince}}</span> ans d'expérience</h4>
                     <p class="card-text">{{$InformationProfesseur->description}}</p>
