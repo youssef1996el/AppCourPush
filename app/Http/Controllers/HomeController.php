@@ -58,11 +58,51 @@ class HomeController extends Controller
 
     public function Store(Request $request)
     {
-        $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
+        /* $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
         $path = $request->file('image')->storeAs('images/prof',$fileName,'public');
-        $requestDataImage['image'] = '/storage/'.$path;
+        $requestDataImage['image'] = '/storage/'.$path; */
+        // Check if the "eleves" folder exists in the storage path
+        $storagePath = storage_path('app/public/images/prof');
+        if (!File::exists($storagePath)) {
+            // If not, create the "eleves" folder
+            File::makeDirectory($storagePath, 0755, true, true);
+        }
+        $user = Auth::user();
+
+        if ($request->hasFile('image')) {
+            // Extract the old image name from the database
+            $oldImageName = basename($user->image);
+
+            // Remove the old image from the storage directory
+            $oldImagePath = storage_path("app/public/images/prof/{$oldImageName}");
+            if ($oldImageName !== null && File::exists($oldImagePath)) {
+                File::delete($oldImagePath);
+            }
+
+            // Remove the old image from the public directory
+            $publicOldImagePath = public_path("storage/images/prof/{$oldImageName}");
+            if ($oldImageName !== null && File::exists($publicOldImagePath)) {
+                File::delete($publicOldImagePath);
+            }
+
+            $imageName = 'prof/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
+
+            // Store the new image in the storage directory
+            $request->image->storeAs('public/images/prof', $imageName);
+
+            // Create the public path for the new image
+            $publicImagePath = public_path("storage/images/prof/{$imageName}");
+
+            // Make sure the directory exists before copying
+            File::ensureDirectoryExists(dirname($publicImagePath));
+
+            // Copy the new image to the public directory
+            File::copy(storage_path("app/public/images/prof/{$imageName}"), $publicImagePath);
+
+            $user->image = "/storage/images/prof/{$imageName}";
+        }
         $UpdateDataProf = User::where('id','=',Auth::user()->id)->update([
-            'image'             => $requestDataImage['image'],
+            'image'             => $user->image,
             'datenaissance'     => $request->datenaissance,
             'description'       => $request->methode,
             'telephone'         => $request->phone,

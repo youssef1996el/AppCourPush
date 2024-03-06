@@ -234,6 +234,7 @@ class AdminController extends Controller
         else
         {
             $data =  User::find($actualId);
+
         }
 
         return view('Dashboard.ShowUsers')->with('data', $data)
