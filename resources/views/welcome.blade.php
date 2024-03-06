@@ -25,11 +25,16 @@
     <body class="antialiased">
         <nav class="navbar navbar-expand-lg bg-light shadow fixed-top">
             <div class="container">
+<<<<<<< HEAD
+                <a class="navbar-brand" href="#">
+                    <img src="{{asset('image/kottabnobg.png')}}" alt="" style="height:80px; width:80px ; ">
+=======
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{asset('image/kottaborange.png')}}" alt="" style="height:60px; width:60px ; ">
+>>>>>>> e820222b7bf9edb5d8ace358fc9eaedc6f61e028
                 </a>
                 <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
-                <i class="fa fa-user" id="user" aria-hidden="true"></i>
+                <i class="fa fa-user fa-lg" id="user" aria-hidden="true"></i>
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,7 +61,7 @@
                                 </div>
                                 {{-- <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a> --}}
                             @else
-                            <a href="{{ route('login') }}" class="nav-link btn btn-outline-dark ">Se connecter</a>                            @endauth
+                            <a href="{{ route('login') }}" class="nav-link btn btn-primary shadow " id="btn-login-welcome">Se connecter</a>                            @endauth
                         @endif
                     </div>
                 </div>
