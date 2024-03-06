@@ -25,7 +25,7 @@
     <body class="antialiased">
         <nav class="navbar navbar-expand-lg bg-light shadow fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{asset('image/kottaborange.png')}}" alt="" style="height:60px; width:60px ; ">
                 </a>
                 <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
