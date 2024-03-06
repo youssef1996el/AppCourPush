@@ -60,7 +60,7 @@
 
                             @endforeach
                             <div class="form-group mb-3 form-groupEducation mt-5">
-                                <button type="button" class="btn btn-success  BtnUpdateEducationProf" style="display:flex; margin:auto">Valider</button>
+                                <button type="button" class="btn btn-success  BtnUpdateEducationProf" style="display:flex; margin:auto;justify-content: center">Valider</button>
                             </div>
                         </div>
                     </form>
