@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Socialite;
 use App\Models\ExperinceProfesseur;
 use DB;
+use App\Notifications\RegisterNotification;
+use Illuminate\Support\Facades\Notification;
 class SocialiteController extends Controller
 {
 
@@ -36,7 +38,7 @@ class SocialiteController extends Controller
                     $Experince = ExperinceProfesseur::where('iduser',$users[0]->id)->count();
                     if($Experince == 0)
                     {
-                        return redirect('professeur/StepByStep');
+                        return redirect('StepByStep');
                     }
                 }
                 else
@@ -78,6 +80,15 @@ class SocialiteController extends Controller
                     'password'          => Hash::make('my-google'),
                 ]);
                 Auth::login($newUser);
+                if($newUser->role_name === 'eleve')
+                {
+                    $users = User::where('role_name', 'Admin')->get();
+                    $name = $newUser->nom.' '.$newUser->prenom;
+                    $iduser   = DB::select('select id from users where email = ?',[$newUser->email]);
+                    $iduser = (int)$iduser[0]->id;
+                    $Condition ='MSG';
+                    Notification::send($users,new RegisterNotification($name,$newUser->role_name,$iduser,$Condition));
+                }
 
 
                 if (!$newUser->email_verified)
