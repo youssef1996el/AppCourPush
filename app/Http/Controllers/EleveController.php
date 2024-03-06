@@ -564,16 +564,39 @@ class EleveController extends Controller
             'ZM' => 'Zambia',
             'ZW' => 'Zimbabwe'
         ];
+        $checknNombreCaracterPayesEleve = Auth::user()->pays;
+        $mycodeFromDatabase ='';
         $Pays = [];
-        $mycodeFromDatabase = $DataEleve[0]->pays;
-        foreach ($codeCountry as $key => $value) {
-            if ($key === $mycodeFromDatabase) {
-                $Pays = [
-                    $key => $value
-                ];
-                break;
+        if(strlen($checknNombreCaracterPayesEleve) == 2)
+        {
+
+            $mycodeFromDatabase = $DataEleve[0]->pays;
+            foreach ($codeCountry as $key => $value) {
+                if ($key === $mycodeFromDatabase) {
+                    $Pays = [
+                        $key => $value
+                    ];
+                    break;
+                }
             }
         }
+        else
+        {
+            $Pays = Auth::user()->pays;
+            $countryCodeToName = array_flip($codeCountry);
+            $key = array_search($Pays, $codeCountry);
+
+            if ($key !== false)
+            {
+                $result = [$key => $Pays]; // Create the desired array
+                $Pays = $result;
+
+            } else {
+                dd("Value not found in array");
+            }
+        }
+
+
 
        /*  dd($Pays); */
 
