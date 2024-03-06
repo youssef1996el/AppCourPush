@@ -5,7 +5,7 @@
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 
 <div class="container mt-4 " >
-    <div class="card text-center padding:20px 10px">
+    <div class="card cardProfile text-center padding:20px 10px">
         <img class="imageprof" src="{{asset($DataProf[0]->image)}}" alt="Profile image"  srcset="" >
         <h2 class="name" style="font-weight: bold ;">{{$DataProf[0]->name }}</h2>
         <hr id="underName" class="mb-4">
@@ -66,11 +66,10 @@
                                     <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}">
                                         <li class="timeline-item" >
                                             <div class="timeline-element">
-                                                <a href="#">{{ $item->diplome }} </a>
                                                 <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
                                                 <span class="pays">{{ $item->pays }}</span>
-                                                <span class="circle"></span>
                                                 <div class="timeline-content">
+                                                    <h3>{{ $item->diplome }}</h3>
                                                     <p>{{ $item->specialise }}</p>
                                                 </div>
                                             </div>

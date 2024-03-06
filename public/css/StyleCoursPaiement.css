@@ -3,14 +3,17 @@
 }
 
 #BtnAddPrixCours {
-  background-color: #74a8d5;
+  background-color: #3b74bf;
   border-radius: 0px;
   float: right;
   color: white;
   width: 214px;
   height: 40px;
 }
-
+#BtnAddPrixCours:hover {
+  background-color:  #5087d0;
+ 
+}
 
 
 
@@ -54,10 +57,10 @@
   text-align: center;
   position: relative;
   cursor: pointer;
-  box-shadow: 0 10px 15px -3px rgba(33,150,243,.4),0 4px 6px -4px rgba(33,150,243,.4);
+  box-shadow: 0 10px 15px -3px #4e7cbc,0 4px 6px -4px rgb(84, 131, 194);
   border-radius: 10px;
   background-color: #6B6ECC;
-  background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
+  background: linear-gradient(45deg, #003682 0%, rgb(59, 97, 149) 100%);
   width:255px;
   min-height: -webkit-fill-available;
   }
@@ -99,7 +102,7 @@
   font-weight: 700;
   font-size: .75rem;
   padding: 0.75rem 1.5rem;
-  background-color: rgb(33 150 243);
+  background-color: rgb(96, 141, 201);
   border-radius: 0.5rem;
   width: 90%;
   text-shadow: 0px 4px 18px #2c3442;

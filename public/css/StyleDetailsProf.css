@@ -1,0 +1,460 @@
+.containerDetails{
+    margin-top: 6rem !important;
+  }
+  *{
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .titreImage{
+      display:flex;
+      justify-content: space-evenly;
+      align-items:center;
+  }
+  .imagep{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+  }
+  .RCourse{
+      padding: 20px 12px 0px 12px;
+  }
+  #iconColor
+  {
+      color:#0d6efd;
+      margin-right:15px
+  }
+  .btn-reserver2{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+  }
+  .btn-outline-primary {
+    border-radius: 0px;
+  }
+  .stylebtngrp{
+      width: 100%;
+      border-radius: 0px;
+      box-shadow: none;
+  }
+  .form-control, .form-select{
+      border-radius:0px
+  }
+  .prof-image{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid #004aad;
+    text-align: center;
+    display: flex;
+    margin: auto;
+    padding: 2px;
+  
+  }
+  .cardProfile{
+  padding: 14px 12px;
+  
+  } 
+  
+  .cardCours,.cardDispo,.cardFormation,.cardExperience{
+  background:rgb(221, 228, 238) ;
+  
+  } 
+  
+  
+  
+  
+  
+  .cardProfile .card-text{
+    font-size: 16px;
+    }
+  
+    .cardProfile{
+      background-color: rgb(221, 228, 238) ;
+    }
+   
+  
+    .cardProfile .name{
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+  
+    .cardProfile h4{
+      font-size: 24px;
+      color: #686868;
+  
+    }
+  
+    .cardProfile .fa-briefcase{
+      color:gray
+    }
+    .title-card{
+      font-size: 26px;
+      padding: 10px 0px 12px 26px;
+      }
+  
+      
+  #typeCours{
+    padding: 8px 12px;
+    width: 98%;
+  
+  }
+  #dateCours{
+    width: 70%;
+    padding: 6px 8px;
+  }
+  
+  
+    .showMore, .showLess {
+      text-transform: lowercase;
+      background-color: #0148aa;
+      color: white;
+      border: 1px solid #0148aa;
+      margin-top: -42px;
+      margin-left: 30px;
+      border-radius: 0px;
+      border-radius: 0px;
+    }
+  
+    .showMore:hover, .showLess:hover {
+      background-color: #346dbb;
+      color: white;
+      border: 1px solid #346dbb;
+    }
+  
+    .timeline {
+      color: #fff;
+      padding: 30px 20px;
+      /* box-shadow:0px 0px 10px rgba(0,0,0,.5); */
+      margin-top: -30px;
+    }
+  
+    .timeline ul {
+      list-style-type: none;
+      border-left: 4px solid #4e7cbc;
+      padding: 10px 5px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .timeline ul::-webkit-scrollbar
+    {
+        width: 15px;
+    }
+    .timeline ul::-webkit-scrollbar-thumb
+    {
+        background-color: #4e7cbc;
+        border-radius: 10px;
+        border: 3px solid #fff;
+    }
+    .timeline ul::-webkit-scrollbar-track
+    {
+        background-color: #99c2e9;
+        border-radius: 10px;
+    }
+  
+    .timeline ul li {
+      padding: 14px 20px 0px 20px;
+      position: relative;
+      cursor: pointer;
+      transition: .5s;
+      background: rgb(160, 186, 221);
+      margin-bottom: 10px;
+    }
+  
+    .timeline ul li span {
+      display: inline-block;
+      background-color: #0148aa;
+      border-radius: 25px;
+      padding: 2px 5px;
+      font-size: 15px;
+      text-align: center;
+    }
+  
+    .timeline ul li .timeline-content h3 {
+      color: black;
+      font-size: 26px;
+      padding-top: 5px;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  
+    .timeline ul li .timeline-content p {
+      padding: 5px 0px 0px 0px;
+      font-size: 18px;
+      color: #4a4848;
+  
+      font-style: italic;
+    }
+  
+    .timeline ul li::before {
+      position: absolute;
+      content: '';
+      width: 18px;
+      height: 18px;
+      background-color: #4e7cbc;
+      border-radius: 50%;
+      left: -5px;
+      top: -6px;
+      transition: .5s;
+      border: 2px solid rgb(160, 186, 221);
+    }
+  
+  
+    .timeline ul li:hover {
+      background-color: rgb(84, 131, 194);
+    }
+  
+    .timeline ul li:hover .timeline-content h3{
+      color: #fff;
+      font-weight: bold;
+    }
+    .timeline ul li:hover .timeline-content p {
+      color: #d7f2ff;;
+    }
+  
+    .timeline ul li:hover:before {
+      background-color: #3180b9;
+      box-shadow: 0px 0px 10px 2px #3180b9;
+    }
+    @media (max-width:300px){
+      .timeline{
+        width:100%;
+        padding:30px 5px 30px 10px;
+      }
+      .timeline ul li .timeline-content h3{
+        color:#34ace0;
+        font-size:15px;
+      }
+    }
+    #divCours .card-body{
+      padding: 8px 0px 0px 4px;}
+    .card-cours {
+  
+      background: #a0badd;
+      padding: 8px;
+      display: inline-block;
+      border-radius: 0px;
+      border: 1px solid #a0badd;
+      color: black;
+  
+    }
+    .card-cours p{
+      margin-right: 10px;
+    }
+    .card-cours p:last-child {
+      margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
+    }
+    .card-cours:hover {
+      background: rgb(84, 131, 194);
+      border: 1px solid rgb(84, 131, 194);
+      color: white;
+      cursor: pointer;
+    }
+    .divScrollCours
+    {
+      overflow-y: auto;
+      overflow-x:auto;
+      max-height:238px
+    }
+    .divScrollCours::-webkit-scrollbar
+    {
+        width: 15px;
+    }
+    .divScrollCours::-webkit-scrollbar-thumb
+    {
+        background-color: #4e7cbc;
+        border-radius: 10px;
+        border: 3px solid #fff;
+    }
+    .divScrollCours::-webkit-scrollbar-track
+    {
+        background-color: #99c2e9;
+        border-radius: 10px;
+    }
+    .fc .fc-scrollgrid-liquid {
+      height: 100%;
+      background: white;
+      margin-top: -46px;
+    }
+  
+  
+    /* .ContentDisponible {
+      width: 80px;
+      margin: 10px -5px 0px 5px;
+      border: 1px solid gray;
+      display: inline-table;
+      text-align: center !important;
+    
+      background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
+      background-size: 8.76px 11.63px;
+      flex-grow: 1;
+      min-height: 284px;
+      border-radius: 10px
+    }
+    .Days
+    {
+        border-bottom: 2px solid gray !important;
+        border-bottom-width: 10px;
+        box-shadow: rgba(4, 226, 208, 0.35);
+        border-radius: 50px;
+        margin-top: 5px;
+        color: black;
+        font-family:Gabriola, Times, serif;
+        font-size:22px;
+        white-space: nowrap;
+  
+    }
+    #divDispo
+    {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    #DivDispo .card-body{
+      width: 610px;
+      padding: 10px;
+      margin-top: -16px;
+    }
+  
+    .cardDispo{
+      width: 604px;
+      height: 381px;
+    }
+  
+    .ClassDisponible {
+      background: #F0f1f3;
+      width: 594px;
+      min-height: 10px;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.35);
+      margin-left: -12px;
+      height: 304px;
+      margin-top: -10px;
+      overflow-x: auto;
+  
+    }*/
+    .ContentNonDisponible
+  {
+      border: 1px solid gray;
+      display: inline-table;
+      text-align: center !important;
+  
+      background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3) !important;
+      background-size: 8.76px 11.63px !important;
+      flex-grow: 1;
+      min-height: 300px;
+      border-radius: 10px
+  }
+  .ContentDisponible {
+    /* width: 13%;
+  
+    border: 1px solid gray;
+    display: inline-table;
+    text-align: center !important;
+  
+    background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
+    background-size: 8.76px 11.63px;
+    flex-grow: 1;
+    min-height: 300px;
+    border-radius: 10px */
+  
+    min-width: 14%;
+    border: 1px solid gray;
+    display: inline-table;
+    text-align: center !important;
+  
+    flex-grow: 1;
+    min-height: 300px;
+    border-radius: 10px;
+    background: #f0f1f3;
+  
+  
+  }
+  .Days
+  {
+      border-bottom: 2px solid gray !important;
+      border-bottom-width: 10px;
+      box-shadow: rgba(4, 226, 208, 0.35);
+      border-radius: 50px;
+      margin-top: 5px;
+      color: black;
+      font-family:Gabriola, Times, serif;
+      font-size:22px;
+      white-space: nowrap;
+  
+      min-width: 14%;
+      display: flex;
+      padding: 5px;
+  
+      justify-content: center;
+  }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
+  {
+      .ContentDisponible
+      {
+          min-width: 15%;
+      }
+  }
+  @media only screen and (max-width: 600px) {
+  
+      .ContentDisponible
+      {
+          min-width: 21%;
+      }
+  }
+  
+  
+  
+  .cardDispo{
+    max-height: 100%;
+   max-width: 100%;
+  }
+  
+  .ClassDisponible {
+  display: flex;
+  overflow-x: auto;
+  
+  }
+  .ClassDisponible::-webkit-scrollbar
+  {
+      width: 10px;
+  }
+  .ClassDisponible::-webkit-scrollbar-thumb
+  {
+      background-color: #4e7cbc;
+      border-radius: 10px;
+      border: 3px solid #fff;
+  }
+  .ClassDisponible::-webkit-scrollbar-track
+  {
+      background-color: #99c2e9;
+      border-radius: 10px;
+  }
+    .cardCours{
+      height: 319px;
+    }
+  .card-title{
+    font-size:20px;
+  }
+  .checklist {
+    list-style-type: none; /* Remove default list style */
+    }
+    
+    .checklist li {
+    /* Adjust spacing between items */
+    }
+    
+    .checklist li:before {
+    content: "\2714"; /* Unicode checkmark character */
+    display: inline-block;
+    width: 1em;
+    margin-right: 5px; /* Adjust space between checkmark and text */
+    }
+    
+    /* Optional: Style the checkmark */
+    .checklist li {
+    color: #0148aa; /* Green color for the checkmark */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the text bold */
+    }
+    

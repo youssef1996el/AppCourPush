@@ -5,6 +5,9 @@
   .input-control input:focus {
     outline: 0;
 }
+.containerRegister{
+    margin-top: 5rem !important;
+  }
 
 .input-control.success input {
     border-color: #09c372;
@@ -183,7 +186,7 @@
                 text-indent: 30px;
             }
           
-            .fa-user, .fa-lock{
+            #userlogReg, .fa-lock{
                 color: black;
             }
 

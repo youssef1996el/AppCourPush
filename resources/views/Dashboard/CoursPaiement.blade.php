@@ -214,7 +214,7 @@
     width: 1.5rem;
     flex-shrink: 0;
     margin-right: 0.5rem;
-    color: rgb(56, 138, 210);
+    color: rgb(96, 141, 201);
   }
 
   .action {
@@ -222,7 +222,7 @@
     outline: none;
     display: inline-block;
     border-radius: 0.25rem;
-    background-color: rgb(56, 138, 210);
+    background-color: rgb(96, 141, 201);
     padding-left: 1.25rem;
     padding-right: 1.25rem;
     padding-top: 0.75rem;

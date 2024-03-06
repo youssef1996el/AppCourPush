@@ -28,7 +28,7 @@
                         @csrf
 
                         <div class="form-group mb-4 input-control" >
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <i class="fa fa-user" id="userlogReg" aria-hidden="true"></i>
                             <input id="email" placeholder="Email" type="email" class="form-control " name="email"  autofocus autocomplete="off">
                             <div class="error"></div>
 

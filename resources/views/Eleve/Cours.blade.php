@@ -30,7 +30,7 @@
                         @if ($hasCours)
                         @foreach ($MesCours as $item)
                                 <div class="card-sl " style="max-width:280px">
-                                <img class="card-img-top" src="{{asset('image/courseimg.png')}}" alt="" style="background: #dbecfa;height: 150px;">
+                                <img class="card-img-top" src="{{asset('image/coursnew.png')}}" alt="" style="background: #dbecfa;height: 150px;">
                                     <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
                                     <div class="card-heading" style="white-space: normal">
                                         {{$item->nom_professeur}}

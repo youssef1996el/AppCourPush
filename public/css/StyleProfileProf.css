@@ -8,9 +8,7 @@ font-size: 16px;
 #divProfile .card-body{
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
-.card{
-  background-color: #74a8d54f;
-}
+
 #divProfile .card-img-top{
   border: 2px solid white;
   border-radius: 50%;
@@ -59,28 +57,28 @@ font-size: 26px;
 
 #divCours .card-body{
   padding: 8px 0px 0px 4px;}
-.card-cours {
+  .card-cours {
+  
+    background: #a0badd;
+    padding: 8px;
+    display: inline-block;
+    border-radius: 0px;
+    border: 1px solid #a0badd;
+    color: black;
 
-  background: #ffffff70;
-  padding: 8px;
-  display: inline-block;
-  border-radius: 0px;
-  border: 1px solid #ffffff70;
-  color: black;
-
-}
-.card-cours p{
-  margin-right: 10px;
-}
-.card-cours p:last-child {
-  margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
-}
-.card-cours:hover {
-  background: #7db8f7a8;
-  border: 1px solid #7db8f7a8;
-  color: white;
-  cursor: pointer;
-}
+  }
+  .card-cours p{
+    margin-right: 10px;
+  }
+  .card-cours p:last-child {
+    margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
+  }
+  .card-cours:hover {
+    background: rgb(84, 131, 194);
+    border: 1px solid rgb(84, 131, 194);
+    color: white;
+    cursor: pointer;
+  }
 .divScrollCours
 {
   overflow-y: auto;
@@ -210,7 +208,11 @@ overflow-x: auto;
   height: 319px;
 }
 
-
+.cardCours,.cardDispo,.cardFormation,.cardExperience,.cardProfile{
+  background:rgb(221, 228, 238) ;
+  
+  } 
+  
 /* //////////////////// */
 /*   .timeline {
   margin-top: -16px;
@@ -300,9 +302,9 @@ overflow-x: auto;
 /* Show/Hide button styling */
 .showMore, .showLess {
   text-transform: lowercase;
-  background-color: #1685b8;
+  background-color: #0148aa;
   color: white;
-  border: 1px solid #1685b8;
+  border: 1px solid #0148aa;
   margin-top: -42px;
   margin-left: 30px;
   border-radius: 0px;
@@ -310,9 +312,9 @@ overflow-x: auto;
 }
 
 .showMore:hover, .showLess:hover {
-  background-color: #1a475b;
+  background-color: #346dbb;
   color: white;
-  border: 1px solid #1a475b;
+  border: 1px solid #346dbb;
 }
 
 .timeline {
@@ -324,7 +326,7 @@ overflow-x: auto;
 
 .timeline ul {
   list-style-type: none;
-  border-left: 4px solid #094a68;
+  border-left: 4px solid #4e7cbc;
   padding: 10px 5px;
   max-height: 200px;
   overflow-y: auto;
@@ -335,7 +337,7 @@ overflow-x: auto;
 }
 .timeline ul::-webkit-scrollbar-thumb
 {
-    background-color: #094a68;
+    background-color: #4e7cbc;
     border-radius: 10px;
     border: 3px solid #fff;
 }
@@ -350,13 +352,13 @@ overflow-x: auto;
   position: relative;
   cursor: pointer;
   transition: .5s;
-  background: #a5c6e2;
+  background: rgb(160, 186, 221);
   margin-bottom: 10px;
 }
 
 .timeline ul li span {
   display: inline-block;
-  background-color: #1685b8;
+  background-color: #0148aa;
   border-radius: 25px;
   padding: 2px 5px;
   font-size: 15px;
@@ -384,17 +386,17 @@ overflow-x: auto;
   content: '';
   width: 18px;
   height: 18px;
-  background-color: #094a68;
+  background-color: #4e7cbc;
   border-radius: 50%;
   left: -5px;
   top: -6px;
   transition: .5s;
-  border: 2px solid #a5c6e2;
+  border: 2px solid rgb(160, 186, 221);
 }
 
 
 .timeline ul li:hover {
-  background-color: #0d3b4f;
+  background-color: rgb(84, 131, 194);
 }
 
 .timeline ul li:hover .timeline-content h3{
@@ -443,10 +445,11 @@ overflow-x: auto;
 }
 .imageprof{
   width: 150px;
-height: 150px;
-border-radius: 50%;
-border: 2px solid rgb(13, 202, 240);
-margin: 16px auto;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid rgb(13, 202, 240);
+  margin: 16px auto;
+  padding: 2px;
 }
 
 .checklist {

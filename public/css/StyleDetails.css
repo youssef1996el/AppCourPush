@@ -1,10 +1,14 @@
 *{
   font-family: 'Times New Roman', Times, serif;
 }
+
 .titreImage{
     display:flex;
     justify-content: space-evenly;
     align-items:center;
+}
+.btn-outline-primary {
+  border-radius: 0px !important;
 }
 .imagep{
     width: 60px;

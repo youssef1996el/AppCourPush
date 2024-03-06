@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<link  rel="stylesheet" href="{{asset('css/StyleDetails.css')}}">
+<link  rel="stylesheet" href="{{asset('css/StyleDetailsProf.css')}}">
 <script src="{{asset('js/ScriptShowProfile.js')}}"></script>
 
-<div class="container">
+<div class="container containerDetails">
     <div class="card text-left mt-3">
         <div class="card-body">
             <h4 class="card-title">Réservation de cours</h4>
@@ -22,7 +22,7 @@
                             <label class="btn btn-outline-primary" for="group"><i class="fas fa-users "></i></label>
 
                             <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off" @guest @else  {{$TypeCours == "prive" ? 'checked' : ''}}  @endguest>
-                            <label class="btn btn-outline-primary " for="private" style="width:45px ; border-radius:0px"><i class="fas fa-user "></i></label>
+                            <label class="btn btn-outline-primary " for="private"><i class="fas fa-user "></i></label>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-xl-4  mb-3 ">
@@ -52,7 +52,7 @@
                         <h2 class="name">  {{$InformationProfesseur->name}} </h2>
                         <h4 >Prof d'arabe</h4>
                         <h4 ><i class="fa fa-briefcase" aria-hidden="true" ></i> <span>{{$CalculExperince[0]->experince}}</span> ans d'expérience</h4>
-                    <p class="card-text">{{$InformationProfesseur->description}}</p>
+                    <p class="card-text" style="font-size: 18px;">{{$InformationProfesseur->description}}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -165,7 +165,7 @@
                 </div>
             </p>
             </div>
-            <div class="card-footer d-flex justify-content-center">
+            <div class="card-footer d-flex justify-content-center align-items-center">
                 <p style="display: contents;">contactez-moi via</p>
                 <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" onclick="showPhoneNumber()" >
                     <i class="fa-solid fa-phone"></i>

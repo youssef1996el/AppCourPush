@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/StyleRegister.css')}}">
 <script src="{{asset('js/ScriptRegister.js')}}"></script>
 
-<div class="container mt-5">
+<div class="container containerRegister">
     <div class="row justify-content-center ">
         <div class="form-eleve col-md-8 mt-3">
 
@@ -55,7 +55,7 @@
                         </div>
                         <!-- Email input -->
                         <div class="form-group mb-4 input-control">
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <i class="fa fa-user" id="userlogReg" aria-hidden="true"></i>
                             <input type="email" id="emailEleve" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email"/>
                             <div class="error ErrorValidation"></div>
 
