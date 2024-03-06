@@ -327,3 +327,6 @@ footer hr{
     border: none;
     box-shadow: none;
 }
+#utilisateur{
+    margin-left: -4px !important;
+}

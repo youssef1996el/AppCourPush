@@ -25,7 +25,9 @@
     <body class="antialiased">
         <nav class="navbar navbar-expand-lg bg-light shadow fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">LOGO</a>
+                <a class="navbar-brand" href="#">
+                    <img src="{{asset('image/kottaborange.png')}}" alt="" style="height:60px; width:60px ; ">
+                </a>
                 <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
                 <i class="fa fa-user" id="user" aria-hidden="true"></i>
                 </a>
@@ -131,7 +133,7 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-4 col-lg-4 mb-3 text-center">
                         <div class="card">
-                            <div class="icon"><i class="fa fa-users fa-2x" aria-hidden="true"></i></div>
+                            <div class="icon"><i class="fa fa-users fa-2x" id="utilisateur" aria-hidden="true"></i></div>
                             <div class="card-body">
                                 <h4 class="card-title">Accès élèves</h4>
                                 <p class="card-text">Accédez à tout moment à vos cours en utilisant l'identifiant qui vous a été attribué.</p>
@@ -140,7 +142,7 @@
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4 mb-3 text-center">
                         <div class="card">
-                            <div class="icon"><i class="fas fa-user-tie fa-2x"></i></div>
+                            <div class="icon"><i class="fas fa-user-tie fa-2x " ></i></div>
                             <div class="card-body">
                                 <h4 class="card-title">Accès professeurs</h4>
                                 <p class="card-text">Système ludique d'acquisition de grades et de compétences accessible à tous les niveaux.</p>
