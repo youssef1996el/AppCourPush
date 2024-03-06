@@ -17,7 +17,7 @@ use Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Reserves;
-
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\App;
 class AdminController extends Controller
 {
@@ -150,30 +150,61 @@ class AdminController extends Controller
     {
         try
         {
+            // Check if the "eleves" folder exists in the storage path
+            $storagePath = storage_path('app/public/images/admin');
+            if (!File::exists($storagePath)) {
+                // If not, create the "admin" folder
+                File::makeDirectory($storagePath, 0755, true, true);
+            }
             $user = Auth::user();
-
-            // Update user data
-            $updateData = [
-                'nom' => $request->nom,
-                'prenom' => $request->prenom,
-                'password' => Hash::make($request->nouveaumotdepasse),
-            ];
-
-            // Check if a new image is provided
-            if ($request->hasFile('image')) {
-                // Delete the old image if it exists
-                if ($user->image) {
-                    $imagePath = str_replace('/storage/', '', $user->image);
-                    Storage::delete($imagePath);
+            if ($request->hasFile('image'))
+            {
+                // Extract the old image name from the database
+                $oldImageName = basename($user->image);
+                // Remove the old image from the storage directory
+                $oldImagePath = storage_path("app/public/images/admin/{$oldImageName}");
+                if ($oldImageName !== null && File::exists($oldImagePath))
+                {
+                    File::delete($oldImagePath);
                 }
 
-                // Upload and store the new image
-                $path = $request->file('image')->store('images/prof', 'public');
-                $updateData['image'] = '/storage/'.$path;
+                // Remove the old image from the public directory
+                $publicOldImagePath = public_path("storage/images/admin/{$oldImageName}");
+                if ($oldImageName !== null && File::exists($publicOldImagePath))
+                {
+                    File::delete($publicOldImagePath);
+                }
+
+                $imageName = 'admin/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
+
+                // Store the new image in the storage directory
+                $request->image->storeAs('public/images/admin', $imageName);
+
+                // Create the public path for the new image
+                $publicImagePath = public_path("storage/images/admin/{$imageName}");
+
+                // Make sure the directory exists before copying
+                File::ensureDirectoryExists(dirname($publicImagePath));
+
+                // Copy the new image to the public directory
+                File::copy(storage_path("app/public/images/admin/{$imageName}"), $publicImagePath);
+
+                $user->image = "/storage/images/admin/{$imageName}";
             }
 
-            // Update the user
-            $user->update($updateData);
+             // Update other user data
+            $user->nom              = $request->nom;
+            $user->prenom           = $request->prenom;
+            if ($request->filled('nouveaumotdepasse') && $request->filled('Cnfnouveaumotdepasse'))
+            {
+                $user->password = Hash::make($request->nouveaumotdepasse);
+            }
+            $user->save();
+
+
+
+
+
 
 
             return redirect()->back()->with('success', 'Profile updated successfully');

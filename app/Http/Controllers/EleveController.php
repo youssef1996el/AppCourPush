@@ -588,39 +588,39 @@ class EleveController extends Controller
     {
         $storagePath = storage_path('app/public/images/eleves');
 
-if (!File::exists($storagePath)) {
-    // If not, create the "eleves" folder
-    File::makeDirectory($storagePath, 0755, true, true);
-}
+        if (!File::exists($storagePath)) {
+            // If not, create the "eleves" folder
+            File::makeDirectory($storagePath, 0755, true, true);
+        }
 
-$user = Auth::user();
+        $user = Auth::user();
 
-// Handle image upload
-if ($request->hasFile('image')) {
-    // Extract the old image name from the database
-    $oldImageName = basename($user->image);
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Extract the old image name from the database
+            $oldImageName = basename($user->image);
 
-    // Remove the old image if it exists
-    if ($oldImageName !== null && File::exists(storage_path("app/public/images/eleves/{$oldImageName}"))) {
-        File::delete(storage_path("app/public/images/eleves/{$oldImageName}"));
-    }
+            // Remove the old image if it exists
+            if ($oldImageName !== null && File::exists(storage_path("app/public/images/eleves/{$oldImageName}"))) {
+                File::delete(storage_path("app/public/images/eleves/{$oldImageName}"));
+            }
 
-    $imageName = 'eleves/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
+            $imageName = 'eleves/' . uniqid() . '.' . $request->image->getClientOriginalExtension();
 
-    // Store the new image in the storage directory
-    $request->image->storeAs('public/images/eleves', $imageName);
+            // Store the new image in the storage directory
+            $request->image->storeAs('public/images/eleves', $imageName);
 
-    // Create the public path for the new image
-    $publicImagePath = public_path("storage/images/eleves/{$imageName}");
+            // Create the public path for the new image
+            $publicImagePath = public_path("storage/images/eleves/{$imageName}");
 
-    // Make sure the directory exists before copying
-    File::ensureDirectoryExists(dirname($publicImagePath));
+            // Make sure the directory exists before copying
+            File::ensureDirectoryExists(dirname($publicImagePath));
 
-    // Copy the new image to the public directory
-    File::copy(storage_path("app/public/images/eleves/{$imageName}"), $publicImagePath);
+            // Copy the new image to the public directory
+            File::copy(storage_path("app/public/images/eleves/{$imageName}"), $publicImagePath);
 
-    $user->image = "/storage/images/eleves/{$imageName}";
-}
+            $user->image = "/storage/images/eleves/{$imageName}";
+        }
 
         // Update other user data
         $user->name             = $request->name;
