@@ -183,12 +183,12 @@
 <script>
     function sendMessage(email) {
         // Use the nom parameter as needed
-        alert('Sending message to: ' + email);
+        alert('Sending message to: ' + @json($InformationProfesseur->email));
     }
 
     function showPhoneNumber(phoneNumber) {
         // Use the phoneNumber parameter as needed
-        alert('Numéro de téléphone : ' + phoneNumber);
+        alert('Numéro de téléphone : ' + @json($InformationProfesseur->telephone));
     }
 </script>
 @endsection
