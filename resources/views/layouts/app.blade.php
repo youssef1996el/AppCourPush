@@ -60,9 +60,13 @@
                         @guest
 
                             <li class="nav-item">
-                                @if (Route::currentRouteName() === "login")
+                                @if (Route::currentRouteName() === "login" )
                                     <p style="display: inline; margin-right: 10px;">Vous n'avez pas encore de compte ?</p>
                                     <a class="btn btn-primary" href="{{ route('register') }}">S'inscrire</a>
+                                @endif
+
+                                @if (Str::contains(request()->url(), 'professeur/detailprof'))
+                                    <a href="{{ route('login') }}" class="nav-link btn btn-primary shadow " id="btn-login-welcome">Se connecter</a>
                                 @endif
                             </li>
                         @else
