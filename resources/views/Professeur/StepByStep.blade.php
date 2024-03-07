@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('css/Step.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Iqraa</title>
-<div class="container">
+<div class="container containerStep ">
     <div class="cardCss ">
         <div class="form">
             <div class="left-side">
@@ -75,7 +75,7 @@
                             </div>
 
                         </div>
-                        <div class="buttons mb-3 mt-3 float-end">
+                        <div class="buttons mb-3 mt-5 float-end">
                             <button type="button" class="next_button ">Suivant</button>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                             </div>
                             <hr style="border-style: dashed">
                         </div>
-                        <div class="buttons button_space float-end">
+                        <div class="buttons mb-3 button_space float-end">
                             <button type="button" class="back_button">Précédent</button>
                             <button type="button" class="next_button">Suivant</button>
                         </div>
@@ -171,7 +171,7 @@
                             </div>
                             <hr style="border-style: dashed">
                         </div>
-                        <div class="buttons button_space float-end">
+                        <div class="buttons mb-3 button_space float-end">
                             <button type="button" class="back_button">Précédent</button>
                             <button type="button" class="next_button">Suivant</button>
                         </div>
@@ -195,7 +195,7 @@
 
                             </div>
                         </div>
-                        <div class="buttons button_space mt-3 float-end">
+                        <div class="buttons mb-3 button_space mt-3 float-end">
                             <button type="button" class="back_button">Précédent</button>
                             <button type="button" class="next_button">Suivant</button>
 
@@ -215,7 +215,7 @@
                                 <input type="file" name="attestation" class="form-control" require required>
                             </div>
                         </div>
-                        <div class="buttons button_space mt-5 float-end">
+                        <div class="buttons mb-3 button_space mt-5 float-end">
                             <button type="button" class="back_button">Précédent</button>
                             <button type="button" class="next_button">Suivant</button>
                         </div>
@@ -227,7 +227,7 @@
                         <div class="text">
                             <h2>Cours</h2>
                             <p>Quelles sont les cours dans lesquelles vous pouvez aider des élèves ?</p>
-                            <h5 style="color:red">Vous devez ajouter au moins un cours ?</h5>
+                            <h6 style="font-size: 14px;color: red; font-style: italic;">Vous devez ajouter au moins un cours ?</h6>
                         </div>
                         <div class="List-Courses">
                             <div class="input-cours">
@@ -247,7 +247,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="buttons button_space mt-4 float-end">
+                        <div class="buttons mb-3 button_space mt-4 float-end">
                             <button type="button" class="back_button">Précédent</button>
                             <button type="button" class="next_button">Suivant</button>
                         </div>
@@ -280,7 +280,7 @@
                             </div>
 
                         </div>
-                        <div class="buttons button_space mt-2 float-end">
+                        <div class="buttons mb-3 button_space mt-2 float-end">
                             <button type="button" class="back_button">Précédent</button>
                             <button type="button" class="submit_button finish" >Valider</button>
                         </div>

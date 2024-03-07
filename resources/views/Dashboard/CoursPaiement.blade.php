@@ -38,7 +38,7 @@
         </div> -->
         <div class="card" style="background-color: #ffffff63;">
     <div class="card-body">
-        <h4 class="card-title mb-5">Cours de paiement</h4>
+        <h4 class="card-title mb-5">Paiement des Types de cours</h4>
         <div class="row justify-content-center"> <!-- Center the cards horizontally -->
             <div class="buttonPrice">
                 <button class="btn" id="BtnAddPrixCours" data-bs-toggle="modal" data-bs-target="#ModalAddPrix">
