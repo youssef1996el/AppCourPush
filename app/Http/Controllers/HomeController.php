@@ -318,6 +318,47 @@ class HomeController extends Controller
    }
 
 
+   public function checkDispoProf(Request $request)
+   {
+        try
+        {
+            $Check = DB::table('disponibleprof')
+                    ->where('jour'      ,$request->dayName)
+                    ->where('idcours'   ,$request->cours)
+                    ->where('typecours' ,$request->typecours)
+                    ->where('iduser'    ,$request->iduser)
+                    ->count();
+
+            if($Check == 0)
+            {
+                return response()->json([
+                    'status'   => 400,
+                ]);
+            }
+            else
+            {
+                $Data  = DB::table('disponibleprof')
+                        ->join('users','users.id','=','disponibleprof.iduser')
+                        ->join('cours','cours.id','=','disponibleprof.idcours')
+                        ->where('jour'      ,$request->dayName)
+                        ->where('idcours'   ,$request->cours)
+                        ->where('typecours' ,$request->typecours)
+                        ->where('disponibleprof.iduser'    ,$request->iduser)
+                        ->select('disponibleprof.debut','users.name','cours.title','disponibleprof.typecours')
+                        ->get();
+                return response()->json([
+                    'status'   => 200,
+                    'Data'    => $Data
+                ]);
+            }
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
+   }
+
+
 
 
 }

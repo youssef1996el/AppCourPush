@@ -12,16 +12,18 @@
                     <div class="col-sm-12 col-md-4 col-xl-4  mb-3">
                         <label for="cours" >Sélectionner un cours :</label>
                         <select id="cours" class="form-select">
-                                <option value="cours" >cours</option>
+                                @foreach ($CourProf as $item)
+                                    <option value="{{$item->id}}">{{$item->title}}</option>
+                                @endforeach
                         </select>
                     </div>
                     <div class="col-sm-12 col-md-3 col-xl-3 mb-3 ">
                         <label for="" style="display:block">Groupe/Parliculier: </label>
                         <div class="btn-group stylebtngrp" role="group" aria-label="Basic radio toggle button group" id="btnGroup">
-                            <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" @guest @else {{$TypeCours == "groupe" ? 'checked' : ''}} @endguest  >
+                            <input type="radio" class="btn-check typeCours" value="groupe" name="btnradio" id="group" autocomplete="off" checked    >
                             <label class="btn btn-outline-primary" for="group"><i class="fas fa-users "></i></label>
 
-                            <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off" @guest @else  {{$TypeCours == "prive" ? 'checked' : ''}}  @endguest>
+                            <input type="radio" class="btn-check typeCours" value="prive" name="btnradio" id="private" autocomplete="off" >
                             <label class="btn btn-outline-primary " for="private"><i class="fas fa-user "></i></label>
                         </div>
                     </div>
@@ -179,7 +181,7 @@
     </div>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function sendMessage(email) {
         // Use the nom parameter as needed
@@ -190,5 +192,74 @@
         // Use the phoneNumber parameter as needed
         alert('Numéro de téléphone : ' + @json($InformationProfesseur->telephone));
     }
+    $(document).ready(function () {
+        $('.btn-reserver2').on('click', function()
+        {
+            var dateString = $('#dateCours').val();
+            var date = new Date(dateString);
+
+            // English day names
+            var englishDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            // French day names
+            var frenchDays = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+
+            // Get the day index and use it to retrieve the corresponding French day name
+            var dayIndex = date.getDay();
+            var dayName = frenchDays[dayIndex];
+
+
+
+            var typecours;
+            $('.typeCours:checked').each(function() {
+                typecours = $(this).val();
+            });
+
+            if($('#dateCours').val() == '')
+            {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Please Selected Date Cours!",
+
+                });
+                return false;
+            }
+
+            $.ajax({
+                type: "get",
+                url: "{{url('checkDispoProf')}}",
+                data:
+                {
+                    cours       : $('#cours').val(),
+                    typecours   : typecours,
+                    dayName     : dayName,
+                    iduser      : @json($InformationProfesseur->id),
+                },
+                dataType: "json",
+                success: function (response)
+                {
+                    if(response.status == 200)
+                    {
+
+                        var reservationUrl = "/Reservation/" + encodeURIComponent(response.Data[0].debut) + "/" + encodeURIComponent(response.Data[0].name) + "/" + encodeURIComponent(response.Data[0].title) + "/" + encodeURIComponent(response.Data[0].typecours);
+
+
+                        window.location.href = reservationUrl;
+                    }
+                    else if(response.status == 400)
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Erreur de réservation : Votre cours n'est pas inclus dans la réservation. Veuillez vérifier les détails  !",
+
+                        });
+                    }
+                }
+            });
+
+        });
+    });
 </script>
 @endsection
