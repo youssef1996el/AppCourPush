@@ -13,6 +13,7 @@ use DateTime;
 use App\Notifications\RegisterNotification;
 use Illuminate\Support\Facades\Notification;
 use Vinkla\Hashids\Facades\Hashids;
+use Illuminate\Support\Facades\File;
 class HomeController extends Controller
 {
     /**
