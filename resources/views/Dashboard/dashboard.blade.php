@@ -1,7 +1,7 @@
 @extends('Dashboard.templateAdmin')
 @section('navsidebar')
 <link rel="stylesheet" href="{{asset('css/StyleDashboardAdmin.css')}}">
-
+<div class="container">
     <div class="row">
         <div class="col-12">
             <div class="container">
@@ -129,8 +129,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+</div>
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>

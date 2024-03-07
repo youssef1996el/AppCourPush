@@ -1,6 +1,12 @@
 *{
     font-family: 'Times New Roman', Times, serif;
 }
+.nomapp{
+    color: #004aad;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 40px;
+}
 .form-control:focus{
     border:1px solid lightgray !important;
     border-radius: 0px;

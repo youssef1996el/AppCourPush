@@ -9,8 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
     <link rel="stylesheet" href="{{asset('css/Step.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Iqraa</title>
-<div class="container containerStep ">
+    <title>Kottab</title>
+    <link rel="icon" href="{{asset('image/faviconnobg.png')}}" type="image/x-icon"><div class="container containerStep ">
     <div class="cardCss ">
         <div class="form">
             <div class="left-side">
