@@ -1,8 +1,12 @@
 *{
     font-family: 'Times New Roman', Times, serif;
-  }
-
-
+}
+.form-control:focus{
+    border:1px solid lightgray !important;
+    border-radius: 0px;
+    border-style: solid;
+    box-shadow: none;
+}
 
 /*about*/
 #about .ligne{
@@ -122,6 +126,12 @@
     }
 
 
+
+    @media only screen and (max-width: 810px) {
+        .carousel-caption {
+            bottom: 380px !important;
+        }
+    }
 /*Service*/
 
 #service .section-title h2{
