@@ -28,6 +28,7 @@ class HomeController extends Controller
         ->where('users.verification','=','Verifie')
         ->where('users.role_name','=','professeur')
         ->select('users.name','users.image','users.description','users.telephone','users.id','users.title','users.email')
+        ->groupBy('users.id')
         ->get();
 
         return view('welcome')->with('listProf',$listProf);
