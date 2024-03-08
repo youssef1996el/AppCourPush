@@ -64,7 +64,7 @@
                             <div class="card-body ">
                                 <div class="ClassDisponible">
                                     @foreach ($disponibilityByDay as $key => $data)
-                                        <div class="ContentDisponible {{ empty($data) ? 'ContentNonDisponible' : '' }}">
+                                        <div class="ContentDisponible "><!-- {{ empty($data) ? 'ContentNonDisponible' : '' }} -->
                                             <div class="Days">{{$key}}</div>
                                                 <div class="ClassCalculHeight padContent">
                                                     @foreach($data as $item)
