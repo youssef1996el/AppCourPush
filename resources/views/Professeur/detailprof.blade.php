@@ -68,10 +68,11 @@
                                             <div class="Days">{{$key}}</div>
                                                 <div class="ClassCalculHeight">
                                                     @foreach($data as $item)
-                                                        <div class="ClassTimeDisponible" style="color:#0c3c74;background:#00f8ff3b;">
+                                                        <div class="ClassTimeDisponible" style="color:#0c3c74;background:{{$item->typecours === 'groupe' ? 'yellow' : 'green'}}; ">
                                                             <p>
                                                                 <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                                {{$item->debut}}
+                                                                {{$item->debut}} <br> {{$item->title}} <br> {{$item->typecours}}
+
                                                             </p>
                                                             <p>
                                                                 <i class="fa-solid fa-clock" style="color: #0078ff"></i>

@@ -303,7 +303,7 @@ class HomeController extends Controller
 
     // Output the result
 
-
+   /*  dd($disponibilityByDay); */
     return view('professeur.detailprof')
     ->with('CalculExperince'         , $CalculExperince)
     ->with('InformationProfesseur'   , $InformationProfesseur)
