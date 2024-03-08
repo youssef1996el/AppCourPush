@@ -62,7 +62,9 @@
   
   } 
   
-  
+  .btn-primary{
+    color: white !important;
+  }
   
   
   
@@ -458,3 +460,6 @@
     font-weight: bold; /* Make the text bold */
     }
     
+    .padContent{
+      padding: 8px 0px;
+    }

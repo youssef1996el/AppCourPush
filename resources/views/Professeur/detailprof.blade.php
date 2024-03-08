@@ -66,24 +66,25 @@
                                     @foreach ($disponibilityByDay as $key => $data)
                                         <div class="ContentDisponible {{ empty($data) ? 'ContentNonDisponible' : '' }}">
                                             <div class="Days">{{$key}}</div>
-                                                <div class="ClassCalculHeight">
+                                                <div class="ClassCalculHeight padContent">
                                                     @foreach($data as $item)
-                                                        <div class="ClassTimeDisponible" style="color:#0c3c74;background:{{$item->typecours === 'groupe' ? 'yellow' : 'green'}}; ">
-                                                            <p>
-                                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
-                                                                {{$item->debut}} <br> {{$item->title}} <br> {{$item->typecours}}
-
+                                                        <div class="ClassTimeDisponible" style="color:#0c3c74;background:{{$item->typecours === 'groupe' ? '#ffc302' : '#22bb33'}}; ">
+                                                            <p class="text-white">
+                                                                <i class="fa-solid fa-clock" style="color: white"></i>
+                                                                {{$item->debut}} 
                                                             </p>
-                                                            <p>
-                                                                <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                            <p class="text-white" style="font-style:italic; font-weight:bold; font-size:16px">
+                                                                {{$item->title}} 
+                                                            </p>
+                                                            <p class="text-white">
+                                                                <i class="fa-solid fa-clock" style="color: white"></i>
                                                                 {{$item->fin}}
                                                             </p>
                                                         </div>
                                                     @endforeach
                                                     @if(empty($data))
-                                                        <div class="ClassTimeDisponible " style="color: #0c3c74;background: #00f8ff3b;">
-                                                            <p>Vide</p>
-                                                            <p>Vide</p>
+                                                        <div class="ClassTimeDisponible " style=";background: #00f8ff3b;">
+                                                
                                                         </div>
                                                     @endif
                                                 </div>
@@ -91,7 +92,13 @@
                                     @endforeach
 
                                 </div>
+                                
 
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex align-items-center" style="gap:12px"><div class="gr" style="width:12px; height:12px;background: #ffc302;border-radius: 50%;"></div>Cours en groupe</div>
+                                <div class="d-flex align-items-center" style="gap:12px"><div class="pr" style="width:12px; height:12px; background: #22bb33;border-radius: 50%;"></div>Cours particulier</div>
+                                <div class="d-flex align-items-center" style="gap:12px"><div class="vide" style="width:12px; height:12px;  background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3) !important;background-size: 8.76px 11.63px !important;border-radius: 50%"></div>Indisponible</div>
                             </div>
 
                         </div>

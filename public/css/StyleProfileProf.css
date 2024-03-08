@@ -111,7 +111,6 @@ font-size: 26px;
     border: 1px solid gray;
     display: inline-table;
     text-align: center !important;
-
     background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3) !important;
     background-size: 8.76px 11.63px !important;
     flex-grow: 1;
@@ -472,4 +471,7 @@ margin-right: 5px; /* Adjust space between checkmark and text */
 color: #1685b8; /* Green color for the checkmark */
 text-decoration: none; /* Remove underline */
 font-weight: bold; /* Make the text bold */
+}
+.ClassCalculHeight{
+  padding: 8px 0px !important;
 }

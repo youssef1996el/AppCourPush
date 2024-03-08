@@ -187,7 +187,7 @@
                                         </div>
                                     </div>
                                     <div class="col-ms-12 col-md-12 col-xl-9">
-                                        <label for="" class="text-uppercase titleCenterResponsive">disponible</label>
+                                        <label for="" class="text-uppercase titleCenterResponsive">disponibilité</label>
                                         <div class="ClassDisponible">
 
                                         </div>

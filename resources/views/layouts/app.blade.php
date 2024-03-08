@@ -68,6 +68,7 @@
 
                                 @if (Str::contains(request()->url(), 'professeur/detailprof'))
                                     <a href="{{ route('login') }}" class="nav-link btn btn-primary shadow " id="btn-login-welcome">Se connecter</a>
+                                   
                                 @endif
                             </li>
                         @else
