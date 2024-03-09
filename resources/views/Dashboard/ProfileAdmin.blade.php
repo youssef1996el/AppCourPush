@@ -41,21 +41,54 @@
                             <input type="email" id="email" name="email" class="form-control" placeholder="Entrer votre email" value="{{$DataAdmin->email}}" readonly>
                             <div class="error"></div>
                         </div>
-                        <div class="form-group">
-                            <label for="motdepasse">Mot de passe</label>
-                            <input type="password" id="motdepasse" name="motdepasse" class="form-control" placeholder="Entrer votre mot de passe" value=''>
-                            <div class="errorPassword"></div>
+                        <!-- <div class="showInputs ">
+                            <a href="#" id="showInputsLink" class="d-flex justify-content-center bold mb-5">Modifier votre mot de passe</a>
+
+                            <div class="hidden-inputs" id="inputsContainer">
+                                <div class="form-group">
+                                    <label for="motdepasse">Mot de passe</label>
+                                    <input type="password" id="motdepasse" name="motdepasse" class="form-control" placeholder="Entrer votre mot de passe" value=''>
+                                    <div class="errorPassword"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nouveaumotdepasse">Nouveau mot de passe</label>
+                                    <input type="password" id="nouveaumotdepasse" name="nouveaumotdepasse" class="form-control" placeholder="Entrer votre nouveau mot de passe ">
+                                    <div class="error"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Cnfnouveaumotdepasse">Confirmer votre mot de passe</label>
+                                    <input type="password" id="Cnfnouveaumotdepasse" name="Cnfnouveaumotdepasse" class="form-control" placeholder="Confirmer votre mot de passe">
+                                    <div class="alert ErrorConfirme" role="alert"></div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="showInputs m-auto mt-5">
+                        <a href="#" id="showInputsLink" class="d-flex justify-content-center bold mb-5">Modifier votre mot de passe</a>
+                        <div class="hidden-inputs" id="inputsContainer">
+
+                            <div class="form-group mb-3">
+                                <label for="" class="mb-1">Mot de passe actuelle</label>
+                                <input type="password" id="motdepasse" name="motdepasse" class="form-control" placeholder="Entrer votre mot de passe actuelle" value=''>
+                                <i class="fa-solid fa-eye-slash show-password" id="actualEye" ></i>
+                                <div class="errorPassword"></div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="" class="mb-1">Nouveau mot de passe </label>
+                                <input type="password" id="nouveaumotdepasse" name="nouveaumotdepasse" class="form-control" placeholder="Entrer votre nouveau mot de passe ">
+                                <i class="fa-solid fa-eye-slash show-password" id="newEye" ></i>
+                                <div class="error"></div>
+
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="" class="mb-1">Confirmer votre mot de passe </label>
+                                <input type="password" id="Cnfnouveaumotdepasse" name="Cnfnouveaumotdepasse" class="form-control" placeholder="Confirmer votre mot de passe">
+                                <i class="fa-solid fa-eye-slash show-password" id="cfrmEye" ></i>
+                                <div class="alert ErrorConfirme" role="alert"></div>
+                     
+                              
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="nouveaumotdepasse">Nouveau mot de passe</label>
-                            <input type="password" id="nouveaumotdepasse" name="nouveaumotdepasse" class="form-control" placeholder="Entrer votre nouveau mot de passe ">
-                            <div class="error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="Cnfnouveaumotdepasse">Confirmer votre mot de passe</label>
-                            <input type="password" id="Cnfnouveaumotdepasse" name="Cnfnouveaumotdepasse" class="form-control" placeholder="Confirmer votre mot de passe">
-                            <div class="alert ErrorConfirme" role="alert"></div>
-                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -69,5 +102,35 @@
     </div>
 </div>
 
+<script>
+    document.getElementById('showInputsLink').addEventListener('click', function()
+    {
+        var inputsContainer = document.getElementById('inputsContainer');
+        inputsContainer.style.display = (inputsContainer.style.display === 'none' || inputsContainer.style.display === '') ? 'block' : 'none';
+    });
+    const passwordInputIds =
+    [
+        { inputId: "motdepasse", eyeId: "actualEye" },
+        { inputId: "nouveaumotdepasse", eyeId: "newEye" },
+        { inputId: "Cnfnouveaumotdepasse", eyeId: "cfrmEye" },
+
+    ];
+
+    passwordInputIds.forEach(function(pair) {
+        const passwordInput = document.getElementById(pair.inputId);
+        const togglePasswordButton = document.getElementById(pair.eyeId);
+
+        if (passwordInput && togglePasswordButton) {
+            togglePasswordButton.addEventListener("click", function () {
+                const type = passwordInput.getAttribute("type");
+                passwordInput.setAttribute("type", type === "password" ? "text" : "password");
+
+                // Toggle the eye icon
+                togglePasswordButton.classList.toggle("fa-eye");
+                togglePasswordButton.classList.toggle("fa-eye-slash");
+            });
+        }
+    });
+</script>
 
 @endsection

@@ -106,3 +106,20 @@ input{
   font-weight: bold;
   margin: 12px auto;
 }
+#showInputsLink{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.hidden-inputs {
+    display: none;
+  }
+
+.form-group .show-password {
+  cursor: pointer;
+position: absolute;
+right: 20px;
+
+transform: translateY(-50%);
+margin-top: -34px;
+}

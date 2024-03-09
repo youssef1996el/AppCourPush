@@ -115,7 +115,7 @@ function readURL(input) {
         readURL(this);
     });
 });
-document.getElementById('showInputsLink').addEventListener('click', function()
+    document.getElementById('showInputsLink').addEventListener('click', function()
     {
         var inputsContainer = document.getElementById('inputsContainer');
         inputsContainer.style.display = (inputsContainer.style.display === 'none' || inputsContainer.style.display === '') ? 'block' : 'none';
