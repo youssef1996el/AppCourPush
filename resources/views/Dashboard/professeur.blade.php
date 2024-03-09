@@ -121,13 +121,13 @@
                                                 <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="CardFormation">Formation</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="Cardexperience">expérience</a>
+                                                <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="Cardexperience">Expérience</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="CardCoursAndDispo">cours / disponible</a>
+                                                <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="CardCoursAndDispo">Cours / Disponibilité</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="Cardcertification">certification</a>
+                                                <a class="nav-link text-uppercase" aria-current="page" href="#" data-target="Cardcertification">Certification</a>
                                             </li>
                                         </ul>
                                     </div>

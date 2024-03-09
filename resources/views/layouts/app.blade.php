@@ -46,10 +46,10 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top " >
             <div class="container">
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('image/kottabnobg.png')}}"  alt="" style="height:80px; width:80px ; ">
+                    <img src="{{asset('image/hallo.png')}}"  alt="" style="height:50px; width:60px ; ">
                 </a>
                 <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
-                    <i class="fa fa-user fa-lg" id="user" aria-hidden="true"></i>
+                    <i class="fa fa-user fa-lg" id="user" aria-hidden="true" style="color:rgb(13, 110, 253)"></i>
                 </a>
                 @if (Route::currentRouteName() === "login")
                     <a class="navbar-toggler" href="{{ route('register') }}" aria-label="User Profile">
@@ -116,5 +116,9 @@
     </div>
 </body>
 
-
+<style>
+    #user:hover{
+        color:rgb(0 74 173);
+    }
+</style>
 </html>

@@ -437,14 +437,14 @@
     }
     .divScrollCours
     {
-        background: #f4f2f2bd;
+        background: #f0f1f3;
         margin: 15px 0px;
         border-radius: 20px;
         min-height: 13rem;
         overflow-x: hidden;
         overflow-y: auto !important;
         width: 192px;
-        border: 1px solid #c9c1c1;
+        border: 1px solid #f0f1f3;
 
     }
 
@@ -617,17 +617,17 @@
     padding: 8px 10px;
     border-radius: 6px;
     border: none;
-    color: #675656;
+    color: black;
     cursor: pointer;
-    background-color: #dfdddd;
+    background-color: #a0badd;
     transition: all 0.2s ease;
     margin: 18px 5px 0px 10px;
-    border: 1px solid #c6c2c2;
+    border: 1px solid #a0badd;
 }
 
 .buttonCours:hover {
-    background: #a2a2a2;
-    border: 1px solid #e8e8e8;
+    background: rgb(84, 131, 194);
+    border: 1px solid rgb(84, 131, 194);
     color: white;
 }
 

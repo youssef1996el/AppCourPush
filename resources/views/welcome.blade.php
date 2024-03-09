@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-lg bg-light shadow fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('image/kottabnobg.png')}}"  alt="" style="height:80px; width:80px ; ">
+                    <img src="{{asset('image/hallo.png')}}"  alt="" style="height:50px; width:60px ; ">
                 </a>
                 <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
                 <i class="fa fa-user fa-lg" id="user" aria-hidden="true"></i>
@@ -249,7 +249,7 @@
         <footer class="footer text-dark text-center py-2">
             <div class="container">
                 <hr>
-                <p>&copy;  Your Website Name</p>
+                <p>&copy;  Kottab</p>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/yourfacebookprofile" target="_blank"><i class="fab fa-facebook  p-2 fa-xl"></i></a>
                     <a href="https://www.twitter.com/yourtwitterprofile" target="_blank"  ><i class="fab fa-twitter  p-2 fa-xl" ></i></a>
