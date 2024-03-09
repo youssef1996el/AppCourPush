@@ -1,6 +1,6 @@
 $(document).ready(function ()
 {
-   
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -86,7 +86,7 @@ $(document).ready(function ()
             $('.errorPrenom').text('');
         }
 
-        if(motdepasse == "")
+        /* if(motdepasse == "")
         {
             hasError = true;
             $('.errorPassword').text('le champ obligatoire').css('color', 'red');
@@ -95,7 +95,7 @@ $(document).ready(function ()
         {
              hasError = false;
             $('.errorPassword').text('');
-        }
+        } */
 
         if(!hasError)
         {
