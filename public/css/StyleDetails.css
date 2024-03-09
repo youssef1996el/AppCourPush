@@ -342,7 +342,7 @@ background:#74a8d54f;
     border-radius: 10px
 }
 .ContentDisponible {
-  /* width: 13%;
+  width: 13%;
 
   border: 1px solid gray;
   display: inline-table;
@@ -352,17 +352,9 @@ background:#74a8d54f;
   background-size: 8.76px 11.63px;
   flex-grow: 1;
   min-height: 300px;
-  border-radius: 10px */
+  border-radius: 10px 
 
-  min-width: 14%;
-  border: 1px solid gray;
-  display: inline-table;
-  text-align: center !important;
 
-  flex-grow: 1;
-  min-height: 300px;
-  border-radius: 10px;
-  background: #f0f1f3;
 
 
 }
@@ -371,18 +363,17 @@ background:#74a8d54f;
     border-bottom: 2px solid gray !important;
     border-bottom-width: 10px;
     box-shadow: rgba(4, 226, 208, 0.35);
-    border-radius: 50px;
-    margin-top: 5px;
+    border-radius: 10px;
     color: black;
-    font-family:Gabriola, Times, serif;
-    font-size:22px;
+    font-family:'Times New Roman', Times, serif;
+    font-size:18px;
     white-space: nowrap;
-
+    padding: 8px 0px;
     min-width: 14%;
     display: flex;
-    padding: 5px;
-
+    background: white;
     justify-content: center;
+    
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
 {
@@ -454,3 +445,13 @@ overflow-x: auto;
   font-weight: bold; /* Make the text bold */
   }
   
+  .padContent{
+    padding: 8px 0px;
+  }
+
+  .ClassTimeDisponible{
+    border-radius: 10px;
+    max-width: 90px;
+    margin: auto;
+
+  }
