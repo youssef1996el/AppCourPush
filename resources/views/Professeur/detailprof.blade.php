@@ -71,10 +71,10 @@
                                                         <div class="ClassTimeDisponible" style="color:#0c3c74;background:{{$item->typecours === 'groupe' ? '#ffc302' : '#22bb33'}}; ">
                                                             <p class="text-white">
                                                                 <i class="fa-solid fa-clock" style="color: white"></i>
-                                                                {{$item->debut}} 
+                                                                {{$item->debut}}
                                                             </p>
                                                             <p class="text-white" style="font-style:italic; font-weight:bold; font-size:16px">
-                                                                {{$item->title}} 
+                                                                {{$item->title}}
                                                             </p>
                                                             <p class="text-white">
                                                                 <i class="fa-solid fa-clock" style="color: white"></i>
@@ -84,7 +84,7 @@
                                                     @endforeach
                                                     @if(empty($data))
                                                         <div class="ClassTimeDisponible " style=";background: #00f8ff3b;">
-                                                
+
                                                         </div>
                                                     @endif
                                                 </div>
@@ -92,7 +92,7 @@
                                     @endforeach
 
                                 </div>
-                                
+
 
                             </div>
                             <div class="card-footer">
