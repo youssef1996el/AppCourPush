@@ -9,7 +9,7 @@
         <meta http-equiv="Content-Language" content="en">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Kottab</title>
-        <link rel="icon" href="{{asset('image/faviconnobg.png')}}" type="image/x-icon">       
+        <link rel="icon" href="{{asset('image/faviconnobg.png')}}" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
         <meta name="description" content="This is an example dashboard created using build-in elements and components.">
         <link rel="stylesheet" href="{{asset('css/templateAdmin.css')}}">
@@ -586,7 +586,7 @@
                                                                                 <img  class="rounded-circle imageAdmin" src="@guest {{ asset('image/default-avatar.png') }} @else {{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }} @endguest" alt>
                                                                             </div>
                                                                             <div class="widget-content-left">
-                                                                                <div class="widget-heading">{{ Auth::user()->name}}</div>
+                                                                                <div class="widget-heading">{{ Auth::user()->nom}}</div>
                                                                                 <div class="widget-subheading opacity-8">{{ Auth::user()->title}}</div>
                                                                             </div>
                                                                             <div class="widget-content-right mr-2">
