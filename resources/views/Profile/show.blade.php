@@ -159,6 +159,11 @@
                     </div> -->
 
                 </div>
+                <div class="card-footer d-block">
+                    <div class="d-flex align-items-center" style="gap:12px"><div class="gr" style="width:12px; height:12px;background: #ffc302;border-radius: 50%;"></div>Cours en groupe</div>
+                    <div class="d-flex align-items-center" style="gap:12px"><div class="pr" style="width:12px; height:12px; background: #22bb33;border-radius: 50%;"></div>Cours particulier</div>
+                    <div class="d-flex align-items-center" style="gap:12px"><div class="vide" style="width:12px; height:12px;  background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3) !important;background-size: 8.76px 11.63px !important;border-radius: 50%"></div>Indisponible</div>
+                </div>
             </div>
         </div>
 
