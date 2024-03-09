@@ -249,7 +249,7 @@
         <footer class="footer text-dark text-center py-2">
             <div class="container">
                 <hr>
-                <p>&copy;  Your Website Name</p>
+                <p>&copy;  Kottab</p>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/yourfacebookprofile" target="_blank"><i class="fab fa-facebook  p-2 fa-xl"></i></a>
                     <a href="https://www.twitter.com/yourtwitterprofile" target="_blank"  ><i class="fab fa-twitter  p-2 fa-xl" ></i></a>

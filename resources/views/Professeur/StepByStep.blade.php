@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{asset('css/Step.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Kottab</title>
-    <link rel="icon" href="{{asset('image/faviconnobg.png')}}" type="image/x-icon"><div class="container containerStep ">
+    <link rel="icon" href="{{asset('image/faviconnobg.png')}}" type="image/x-icon">
+    <div class="container mt-5 ">
     <div class="cardCss ">
         <div class="form">
             <div class="left-side">

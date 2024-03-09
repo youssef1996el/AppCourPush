@@ -374,10 +374,9 @@
       font-family:'Times New Roman', Times, serif;
       font-size:18px;
       white-space: nowrap;
-  
+      padding: 8px 0px;
       min-width: 14%;
       display: flex;
-      padding: 5px;
       background: white;
       justify-content: center;
       
@@ -454,4 +453,11 @@
     
     .padContent{
       padding: 8px 0px;
+    }
+
+    .ClassTimeDisponible{
+      border-radius: 10px;
+      max-width: 90px;
+      margin: auto;
+  
     }
