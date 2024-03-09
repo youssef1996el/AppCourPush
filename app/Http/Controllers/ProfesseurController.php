@@ -706,14 +706,26 @@ class ProfesseurController extends Controller
         ];
         foreach ($DataEleves as $user)
         {
-            if (array_key_exists($user->pays, $codeCountry))
+            if(strlen($user->pays) > 2)
             {
-                $user->pays = $codeCountry[$user->pays];
+                $Pays = $user->pays;
+                $user->pays = $Pays;
+
+
+
             }
             else
             {
-                $user->pays = 'Unknown';
+                if (array_key_exists($user->pays, $codeCountry))
+                {
+                    $user->pays = $codeCountry[$user->pays];
+                }
+                else
+                {
+                    $user->pays = 'Unknown';
+                }
             }
+
         }
         $HasEleve = false;
         $checkHasEleve = Reserves::where('nom_professeur',Auth::user()->name)->count();
