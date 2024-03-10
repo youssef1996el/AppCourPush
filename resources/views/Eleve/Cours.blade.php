@@ -40,14 +40,14 @@
                                         <i class="fa fa-book iconCourse"></i> <label>{{$item->name_cours}}</label>
                                     </div>
                                     <div class="card-text d-flex">
-                                        <i class="fa fa-calendar iconCourse"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin}} ({{$item->timezone}})</span></label>
+                                        <i class="fa fa-calendar iconCourse"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin ? $item->fin : ''}} ({{$item->timezone}})</span></label>
                                     </div>
                                     <div class="card-text">
                                         <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }} iconCourse"></i><label> {{ $item->typecours }}</label>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                             @endforeach
 
                             @else

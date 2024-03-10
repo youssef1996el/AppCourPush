@@ -270,7 +270,11 @@ class ProfesseurController extends Controller
             // Extract idCours
             $IdCours = DB::table('disponibleprof')->select('idcours')->where('id',$request->id)->first();
             // Check Prof Is Reserve Cours
-            $checkProfIsReserveCours = DB::table('reserves')->where('idcours',$IdCours->idcours)->where('nom_professeur',Auth::user()->name)->count();
+            $checkProfIsReserveCours = DB::table('reserves')
+                                        ->where('idcours',$IdCours->idcours)
+                                        ->where('nom_professeur',Auth::user()->name)
+                                        ->where('valide','!=',1)
+                                        ->count();
             if($checkProfIsReserveCours == 0)
             {
                 $DeleteDisponibleProf = DB::table('disponibleprof')->where('id',$request->id)->delete();
@@ -710,9 +714,6 @@ class ProfesseurController extends Controller
             {
                 $Pays = $user->pays;
                 $user->pays = $Pays;
-
-
-
             }
             else
             {

@@ -676,11 +676,13 @@ class EleveController extends Controller
             $hasCours = true;
             $MesReserve    = DB::select("select r.id,times,days,typecours,c.title as name_cours,r.nom_professeur from reserves r, cours c where r.idcours = c.id and r.nom_eleve = ?",
                             [Auth::user()->name]);
+
             $nomProfesseurs = [];
 
             foreach ($MesReserve as $reserve) {
                 $nomProfesseurs[] = ucfirst(strtolower($reserve->nom_professeur));
             }
+
 
             $nomProfesseursString = "'" . implode("', '", $nomProfesseurs) . "'";
 
@@ -690,6 +692,7 @@ class EleveController extends Controller
             foreach ($MesProfesseur as $images) {
                 $imageLookup[strtolower(trim($images->name))] = $images->image;
             }
+
             foreach ($MesReserve as $item) {
                 $imaged = strtolower(trim($item->nom_professeur));
                 $item->image = isset($imageLookup[$imaged]) ? $imageLookup[$imaged] : "";
@@ -697,25 +700,42 @@ class EleveController extends Controller
 
 
 
+
             $MesCours  =$MesReserve;
 
             $AddDebutAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id");
 
-            foreach ($MesCours as &$cours) {
-                foreach ($AddDebutAndTimeZone as $info) {
-                    if (
-                        $cours->name_cours == $info->title &&
-                        $cours->nom_professeur == $info->name &&
-                        $cours->times == $info->debut &&
-                        $cours->typecours == $info->typecours
+            if(!empty($AddDebutAndTimeZoneStatus))
+            {
+                foreach ($MesCours as &$cours) {
+                    foreach ($AddDebutAndTimeZone as $info) {
+                        if (
+                            $cours->name_cours == $info->title &&
+                            $cours->nom_professeur == $info->name &&
+                            $cours->times == $info->debut &&
+                            $cours->typecours == $info->typecours
 
-                    ) {
-                        $cours->fin = $info->fin;
-                        $cours->timezone = $info->timezone;
+                        ) {
+                            $cours->fin = $info->fin;
+                            $cours->timezone = $info->timezone;
+                        }
                     }
                 }
             }
+            else
+            {
+                foreach ($MesCours as $item) {
+                    $item->fin = 0;
+                    $timezone = DB::select('SELECT @@system_time_zone AS system_time_zone')[0]->system_time_zone;
+                    $item->timezone = $timezone;
+                }
+
+
+            }
+
+
         }
+
 
 
 
