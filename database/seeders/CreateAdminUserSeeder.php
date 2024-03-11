@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Carbon\Carbon;
 class CreateAdminUserSeeder extends Seeder
 {
     /**
@@ -19,6 +20,7 @@ class CreateAdminUserSeeder extends Seeder
         	'email' => 'iqraa@gmail.com',
         	'password' => bcrypt('987654321'),
             'role_name'=>'Admin',
+            'email_verified_at' =>Carbon::now(),
 
         ]);
 
