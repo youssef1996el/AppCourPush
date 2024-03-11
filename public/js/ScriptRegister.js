@@ -80,15 +80,15 @@ $(document).ready(function () {
         }
 
        // Check password length
-        var password = $('#passwordEleve').val();
+        var passwordEleve = $('#passwordEleve').val();
         if (password.length < 8) {
             $('.ErrorValidation').text('Password must be at least 8 characters long.').css('display', 'block');
             allInputsValid = false;
         }
 
         // Check password confirmation
-        var confirmPassword = $('#confirmPasswordEleve').val();
-        if (password !== confirmPassword) {
+        var confirmPasswordEleve = $('#confirmPasswordEleve').val();
+        if (passwordEleve !== confirmPasswordEleve) {
             $('.ErrorValidation').text('Passwords do not match.').css('display', 'block');
             allInputsValid = false;
         }
@@ -284,7 +284,7 @@ $(document).ready(function () {
     });
    $('#confirmPasswordEleve').on('input',function()
    {
-    if ($(this).val() !== passwordProfCheck) {
+    if ($(this).val() !== passwordEleveCheck) {
         if ($(this).val().length <= 8) { // Check if the password length is less than or equal to 8
             $('.checkPassword').css({
                 'display': 'block',
