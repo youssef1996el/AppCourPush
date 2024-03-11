@@ -195,16 +195,22 @@ $(document).ready(function () {
                                             <div class="Days">${key}</div>
                                             <div class="ClassCalculHeight">
                                     `;
-                                    if (data.length > 0) {
+                                    if (data.length > 0)
+                                    {
+
                                         $.each(data, function(index, item) {
+                                            var backgroundColor = item.typecours === 'groupe' ? '#ffc302' : '#22bb33';
                                             content += `
-                                                <div class="ClassTimeDisponible" style="color:#0c3c74;background:#00f8ff3b;">
+                                                <div class="ClassTimeDisponible" style="color:#0c3c74;background:${backgroundColor};border-radius: 10px; max-width: 90px; margin: auto;">
                                                     <p>
-                                                        <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                        <i class="fa-solid fa-clock" style="color: white"></i>
                                                         ${item.debut}
                                                     </p>
+                                                    <p class="text-white" style="font-style:italic; font-weight:bold; font-size:16px">
+                                                        ${item.title}
+                                                    </p>
                                                     <p>
-                                                        <i class="fa-solid fa-clock" style="color: #0078ff"></i>
+                                                        <i class="fa-solid fa-clock" style="color: white"></i>
                                                         ${item.fin}
                                                     </p>
                                                 </div>
@@ -213,8 +219,7 @@ $(document).ready(function () {
                                     } else {
                                         content += `
                                             <div class="ClassTimeDisponible" style="color: #0c3c74;background: #00f8ff3b;">
-                                                <p>Vide</p>
-                                                <p>Vide</p>
+
                                             </div>
                                         `;
                                     }

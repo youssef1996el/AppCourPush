@@ -58,7 +58,7 @@ font-size: 26px;
 #divCours .card-body{
   padding: 8px 0px 0px 4px;}
   .card-cours {
-  
+
     background: #a0badd;
     padding: 8px;
     display: inline-block;
@@ -128,7 +128,7 @@ font-size: 26px;
   background-size: 8.76px 11.63px;
   flex-grow: 1;
   min-height: 300px;
-  border-radius: 10px 
+  border-radius: 10px
 
 
 
@@ -149,7 +149,7 @@ font-size: 26px;
     display: flex;
     background: white;
     justify-content: center;
-    
+
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
 {
@@ -200,9 +200,9 @@ overflow-x: auto;
 
 .cardCours,.cardDispo,.cardFormation,.cardExperience,.cardProfile{
   background:rgb(221, 228, 238) ;
-  
-  } 
-  
+
+  }
+
 /* //////////////////// */
 /*   .timeline {
   margin-top: -16px;
@@ -468,6 +468,8 @@ font-weight: bold; /* Make the text bold */
 }
 .ClassTimeDisponible{
   border-radius: 10px;
+  max-width: 90px;
+  margin: auto;  border-radius: 10px;
   max-width: 90px;
   margin: auto;
 
