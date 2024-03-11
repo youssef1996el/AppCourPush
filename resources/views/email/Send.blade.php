@@ -88,7 +88,7 @@
     <div class="container">
         <h1>Invitation for interview</h1>
         <div class="content_text">
-            <h2>Cher Youssef</h2>
+            <h2>Cher {{$name_eleve}}</h2>
             <p>
                 J'espère que ce message vous trouvera bien.
                 Je vous écris pour vous informer d'une prochaine session de classe virtuelle que j'ai programmée pour
