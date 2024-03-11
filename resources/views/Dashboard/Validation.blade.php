@@ -56,8 +56,8 @@
                                             </td>
                                             <td>
 
-                                            <span class=" mb-1 text-center timezone" style="text-align: center;font-weight:bold; color: {{ $item->status == 0 ? '#fc0' : ($item->status == 2 ? '#00b40c' : 'gray') }}">
-                                                {{ $item->status == 0 ? 'En Cours' : ($item->status == 2 ? 'Professor has completed the course' : 'Valide') }}
+                                            <span class=" mb-1 text-center timezone" style="text-align: center;font-weight:bold; color: {{ $item->status == 0 ? '#fc0' : ($item->status == 2 ? '#0dcaf0' : '#00b40c') }}">
+                                                {{ $item->status == 0 ? 'En Cours' : ($item->status == 2 ? 'Le professeur a terminé le cours' : 'Validé') }}
                                             </span>
 
                                                 
