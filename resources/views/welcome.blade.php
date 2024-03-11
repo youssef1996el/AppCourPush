@@ -78,14 +78,16 @@
                     <div class="carousel-item active">
                     <img src="{{asset('image/Moroccan-teacher-teaching-Arabic.jpg')}}" class="d-block w-100" alt="Sunset Over the City"/>
                         <div class="carousel-caption ">
-                            <h5 class="animated bounceInRight mb-4" style="animation-delay:1s"> Apprenez à parler l'arabe avec aisance</h5>
+                            <h5 class="animated bounceInRight mb-4" style="animation-delay:1s;font-size: 50px;"> تعلم التحدث باللغة العربية بثقة</h5>
                             <p class="animated bounceInLeft mb-3" style="animation-delay:2s">
+                                
+                                <span>دورات عبر الإنترنت على مدار الساعة وطوال أيام الأسبوع</span>
                                 <i class="fa-solid fa-check"></i>
-                                <span>Cours en ligne 24 h/24 et 7 j/7</span>
                             </p>
                             <p class="animated bounceInRight " style="animation-delay:3s">
+                                
+                                <span>تعلم في مجموعات صغيرة أو فرديًا</span>
                                 <i class="fa-solid fa-check"></i>
-                                <span>Apprenez en petits groupes ou individuellement</span>
                             </p>
 
 
