@@ -108,10 +108,11 @@
     <div class="modal fade" id="ModalView" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Dossier de professeur</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Dossier de professeur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
             <div class="modal-body">
 
                 <div class="row">
@@ -147,12 +148,12 @@
                    </div>
                    <div class="col-sm-12 col-md-9 col-xl-9">
 
-                        <nav class="navbar navbar-expand-sm navbar-light bg-light shadow-sm">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
                             <div class="container-fluid">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
-                                    aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarID"
+                                        aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
                                 <div class="collapse navbar-collapse" id="navbarID">
                                     <div class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item listContentProfesseur">
@@ -215,7 +216,7 @@
                         </div>
                         <div class="card mt-3 p-4 CardCoursAndDispo" style="display: none; height: 392px;">
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col-sm-12 col-md-12 col-xl-3">
                                     <label for="" class="text-uppercase">Cours</label>
                                     <div style=" " class="divScrollCours">
                                         {{-- DivScroll cour --}}
@@ -226,7 +227,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-9">
+                                <div class="col-ms-12 col-md-12 col-xl-9">
                                     <label for="" class="text-uppercase">disponible</label>
                                     <div class="ClassDisponible">
 

@@ -381,7 +381,18 @@
   /******************* */
   .ContentDisponible
     {
-        width: 12%;
+        width: 13%;
+
+        border: 1px solid gray;
+        display: inline-table;
+        text-align: center !important;
+
+        background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
+        background-size: 8.76px 11.63px;
+        flex-grow: 1;
+        min-height: 300px;
+        border-radius: 10px
+       /*  width: 12%;
         margin: 10px 1px 0px 7px;
         border: 1px solid gray;
         display: inline-block;
@@ -392,7 +403,19 @@
         min-height: 11rem;
         background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3);
         background-size: 8.76px 11.63px;
-        flex-grow: 1;
+        flex-grow: 1; */
+    }
+    .ClassCalculHeight
+    {
+        padding: 8px 0px !important;
+    }
+    .ClassTimeDisponible
+    {
+        border-radius: 10px;
+        max-width: 90px;
+        margin: auto;  border-radius: 10px;
+        max-width: 90px;
+        margin: auto;
     }
     .Days
     {
@@ -409,12 +432,14 @@
     }
     .ClassDisponible
     {
-        background: #F0f1f3;
+        display: flex;
+        overflow-x: auto;
+        /* background: #F0f1f3;
         width:100%;
         margin:15px 0px;
         min-height: 13rem;
         border-radius: 20px;
-        box-shadow: rgba(0, 0, 0, 0.35)
+        box-shadow: rgba(0, 0, 0, 0.35) */
     }
     .divScrollCours
     {
