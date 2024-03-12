@@ -646,7 +646,7 @@ class EleveController extends Controller
         }
 
         // Update other user data
-        $user->name             = $request->name;
+
         $user->telephone        = $request->telephone;
         $user->email            = $request->email;
         $user->datenaissance    = $request->datenaissance;
@@ -729,6 +729,79 @@ class EleveController extends Controller
                     $timezone = DB::select('SELECT @@system_time_zone AS system_time_zone')[0]->system_time_zone;
                     $item->timezone = $timezone;
                 }
+            }
+            // Code down is cours is completed
+
+            $CoursIsComplet = false; // declare variable check cours is completed or not
+
+            $DataCoursIsComplet = DB::table('reserves')
+                                    ->where('valide',1)
+                                    ->where('nom_eleve',Auth::user()->name)
+                                    ->count(); // get data cours is completed
+
+            if($DataCoursIsComplet > 0) // check if data cours is completed
+            {
+                $CoursIsComplet = true; // change variable to true
+
+                $DataCoursIsComplet = DB::table('reserves')
+                                        ->join('cours','cours.id','=','reserves.idcours')
+                                        ->select('cours.title','reserves.times','reserves.days','reserves.typecours','reserves.nom_professeur')
+                                        ->where('reserves.nom_eleve','=',Auth::user()->name)
+                                        ->get(); // extract data cours student is completed
+
+                if(!empty($AddDebutAndTimeZoneStatus)) // this code add fin and timezone if variable is not empty
+                {
+                    foreach($DataCoursIsComplet as $item)
+                    {
+                        foreach ($AddDebutAndTimeZone as $info)
+                        {
+                            if (
+                                $cours->name_cours == $info->title &&
+                                $cours->nom_professeur == $info->name &&
+                                $cours->times == $info->debut &&
+                                $cours->typecours == $info->typecours
+
+                            ) {
+                                $cours->fin = $info->fin;
+                                $cours->timezone = $info->timezone;
+                            }
+                        }
+                    }
+                }
+                else // if is empty add fin equal to 0 and extract timezone from Database local student
+                {
+                    foreach ($DataCoursIsComplet as $item)
+                    {
+                        $item->fin = 0;
+                        $timezone = DB::select('SELECT @@system_time_zone AS system_time_zone')[0]->system_time_zone;
+                        $item->timezone = $timezone;
+                    }
+                }
+
+                // add image professor but if has cours student
+                if($hasCours)
+                {
+                    $nomProfesseurs = [];
+
+                    foreach ($MesReserve as $reserve) {
+                        $nomProfesseurs[] = ucfirst(strtolower($reserve->nom_professeur));
+                    }
+
+
+                    $nomProfesseursString = "'" . implode("', '", $nomProfesseurs) . "'";
+
+                    $MesProfesseur = DB::select("SELECT image, name FROM users WHERE name IN ($nomProfesseursString) and role_name ='professeur'");
+
+                    $imageLookup = [];
+                    foreach ($MesProfesseur as $images) {
+                        $imageLookup[strtolower(trim($images->name))] = $images->image;
+                    }
+
+                    foreach ($DataCoursIsComplet as $item) {
+                        $imaged = strtolower(trim($item->nom_professeur));
+                        $item->image = isset($imageLookup[$imaged]) ? $imageLookup[$imaged] : "";
+                    }
+                }
 
 
             }
@@ -743,9 +816,15 @@ class EleveController extends Controller
 
 
 
+
+
+
+
         return view('Eleve.Cours')
-        ->with('hasCours',$hasCours)
-        ->with('MesCours',$MesCours);
+        ->with('hasCours'           ,$hasCours)
+        ->with('MesCours'           ,$MesCours)
+        ->with('DataCoursIsComplet' ,$DataCoursIsComplet)
+        ->with('CoursIsComplet'     ,$CoursIsComplet);
     }
 
     public function GetMesCourCalander()

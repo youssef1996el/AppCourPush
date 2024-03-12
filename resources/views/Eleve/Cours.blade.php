@@ -62,10 +62,35 @@
                 </div>
                 <div id="cours" class="tab-pane fade text-center">
                     <div class="courspris mt-4  ">
-                        <img  class="" src="{{asset('image/nonpris.png')}}" alt="cours" style="width:200px">
-                        <h5 class="mt-3">Vous pouvez retrouver tous vos cours terminés ici.</h5>
-                        <p class="text-muted">Vous n'avez pas suivi de cours... pour l'instant !</p>
-                        <p>Pour commencer, <a href="#"> resever un cours</a></p>
+                        @if($CoursIsComplet)
+                            <div class="card-container">
+                                @foreach ($DataCoursIsComplet as $item)
+                                    <div class="card-sl " style="max-width:280px">
+                                        <img class="card-img-top" src="{{asset('image/coursnew.png')}}" alt="" style="background: #dbecfa;height: 150px;">
+                                        <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
+                                        <div class="card-heading" style="white-space: normal">
+                                            {{$item->nom_professeur}}
+                                        </div>
+                                        <div class="card-text">
+                                            <i class="fa fa-book iconCourse"></i> <label>{{$item->title}}</label>
+                                        </div>
+                                        <div class="card-text d-flex">
+                                            <i class="fa fa-calendar iconCourse"></i> <label >{{$item->days}}<span style="display:block">  {{$item->times}} - {{$item->fin ? $item->fin : ''}} ({{$item->timezone}})</span></label>
+                                        </div>
+                                        <div class="card-text">
+                                            <i class="{{ $item->typecours == 'prive' ? 'fa fa-user' : 'fa fa-users' }} iconCourse"></i><label> {{ $item->typecours }}</label>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                        @else
+                            <img  class="" src="{{asset('image/nonpris.png')}}" alt="cours" style="width:200px">
+                            <h5 class="mt-3">Vous pouvez retrouver tous vos cours terminés ici.</h5>
+                            <p class="text-muted">Vous n'avez pas suivi de cours... pour l'instant !</p>
+                            <p>Pour commencer, <a href="#"> resever un cours</a></p>
+                        @endif
+
                     </div>
                 </div>
             </div>

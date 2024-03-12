@@ -23,7 +23,7 @@
                     <div class="col-sm-12 col-md-8 col-xl-8 ">
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Nom complet</label>
-                            <input type="text" class="form-control" placeholder="Nom Complet" name="name" value="{{$DataEleve->name}}">
+                            <input type="text" class="form-control" placeholder="Nom Complet" name="name" value="{{$DataEleve->name}}" disabled>
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Email</label>
