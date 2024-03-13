@@ -290,7 +290,7 @@
         <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <div class="app-header header-shadow">
                 <div class="app-header__logo">
-                    <div class="logo-src"><img src="{{asset('image/hallo.png')}}" alt="" style="height: 50px;width: 60px;margin-top: -12px;"><!-- {{ config('app.name', 'APPSoutien') }} --></div>
+                    <div class="logo-src"><a href="{{url('/')}}"><img src="{{asset('image/hallo.png')}}" alt="" style="height: 50px;width: 60px;margin-top: -12px;"></a><!-- {{ config('app.name', 'APPSoutien') }} --></div>
                         <div class="header__pane ml-auto">
                             <div>
                                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -668,7 +668,7 @@
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{url('Admin/Profile')}}">
-                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
+                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>informations personnelle
                                                 </a>
 
                                             </li>
@@ -716,7 +716,7 @@
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{ url('InfosProfile') }}">
-                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
+                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>informations personnelle
                                                 </a>
 
                                             </li>
@@ -755,7 +755,7 @@
 
                                             <li class="mb-2">
                                                 <a href="{{route('InfoProfesseur')}}">
-                                                <i class="fa-solid fa-user-pen metismenu-icon"></i>  Informaion personnelle
+                                                <i class="fa-solid fa-user-pen metismenu-icon"></i>  Informations personnelle
                                                 </a>
 
                                             </li>

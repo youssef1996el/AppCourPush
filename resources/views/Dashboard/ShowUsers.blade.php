@@ -27,9 +27,9 @@
                                     <tr>
                                         <th>Nom</th>
                                         <th>email</th>
-                                        <th>Status</th>
                                         <th>Pays</th>
-                                        <th>Actions</th>
+                                        <th>Status</th>
+                                        
                                     </tr>
                                 </thead>
                             @endif
@@ -73,7 +73,7 @@
                                     @endforeach
                                 @else
                                     @foreach ($data as $item)
-                                        <tr>
+                                        <tr class="text-center ">
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <img src="{{$item->image}}" class="rounded-circle" alt="" style="width: 45px; height: 45px" />
@@ -89,16 +89,16 @@
                                                 <p class="fw-normal mb-1">{{$item->pays}}</p>
                                             </td>
                                             <td>
-                                                <span class="">Active</span>
+                                                <span class=" text-success fw-bold">Active</span>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                                 <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" >
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-link " data-mdb-ripple-color="dark">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </button>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     @endforeach
                                 @endif

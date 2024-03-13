@@ -46,7 +46,14 @@
                                                 <p class="text-muted mb-0 text-center days">{{$item->days}}</p>
                                             </td>
                                             <td>
-                                                <p class="text-muted mb-1 text-center times">{{$item->typecours}}</p>
+                                                <p class=" mb-1 text-center times">
+                                                    @if($item->typecours === "groupe")
+                                                        <span class="text-primary fw-bold">Groupe</span>
+                                                    @else
+                                                        <span class="fw-bold" style="color:#20c997"> Particulier </span>
+
+                                                    @endif<!-- {{$item->typecours}} -->
+                                                </p>
                                             </td>
                                             <td>
                                                 <span class="text-muted mb-1 text-center fin" style="text-align: center">{{$item->times}}</span>
