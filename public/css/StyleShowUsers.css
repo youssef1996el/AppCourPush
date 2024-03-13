@@ -405,6 +405,45 @@
         background-size: 8.76px 11.63px;
         flex-grow: 1; */
     }
+    .cardInfo
+    {
+
+        background-color: #ffffff63;
+        border-radius: 5px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+
+    }
+    .titleCard
+    {
+        font-size: 26px;
+        text-align: center;
+
+        font-weight: bold;
+        margin: 12px auto;
+    }
+    #tableListProfesseur_filter input
+    {
+        width: 300px;
+        padding: 10px;
+        border: none;
+        appearance: none;
+        border-radius: 0;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        border-bottom: 1.5px solid darkgray;
+        background: transparent;
+    }
+    #tableListEleve_filter input
+    {
+        width: 300px;
+        padding: 10px;
+        border: none;
+        appearance: none;
+        border-radius: 0;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        border-bottom: 1.5px solid darkgray;
+        background: transparent;
+    }
     .ClassCalculHeight
     {
         padding: 8px 0px !important;
