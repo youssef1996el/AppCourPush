@@ -84,7 +84,7 @@ $(document).ready(function () {
         if (passwordEleve.length <= 8)
         {
 
-            $('.errortext').css('display', 'block !important');
+            $('.errortext').text('Le mot de passe doit contenir plus de 8 caractères.').css('display', 'block');s
             allInputsValid = false;
         }
 

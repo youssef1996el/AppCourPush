@@ -68,7 +68,7 @@
                             <input type="password" name="password" placeholder="Mot de passe" id="passwordEleve" class="form-control @error('password') is-invalid @enderror" />
                             <i class="fa-solid fa-eye show-password" id="eyeE" ></i>
 
-                            <div class="error ErrorValidation errortext" style="display: none">Password must be at least 8 characters long</div>
+                            <div class="error ErrorValidation errortext" ></div>
 
 
 
