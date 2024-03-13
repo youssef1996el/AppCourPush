@@ -81,8 +81,10 @@ $(document).ready(function () {
 
        // Check password length
         var passwordEleve = $('#passwordEleve').val();
-        if (password.length < 8) {
-            $('.ErrorValidation').text('Password must be at least 8 characters long.').css('display', 'block');
+        if (passwordEleve.length <= 8)
+        {
+
+            $('.errortext').text('Le mot de passe doit contenir plus de 8 caractères.').css('display', 'block');s
             allInputsValid = false;
         }
 
@@ -311,25 +313,79 @@ $(document).ready(function () {
    });
    $('#confirmpasswordProfesseur').on('input',function()
    {
-    if ($(this).val() !== passwordProfCheck) {
-        if ($(this).val().length <= 8) { // Check if the password length is less than or equal to 8
-            $('.checkPassword').css({
-                'display': 'block',
-                'color'  : 'red',
-                'font-size': '14px'
-            });
-            $('.checkPassword').text('Le mot de passe doit contenir plus de 8 caractères.');
+        if ($(this).val() !== passwordProfCheck) {
+            if ($(this).val().length <= 8) { // Check if the password length is less than or equal to 8
+                $('.checkPassword').css({
+                    'display': 'block',
+                    'color'  : 'red',
+                    'font-size': '14px'
+                });
+                $('.checkPassword').text('Le mot de passe doit contenir plus de 8 caractères.');
+            } else {
+                $('.checkPassword').css({
+                    'display': 'block',
+                    'color'  : 'red',
+                    'font-size': '14px'
+                });
+                $('.checkPassword').text('Les mots de passe ne correspondent pas.');
+            }
         } else {
-            $('.checkPassword').css({
-                'display': 'block',
-                'color'  : 'red',
-                'font-size': '14px'
-            });
-            $('.checkPassword').text('Les mots de passe ne correspondent pas.');
+            $('.checkPassword').css('display', 'none');
         }
-    } else {
-        $('.checkPassword').css('display', 'none');
-    }
+   });
+   $('#passwordProfesseur').on('input',function()
+   {
+        var passwordLength = $(this).val().length;
+        var errorElement = $(this).siblings('.ErrorValidation');
+
+        if (passwordLength <= 8) {
+            errorElement.text('Le mot de passe doit contenir plus de 8 caractères.');
+            errorElement.css({
+                'display': 'block',
+                    'color'  : 'red',
+                    'font-size': '14px'
+            });
+        } else {
+            errorElement.text(''); // Clear the error message if the condition is met
+        }
+        if(passwordLength == 0)
+        {
+            errorElement.text('');
+        }
+   });
+
+   $('#passwordEleve').on('input',function()
+   {
+        var passwordEleveLength = $(this).val().length;
+        var errorElement        = $(this).siblings('.ErrorValidation');
+        if (passwordEleveLength <= 8) {
+            errorElement.text('Le mot de passe doit contenir plus de 8 caractères.');
+            errorElement.css({
+                'display': 'block',
+                    'color'  : 'red',
+                    'font-size': '14px'
+            });
+        }
+        else
+        {
+            errorElement.text(''); // Clear the error message if the condition is met
+        }
+        if(passwordEleveLength == 0)
+        {
+            errorElement.text('');
+        }
+   });
+    $('#passwordEleve').on('input',function()
+    {
+        $(this).siblings('.ErrorValidation').css({'display': 'block',
+        'color'  : 'red',
+        'font-size': '14px'});
+    });
+   $('#confirmPasswordEleve').on('focus',function()
+   {
+        $('#passwordEleve').siblings('.ErrorValidation').css({'display': 'block',
+        'color'  : 'red',
+        'font-size': '14px'});
    });
 
 
