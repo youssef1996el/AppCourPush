@@ -199,6 +199,7 @@
 
 <script>
     var url = "{{ url('GetpProfesseur') }}";
+    var VerificationCoursIsDispo = "{{ url('VerificationCoursIsDispo') }}";
 </script>
 
 

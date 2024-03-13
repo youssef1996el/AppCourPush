@@ -1046,12 +1046,106 @@ class EleveController extends Controller
         ->with('CourProf'                , $CourProf)
         ->with('FormationProf'           , $FormationProf)
         ->with('ExperinceProf'           , $ExperinceProf)
-        /* ->with('Time'                    , $Time)
-        ->with('Cours'                   , $Cours)
-        ->with('TypeCours'               , $TypeCours)
-        ->with('NameProfesseur'          , $NameProfesseur) */
+
         ->with('imageProfesseur'         , $imageProfesseur);
-        /* ->with('getIdCours'              , $getIdCours) */
-        /* ->with('nomberReserveThisCours'  , $nomberReserveThisCours !== null && count($nomberReserveThisCours) > 0 ? count($nomberReserveThisCours) : 1); */
+
+
+    }
+
+    public function VerificationCoursIsDispo(Request $request)
+    {
+        try
+        {
+            $times          = $request->Time;
+            $cours          = $request->cours;
+            $NameProfesseur = $request->NameProfesseur;
+            $typeCours      = $request->typeCours;
+            // extract id cours use name cours
+            $IdCours        = DB::table('cours')->where('title',$cours)->select('id')->first();
+
+            if($typeCours == 'Cours particulier')
+            {
+
+                $checkTableReserve = DB::table('reserves')
+                                        ->where('nom_professeur',$NameProfesseur)
+                                        ->where('times'         ,$times)
+                                        ->where('typecours'     ,'prive')
+                                        ->where('idcours'       , $IdCours->id)
+                                        ->get();
+                if(empty($checkTableReserve))
+                {
+                    return response()->json([
+                        'status'          => 200,
+                    ]);
+                }
+                else
+                {
+                    $checkTableReserve = DB::table('reserves')
+                                            ->where('nom_professeur',$NameProfesseur)
+                                            ->where('times'         ,$times)
+                                            ->where('typecours'     ,'prive')
+                                            ->where('idcours'       , $IdCours->id)
+                                            ->where('valide' ,'=',0)
+                                            ->count();
+                    if($checkTableReserve >= 1)
+                    {
+                        return response()->json([
+                            'status'      => 404,
+                            'message'     => 'Désolé, vous ne pouvez pas réserver ce cours. Le professeur est déjà en train d\'enseigner ce cours à un autre étudiant',
+                        ]);
+                    }
+                    else
+                    {
+                        return response()->json([
+                            'status'        => 200
+                        ]);
+                    }
+                }
+
+            }
+            else
+            {
+                $checkTableReserve = DB::table('reserves')
+                                        ->where('nom_professeur',$NameProfesseur)
+                                        ->where('times'         ,$times)
+                                        ->where('typecours'     ,'groupe')
+                                        ->where('idcours'       , $IdCours->id)
+                                        ->get();
+                if(empty($checkTableReserve))
+                {
+                    return response()->json([
+                        'status'          => 200,
+                    ]);
+                }
+                else
+                {
+                    $checkTableReserve = DB::table('reserves')
+                                            ->where('nom_professeur',$NameProfesseur)
+                                            ->where('times'         ,$times)
+                                            ->where('typecours'     ,'groupe')
+                                            ->where('idcours'       , $IdCours->id)
+                                            ->where('valide' ,'=',0)
+                                            ->count();
+
+                    if($checkTableReserve >= 4)
+                    {
+                        return response()->json([
+                            'status'      => 404,
+                            'message'     => 'Nous regrettons de vous informer que la réservation pour ce cours est impossible. La capacité de la salle est limitée à quatre étudiants maximum',
+                        ]);
+                    }
+                    else
+                    {
+                        return response()->json([
+                            'status'        => 200
+                        ]);
+                    }
+                }
+            }
+        }
+        catch (\Throwable $th)
+        {
+            throw $th;
+        }
     }
 }

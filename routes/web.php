@@ -147,7 +147,10 @@ Route::group(['middleware' => ['web','auth']], function ()
         ->middleware('IsEleve');
 
     Route::post('CreatePayement'                                             ,[EleveController::class,'CreatePayement'])
-    ->middleware('IsEleve');
+        ->middleware('IsEleve');
+
+    Route::get('VerificationCoursIsDispo'                                    ,[EleveController::class,'VerificationCoursIsDispo'])
+        ->middleware('IsEleve');
 
     /******************************************** End Eleve  ****************************************************/
 
