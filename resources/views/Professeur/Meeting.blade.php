@@ -47,11 +47,12 @@
                                                 <p class="text-muted mb-0 text-center title">{{$item->title}}</p>
                                             </td>
                                             <td>
-                                                <p class="text-muted mb-0 text-center typecours">
+                                                <p class=" mb-0 text-center typecours">
                                                     @if($item->typecours === "groupe")
-                                                        Cours en groupe
+                                                        <span class="text-primary fw-bold">Cours en groupe</span>
                                                     @else
-                                                        Cours particulier <br> Un enseignant sera attribué
+                                                        <span class="fw-bold" style="color:#20c997"> Cours particulier </span>
+
                                                     @endif
                                                 </p>
                                             </td>

@@ -668,7 +668,7 @@
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{url('Admin/Profile')}}">
-                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
+                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>informations personnelle
                                                 </a>
 
                                             </li>
@@ -716,7 +716,7 @@
                                             </li>
                                             <li class="mb-2">
                                                 <a href="{{ url('InfosProfile') }}">
-                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>information personnelle
+                                                    <i class="fa fa-info-circle metismenu-icon" aria-hidden="true"></i>informations personnelle
                                                 </a>
 
                                             </li>
@@ -755,7 +755,7 @@
 
                                             <li class="mb-2">
                                                 <a href="{{route('InfoProfesseur')}}">
-                                                <i class="fa-solid fa-user-pen metismenu-icon"></i>  Informaion personnelle
+                                                <i class="fa-solid fa-user-pen metismenu-icon"></i>  Informations personnelle
                                                 </a>
 
                                             </li>

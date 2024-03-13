@@ -287,7 +287,7 @@ $(document).ready(function () {
    $('#confirmPasswordEleve').on('input',function()
    {
     if ($(this).val() !== passwordEleveCheck) {
-        if ($(this).val().length <= 8) { // Check if the password length is less than or equal to 8
+        if ($(this).val().length < 8) { // Check if the password length is less than or equal to 8
             $('.checkPassword').css({
                 'display': 'block',
                 'color'  : 'red',
@@ -314,7 +314,7 @@ $(document).ready(function () {
    $('#confirmpasswordProfesseur').on('input',function()
    {
         if ($(this).val() !== passwordProfCheck) {
-            if ($(this).val().length <= 8) { // Check if the password length is less than or equal to 8
+            if ($(this).val().length < 8) { // Check if the password length is less than or equal to 8
                 $('.checkPassword').css({
                     'display': 'block',
                     'color'  : 'red',
@@ -338,7 +338,7 @@ $(document).ready(function () {
         var passwordLength = $(this).val().length;
         var errorElement = $(this).siblings('.ErrorValidation');
 
-        if (passwordLength <= 8) {
+        if (passwordLength < 8) {
             errorElement.text('Le mot de passe doit contenir plus de 8 caractères.');
             errorElement.css({
                 'display': 'block',
@@ -358,7 +358,7 @@ $(document).ready(function () {
    {
         var passwordEleveLength = $(this).val().length;
         var errorElement        = $(this).siblings('.ErrorValidation');
-        if (passwordEleveLength <= 8) {
+        if (passwordEleveLength < 8) {
             errorElement.text('Le mot de passe doit contenir plus de 8 caractères.');
             errorElement.css({
                 'display': 'block',
