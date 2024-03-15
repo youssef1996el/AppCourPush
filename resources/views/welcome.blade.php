@@ -45,9 +45,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ Auth::user()->role_name === 'Admin' ? url('Admin/Dashboard') : (Auth::user()->role_name === 'professeur' ? url('ShowProfileProf') : url('profile/eleve')) }}">
                                         {{ __('Mon espace') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -85,12 +83,12 @@
                         <div class="carousel-caption ">
                             <h5 class="animated bounceInRight mb-4" style="animation-delay:1s;font-size: 50px;"> تعلم التحدث باللغة العربية بثقة</h5>
                             <p class="animated bounceInLeft mb-3" style="animation-delay:2s">
-                                
+
                                 <span>دورات عبر الإنترنت على مدار الساعة وطوال أيام الأسبوع</span>
                                 <i class="fa-solid fa-check"></i>
                             </p>
                             <p class="animated bounceInRight " style="animation-delay:3s">
-                                
+
                                 <span>تعلم في مجموعات صغيرة أو فرديًا</span>
                                 <i class="fa-solid fa-check"></i>
                             </p>
