@@ -163,8 +163,7 @@ class EleveController extends Controller
             // Format the date in the desired format
             $DateSelected = ucfirst($day) . ', ' . $carbonDate->format('j') . ' ' . $month . ' ' . $carbonDate->format('Y');
 
-
-
+            
         return response()->json([
             'status'            => 200,
             'Data'              => $DataProfesseur,
@@ -179,14 +178,15 @@ class EleveController extends Controller
     }
 
 
-    public function Reservation($Time,$NameProfesseur,$Cours,$TypeCours)
+    public function Reservation($Time,$NameProfesseur,$Cours,$TypeCours,$id)
     {
 
         return view('Eleve.Reserve')
         ->with('Cours',$Cours)
         ->with('Time',$Time)
         ->with('NameProfesseur',$NameProfesseur)
-        ->with('TypeCours',$TypeCours);
+        ->with('TypeCours',$TypeCours)
+        ->with('id',$id);
     }
 
     public function Details($Time,$NameProfesseur,$Cours,$TypeCours,$DateSelected)
@@ -704,9 +704,10 @@ class EleveController extends Controller
             $MesCours  =$MesReserve;
 
             $AddDebutAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id");
-
+           
             if(!empty($AddDebutAndTimeZoneStatus))
             {
+                
                 foreach ($MesCours as &$cours) {
                     foreach ($AddDebutAndTimeZone as $info) {
                         if (
@@ -1060,6 +1061,7 @@ class EleveController extends Controller
             $cours          = $request->cours;
             $NameProfesseur = $request->NameProfesseur;
             $typeCours      = $request->typeCours;
+            $id             = $request->id;
             // extract id cours use name cours
             $IdCours        = DB::table('cours')->where('title',$cours)->select('id')->first();
 

@@ -210,7 +210,7 @@ $(document).ready(function () {
                                                     <p class="text-muted mb-0 ClassTypeCours" style="white-space: nowrap;">Cours en groupe</p>
                                                 `}`;
                             var FiveTd = `<td class="buttonsRD " >
-                                                    <button type="button" class="btn btn-primary reserver mr-1">Reserver</button>
+                                                    <button type="button" class="btn btn-primary reserver mr-1" data-value=${value.id}>Reserver</button>
                                                     <button type="button" class="btn details">Details</button>
                                                 </td>`;
                             dataTable.row.add([
@@ -274,6 +274,8 @@ $(document).ready(function () {
 
     $(document).on('click','.reserver',function()
     {
+        var id  = $(this).attr('data-value'); 
+        
         var Time = $(this).closest('tr').find('.debutCours').text().trim();
         var NameProfesseur  = $(this).closest('tr').find('.NameProfesseur').text().trim();
         var cours           = $(this).closest('tr').find('td:eq(2)').text().trim();
@@ -287,6 +289,7 @@ $(document).ready(function () {
                 NameProfesseur : NameProfesseur,
                 cours          : cours,
                 typeCours      : typeCours,
+                id : id,
             },
             dataType: "json",
             success: function (response)
@@ -301,7 +304,7 @@ $(document).ready(function () {
                     {
                         typeCours = 'groupe';
                     }
-                    var reservationUrl = "/Reservation/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours);
+                    var reservationUrl = "/Reservation/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours) + "/" + encodeURIComponent(id);
 
 
                     window.location.href = reservationUrl;

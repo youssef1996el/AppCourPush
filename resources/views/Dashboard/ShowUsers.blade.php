@@ -335,7 +335,7 @@
                                     </div>
                                 </div>
                                 <div class="col-ms-12 col-md-12 col-xl-9">
-                                    <label for="" class="text-uppercase">disponible</label>
+                                    <label for="" class="text-uppercase">disponibililé</label>
                                     <div class="ClassDisponible">
 
                                     </div>

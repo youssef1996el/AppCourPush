@@ -1,3 +1,6 @@
+.containerDetails{
+  margin-top: 6rem !important;
+}
 *{
   font-family: 'Times New Roman', Times, serif;
 }
@@ -6,9 +9,6 @@
     display:flex;
     justify-content: space-evenly;
     align-items:center;
-}
-.btn-outline-primary {
-  border-radius: 0px !important;
 }
 .imagep{
     width: 60px;
@@ -24,28 +24,32 @@
     margin-right:15px
 }
 .btn-reserver2{
-    margin-top: 32px;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 38px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+}
+.btn-outline-primary {
+  border-radius: 0px;
 }
 .stylebtngrp{
     width: 100%;
-    height: 45px;
     border-radius: 0px;
+    box-shadow: none;
 }
 .form-control, .form-select{
     border-radius:0px
 }
 .prof-image{
-width: 140px;
-height: 140px;
-border-radius: 50%;
-border: 1px solid gray;
-text-align:center;
-display:flex;
-margin:auto
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #004aad;
+  text-align: center;
+  display: flex;
+  margin: auto;
+  padding: 2px;
 
 }
 .cardProfile{
@@ -54,11 +58,13 @@ padding: 14px 12px;
 } 
 
 .cardCours,.cardDispo,.cardFormation,.cardExperience{
-background:#74a8d54f;
+background:rgb(221, 228, 238) ;
 
 } 
 
-
+.btn-primary{
+  color: white !important;
+}
 
 
 
@@ -67,17 +73,17 @@ background:#74a8d54f;
   }
 
   .cardProfile{
-    background-color: #74a8d54f;
+    background-color: rgb(221, 228, 238) ;
   }
  
 
   .cardProfile .name{
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
   }
 
   .cardProfile h4{
-    font-size: 20px;
+    font-size: 24px;
     color: #686868;
 
   }
@@ -104,9 +110,9 @@ background:#74a8d54f;
 
   .showMore, .showLess {
     text-transform: lowercase;
-    background-color: #1685b8;
+    background-color: #0148aa;
     color: white;
-    border: 1px solid #1685b8;
+    border: 1px solid #0148aa;
     margin-top: -42px;
     margin-left: 30px;
     border-radius: 0px;
@@ -114,9 +120,9 @@ background:#74a8d54f;
   }
 
   .showMore:hover, .showLess:hover {
-    background-color: #1a475b;
+    background-color: #346dbb;
     color: white;
-    border: 1px solid #1a475b;
+    border: 1px solid #346dbb;
   }
 
   .timeline {
@@ -128,7 +134,7 @@ background:#74a8d54f;
 
   .timeline ul {
     list-style-type: none;
-    border-left: 4px solid #094a68;
+    border-left: 4px solid #4e7cbc;
     padding: 10px 5px;
     max-height: 200px;
     overflow-y: auto;
@@ -139,7 +145,7 @@ background:#74a8d54f;
   }
   .timeline ul::-webkit-scrollbar-thumb
   {
-      background-color: #094a68;
+      background-color: #4e7cbc;
       border-radius: 10px;
       border: 3px solid #fff;
   }
@@ -154,13 +160,13 @@ background:#74a8d54f;
     position: relative;
     cursor: pointer;
     transition: .5s;
-    background: #a5c6e2;
+    background: rgb(160, 186, 221);
     margin-bottom: 10px;
   }
 
   .timeline ul li span {
     display: inline-block;
-    background-color: #1685b8;
+    background-color: #0148aa;
     border-radius: 25px;
     padding: 2px 5px;
     font-size: 15px;
@@ -188,17 +194,17 @@ background:#74a8d54f;
     content: '';
     width: 18px;
     height: 18px;
-    background-color: #094a68;
+    background-color: #4e7cbc;
     border-radius: 50%;
     left: -5px;
     top: -6px;
     transition: .5s;
-    border: 2px solid #a5c6e2;
+    border: 2px solid rgb(160, 186, 221);
   }
 
 
   .timeline ul li:hover {
-    background-color: #0d3b4f;
+    background-color: rgb(84, 131, 194);
   }
 
   .timeline ul li:hover .timeline-content h3{
@@ -227,11 +233,11 @@ background:#74a8d54f;
     padding: 8px 0px 0px 4px;}
   .card-cours {
 
-    background: #ffffff70;
+    background: #a0badd;
     padding: 8px;
     display: inline-block;
     border-radius: 0px;
-    border: 1px solid #ffffff70;
+    border: 1px solid #a0badd;
     color: black;
 
   }
@@ -242,8 +248,8 @@ background:#74a8d54f;
     margin-right: 0; /* Remove margin from the last <p> element to prevent extra spacing */
   }
   .card-cours:hover {
-    background: #7db8f7a8;
-    border: 1px solid #7db8f7a8;
+    background: rgb(84, 131, 194);
+    border: 1px solid rgb(84, 131, 194);
     color: white;
     cursor: pointer;
   }
@@ -259,7 +265,7 @@ background:#74a8d54f;
   }
   .divScrollCours::-webkit-scrollbar-thumb
   {
-      background-color: #094a68;
+      background-color: #4e7cbc;
       border-radius: 10px;
       border: 3px solid #fff;
   }
@@ -342,7 +348,7 @@ background:#74a8d54f;
     border-radius: 10px
 }
 .ContentDisponible {
-  width: 13%;
+  width: 14%;
 
   border: 1px solid gray;
   display: inline-table;
@@ -408,7 +414,7 @@ overflow-x: auto;
 }
 .ClassDisponible::-webkit-scrollbar-thumb
 {
-    background-color: #094a68;
+    background-color: #4e7cbc;
     border-radius: 10px;
     border: 3px solid #fff;
 }
@@ -440,7 +446,7 @@ overflow-x: auto;
   
   /* Optional: Style the checkmark */
   .checklist li {
-  color: #1685b8; /* Green color for the checkmark */
+  color: #0148aa; /* Green color for the checkmark */
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make the text bold */
   }

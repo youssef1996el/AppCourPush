@@ -126,7 +126,7 @@ Route::group(['middleware' => ['web','auth']], function ()
     Route::get('GetpProfesseur'                                             ,[EleveController::class,'GetpProfesseur'])
         ->middleware('IsEleve');
 
-    Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}'    ,[EleveController::class,'Reservation'])
+    Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{id}'    ,[EleveController::class,'Reservation'])
         ->middleware('IsEleve');
 
     Route::get('InfosProfile'                                               ,[EleveController::class,'InfosProfile'])
@@ -223,7 +223,7 @@ Route::group(['middleware' => ['web','auth']], function ()
 
     /********************************************* Stripe  ****************************************************/
 
-    Route::get('Acount/store/checkout/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{Nomber}/{Montant}',[StripeController::class,'index'])
+    Route::get('Acount/store/checkout/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{Nomber}/{Montant}/{id}',[StripeController::class,'index'])
         ->middleware('IsEleve');
 
     Route::post('PostStripe'                                                                         ,[StripeController::class,'StripePost'])

@@ -93,7 +93,7 @@
                                 <span>Flexibilité d'horaire</span>
                             </li>
                         </ul>
-                        <button type="button" class="action" onclick="window.location='{{ url('/Account/store/checkout') }}'">Commencer</button>
+                        <button type="button" class="action" <!-- onclick="window.location='{{ url('/Account/store/checkout') }}'" -->>Commencer</button>
                     </div>
                 </div>
 
@@ -112,7 +112,7 @@
         var cours = @json($Cours);
         var typeCours = @json($TypeCours);
         var randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
-
+        var id = @json($id);
         $('.action').on('click',function()
         {
             var Montant = 0;
@@ -125,7 +125,7 @@
                 Montant = $('.PricePrive').text();
             }
 
-            var checkout = "/Acount/store/checkout/"+ encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/"  + encodeURIComponent(cours) + "/"  + encodeURIComponent(typeCours) + "/"  + encodeURIComponent(randomNumber) + "/" + encodeURIComponent(Montant);
+            var checkout = "/Acount/store/checkout/"+ encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/"  + encodeURIComponent(cours) + "/"  + encodeURIComponent(typeCours) + "/"  + encodeURIComponent(randomNumber) + "/" + encodeURIComponent(Montant)+ "/" + encodeURIComponent(id);
             window.location.href = checkout;
         });
         function GetPrice()
