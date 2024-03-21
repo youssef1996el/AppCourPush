@@ -28,7 +28,7 @@
                 <div id="programmes" class="tab-pane fade show active mt-4 ">
                     <div class="card-container">
                         @if ($hasCours)
-                        @foreach ($MesCours as $item)
+                            @foreach ($MesCours as $item)
                                 <div class="card-sl " style="max-width:280px">
                                 <img class="card-img-top" src="{{asset('image/coursnew.png')}}" alt="" style="background: #dbecfa;height: 150px;">
                                     <a class="card-action" href="#"><img src="{{ $item->image}}" class="avatar" alt="" ></a>
@@ -50,14 +50,14 @@
 
                             @endforeach
 
-                            @else
+                        @else
                             <div class="text-center">
                                 <img  class="" src="{{asset('image/cours.png') }}" alt="cours" style="width:200px">
                                 <h5 class="mt-3">Rien de prévu pour le moment</h5>
                                 <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
                                 <p>Pour commencer, <a href="#"> resever un cours</a></p>
                             </div>
-                            @endif
+                        @endif
                     </div>
                 </div>
                 <div id="cours" class="tab-pane fade text-center">

@@ -166,17 +166,19 @@
                         </span>
                     <div class="inputBox">
                         <span>Numéro de carte</span>
-                        <input type="text" maxlength="19" class="card-number-input card-number">
+                        <input type="text" maxlength="19" class="card-number-input card-number input-error">
+
                         <div class="card-number-box"></div>
                     </div>
                     <div class="inputBox">
                         <span>Porte-carte</span>
-                        <input type="text" class="card-holder-input">
+                        <input type="text" class="card-holder-input input-error">
+
                     </div>
                     <div class="flexbox">
                         <div class="inputBox">
                             <span>expiration mm</span>
-                            <select name="" id="" class="month-input card-expiry-month">
+                            <select name="" id="" class="month-input card-expiry-month input-error">
                                 <option value="month" selected disabled>mois</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
@@ -191,10 +193,11 @@
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>
+
                         </div>
                         <div class="inputBox">
                             <span>expiration yy</span>
-                            <select name="" id="" class="year-input card-expiry-year">
+                            <select name="" id="" class="year-input card-expiry-year input-error">
                                 <option value="year" selected disabled>annee</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
@@ -207,10 +210,12 @@
                                 <option value="2029">2029</option>
                                 <option value="2030">2030</option>
                             </select>
+
                         </div>
                         <div class="inputBox">
                             <span>cvv</span>
-                            <input type="text" maxlength="4" class="cvv-input card-cvc">
+                            <input type="text" maxlength="4" class="cvv-input card-cvc input-error">
+
                         </div>
                     </div>
                     <input type="submit" value="Valider" class="submit-btn">
@@ -262,11 +267,24 @@
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
+
     $(function()
     {
         var $form = $(".require-validation");
         $('form.require-validation').bind('submit', function(e)
         {
+
+
+            if($('.cvv-input').val() == '')
+            {
+                $.notify('Missing required param: card[CCV]',
+                {
+                    position: "bottom right",
+                    className: "error",
+                    autoHideDelay: 5000
+                });
+                return false;
+            }
             var $form = $(".require-validation"),
             inputSelector = ['input[type=email]', 'input[type=password]', 'input[type=text]', 'input[type=file]', 'textarea'].join(', '),
             $inputs = $form.find('.required').find(inputSelector),
@@ -305,6 +323,8 @@
                     className: "error",
                     autoHideDelay: 5000
                 });
+
+
             }
             else
             {
@@ -391,4 +411,14 @@
     }
 
     </script>
+    <style>
+       .input-error {
+            border: 2px solid red;
+        }
+
+        .text-error {
+            color: red;
+            display: none;
+        }
+    </style>
 @endsection
