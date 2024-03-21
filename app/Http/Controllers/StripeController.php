@@ -14,15 +14,16 @@ use App\Models\User;
 class StripeController extends Controller
 {
 
-    public function index($Time,$NameProfesseur,$Cours,$TypeCours,$Nomber,$Montant)
+    public function index($Time,$NameProfesseur,$Cours,$TypeCours,$Nomber,$Montant,$id)
     {
-
+        
         session([
             'Cours' => $Cours,
             'Time' => $Time,
             'NameProfesseur' => $NameProfesseur,
             'TypeCours' => $TypeCours,
             'Montant' => $Montant,
+            'id'       => $id,
         ]);
 
         return view('Stripe.index')
@@ -42,6 +43,8 @@ class StripeController extends Controller
         $NameProfesseur = session('NameProfesseur');
         $TypeCours = session('TypeCours');
         $Montant = session('Montant');
+        $id      = session('id');
+      
 
         // extract id professeur
         $professeur = DB::table('users')->where('name',$NameProfesseur)->first();
@@ -53,12 +56,15 @@ class StripeController extends Controller
 
         // extract Day
         $DisponibleProfessuer = DB::table('disponibleprof')
-                                        ->where('iduser',$IdProfessuer)
-                                        ->where('debut',$Time)
-                                        ->where('idcours',$IdCours)
+        
+                                        ->where('ID',$id)
+                                        /* ->where('debut',$Time)
+                                        ->where('idcours',$IdCours) */
                                         ->select('jour')
                                         ->first();
-        $Days                 = $DisponibleProfessuer->jour;
+                                       
+                                        
+        $Days                 = $DisponibleProfessuer->jour; 
         $Name_Eleve = Auth::user()->name;
 
         // Extract Admin send notficiation

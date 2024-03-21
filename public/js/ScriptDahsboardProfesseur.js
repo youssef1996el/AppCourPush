@@ -199,7 +199,7 @@ $(document).ready(function () {
                                     {
 
                                         $.each(data, function(index, item) {
-                                            var backgroundColor = item.typecours === 'groupe' ? '#ffc302' : '#22bb33';
+                                            var backgroundColor = item.typecours === 'groupe' ? '#0d6efd' : '#20c997';
                                             content += `
                                                 <div class="ClassTimeDisponible" style="color:#0c3c74;background:${backgroundColor};border-radius: 10px; max-width: 90px; margin: auto;">
                                                     <p>

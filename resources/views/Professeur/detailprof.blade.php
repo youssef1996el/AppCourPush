@@ -68,7 +68,7 @@
                                             <div class="Days">{{$key}}</div>
                                                 <div class="ClassCalculHeight padContent">
                                                     @foreach($data as $item)
-                                                        <div class="ClassTimeDisponible" style="color:#0c3c74;background:{{$item->typecours === 'groupe' ? '#ffc302' : '#22bb33'}}; ">
+                                                        <div class="ClassTimeDisponible" style="color:white;background:{{$item->typecours === 'groupe' ? '#0d6efd' : '#20c997'}}; ">
                                                             <p class="text-white">
                                                                 <i class="fa-solid fa-clock" style="color: white"></i>
                                                                 {{$item->debut}}
@@ -96,8 +96,8 @@
 
                             </div>
                             <div class="card-footer d-block">
-                                <div class="d-flex align-items-center" style="gap:12px"><div class="gr" style="width:12px; height:12px;background: #ffc302;border-radius: 50%;"></div>Cours en groupe</div>
-                                <div class="d-flex align-items-center" style="gap:12px"><div class="pr" style="width:12px; height:12px; background: #22bb33;border-radius: 50%;"></div>Cours particulier</div>
+                                <div class="d-flex align-items-center " style="gap:12px"><div class="gr " style="width:12px; height:12px;background:#0d6efd;border-radius: 50%;"></div>Cours en groupe</div>
+                                <div class="d-flex align-items-center" style="gap:12px"><div class="pr" style="width:12px; height:12px; background: #20c997;border-radius: 50%;"></div>Cours particulier</div>
                                 <div class="d-flex align-items-center" style="gap:12px"><div class="vide" style="width:12px; height:12px;  background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3) !important;background-size: 8.76px 11.63px !important;border-radius: 50%"></div>Indisponible</div>
                             </div>
 

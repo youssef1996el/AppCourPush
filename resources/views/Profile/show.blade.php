@@ -96,74 +96,44 @@
             <div class="card cardDispo text-left mb-5">
                 <h4 class="title-card"  style="  border-bottom: 1px solid #c0c1c1;">Disponibilite de professeur </h4>
                 <div class="card-body ">
-                    <div class="ClassDisponible">
-                        @foreach ($disponibilityByDay as $key => $data)
-                            <div class="ContentDisponible "><!-- {{ empty($data) ? 'ContentNonDisponible' : '' }} -->
-                                <div class="Days">{{$key}}</div>
-                                    <div class="ClassCalculHeight padContent">
-                                        @foreach($data as $item)
-                                            <div class="ClassTimeDisponible" style="color:#0c3c74;background:{{$item->typecours === 'groupe' ? '#ffc302' : '#22bb33'}}; ">
-                                                <p class="text-white">
-                                                    <i class="fa-solid fa-clock" style="color: white"></i>
-                                                    {{$item->debut}}
-                                                </p>
-                                                <p class="text-white" style="font-style:italic; font-weight:bold; font-size:16px">
-                                                    {{$item->title}}
-                                                </p>
-                                                <p class="text-white">
-                                                    <i class="fa-solid fa-clock" style="color: white"></i>
-                                                    {{$item->fin}}
-                                                </p>
-                                            </div>
-                                        @endforeach
-                                        @if(empty($data))
-                                            <div class="ClassTimeDisponible " style=";background: #00f8ff3b;">
+                                <div class="ClassDisponible">
+                                    @foreach ($disponibilityByDay as $key => $data)
+                                        <div class="ContentDisponible "><!-- {{ empty($data) ? 'ContentNonDisponible' : '' }} -->
+                                            <div class="Days">{{$key}}</div>
+                                                <div class="ClassCalculHeight padContent">
+                                                    @foreach($data as $item)
+                                                        <div class="ClassTimeDisponible" style="color:white;background:{{$item->typecours === 'groupe' ? '#0d6efd' : '#20c997'}}; ">
+                                                            <p class="text-white">
+                                                                <i class="fa-solid fa-clock" style="color: white"></i>
+                                                                {{$item->debut}}
+                                                            </p>
+                                                            <p class="text-white" style="font-style:italic; font-weight:bold; font-size:16px">
+                                                                {{$item->title}}
+                                                            </p>
+                                                            <p class="text-white">
+                                                                <i class="fa-solid fa-clock" style="color: white"></i>
+                                                                {{$item->fin}}
+                                                            </p>
+                                                        </div>
+                                                    @endforeach
+                                                    @if(empty($data))
+                                                        <div class="ClassTimeDisponible " style=";background: #00f8ff3b;">
 
+                                                        </div>
+                                                    @endif
+                                                </div>
                                             </div>
-                                        @endif
-                                    </div>
+                                    @endforeach
+
                                 </div>
-                        @endforeach
-                    </div>
-                    <!-- <div class="courses mt-4">
-                        <div class="card cardList text-left">
-                          <img class="card-img-top" src="holder.js/100px180/" alt="">
-                          <div class="card-body">
-                          <ul class="checklist">
-                            <table>
-
-                                @foreach ($DisponibleProf as $item)
-                                <tr>
-                                    <th>
-                                        <li class="circle-checkmark">{{$item->jour}} </li>
-                                    </th>
-                                    <th>
-                                        ({{$item->debut}} || {{$item->fin}})
-                                    </th>
-                                    <th>
-                                        <i class="fa fa-angle-right" aria-hidden="true"> </i>
-                                    </th>
-                                    <th>
-                                         Cours {{$item->title}} en {{$item->typecours}}
-                                    </th>
-                                </tr>
-                                    {{-- <li class="circle-checkmark"> {{$item->jour}} ({{$item->debut}} || {{$item->fin}}) <i class="fa fa-angle-right" aria-hidden="true"> </i>  {{$item->title}} --}}
-                                @endforeach
-                            </table>
 
 
-                        </ul>
-                          </div>
-                        </div>
-
-                    </div> -->
-
-                </div>
-                <div class="card-footer d-block">
-                    <div class="d-flex align-items-center" style="gap:12px"><div class="gr" style="width:12px; height:12px;background: #ffc302;border-radius: 50%;"></div>Cours en groupe</div>
-                    <div class="d-flex align-items-center" style="gap:12px"><div class="pr" style="width:12px; height:12px; background: #22bb33;border-radius: 50%;"></div>Cours particulier</div>
-                    <div class="d-flex align-items-center" style="gap:12px"><div class="vide" style="width:12px; height:12px;  background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3) !important;background-size: 8.76px 11.63px !important;border-radius: 50%"></div>Indisponible</div>
-                </div>
+                            </div>
+                            <div class="card-footer d-block">
+                                <div class="d-flex align-items-center " style="gap:12px"><div class="gr " style="width:12px; height:12px;background:#0d6efd;border-radius: 50%;"></div>Cours en groupe</div>
+                                <div class="d-flex align-items-center" style="gap:12px"><div class="pr" style="width:12px; height:12px; background: #20c997;border-radius: 50%;"></div>Cours particulier</div>
+                                <div class="d-flex align-items-center" style="gap:12px"><div class="vide" style="width:12px; height:12px;  background-image: linear-gradient(127deg,#fff 35.71%,#e3e3e3 0,#e3e3e3 50%,#fff 0,#fff 85.71%,#e3e3e3 0,#e3e3e3) !important;background-size: 8.76px 11.63px !important;border-radius: 50%"></div>Indisponible</div>
+                            </div>
             </div>
         </div>
 
