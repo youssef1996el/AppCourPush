@@ -216,7 +216,19 @@ class AdminController extends Controller
         }
     }
 
-
+    public function notifications_read(Request $request)
+    {
+        
+        
+        $notification = auth()->user()->notifications()->findOrFail($request->id);
+        if ($notification->read_at === null) {
+            $notification->markAsRead();
+        }
+        return response()->json([
+            'status' => 200,
+            
+        ]);
+    }
     public function ShowUser($id)
     {
         $actualId = Hashids::decode($id);

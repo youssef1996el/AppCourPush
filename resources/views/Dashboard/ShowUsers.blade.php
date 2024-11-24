@@ -6,211 +6,112 @@
 <div class="container mt-4 ">
     <div class="card cardInfo">
         <div class="card-body">
+            @if(Auth::user()->role_name === "professeur" || Auth::user()->role_name === "Admin")
             <h4 class="card-title titleCard">Liste des {{$role_name}}</h4>
+            @endif
             <div class="row">
+                
                 <div class="col-sm-12 col-md-12 col-xl-12">
                     <div class="table-responsive ">
-                        <table class="table-primary align-middle mb-0 bg-white w-100" {{ $role_name === "professeur" ? 'id=tableListProfesseur' : 'id=tableListEleve' }}>
-                            @if ($role_name === 'professeur')
-                                <thead class="" >
-                                    <tr>
-                                    <th>Nom</th>
-                                    <th>Titre</th>
-                                    <th>Status</th>
-                                    <th>Position</th>
-                                    <th>Verification</th>
-                                    <th>Actions</th>
-                                    </tr>
-                                </thead>
-                            @else
-                                <thead class="" >
-                                    <tr>
-                                        <th>Nom</th>
-                                        <th>email</th>
-                                        <th>Pays</th>
-                                        <th>Status</th>
-                                        
-                                    </tr>
-                                </thead>
-                            @endif
-
-                            <tbody>
-                                @if($role_name === "professeur")
-                                    @foreach ($data as $item)
+                        @if(Auth::user()->role_name ==="Admin" || Auth::user()->role_name === "professeur")           
+                            <table class="table-primary align-middle mb-0 bg-white w-100" {{ $role_name === "professeur" ? 'id=tableListProfesseur' : 'id=tableListEleve' }}>
+                                @if ($role_name === 'professeur')
+                                    <thead class="" >
                                         <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="{{asset($item->image)}}" class="rounded-circle" style="width:45px;height: 45px;" alt="">
-                                                    <div class="ms-3">
-                                                        <p class="fw-bold mb-1">{{$item->name}}</p>
-                                                        <p class="text-muted mb-0">{{$item->email}}</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1 text-center">{{$item->title}}</p>
-                                            </td>
-                                            <td>
-                                                <span class="">Active</span>
-                                            </td>
-                                            @if ($item->numberExperince <= 3)
-                                                <td>
-                                                    <span class="">Junior</span>
-                                                </td>
-                                            @else
-                                                <td>
-                                                    <span class="">Professionnel</span>
-                                                </td>
-                                            @endif
-                                            <td>{{$item->verification}}</td>
-                                            <td>
-                                                <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}}>
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button>
-
-                                            </td>
+                                        <th>Nom</th>
+                                        <th>Titre</th>
+                                        <th>Status</th>
+                                        <th>Position</th>
+                                        <th>Verification</th>
+                                        <th>Actions</th>
                                         </tr>
-                                    @endforeach
+                                    </thead>
                                 @else
-                                    @foreach ($data as $item)
-                                        <tr class="text-center ">
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="{{$item->image}}" class="rounded-circle" alt="" style="width: 45px; height: 45px" />
-                                                    <div class="ms-3">
-                                                    <p class="fw-bold mb-1">{{$item->name}}</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-muted mb-0">{{$item->email}}</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">{{$item->pays}}</p>
-                                            </td>
-                                            <td>
-                                                <span class=" text-success fw-bold">Active</span>
-                                            </td>
-                                            <!-- <td>
-                                                <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" >
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-link " data-mdb-ripple-color="dark">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </button>
-                                            </td> -->
+                                    <thead class="" >
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>email</th>
+                                            <th>Pays</th>
+                                            <th>Status</th>
+                                            
                                         </tr>
-                                    @endforeach
+                                    </thead>
                                 @endif
 
-                            </tbody>
-                        </table>
+                                <tbody>
+                                    @if($role_name === "professeur")
+                                        @foreach ($data as $item)
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="{{asset($item->image)}}" class="rounded-circle" style="width:45px;height: 45px;" alt="">
+                                                        <div class="ms-3">
+                                                            <p class="fw-bold mb-1">{{$item->name}}</p>
+                                                            <p class="text-muted mb-0">{{$item->email}}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1 text-center">{{$item->title}}</p>
+                                                </td>
+                                                <td>
+                                                    <span class="">Active</span>
+                                                </td>
+                                                @if ($item->numberExperince <= 3)
+                                                    <td>
+                                                        <span class="">Junior</span>
+                                                    </td>
+                                                @else
+                                                    <td>
+                                                        <span class="">Professionnel</span>
+                                                    </td>
+                                                @endif
+                                                <td>{{$item->verification}}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}}>
+                                                        <i class="fa-solid fa-eye"></i>
+                                                    </button>
+
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        @foreach ($data as $item)
+                                            <tr class="text-center ">
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="{{$item->image}}" class="rounded-circle" alt="" style="width: 45px; height: 45px" />
+                                                        <div class="ms-3">
+                                                        <p class="fw-bold mb-1">{{$item->name}}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="text-muted mb-0">{{$item->email}}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1">{{$item->pays}}</p>
+                                                </td>
+                                                <td>
+                                                    <span class=" text-success fw-bold">Active</span>
+                                                </td>
+                                                
+                                            </tr>
+                                        @endforeach
+                                    @endif
+
+                                </tbody>
+                            </table>
+                            @elseif(Auth::user()->role_name === "eleve")
+                            <p>bhjhjkh</p>
+                        @endif
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-    {{-- <div class="row ">
-        <div class="col-sm-12 col-md-12 col-xl-12">
-            <h2 style="padding-left: 12px;font-family: times;">Liste des {{$role_name}} </h2>
-            <table class="table-primary align-middle mb-0 bg-white w-100" {{ $role_name === "professeur" ? 'id=tableListProfesseur' : 'id=tableListEleve' }}>
-            @if ($role_name === 'professeur')
-                <thead class="" >
-                    <tr>
-                    <th>Nom</th>
-                    <th>Titre</th>
-                    <th>Status</th>
-                    <th>Position</th>
-                    <th>Verification</th>
-                    <th>Actions</th>
-                    </tr>
-                </thead>
-            @else
-                <thead class="" >
-                    <tr>
-                        <th>Nom</th>
-                        <th>email</th>
-                        <th>Status</th>
-                        <th>Pays</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-            @endif
-
-            <tbody>
-                @if($role_name === "professeur")
-                    @foreach ($data as $item)
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="{{asset($item->image)}}" class="rounded-circle" style="width:45px;height: 45px;" alt="">
-                                    <div class="ms-3">
-                                        <p class="fw-bold mb-1">{{$item->name}}</p>
-                                        <p class="text-muted mb-0">{{$item->email}}</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="fw-normal mb-1 text-center">{{$item->title}}</p>
-                            </td>
-                            <td>
-                                <span class="">Active</span>
-                            </td>
-                            @if ($item->numberExperince <= 3)
-                                <td>
-                                    <span class="">Junior</span>
-                                </td>
-                            @else
-                                <td>
-                                    <span class="">Professionnel</span>
-                                </td>
-                            @endif
-                            <td>{{$item->verification}}</td>
-                            <td>
-                                <button type="button" class="btn btn-link BtnView" data-mdb-ripple-color="dark" data-value={{$item->id}}>
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-
-                            </td>
-                        </tr>
-                    @endforeach
-                @else
-                    @foreach ($data as $item)
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <img src="{{$item->image}}" class="rounded-circle" alt="" style="width: 45px; height: 45px" />
-                                    <div class="ms-3">
-                                    <p class="fw-bold mb-1">{{$item->name}}</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <p class="text-muted mb-0">{{$item->email}}</p>
-                            </td>
-                            <td>
-                                <p class="fw-normal mb-1">{{$item->pays}}</p>
-                            </td>
-                            <td>
-                                <span class="">Active</span>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" >
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button type="button" class="btn btn-link " data-mdb-ripple-color="dark">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
-                @endif
-
-            </tbody>
-          </table>
-        </div>
-    </div> --}}
+    
     @if($role_name === 'professeur')
     <div class="modal fade" id="ModalView" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
         <div class="modal-dialog modal-xl">

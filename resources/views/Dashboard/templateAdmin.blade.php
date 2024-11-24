@@ -435,7 +435,7 @@
                                                                                         </span>
                                                                                         <div class="vertical-timeline-element-content bounce-in">
                                                                                             <h4 class="timeline-title">Réunion</h4>
-                                                                                            <p>{{$Text}}
+                                                                                            <p class="textLink" title="{{$notification->id}}" data-target="{{$href}}">{{$Text}}
                                                                                                 <a href="{{$href}}" target="_blank" >{{$href}}</a>
                                                                                             </p>
                                                                                             <span class="vertical-timeline-element-date"></span>
@@ -870,5 +870,29 @@
             @endguest
 
             <script type="text/javascript" src="{{asset('js/templateAdmin.js')}}"></script>
+            <script>
+                $('.textLink').on('click',function(e)
+                {
+                    var id  = $(this).attr('title');
+                    var link = $(this).attr('data-target');
+                    
+                   e.preventDefault(); 
+                   $.ajax({
+                    type: "get",
+                    data: 
+                    {
+                        id : id
+                    },
+                    url: "{{url('notifications/read')}}",
+                    success: function (response) 
+                    {
+                        if(response.status == 200)
+                        {
+                            window.open(link, '_blank');
+                        }    
+                    }
+                   });
+                });
+            </script>
 </body>
 </html>

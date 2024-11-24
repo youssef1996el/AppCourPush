@@ -669,7 +669,8 @@ class EleveController extends Controller
         $check               =  Reserves::where('nom_eleve',$ExtractNameEleve)->count();
         $hasCours            = false;
         $MesCours =[];
-
+        $DataCoursIsComplet = [];
+        $CoursIsComplet     = [];
         if($check > 0)
         {
 
@@ -704,13 +705,11 @@ class EleveController extends Controller
             $MesCours  =$MesReserve;
 
             $AddDebutAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id");
-<<<<<<< HEAD
 
-            if(!empty($AddDebutAndTimeZone))
-=======
+            //if(!empty($AddDebutAndTimeZone))
+
            
             if(!empty($AddDebutAndTimeZoneStatus))
->>>>>>> 589ac6c1fa5782e9b499e9155ce9dd23ca1a9850
             {
                 
                 foreach ($MesCours as &$cours) {
@@ -825,12 +824,14 @@ class EleveController extends Controller
 
 
         }
-        foreach($DataCoursIsComplet as $item)
-        {
-            if (!isset($item->fin) || !isset($item->timezone)) {
-                $item->fin = 0;
+        if (is_array($DataCoursIsComplet) || is_object($DataCoursIsComplet)) {
+            foreach ($DataCoursIsComplet as $item) {
+                if (!isset($item->fin) || !isset($item->timezone)) {
+                    $item->fin = 0;
+        
                     $timezone = DB::select('SELECT @@system_time_zone AS system_time_zone')[0]->system_time_zone;
                     $item->timezone = $timezone;
+                }
             }
         }
 
