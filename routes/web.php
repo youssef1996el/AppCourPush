@@ -126,7 +126,8 @@ Route::group(['middleware' => ['web','auth']], function ()
     Route::get('GetpProfesseur'                                             ,[EleveController::class,'GetpProfesseur'])
         ->middleware('IsEleve');
 
-    
+    Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{id}'    ,[EleveController::class,'Reservation'])
+        ->middleware('IsEleve');
 
     Route::get('InfosProfile'                                               ,[EleveController::class,'InfosProfile'])
         ->middleware('IsEleve');
@@ -278,8 +279,7 @@ Route::group(['middleware' => ['web','auth']], function ()
 
 Route::get('Details/{id}' ,[EleveController::class,'DetailsProfesseur']);
 
-Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{id}'    ,[EleveController::class,'Reservation'])
-        /* ->middleware('IsEleve') */;
+
 
 
 

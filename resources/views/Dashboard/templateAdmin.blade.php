@@ -415,36 +415,36 @@
                                                             <div class="p-3">
                                                                 <div class="vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
                                                                     @auth
-    @foreach (auth()->user()->unreadNotifications as $notification)
-        @if ($notification->data['condition'] === 'Event')
-            @php
-                $classes = ['badge-warning', 'badge-success', 'badge-primary', 'badge-info', 'badge-danger'];
-                $randomClass = $classes[array_rand($classes)];
-                // Extract link
-                $pattern = '/<a\s+(?:[^>]*?\s+)?href=(["\'])(.*?)\1/';
-                preg_match($pattern, $notification->data['title'], $matches);
-                $href = isset($matches[2]) ? $matches[2] : '';
-                // Remove tag a from text
-                $patternRemove = '/<a\b[^>]*>(.*?)<\/a>/i';
-                $Text = preg_replace($patternRemove, '', $notification->data['title']);
-            @endphp
-            <div class="vertical-timeline-item vertical-timeline-element">
-                <div>
-                    <span class="vertical-timeline-element-icon bounce-in">
-                        <i class="badge badge-dot badge-dot-xl {{$randomClass}}"> </i>
-                    </span>
-                    <div class="vertical-timeline-element-content bounce-in">
-                        <h4 class="timeline-title">Réunion</h4>
-                        <p class="textLink" title="{{$notification->id}}" data-target="{{$href}}">{{$Text}}
-                            <a href="{{$href}}" target="_blank">{{$href}}</a>
-                        </p>
-                        <span class="vertical-timeline-element-date"></span>
-                    </div>
-                </div>
-            </div>
-        @endif
-    @endforeach
-@endauth
+                                                                        @foreach (auth()->user()->unreadNotifications as $notification)
+                                                                            @if ($notification->data['condition'] === 'Event')
+                                                                                @php
+                                                                                    $classes = ['badge-warning', 'badge-success', 'badge-primary', 'badge-info', 'badge-danger'];
+                                                                                    $randomClass = $classes[array_rand($classes)];
+                                                                                    // Extract link
+                                                                                    $pattern = '/<a\s+(?:[^>]*?\s+)?href=(["\'])(.*?)\1/';
+                                                                                    preg_match($pattern, $notification->data['title'], $matches);
+                                                                                    $href = isset($matches[2]) ? $matches[2] : '';
+                                                                                    // Remove tag a from text
+                                                                                    $patternRemove = '/<a\b[^>]*>(.*?)<\/a>/i';
+                                                                                    $Text = preg_replace($patternRemove, '', $notification->data['title']);
+                                                                                @endphp
+                                                                                <div class="vertical-timeline-item vertical-timeline-element">
+                                                                                    <div>
+                                                                                        <span class="vertical-timeline-element-icon bounce-in">
+                                                                                            <i class="badge badge-dot badge-dot-xl {{$randomClass}}"> </i>
+                                                                                        </span>
+                                                                                        <div class="vertical-timeline-element-content bounce-in">
+                                                                                            <h4 class="timeline-title">Réunion</h4>
+                                                                                            <p class="textLink" title="{{$notification->id}}" data-target="{{$href}}">{{$Text}}
+                                                                                                <a href="{{$href}}" target="_blank">{{$href}}</a>
+                                                                                            </p>
+                                                                                            <span class="vertical-timeline-element-date"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    @endauth
 
                                                                     {{-- <div class="vertical-timeline-item vertical-timeline-element">
                                                                         <div>
