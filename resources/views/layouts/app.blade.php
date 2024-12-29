@@ -48,9 +48,9 @@
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{asset('image/hallo.png')}}"  alt="" style="height:50px; width:60px ; ">
                 </a>
-                <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
+                {{-- <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
                     <i class="fa fa-user fa-lg" id="user" aria-hidden="true" style="color:rgb(13, 110, 253)"></i>
-                </a>
+                </a> --}}
                 @if (Route::currentRouteName() === "login")
                     <a class="navbar-toggler" href="{{ route('register') }}" aria-label="User Profile">
                         <i class="fa fa-user-plus " id="user-plus" aria-hidden="true"></i>
