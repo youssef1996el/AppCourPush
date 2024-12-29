@@ -190,6 +190,7 @@ class EleveController extends Controller
 
     public function Details($Time,$NameProfesseur,$Cours,$TypeCours,$DateSelected)
     {
+        
         // Extract id professeur
         $idProfesseur = User::where('name',$NameProfesseur)->get();
 
@@ -307,6 +308,7 @@ class EleveController extends Controller
         ->with('NameProfesseur'          , $NameProfesseur)
         ->with('imageProfesseur'         , $imageProfesseur)
         ->with('getIdCours'              , $getIdCours)
+        ->with('id'                      ,$idProfesseur[0]->id)
         ->with('nomberReserveThisCours'  , $nomberReserveThisCours !== null && count($nomberReserveThisCours) > 0 ? count($nomberReserveThisCours) : 1);
     }
 

@@ -213,10 +213,12 @@
 
     $('.btn-reserver1').on('click',function()
     {
+        
         var Time = @json($DebutCours);
         var NameProfesseur  = @json($NameProfesseur);
         var cours           = @json($Cours);
         var typeCours       = @json($TypeCours);
+        var id              = @json($id);
         if(typeCours === 'Cours particulier')
         {
             typeCours = 'prive';
@@ -225,7 +227,7 @@
         {
             typeCours = 'groupe';
         }
-        var reservationUrl = "/Reservation/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours);
+        var reservationUrl = "/Reservation/" + encodeURIComponent(Time) + "/" + encodeURIComponent(NameProfesseur) + "/" + encodeURIComponent(cours) + "/" + encodeURIComponent(typeCours) + "/" +encodeURIComponent(id);
 
 
         window.location.href = reservationUrl;
