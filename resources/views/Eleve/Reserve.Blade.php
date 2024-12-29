@@ -93,7 +93,7 @@
                                 <span>Flexibilité d'horaire</span>
                             </li>
                         </ul>
-                        <button type="button" class="action" <!-- onclick="window.location='{{ url('/Account/store/checkout') }}'" -->>Commencer</button>
+                        <button type="button" class="action" <!-- onclick="window.location='{{ url('/Account/store/checkout') }}'" -->Commencer</button>
                     </div>
                 </div>
 

@@ -156,6 +156,7 @@ Route::group(['middleware' => ['web','auth']], function ()
 
 
     /******************************************** Start Dashboard Admin ***********************************************/
+    Route::get('notifications/read'       ,[AdminController::class,'notifications_read'])->middleware('IsEleve');
     Route::get('professeurs'              ,[AdminController::class,'professeurs'])
         ->name('professeurs')
         ->middleware('IsAdmin');
