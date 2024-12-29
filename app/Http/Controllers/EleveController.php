@@ -765,13 +765,9 @@ class EleveController extends Controller
                                         ->where('reserves.nom_eleve','=',Auth::user()->name)
                                         ->where('valide',1)
                                         ->get(); // extract data cours student is completed
-<<<<<<< HEAD
-                                      
-                if(!empty($AddDebutAndTimeZoneStatus)) // this code add fin and timezone if variable is not empty
-=======
 
                 if(!empty($AddDebutAndTimeZone)) // this code add fin and timezone if variable is not empty
->>>>>>> bb92489caf18e1e3115dc798395934b5da7b0082
+
                 {
                     foreach($DataCoursIsComplet as $item)
                     {
@@ -825,9 +821,7 @@ class EleveController extends Controller
                 }
             }
         }
-<<<<<<< HEAD
-        
-=======
+
         if (is_array($DataCoursIsComplet) || is_object($DataCoursIsComplet)) {
             foreach ($DataCoursIsComplet as $item) {
                 if (!isset($item->fin) || !isset($item->timezone)) {
@@ -840,7 +834,7 @@ class EleveController extends Controller
         }
 
 
->>>>>>> bb92489caf18e1e3115dc798395934b5da7b0082
+
         return view('Eleve.Cours')
         ->with('hasCours'           ,$hasCours)
         ->with('MesCours'           ,$MesCours)

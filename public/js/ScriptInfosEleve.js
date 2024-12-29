@@ -97,7 +97,7 @@ $(document).ready(function ()
         }
     });
 
-    $('#Confirmermdp').on('blur', function () {
+    /* $('#Confirmermdp').on('blur', function () {
         var confirmedPassword = $(this).val();
 
         if (confirmedPassword !== $('input[name="newPassword"]').val()) {
@@ -107,7 +107,7 @@ $(document).ready(function ()
         {
             $('#errorConfirmPassword').text('');
         }
-    });
+    }); */
 
     $('#Confirmermdp').on('input',function()
     {
