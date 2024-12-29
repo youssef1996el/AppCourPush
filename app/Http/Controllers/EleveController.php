@@ -170,7 +170,6 @@ class EleveController extends Controller
             'DateSelected'      => $DateSelected,
             'frenchDayName'     => $englishDayName,
             'hasCoursToday'     => $hasCoursToday,
-
             'hasRequestDate'    => $requestData['day'],
             'TodayTitle'        => \Carbon\Carbon::now()->format('l, j M Y'),
         ]);
@@ -180,7 +179,7 @@ class EleveController extends Controller
 
     public function Reservation($Time,$NameProfesseur,$Cours,$TypeCours,$id)
     {
-
+       
         return view('Eleve.Reserve')
         ->with('Cours',$Cours)
         ->with('Time',$Time)

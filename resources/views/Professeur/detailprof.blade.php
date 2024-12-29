@@ -250,9 +250,8 @@
                     if(response.status == 200)
                     {
 
-                        var reservationUrl = "/Reservation/" + encodeURIComponent(response.Data[0].debut) + "/" + encodeURIComponent(response.Data[0].name) + "/" + encodeURIComponent(response.Data[0].title) + "/" + encodeURIComponent(response.Data[0].typecours);
-
-
+                        var reservationUrl = "/Reservation/" + encodeURIComponent(response.Data[0].debut) + "/" + encodeURIComponent(response.Data[0].name) + "/" + encodeURIComponent(response.Data[0].title) + "/" + encodeURIComponent(response.Data[0].typecours + "/" + encodeURIComponent(response.Data[0].iduser));
+                        
                         window.location.href = reservationUrl;
                     }
                     else if(response.status == 400)

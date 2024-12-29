@@ -211,111 +211,111 @@ class HomeController extends Controller
 
    public function DetailProfesseur($id)
    {
-    $actualId = Hashids::decode($id);
-    $Professuer = User::where('id',$actualId)->first();
+        $actualId = Hashids::decode($id);
+        $Professuer = User::where('id',$actualId)->first();
 
-    $DisponibleProf = DB::select('select d.idcours,d.id,jour,debut,fin,c.title,d.typecours,d.timezone from
-            disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[$Professuer->id]);
+        $DisponibleProf = DB::select('select d.idcours,d.id,jour,debut,fin,c.title,d.typecours,d.timezone from
+                disponibleprof d,cours c where d.idcours = c.id and d.iduser = ?',[$Professuer->id]);
 
-    $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-    $disponibilityByDay = [];
+        $day_names_fr = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        $disponibilityByDay = [];
 
-    foreach ($day_names_fr as $item)
-    {
-        $disponibilityByDay[$item] = [];
-    }
-    foreach ($DisponibleProf as $item1)
-    {
-        $debut = new DateTime($item1->debut);
-        $fin = new DateTime($item1->fin);
-        $diff = $debut->diff($fin);
-        $hours = $diff->h + $diff->i / 60;
+        foreach ($day_names_fr as $item)
+        {
+            $disponibilityByDay[$item] = [];
+        }
+        foreach ($DisponibleProf as $item1)
+        {
+            $debut = new DateTime($item1->debut);
+            $fin = new DateTime($item1->fin);
+            $diff = $debut->diff($fin);
+            $hours = $diff->h + $diff->i / 60;
 
-        $item1->calculhour = $hours;
-
-
-        $disponibilityByDay[$item1->jour][] = $item1;
-    }
-    foreach ($disponibilityByDay as &$dayArray) {
-        usort($dayArray, function($a, $b) {
-            return strtotime($a->debut) - strtotime($b->debut);
-        });
-    }
-
-    $CourProf      = DB::select('select c.title,c.id from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[$Professuer->id]);
-    $FormationProf = DB::select('select diplome,specialise,annee,ecole,pays from formationprof where diplome is not null and iduser  =?',[$Professuer->id]);
-    $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[$Professuer->id]);
-
-    // Extract debut and fin from disponible
+            $item1->calculhour = $hours;
 
 
-    $DebutCours = '';
-    $FinCours   = '';
-    $TimeZone   = '';
-    foreach($DisponibleProf as $item)
-    {
-        $DebutCours = $item->debut;
-        $FinCours   = $item->fin;
-        $TimeZone   = $item->timezone;
-    }
+            $disponibilityByDay[$item1->jour][] = $item1;
+        }
+        foreach ($disponibilityByDay as &$dayArray) {
+            usort($dayArray, function($a, $b) {
+                return strtotime($a->debut) - strtotime($b->debut);
+            });
+        }
+
+        $CourProf      = DB::select('select c.title,c.id from courprof cp,cours c where cp.idcours = c.id and cp.iduser =?',[$Professuer->id]);
+        $FormationProf = DB::select('select diplome,specialise,annee,ecole,pays from formationprof where diplome is not null and iduser  =?',[$Professuer->id]);
+        $ExperinceProf = DB::select('select poste, entreprise, pays, du, au from experinceprof where poste is not null and  iduser=?',[$Professuer->id]);
+
+        // Extract debut and fin from disponible
 
 
-
-    // information Professeur
-    $InformationProfesseur = User::where('id',$Professuer->id)->first();
-    // sum experince professeur
-    $CalculExperince = DB::select('select sum(timestampdiff(year,du,au) ) as experince from experinceprof where iduser = ?',[$Professuer->id]);
+        $DebutCours = '';
+        $FinCours   = '';
+        $TimeZone   = '';
+        foreach($DisponibleProf as $item)
+        {
+            $DebutCours = $item->debut;
+            $FinCours   = $item->fin;
+            $TimeZone   = $item->timezone;
+        }
 
 
 
-    $imageProfesseur = User::where('name',$InformationProfesseur->name)->first();
+        // information Professeur
+        $InformationProfesseur = User::where('id',$Professuer->id)->first();
+        // sum experince professeur
+        $CalculExperince = DB::select('select sum(timestampdiff(year,du,au) ) as experince from experinceprof where iduser = ?',[$Professuer->id]);
 
 
 
-    // Convert the date to a Carbon instance
-    $carbonDate = Carbon::now();
+        $imageProfesseur = User::where('name',$InformationProfesseur->name)->first();
 
-    // Array for translating days and months
-    $translations = [
-        'Monday' => 'lundi',
-        'Tuesday' => 'mardi',
-        'Wednesday' => 'mercredi',
-        'Thursday' => 'jeudi',
-        'Friday' => 'vendredi',
-        'Saturday' => 'samedi',
-        'Sunday' => 'dimanche',
-        'January' => 'janvier',
-        'February' => 'février',
-        'March' => 'mars',
-        'April' => 'avril',
-        'May' => 'mai',
-        'June' => 'juin',
-        'July' => 'juillet',
-        'August' => 'août',
-        'September' => 'septembre',
-        'October' => 'octobre',
-        'November' => 'novembre',
-        'December' => 'décembre',
-    ];
 
-    // Format the date as desired
-    $formattedDate = $carbonDate->translatedFormat('l d F, Y', null, 'fr', $translations);
+
+        // Convert the date to a Carbon instance
+        $carbonDate = Carbon::now();
+
+        // Array for translating days and months
+        $translations = [
+            'Monday' => 'lundi',
+            'Tuesday' => 'mardi',
+            'Wednesday' => 'mercredi',
+            'Thursday' => 'jeudi',
+            'Friday' => 'vendredi',
+            'Saturday' => 'samedi',
+            'Sunday' => 'dimanche',
+            'January' => 'janvier',
+            'February' => 'février',
+            'March' => 'mars',
+            'April' => 'avril',
+            'May' => 'mai',
+            'June' => 'juin',
+            'July' => 'juillet',
+            'August' => 'août',
+            'September' => 'septembre',
+            'October' => 'octobre',
+            'November' => 'novembre',
+            'December' => 'décembre',
+        ];
+
+        // Format the date as desired
+        $formattedDate = $carbonDate->translatedFormat('l d F, Y', null, 'fr', $translations);
 
     // Output the result
 
    /*  dd($disponibilityByDay); */
-    return view('professeur.detailprof')
-    ->with('CalculExperince'         , $CalculExperince)
-    ->with('InformationProfesseur'   , $InformationProfesseur)
-    ->with('DebutCours'              , $DebutCours)
-    ->with('TimeZone'                , $TimeZone)
-    ->with('FinCours'                , $FinCours)
-    ->with('DateSelected'            , $formattedDate)
-    ->with('disponibilityByDay'      , $disponibilityByDay)
-    ->with('CourProf'                , $CourProf)
-    ->with('FormationProf'           , $FormationProf)
-    ->with('ExperinceProf'           , $ExperinceProf)
-    ->with('imageProfesseur'         , $imageProfesseur);
+        return view('professeur.detailprof')
+        ->with('CalculExperince'         , $CalculExperince)
+        ->with('InformationProfesseur'   , $InformationProfesseur)
+        ->with('DebutCours'              , $DebutCours)
+        ->with('TimeZone'                , $TimeZone)
+        ->with('FinCours'                , $FinCours)
+        ->with('DateSelected'            , $formattedDate)
+        ->with('disponibilityByDay'      , $disponibilityByDay)
+        ->with('CourProf'                , $CourProf)
+        ->with('FormationProf'           , $FormationProf)
+        ->with('ExperinceProf'           , $ExperinceProf)
+        ->with('imageProfesseur'         , $imageProfesseur);
 
    }
 
@@ -346,7 +346,7 @@ class HomeController extends Controller
                         ->where('idcours'   ,$request->cours)
                         ->where('typecours' ,$request->typecours)
                         ->where('disponibleprof.iduser'    ,$request->iduser)
-                        ->select('disponibleprof.debut','users.name','cours.title','disponibleprof.typecours')
+                        ->select('disponibleprof.debut','users.name','cours.title','disponibleprof.typecours','disponibleprof.iduser')
                         ->get();
                 return response()->json([
                     'status'   => 200,

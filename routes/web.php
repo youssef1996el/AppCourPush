@@ -126,8 +126,7 @@ Route::group(['middleware' => ['web','auth']], function ()
     Route::get('GetpProfesseur'                                             ,[EleveController::class,'GetpProfesseur'])
         ->middleware('IsEleve');
 
-    Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{id}'    ,[EleveController::class,'Reservation'])
-        ->middleware('IsEleve');
+    
 
     Route::get('InfosProfile'                                               ,[EleveController::class,'InfosProfile'])
         ->middleware('IsEleve');
@@ -279,7 +278,8 @@ Route::group(['middleware' => ['web','auth']], function ()
 
 Route::get('Details/{id}' ,[EleveController::class,'DetailsProfesseur']);
 
-
+Route::get('Reservation/{Time}/{NameProfesseur}/{Cours}/{TypeCours}/{id}'    ,[EleveController::class,'Reservation'])
+        /* ->middleware('IsEleve') */;
 
 
 
@@ -319,25 +319,25 @@ Route::post('reset-password'        , [ForgotPasswordController::class, 'submitR
 
 
 
-Route::get('/prof/{name}/{id}',function()
-{
-    return view('Profile.index');
-});
+    Route::get('/prof/{name}/{id}',function()
+    {
+        return view('Profile.index');
+    });
 
 
-Route::post('StoreData',[HomeController::class,'Store']);
+    Route::post('StoreData',[HomeController::class,'Store']);
 
-Route::get('professeur/detailprof/{id}',[HomeController::class,'DetailProfesseur']);
-Route::get('checkDispoProf',[HomeController::class,'checkDispoProf']);
-/* Route::get(,function()
-{
-    return view('professeur.detailprof');
-}); */
+    Route::get('professeur/detailprof/{id}',[HomeController::class,'DetailProfesseur']);
+    Route::get('checkDispoProf',[HomeController::class,'checkDispoProf']);
+    /* Route::get(,function()
+    {
+        return view('professeur.detailprof');
+    }); */
 
-Route::get('SendEmail',function()
-{
-    return view('email.Send');
-});
+    Route::get('SendEmail',function()
+    {
+        return view('email.Send');
+    });
 
 
 

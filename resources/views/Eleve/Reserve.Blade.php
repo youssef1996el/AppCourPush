@@ -16,7 +16,7 @@
                     <span>Retour</span>
                 </i>
             </a>
-        </div>
+        </div> 
         <div class="panel card rounded-2 mt-4 mb-5">
             <h3>Prêt à poursuivre votre parcours linguistique dès aujourd'hui ?</h3>
             <h5>Nos formules flexibles comprennent :</h5>
