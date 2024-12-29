@@ -44,7 +44,7 @@ class StripeController extends Controller
         $TypeCours = session('TypeCours');
         $Montant = session('Montant');
         $id      = session('id');
-      
+        
 
         // extract id professeur
         $professeur = DB::table('users')->where('name',$NameProfesseur)->first();
@@ -57,13 +57,13 @@ class StripeController extends Controller
         // extract Day
         $DisponibleProfessuer = DB::table('disponibleprof')
         
-                                        ->where('ID',$id)
+                                        ->where('iduser',$id)
                                         /* ->where('debut',$Time)
                                         ->where('idcours',$IdCours) */
                                         ->select('jour')
                                         ->first();
                                        
-                                        
+                                      
         $Days                 = $DisponibleProfessuer->jour; 
         $Name_Eleve = Auth::user()->name;
 
