@@ -13,11 +13,30 @@
                 
                 <div class="col-sm-12 col-md-12 col-xl-12">
                     <div class="table-responsive ">
+<<<<<<< HEAD
+                        
+                        <table class="table-primary align-middle mb-0 bg-white w-100" {{ $role_name === "professeur" ? 'id=tableListProfesseur' : 'id=tableListEleve' }}>
+                            @if ($role_name === 'professeur')
+                                <thead class="" >
+                                    <tr>
+                                    <th>Nom</th>
+                                    <th>Titre</th>
+                                    <th>Status</th>
+                                    <th>Position</th>
+                                    <th>Verification</th>
+                                    <th>Actions</th>
+                                    </tr>
+                                </thead>
+                            @else
+                                <thead class="" >
+                                    <tr>
+=======
                         @if(Auth::user()->role_name ==="Admin" || Auth::user()->role_name === "professeur")           
                             <table class="table-primary align-middle mb-0 bg-white w-100" {{ $role_name === "professeur" ? 'id=tableListProfesseur' : 'id=tableListEleve' }}>
                                 @if ($role_name === 'professeur')
                                     <thead class="" >
                                         <tr>
+>>>>>>> bb92489caf18e1e3115dc798395934b5da7b0082
                                         <th>Nom</th>
                                         <th>Titre</th>
                                         <th>Status</th>

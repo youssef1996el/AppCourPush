@@ -702,7 +702,7 @@ class EleveController extends Controller
 
 
             $MesCours  =$MesReserve;
-
+           
             $AddDebutAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id");
 
             //if(!empty($AddDebutAndTimeZone))
@@ -729,11 +729,13 @@ class EleveController extends Controller
 
             else
             {
+               
                 foreach ($MesCours as $item) {
                     $item->fin = 0;
                     $timezone = DB::select('SELECT @@system_time_zone AS system_time_zone')[0]->system_time_zone;
                     $item->timezone = $timezone;
                 }
+             
             }
             foreach ($MesCours as $item) {
                 if (!isset($item->fin) || !isset($item->timezone)) {
@@ -752,18 +754,24 @@ class EleveController extends Controller
                                     ->where('valide',1)
                                     ->where('nom_eleve',Auth::user()->name)
                                     ->count(); // get data cours is completed
-
+            
             if($DataCoursIsComplet > 0) // check if data cours is completed
             {
                 $CoursIsComplet = true; // change variable to true
-
+              
                 $DataCoursIsComplet = DB::table('reserves')
                                         ->join('cours','cours.id','=','reserves.idcours')
                                         ->select('cours.title','reserves.times','reserves.days','reserves.typecours','reserves.nom_professeur')
                                         ->where('reserves.nom_eleve','=',Auth::user()->name)
+                                        ->where('valide',1)
                                         ->get(); // extract data cours student is completed
+<<<<<<< HEAD
+                                      
+                if(!empty($AddDebutAndTimeZoneStatus)) // this code add fin and timezone if variable is not empty
+=======
 
                 if(!empty($AddDebutAndTimeZone)) // this code add fin and timezone if variable is not empty
+>>>>>>> bb92489caf18e1e3115dc798395934b5da7b0082
                 {
                     foreach($DataCoursIsComplet as $item)
                     {
@@ -801,8 +809,6 @@ class EleveController extends Controller
                     foreach ($MesReserve as $reserve) {
                         $nomProfesseurs[] = ucfirst(strtolower($reserve->nom_professeur));
                     }
-
-
                     $nomProfesseursString = "'" . implode("', '", $nomProfesseurs) . "'";
 
                     $MesProfesseur = DB::select("SELECT image, name FROM users WHERE name IN ($nomProfesseursString) and role_name ='professeur'");
@@ -817,12 +823,11 @@ class EleveController extends Controller
                         $item->image = isset($imageLookup[$imaged]) ? $imageLookup[$imaged] : "";
                     }
                 }
-
-
             }
-
-
         }
+<<<<<<< HEAD
+        
+=======
         if (is_array($DataCoursIsComplet) || is_object($DataCoursIsComplet)) {
             foreach ($DataCoursIsComplet as $item) {
                 if (!isset($item->fin) || !isset($item->timezone)) {
@@ -835,6 +840,7 @@ class EleveController extends Controller
         }
 
 
+>>>>>>> bb92489caf18e1e3115dc798395934b5da7b0082
         return view('Eleve.Cours')
         ->with('hasCours'           ,$hasCours)
         ->with('MesCours'           ,$MesCours)
