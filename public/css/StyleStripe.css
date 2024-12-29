@@ -21,8 +21,6 @@ label{
     border-radius: 5px;
     box-shadow: 0 10px 15px rgba(0,0,0,.1);
     padding: 50px;
-
-    padding-top: 160px;
 }
 
 .container form .inputBox{
@@ -45,8 +43,7 @@ label{
 }
 
 .container form .flexbox{
-    display: flex;
-    gap:15px;
+    display: block;
 }
 
 .container form .flexbox .inputBox{
@@ -72,11 +69,10 @@ label{
 }
 
 .container .card-container{
-    margin-bottom: -120px;
     position: relative;
     height: 250px;
-    width: 400px;
-    margin-left: 2.5rem
+    width: 100%;
+    margin: 0px 35px;
 }
 
 .container .card-container .front{
@@ -186,7 +182,7 @@ label{
 {
     .container .card-container .front {
 
-        width: 65%;
+        width: 82%;
     }
    /*  .cvv-input
     {
@@ -202,12 +198,9 @@ label{
 
     .container .card-container .front {
 
-        width: 65%;
+        width: 82%;
     }
-    .cvv-input
-    {
-        margin-top:19px;
-    }
+   
 
 }
 @media screen and (min-width: 1024px)
@@ -218,15 +211,9 @@ label{
         width: 85%;
     }
 }
-@media only screen and (max-width: 600px)
+@media only screen and (max-width: 576px)
 {
-    .container .card-container .front {
-
-        width: 70%;
-    }
-    .container .card-container {
-        margin-left: 1.5rem;
-    }
+  
     .cvv-input
     {
         margin-top:22px;

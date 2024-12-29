@@ -79,9 +79,9 @@
                 <div class="carousel-inner ">
                     <!-- Single item -->
                     <div class="carousel-item active">
-                    <img src="{{asset('image/Moroccan-teacher-teaching-Arabic.jpg')}}" class="d-block w-100" alt="Sunset Over the City"/>
-                        <div class="carousel-caption ">
-                            <h5 class="animated bounceInRight mb-4" style="animation-delay:1s;font-size: 50px;"> تعلم التحدث باللغة العربية بثقة</h5>
+                    <img src="{{asset('image/Moroccan-teacher-teaching-Arabic.jpg')}}" class="d-block w-100" alt="prof"/>
+                        <div class="carousel-caption-langue">
+                            <h5 class="animated bounceInRight mb-4" style="animation-delay:1s;"> تعلم التحدث باللغة العربية بثقة</h5>
                             <p class="animated bounceInLeft mb-3" style="animation-delay:2s">
 
                                 <span>دورات عبر الإنترنت على مدار الساعة وطوال أيام الأسبوع</span>
@@ -99,8 +99,8 @@
 
                     <!-- Single item -->
                     <div class="carousel-item ">
-                    <img src="{{asset('image/Teacher-Explaining-Lessons.jpg')}}" class="d-block w-100 " alt="Canyon at Night"/>
-                        <div class="carousel-caption ">
+                    <img src="{{asset('image/Teacher-Explaining-Lessons.jpg')}}" class="d-block w-100 " alt="class"/>
+                        <div class="carousel-caption-langue">
                                 <h5 class="animated bounceInRight mb-4" style="animation-delay:1s"> Apprenez à parler l'arabe avec aisance</h5>
                                 <p class="animated bounceInLeft  mb-3" style="animation-delay:2s">
                                     <i class="fa-solid fa-check"></i>
@@ -136,7 +136,7 @@
                     <h2><span class="ligne"> Bienvenue </span>sur la plateforme pédagogique pour apprendrelarabe.fr</h2>
                 </div>
 
-                <div class="row justify-content-center">
+                <div class="row d-flex justify-content-center">
                     <div class="col-sm-12 col-md-4 col-lg-4 mb-3 text-center">
                         <div class="card">
                             <div class="icon"><i class="fa fa-users fa-2x" id="utilisateur" aria-hidden="true"></i></div>

@@ -10,6 +10,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-xl-12">
                     <div class="table-responsive ">
+                        
                         <table class="table-primary align-middle mb-0 bg-white w-100" {{ $role_name === "professeur" ? 'id=tableListProfesseur' : 'id=tableListEleve' }}>
                             @if ($role_name === 'professeur')
                                 <thead class="" >

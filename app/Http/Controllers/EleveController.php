@@ -702,7 +702,7 @@ class EleveController extends Controller
 
 
             $MesCours  =$MesReserve;
-
+           
             $AddDebutAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id");
            
             if(!empty($AddDebutAndTimeZoneStatus))
@@ -725,11 +725,13 @@ class EleveController extends Controller
             }
             else
             {
+               
                 foreach ($MesCours as $item) {
                     $item->fin = 0;
                     $timezone = DB::select('SELECT @@system_time_zone AS system_time_zone')[0]->system_time_zone;
                     $item->timezone = $timezone;
                 }
+             
             }
             // Code down is cours is completed
 
@@ -739,17 +741,18 @@ class EleveController extends Controller
                                     ->where('valide',1)
                                     ->where('nom_eleve',Auth::user()->name)
                                     ->count(); // get data cours is completed
-
+            
             if($DataCoursIsComplet > 0) // check if data cours is completed
             {
                 $CoursIsComplet = true; // change variable to true
-
+              
                 $DataCoursIsComplet = DB::table('reserves')
                                         ->join('cours','cours.id','=','reserves.idcours')
                                         ->select('cours.title','reserves.times','reserves.days','reserves.typecours','reserves.nom_professeur')
                                         ->where('reserves.nom_eleve','=',Auth::user()->name)
+                                        ->where('valide',1)
                                         ->get(); // extract data cours student is completed
-
+                                      
                 if(!empty($AddDebutAndTimeZoneStatus)) // this code add fin and timezone if variable is not empty
                 {
                     foreach($DataCoursIsComplet as $item)
@@ -787,8 +790,6 @@ class EleveController extends Controller
                     foreach ($MesReserve as $reserve) {
                         $nomProfesseurs[] = ucfirst(strtolower($reserve->nom_professeur));
                     }
-
-
                     $nomProfesseursString = "'" . implode("', '", $nomProfesseurs) . "'";
 
                     $MesProfesseur = DB::select("SELECT image, name FROM users WHERE name IN ($nomProfesseursString) and role_name ='professeur'");
@@ -803,24 +804,9 @@ class EleveController extends Controller
                         $item->image = isset($imageLookup[$imaged]) ? $imageLookup[$imaged] : "";
                     }
                 }
-
-
             }
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
+        
         return view('Eleve.Cours')
         ->with('hasCours'           ,$hasCours)
         ->with('MesCours'           ,$MesCours)

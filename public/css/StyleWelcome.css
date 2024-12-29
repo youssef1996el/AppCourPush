@@ -133,11 +133,6 @@
 
 
 
-    @media only screen and (max-width: 810px) {
-        .carousel-caption {
-            bottom: 380px !important;
-        }
-    }
 /*Service*/
 
 #service .section-title h2{
@@ -203,36 +198,24 @@ footer hr{
 	height: 100vh;
 	min-height: 300px;
 }
-.carousel-caption {
-	bottom: 200px;
-}
-.carousel-caption h5 {
-	font-size: 45px;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	margin-top: 25px;
-}
-.carousel-caption p {
-	width: 60%;
-	margin: auto;
-	font-size: 18px;
-	line-height: 1.9;
+.carousel-caption-langue {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust the element position to be perfectly centered */
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
 }
 
-@media only screen and (max-width: 767px) {
 
-	.carousel-caption {
-        bottom: 260px;
-	}
-	.carousel-caption h5 {
-		font-size: 18px;
-	}
-    .carousel-caption p{
-		font-size: 13px;
-	}
-}
 
-   #home .carousel-item::before{
+
+
+#home .carousel-item::before{
       content: "";
       display: block;
       position: absolute;
@@ -333,3 +316,99 @@ footer hr{
     margin-left: -4px !important;
 }
 
+
+
+
+/* General Section Styles */
+#home {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* Caption Styles */
+.carousel-caption-langue {
+    position: absolute;
+    top: 50%; /* Centers the text vertically */
+    left: 50%; /* Centers the text horizontally */
+    transform: translate(-50%, -50%); /* Adjusts the caption to perfectly center */
+    z-index: 10;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    width: 80%; /* Default width */
+}
+
+.carousel-caption-langue h5 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.carousel-caption-langue p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+
+.carousel-indicators .active {
+    background-color: white;
+}
+
+/* Carousel Controls */
+
+
+/* Media Queries for Responsiveness */
+
+/* For small devices (phones) */
+@media (max-width: 576px) {
+    .carousel-caption-langue {
+        font-size: 1rem; /* Smaller font size for small screens */
+        width: 90%; /* Increase width on smaller screens */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .carousel-caption-langue h5 {
+        font-size: 1.2rem; /* Smaller heading size */
+    }
+
+    .carousel-caption-langue p {
+        font-size: 0.9rem; /* Adjust paragraph text size */
+    }
+}
+
+/* For medium devices (tablets) */
+@media (max-width: 768px) {
+    .carousel-caption-langue {
+        font-size: 1.2rem; /* Adjust font size for medium devices */
+        width: 85%; /* Adjust width for tablets */
+    }
+
+    .carousel-caption-langue h5 {
+        font-size: 1.7rem; /* Adjust heading size */
+    }
+
+    .carousel-caption-langue p {
+        font-size: 1rem; /* Adjust paragraph text size */
+    }
+
+
+}
+
+/* For large devices (desktops) */
+@media (min-width: 1024px) {
+    .carousel-caption-langue {
+        font-size: 1.5rem; /* Larger font size for large screens */
+        width: 70%; /* Adjust width for larger screens */
+    }
+
+    .carousel-caption-langue h5 {
+        font-size: 2.3rem; /* Larger heading for large screens */
+    }
+
+    .carousel-caption-langue p {
+        font-size: 1.3rem; /* Larger text for larger screens */
+    }
+}
