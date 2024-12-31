@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Kottab</title>
     <link rel="icon" href="{{asset('image/faviconnobg.png')}}" type="image/x-icon">
-    <div class="container mt-5 ">
+    <div class="container ">
     <div class="cardCss ">
         <div class="form">
             <div class="left-side">
