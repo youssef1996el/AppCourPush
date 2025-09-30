@@ -56,3 +56,15 @@ box-shadow: 0 0.125rem 2.625rem rgba(68,64,84,.4),0 .0625rem .125rem rgba(68,64,
   background: white;
 box-shadow: 0 .125rem .625rem rgba(68,64,84,.4),0 .0625rem .125rem rgba(68,64,84,.5);}
 #btn-border:active{border: none !important;}
+.unread {
+    background-color: #d1ecf1; /* Light blue */
+    font-weight: bold;
+}
+
+.read {
+    opacity: 0.8;
+}
+.read a{
+text-decoration: none;}
+.unread a{
+  text-decoration: none;}

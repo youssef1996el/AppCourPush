@@ -6,8 +6,9 @@
     <div class="container mt-4 ">
         <div class="card cardInfo">
             <div class="card-body">
+               
                 @if(Auth::user()->role_name === "professeur" || Auth::user()->role_name === "Admin")
-                <h4 class="card-title titleCard">Liste des {{$role_name}}</h4>
+                    <h4 class="card-title titleCard">Liste des {{$role_name}}</h4>
                 @endif
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-xl-12">
@@ -55,6 +56,7 @@
                                     @endforeach
                                 </tbody>
                                 @else
+                                
                                 <thead>
                                     <tr>
                                         <th>Nom</th>
@@ -65,25 +67,25 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
-                                    <tr class="text-center">
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="{{ $item->image }}" class="rounded-circle" alt="" style="width: 45px; height: 45px" />
-                                                <div class="ms-3">
-                                                    <p class="fw-bold mb-1">{{ $item->name }}</p>
+                                        <tr class="text-center">
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="{{ $item->image }}" class="rounded-circle" alt="" style="width: 45px; height: 45px" />
+                                                    <div class="ms-3">
+                                                        <p class="fw-bold mb-1">{{ $item->name }}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-muted mb-0">{{ $item->email }}</p>
-                                        </td>
-                                        <td>
-                                            <p class="fw-normal mb-1">{{ $item->pays }}</p>
-                                        </td>
-                                        <td>
-                                            <span class="text-success fw-bold">Active</span>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                            <td>
+                                                <p class="text-muted mb-0">{{ $item->email }}</p>
+                                            </td>
+                                            <td>
+                                                <p class="fw-normal mb-1">{{ $item->pays }}</p>
+                                            </td>
+                                            <td>
+                                                <span class="text-success fw-bold">Active</span>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                                 @endif
@@ -116,15 +118,7 @@
                                         <p class="text-secondary text-center titleProfesseur" style="margin-top: 12px;" ></p>
                                         <p class="text-secondary text-center numberExperince"></p>
                                         <p class="info text-black methodeProfesseur"></p>
-
-                                    <div class="button-container">
-                                        <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" >
-                                                    <i class="fa-solid fa-phone"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" >
-                                                <i class="fa-regular fa-envelope"></i>
-                                        </button>
-                                    </div>
+                                     
                                 </div>
                             
                             </div>

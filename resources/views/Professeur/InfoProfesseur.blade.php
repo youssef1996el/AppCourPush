@@ -26,30 +26,30 @@
                     <div class="col-sm-12 col-md-6 col-xl-6 ">
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Nom complet</label>
-                            <input type="text" class="form-control" placeholder="nom" value="{{$DataProfesseur->name}}" name="name">
+                            <input type="text" class="form-control" placeholder="Entrer le nom complet" value="{{$DataProfesseur->name}}" name="name">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="" class="mb-1">télephone</label>
-                            <input type="text" class="form-control" placeholder="Prénom" value="{{$DataProfesseur->telephone}}" name="telephone">
+                            <label for="" class="mb-1">Télephone</label>
+                            <input type="text" class="form-control" placeholder="Entrer le numero de telephone" value="{{$DataProfesseur->telephone}}" name="telephone" oninput="this.value = this.value.replace(/\D/g, '')"  minlength="9" maxlength="15">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Titre</label>
-                            <input type="text" class="form-control" placeholder="nom" value="{{$DataProfesseur->title}}" name="title">
+                            <input type="text" class="form-control" placeholder="Entrer le titre de vore annonce" value="{{$DataProfesseur->title}}" name="title">
                         </div>
 
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-6 ">
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Email</label>
-                            <input type="email" class="form-control" placeholder="nom" value="{{$DataProfesseur->email}}" name="email">
+                            <input type="email" class="form-control" placeholder="Entrer l'email" value="{{$DataProfesseur->email}}" name="email">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Date naissance</label>
-                            <input type="date" class="form-control" placeholder="Prénom" value="{{$DataProfesseur->datenaissance}}">
+                            <input type="date" class="form-control" placeholder="Date naissance" value="{{$DataProfesseur->datenaissance}}" name="datedenaissance">
                         </div>
                         <div class="form-group mb-3">
                             <label for="" class="mb-1">Méthode</label>
-                            <textarea name="description" id="" class="form-control"  rows="3">{{$DataProfesseur->description}}</textarea>
+                            <textarea name="description" id="" class="form-control" placeholder="Taper votre methodes d'apprentissage "  rows="3">{{$DataProfesseur->description}}</textarea>
                         <div>
                     </div>
                 </div>
@@ -97,6 +97,7 @@
  
 
 <script>
+    
 $(document).ready(function ()
 {
 
@@ -143,5 +144,6 @@ function readURL(input) {
             });
         }
     });
+    
     </script>
 @endsection

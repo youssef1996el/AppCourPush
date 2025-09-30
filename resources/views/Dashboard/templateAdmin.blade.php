@@ -327,6 +327,7 @@
                                         <span class="icon-wrapper icon-wrapper-alt rounded-circle">
                                             <span class="icon-wrapper-bg bg-danger"></span>
                                                 @if(auth()->check() && auth()->user()->unreadNotifications->count() > 0)
+
                                                 <i class="fa-regular fa-bell text-danger icon-anim-pulse "></i>
                                                 {{-- <i class="icon text-danger icon-anim-pulse ion-android-notifications"></i> --}}
 
@@ -353,11 +354,14 @@
                                                     <span>Messages</span>
                                                 </a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a role="tab" class="nav-link" data-toggle="tab" href="#tab-events-header">
-                                                    <span>Evenements</span>
-                                                </a>
-                                            </li>
+                                            @if (Auth::user()->role_name != "professeur" && Auth::user()->role_name != "Admin")
+                                                <li class="nav-item">
+                                                    <a role="tab" class="nav-link" data-toggle="tab" href="#tab-events-header">
+                                                        <span>Evenements</span>
+                                                    </a>
+                                                </li>
+                                            @endif
+                                            
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab-messages-header" role="tabpanel">
@@ -367,33 +371,42 @@
                                                             <div class="notifications-box">
                                                                 <div class="vertical-time-simple vertical-without-time vertical-timeline vertical-timeline--one-column">
                                                                     @guest
-                                                                    <div>
-                                                                        <span class="vertical-timeline-element-icon bounce-in"></span>
-                                                                        <div class="vertical-timeline-element-content bounce-in">
-                                                                            <h4 class="timeline-title">All Hands Meeting</h4>
-                                                                            <span class="vertical-timeline-element-date"></span>
+                                                                        <div>
+                                                                            <span class="vertical-timeline-element-icon bounce-in"></span>
+                                                                            <div class="vertical-timeline-element-content bounce-in">
+                                                                                <h4 class="timeline-title">All Hands Meeting</h4>
+                                                                                <span class="vertical-timeline-element-date"></span>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
                                                                     @else
-                                                                        @foreach (auth()->user()->unreadNotifications as $notification)
+                                                                        {{-- @foreach (auth()->user()->unreadNotifications as $notification) --}}
+                                                                        @foreach (auth()->user()->notifications as $notification)
                                                                             @if( $notification->data['condition'] === 'MSG')
                                                                                 @php
                                                                                     $url = $notification->data['id'];
                                                                                     $hashids = new Hashids\Hashids();
 
                                                                                     $url = $hashids->encode($url);
-
+                                                                                    //$url = $notification->id;
                                                                                     $classes = ['dot-warning', 'dot-success', 'dot-primary', 'dot-info', 'dot-danger'];
 
                                                                                     $randomClass = $classes[array_rand($classes)];
                                                                                 @endphp
-                                                                                <div class="vertical-timeline-item {{$randomClass}} vertical-timeline-element">
+                                                                                <div class="vertical-timeline-item {{ $notification->read_at ? 'read' : 'unread' }} {{ $randomClass }} vertical-timeline-element">
                                                                                     <div>
                                                                                         <span class="vertical-timeline-element-icon bounce-in"></span>
                                                                                         <div class="vertical-timeline-element-content bounce-in">
-                                                                                            <h4 class="timeline-title">
-                                                                                                <a href="{{url('ShowUsers/'.$url)}}"> {{$notification->data['title']}}</a>
-                                                                                            </h4>
+                                                                                            @if (auth()->user()->role_name == "eleve")
+                                                                                                <h4 class="timeline-title">
+                                                                                                <a href="{{ url('StripeEleve?notification=' . $notification->id) }}" class="custom-link">
+    {{ $notification->data['title'] }}
+</a>
+                                                                                                </h4>
+                                                                                            @else
+                                                                                                <h4 class="timeline-title">
+                                                                                                    <a href="{{ url('ShowUsers/' . $url) }}" class="custom-link">{{ $notification->data['title'] }}</a>
+                                                                                                </h4>
+                                                                                            @endif
                                                                                             <span class="vertical-timeline-element-date"></span>
                                                                                         </div>
                                                                                     </div>
@@ -409,159 +422,60 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" id="tab-events-header" role="tabpanel">
-                                                    <div class="scroll-area-sm">
-                                                        <div class="scrollbar-container">
-                                                            <div class="p-3">
-                                                                <div class="vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
-                                                                    @auth
-                                                                        @foreach (auth()->user()->unreadNotifications as $notification)
-                                                                            @if ($notification->data['condition'] === 'Event')
-                                                                                @php
-                                                                                    $classes = ['badge-warning', 'badge-success', 'badge-primary', 'badge-info', 'badge-danger'];
-                                                                                    $randomClass = $classes[array_rand($classes)];
-                                                                                    // Extract link
-                                                                                    $pattern = '/<a\s+(?:[^>]*?\s+)?href=(["\'])(.*?)\1/';
-                                                                                    preg_match($pattern, $notification->data['title'], $matches);
-                                                                                    $href = isset($matches[2]) ? $matches[2] : '';
-                                                                                    // Remove tag a from text
-                                                                                    $patternRemove = '/<a\b[^>]*>(.*?)<\/a>/i';
-                                                                                    $Text = preg_replace($patternRemove, '', $notification->data['title']);
-                                                                                @endphp
-                                                                                <div class="vertical-timeline-item vertical-timeline-element">
-                                                                                    <div>
-                                                                                        <span class="vertical-timeline-element-icon bounce-in">
-                                                                                            <i class="badge badge-dot badge-dot-xl {{$randomClass}}"> </i>
-                                                                                        </span>
-                                                                                        <div class="vertical-timeline-element-content bounce-in">
-                                                                                            <h4 class="timeline-title">Réunion</h4>
-                                                                                            <p class="textLink" title="{{$notification->id}}" data-target="{{$href}}">{{$Text}}
-                                                                                                <a href="{{$href}}" target="_blank">{{$href}}</a>
-                                                                                            </p>
-                                                                                            <span class="vertical-timeline-element-date"></span>
+                                                    @if (Auth::user()->role_name != "professeur")
+                                                        <div class="tab-pane" id="tab-events-header" role="tabpanel">
+                                                            <div class="scroll-area-sm">
+                                                                <div class="scrollbar-container">
+                                                                    <div class="p-3">
+                                                                        <div class="vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
+                                                                            @auth
+                                                                                {{-- @foreach (auth()->user()->unreadNotifications as $notification) --}}
+                                                                                @foreach (auth()->user()->notifications as $notification)
+                                                                                    @if ($notification->data['condition'] === 'Event')
+                                                                                        @php
+                                                                                            $classes = ['badge-warning', 'badge-success', 'badge-primary', 'badge-info', 'badge-danger'];
+                                                                                            $randomClass = $classes[array_rand($classes)];
+                                                                                            // Extract link
+                                                                                            $pattern = '/<a\s+(?:[^>]*?\s+)?href=(["\'])(.*?)\1/';
+                                                                                            preg_match($pattern, $notification->data['title'], $matches);
+                                                                                            $href = isset($matches[2]) ? $matches[2] : '';
+                                                                                            // Remove tag a from text
+                                                                                            $patternRemove = '/<a\b[^>]*>(.*?)<\/a>/i';
+                                                                                            $Text = preg_replace($patternRemove, '', $notification->data['title']);
+                                                                                        @endphp
+                                                                                        <div class="vertical-timeline-item vertical-timeline-element {{ $notification->read_at ? 'read' : 'unread' }}">
+                                                                                            <div>
+                                                                                                <span class="vertical-timeline-element-icon bounce-in">
+                                                                                                    <i class="badge badge-dot badge-dot-xl {{$randomClass}}"> </i>
+                                                                                                </span>
+                                                                                                <div class="vertical-timeline-element-content bounce-in">
+                                                                                                    <h4 class="timeline-title">Réunion</h4>
+                                                                                                    <p class="textLink" title="{{$notification->id}}" data-target="{{$href}}">{{$Text}}
+                                                                                                        <a href="{{$href}}" target="_blank">{{$href}}</a>
+                                                                                                    </p>
+                                                                                                    <span class="vertical-timeline-element-date"></span>
+                                                                                                </div>
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            @endif
-                                                                        @endforeach
-                                                                    @endauth
-
-                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in">
-                                                                                <i class="badge badge-dot badge-dot-xl badge-success"> </i>
-                                                                            </span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <h4 class="timeline-title">All Hands Meeting</h4>
-                                                                                <p>Lorem ipsum dolor sic amet, today at
-                                                                                    <a href="javascript:void(0);">12:00 PM</a>
-                                                                                </p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
+                                                                                    @endif
+                                                                                @endforeach
+                                                                            @endauth
+        
+                                                                            
                                                                         </div>
-                                                                    </div> --}}
-                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in">
-                                                                                <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
-                                                                            </span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <p>Another meeting today, at <b class="text-danger">12:00 PM</b></p>
-                                                                                <p>Yet another one, at <span class="text-success">15:00 PM</span></p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> --}}
-                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in">
-                                                                                <i class="badge badge-dot badge-dot-xl badge-danger"> </i>
-                                                                            </span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <h4 class="timeline-title">Build the production release</h4>
-                                                                                <p>Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
-                                                                                    labore et dolore magna elit enim at minim veniam quis nostrud
-                                                                                </p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> --}}
-                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in">
-                                                                                <i class="badge badge-dot badge-dot-xl badge-primary"> </i>
-                                                                            </span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <h4 class="timeline-title text-success">Something not important</h4>
-                                                                                <p>Lorem ipsum dolor sit amit,consectetur elit enim at minim veniam quis nostrud</p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> --}}
-                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in">
-                                                                                <i class="badge badge-dot badge-dot-xl badge-success"> </i>
-                                                                            </span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <h4 class="timeline-title">All Hands Meeting</h4>
-                                                                                <p>Lorem ipsum dolor sic amet, today at
-                                                                                    <a href="javascript:void(0);">12:00 PM</a>
-                                                                                </p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> --}}
-                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in">
-                                                                                <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
-                                                                            </span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <p>Another meeting today, at <b class="text-danger">12:00 PM</b></p>
-                                                                                <p>Yet another one, at <span class="text-success">15:00 PM</span></p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> --}}
-                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in">
-                                                                                <i class="badge badge-dot badge-dot-xl badge-danger"> </i>
-                                                                            </span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <h4 class="timeline-title">Build the production release</h4>
-                                                                                <p>Lorem ipsum dolor sit amit,consectetur eiusmdd tempor incididunt ut
-                                                                                labore et dolore magna elit enim at minim veniam quis nostrud
-                                                                                </p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> --}}
-                                                                    {{-- <div class="vertical-timeline-item vertical-timeline-element">
-                                                                        <div>
-                                                                            <span class="vertical-timeline-element-icon bounce-in">
-                                                                                <i class="badge badge-dot badge-dot-xl badge-primary"> </i>
-                                                                            </span>
-                                                                            <div class="vertical-timeline-element-content bounce-in">
-                                                                                <h4 class="timeline-title text-success">Something not important</h4>
-                                                                                <p>Lorem ipsum dolor sit amit,consectetur elit enim at minim veniam quis nostrud</p>
-                                                                                <span class="vertical-timeline-element-date"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> --}}
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                   
+
+                                                    @endif
+                                                   
+
+                                               
+                                                
                                             </div>
-                                            {{-- <ul class="nav flex-column">
-                                                <li class="nav-item-divider nav-item"></li>
-                                                <li class="nav-item-btn text-center nav-item">
-                                                    <button class="btn-shadow btn-wide btn-pill btn btn-focus btn-sm">View Latest Changes</button>
-                                                </li>
-                                            </ul> --}}
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -873,6 +787,27 @@
 
             <script type="text/javascript" src="{{asset('js/templateAdmin.js')}}"></script>
             <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.custom-link');
+
+      links.forEach(link => {
+        const id = link.dataset.id;
+
+        // Check if this link was visited before
+        if (localStorage.getItem('visited_' + id)) {
+          link.classList.add('visited');
+        }
+
+        // When clicked, mark it as visited
+        link.addEventListener('click', () => {
+          localStorage.setItem('visited_' + id, true);
+          link.classList.add('visited');
+        });
+      });
+    });
+  
+  </script>
+            <script>
                 $('.textLink').on('click',function(e)
                 {
                     var id  = $(this).attr('title');
@@ -896,5 +831,6 @@
                    });
                 });
             </script>
+    
 </body>
 </html>

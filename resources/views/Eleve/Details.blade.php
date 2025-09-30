@@ -161,7 +161,8 @@
                                                 <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}" {{-- {{ $key >= 1 ? 'hidden' : '' }}" --}}>
                                                     <li class="timeline-item" >
                                                         <div class="timeline-element">
-                                                            <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                        {{-- <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span> --}}
+                                                            <span class="date">{{  $item->annee }}</span>
                                                             <span class="pays">{{ $item->pays }}</span>
                                                             <div class="timeline-content">
                                                                 <h3>{{ $item->diplome }}</h3>
@@ -188,6 +189,13 @@
                 <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" onclick="showPhoneNumber()" >
                     <i class="fa-solid fa-phone"></i>
                 </button>
+               <!--  <p style="display: contents;">contactez-moi via</p>
+                <button type="button"
+                    class="btn btn-link"
+                    data-mdb-ripple-color="dark"
+                    onclick="window.open('https://wa.me/{{$InformationProfesseur->telephone}}?text=Bonjour%20{{ urlencode($InformationProfesseur->name) }}%2C%20je%20vous%20contacte%20depuis%20le%20site',  '_blank')">
+                    <i class="fa-solid fa-phone"></i>
+                </button> -->
                 ou
                 <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" onclick="sendMessage()" >
                     <i class="fa-regular fa-envelope"></i>

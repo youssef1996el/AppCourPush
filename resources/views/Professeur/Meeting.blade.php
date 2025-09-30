@@ -26,8 +26,8 @@
                                     <th >Type cours</th>
                                     <th>Jours</th>
                                     <th>Debut</th>
-                                    <th>Fin</th>
-                                    <th>Fuseau horaire</th>
+                                    {{-- <th>Fin</th> --}}
+                                    {{-- <th>Fuseau horaire</th> --}}
                                     <th>Meeting</th>
                                     {{-- <th>Actions</th> --}}
                                 </tr>
@@ -62,12 +62,12 @@
                                             <td>
                                                 <p class="text-muted mb-1 text-center times">{{$item->times}}</p>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 <span class="text-muted mb-1 text-center fin" style="text-align: center">{{$item->fin}}</span>
-                                            </td>
-                                            <td>
+                                            </td> --}}
+                                            {{-- <td>
                                                 <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->timezone}}</span>
-                                            </td>
+                                            </td> --}}
                                             <td>
 
                                                 <input type="checkbox" value="{{$item->email}}" data-value="{{$item->nom_professeur}}" class="SelectedEleve" {{$item->hasCours == false ? 'disabled' : ''}}>
@@ -104,7 +104,7 @@
                         <input type="text" placeholder="Entrer votre lien meet" class="form-control LinkMeet" name="link" >
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-success BtnSendLink" type="button">Envoyé</button>
+                        <button class="btn btn-success BtnSendLink" type="button">Envoyer</button>
                     </div>
                 </form>
 

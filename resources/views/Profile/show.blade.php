@@ -19,7 +19,7 @@
             <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" onclick="showPhoneNumber('{{ $DataProf[0]->telephone }}')" >
                 <i class="fa-solid fa-phone"></i>
             </button>
-            ou
+          
             <button type="button" class="btn btn-link" data-mdb-ripple-color="dark" onclick="sendMessage('{{ $DataProf[0]->email }}')" >
                 <i class="fa-regular fa-envelope"></i>
             </button>
@@ -66,7 +66,8 @@
                                     <div class="item" data-index="{{$key}}" style="{{$key > 0 ? 'display:none;' : ''}}">
                                         <li class="timeline-item" >
                                             <div class="timeline-element">
-                                                <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span>
+                                                {{-- <span class="date">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->annee)->format('m/Y') }}</span> --}}
+                                                <span class="date">{{  $item->annee }}</span>
                                                 <span class="pays">{{ $item->pays }}</span>
                                                 <div class="timeline-content">
                                                     <h3>{{ $item->diplome }}</h3>

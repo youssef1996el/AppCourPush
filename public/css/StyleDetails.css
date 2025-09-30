@@ -14,6 +14,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    border: 3px solid #004aad;
 }
 .RCourse{
     padding: 20px 12px 0px 12px;
@@ -78,15 +79,16 @@ background:rgb(221, 228, 238) ;
  
 
   .cardProfile .name{
-    font-size: 2.5rem;
+    font-size: 28px;
     font-weight: bold;
   }
 
   .cardProfile h4{
-    font-size: 24px;
+    font-size: 22px;
     color: #686868;
 
   }
+  
 
   .cardProfile .fa-briefcase{
     color:gray

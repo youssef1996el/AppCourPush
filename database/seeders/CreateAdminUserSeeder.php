@@ -14,10 +14,10 @@ class CreateAdminUserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-        	'name' => 'iqraa',
-            'nom'  => 'iqraa',
-            'prenom' =>'iqraa',
-        	'email' => 'iqraa@gmail.com',
+        	'name' => 'kottaab',
+            'nom'  => 'kottaab',
+            'prenom' =>'kottaab',
+        	'email' => 'kottaab.2024@gmail.com',
         	'password' => bcrypt('987654321'),
             'role_name'=>'Admin',
             'email_verified_at' =>Carbon::now(),

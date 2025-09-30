@@ -146,14 +146,7 @@
   
   
   
-  @media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-    .cards {
-      margin: auto 38px;
-  }
-  }
+
   .row {
   display: flex;
   justify-content: center;
@@ -174,4 +167,4 @@
   }
   
   
-  
+ 

@@ -70,9 +70,9 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Dossier d'eleve</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body m-auto">
+                <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-12 col-md-3 col-m-3">
+                        <div class="col-sm-12 col-md-12 col-m-3">
                             <div class="card bg-light cardProfileEleve shadow-sm">
                                 <img class="img" id="imageEleve" alt="Image">
                                 <form>                          

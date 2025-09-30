@@ -231,11 +231,25 @@ class AdminController extends Controller
     }
     public function ShowUser($id)
     {
+        
         $actualId = Hashids::decode($id);
         $userProfesseurOrEleve = User::find($actualId);
-        $updatenotification = DB::table('notifications')
-                            ->where('data->id', $actualId)->update(['read_at' => now()]);
+        
+DB::table('notifications')
+->whereRaw("JSON_EXTRACT(data, '$.id') = ?", [$actualId])
+->update(['read_at' => Carbon::now()]);
 
+        /* $updatenotification = DB::table('notifications')
+                            ->where('notifiable_id', $actualId)->update(['read_at' => now()]); */
+        $role_name = $userProfesseurOrEleve[0]->role_name;
+
+        /* $update = DB::table('notifications')
+        ->whereJsonContains('data->id', $actualId) // Find where data->id matches
+        ->update([
+            'status' => json_encode([$role_name]),
+        ]); */
+        //dd($update);
+                            
         $data             = $userProfesseurOrEleve[0]->role_name;
         if($data === 'professeur')
         {
@@ -252,6 +266,7 @@ class AdminController extends Controller
         return view('Dashboard.ShowUsers')->with('data', $data)
         ->with('role_name',$userProfesseurOrEleve[0]->role_name);
     }
+   
 
     public function getStartYearAndEnd()
     {
@@ -761,12 +776,14 @@ class AdminController extends Controller
                 }
             }
         }
+        //dd($Reserve);
 
         foreach($Reserve as $item)
         {
-            $AddFinAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id and d.iduser = ?",
+            $AddFinAndTimeZone = DB::select("select jour, debut, fin, typecours, timezone, name,c.title from disponibleprof d,users u,cours c  where d.iduser = u.id and d.idcours = c.id and d.id = ?",
                 [$item->idProf]);
         }
+        
         foreach ($Reserve as &$cours) {
             foreach ($AddFinAndTimeZone as $info) {
                 if (
@@ -780,6 +797,9 @@ class AdminController extends Controller
                 }
             }
         }
+
+        //dd($Reserve,$AddFinAndTimeZone);
+        
 
         return view('Dashboard.Validation')
         ->with('Data',$Reserve);

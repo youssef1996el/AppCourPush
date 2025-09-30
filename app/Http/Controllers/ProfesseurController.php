@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Notifications\SendLinkMeetNotification;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Hash;
+
 class ProfesseurController extends Controller
 {
     public function StepByStep()
@@ -437,6 +439,7 @@ class ProfesseurController extends Controller
         $user->telephone        = $request->telephone;
         $user->title            = $request->title;
         $user->email            = $request->email;
+        $user->datenaissance    = $request->datedenaissance;
         $user->description      = $request->description;
         if ($request->filled('newpassword') && $request->filled('confirmpassword'))
         {
@@ -444,7 +447,7 @@ class ProfesseurController extends Controller
         }
 
         $user->save();
-        return redirect()->back()->with('message', 'Your success message here');
+        return redirect()->back()->with('message', 'Opération réussie !');
     }
 
     public function MesEleves()

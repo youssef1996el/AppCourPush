@@ -41,7 +41,7 @@ use App\Http\Middleware\IsAdmin;
 Auth::routes([
     'verify'    =>true,
 ]);
-Route::group(['middleware' => ['web','auth']], function ()
+Route::group(['middleware' => ['web','auth', 'verified']], function ()
 {
     /****************************************Start Cours DashBorad **************************************/
     Route::post('StoreCours'          ,[CoursController::class,'StoreCours']);
@@ -178,7 +178,7 @@ Route::group(['middleware' => ['web','auth']], function ()
     Route::get('Admin/Profile'            ,[AdminController::class,'AdminProfile'])
         ->middleware('IsAdmin');
 
-    Route::get('ShowUsers/{id}'           ,[AdminController::class,'ShowUser']);
+    Route::get('ShowUsers/{id}'           ,[AdminController::class,'ShowUser']); 
 
     Route::get('getStartYearAndEnd'       ,[AdminController::class,'getStartYearAndEnd'])
         ->middleware('IsAdmin');
@@ -289,15 +289,14 @@ Route::get('Details/{id}' ,[EleveController::class,'DetailsProfesseur']);
 
 
 
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome']);
 
-Route::get('auth/google'          ,[SocialiteController::class,'redirectToGoogle']);
-Route::get('auth/google/callback' ,[SocialiteController::class,'handGoogleCallback']);
-Route::post('LoginWithGoogle'     ,[SocialiteController::class,'LoginWithGoogle'])->name('LoginWithGoogle');
+/*Route::get('auth/google'          ,[SocialiteController::class,'redirectToGoogle']);*/
+Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
 
-
+Route::match(['get', 'post'], 'LoginWithGoogle', [SocialiteController::class, 'LoginWithGoogle'])->name('LoginWithGoogle');
 
 /***************************************** Rest Password *********************************************/
 Route::get('forget-password'        , [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
@@ -316,7 +315,8 @@ Route::post('reset-password'        , [ForgotPasswordController::class, 'submitR
 
 
 
-
+Route::get('StripeEleve',[EleveController::class,'StripeEleve'])
+->middleware('IsEleve');
 
 
     Route::get('/prof/{name}/{id}',function()
@@ -334,16 +334,22 @@ Route::post('reset-password'        , [ForgotPasswordController::class, 'submitR
         return view('professeur.detailprof');
     }); */
 
-    Route::get('SendEmail',function()
+ /*    Route::get('SendEmail',function()
     {
         return view('email.Send');
     });
+ */
 
 
 
-
-
-
+    Route::get('/SendEmail', function () {
+        $user = auth()->user();
+        if ($user && ! $user->hasVerifiedEmail()) {
+            $user->sendEmailVerificationNotification();
+            return 'Verification email sent!';
+        }
+        return 'You are already verified or not logged in.';
+    })->middleware('auth');
 
 
 

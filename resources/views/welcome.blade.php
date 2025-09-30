@@ -38,6 +38,7 @@
                     <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         @if (Route::has('login'))
                             @auth
+                        
                                 <a id="navbarDropdown" class="nav-link " href="{{ url('/home') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <!--  {{ Auth::user()->name }} -->
                                     <img class="theme-item user-avatar " src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('image/default-avatar.png') }}" alt="User image">
@@ -45,9 +46,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->email_verified_at != null)
                                     <a class="dropdown-item" href="{{ Auth::user()->role_name === 'Admin' ? url('Admin/Dashboard') : (Auth::user()->role_name === 'professeur' ? url('ShowProfileProf') : url('profile/eleve')) }}">
                                         {{ __('Mon espace') }}
                                     </a>
+                                    @endif
+                                
+                                
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -213,7 +218,7 @@
                 </div>
                 <div class="row mt-5">
                     @foreach ($listProf as $item)
-                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="col-sm-12 col-md-4 col-lg-4 mb-4">
                         @php
                             $url = $item->id;
                             $hashids = new Hashids\Hashids();
@@ -222,7 +227,7 @@
                         @endphp
                         <a href="{{url('professeur/detailprof',$url)}}" style="text-decoration: none; color: black;">
                             <div class="card bg-light">
-                                <div class="text-center">
+                                <div class=" imgprof text-center">
                                     <img class="card-img-top img-fluid" src="{{$item->image}}" alt="{{$item->name}}">
                                 </div>
                                 <div class="card-body">
@@ -237,16 +242,20 @@
 
 
 
-                                    <div class="teletemail mt-4">
-                                        <p class="card-text mb-4" style=" font-size: 24px; "> {{$item->title}}</p>
-                                        <p class="card-text mb-2" style="font-size: 1rem;"><i class="fa fa-phone" aria-hidden="true"></i> {{$item->telephone}}</p>
-                                        <p class="card-text" style="font-size: 1rem;"><i class="fa fa-envelope" aria-hidden="true"></i> {{$item->email}}</p>
+                                    <div class="teleemail mt-4">
+                                        <p class="card-text mb-4 title" > {{$item->title}}</p>
+                                        <p class="card-text mb-2 phone" ><i class="fa fa-phone" aria-hidden="true"></i> {{$item->telephone}}</p>
+                                        <p class="card-text email" ><i class="fa fa-envelope" aria-hidden="true"></i> {{$item->email}}</p>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     @endforeach
+                    <!-- ✅ Add Pagination Links -->
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $listProf->links() }}
+                    </div>
                 </div>
             </div>
         </section>
@@ -256,9 +265,8 @@
                 <hr>
                 <p>&copy;  Kottab</p>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/yourfacebookprofile" target="_blank"><i class="fab fa-facebook  p-2 fa-xl"></i></a>
-                    <a href="https://www.twitter.com/yourtwitterprofile" target="_blank"  ><i class="fab fa-twitter  p-2 fa-xl" ></i></a>
-                    <a href="https://www.github.com/yourgithubprofile" target="_blank"><i class="fab fa-instagram  p-2 fa-xl" ></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61581577018096" target="_blank"><i class="fab fa-facebook  p-2 fa-xl " style="color: #1877F2;"></i></a>
+                    <a href="https://www.github.com/yourgithubprofile" target="_blank"><i class="fab fa-instagram  p-2 fa-xl"  style="color: #E4405F;" ></i></a>
                 </div>
             </div>
         </footer>

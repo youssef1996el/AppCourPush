@@ -25,6 +25,19 @@ class EleveController extends Controller
         return view('profile.eleve')
                 ->with('cours'          , $cours);
     }
+    public function StripeEleve(Request $request)
+    {
+        if ($request->has('notification')) {
+            $notification = auth()->user()->notifications()->find($request->notification);
+            if ($notification) {
+                $notification->markAsRead(); // ✅ Mark it as read here
+            }
+        }
+    
+        // Your normal logic...
+        return view('eleve.SripeEleve');
+    }// or return something appropriate
+    
 
     public function GetpProfesseur(Request $request)
     {
@@ -835,7 +848,7 @@ class EleveController extends Controller
             }
         }
 
-
+       
 
         return view('Eleve.Cours')
         ->with('hasCours'           ,$hasCours)

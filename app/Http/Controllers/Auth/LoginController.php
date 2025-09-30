@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 class LoginController extends Controller
 {
     /*
@@ -41,6 +43,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
+        
         if(Auth::user()->role_name === 'eleve' )
         {
             $this->redirectTo = route('profile/eleve');
@@ -48,17 +51,26 @@ class LoginController extends Controller
         }
         if(Auth::user()->role_name === 'professeur')
         {
-            $checkProfIsExperince = DB::table('experinceprof')->where('iduser', '=', Auth::user()->id)->count();
-            if($checkProfIsExperince == 0)
+            $check_verification = Auth::user()->email_verified_at ;
+            if(is_null($check_verification))
             {
-                $this->redirectTo = route('StepByStep');
-                return $this->redirectTo;
+                return redirect('/');
             }
             else
             {
-                $this->redirectTo = route('ShowProfileProf');
-                return $this->redirectTo;
+                $checkProfIsExperince = DB::table('experinceprof')->where('iduser', '=', Auth::user()->id)->count();
+                if($checkProfIsExperince == 0)
+                {
+                    $this->redirectTo = route('StepByStep');
+                    return $this->redirectTo;
+                }
+                else
+                {
+                    $this->redirectTo = route('ShowProfileProf');
+                    return $this->redirectTo;
+                }
             }
+            
 
         }
         if(Auth::user()->role_name === 'Admin')
@@ -66,5 +78,12 @@ class LoginController extends Controller
             $this->redirectTo = route('Admin/Dashboard');
             return $this->redirectTo;
         }
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => ["Ces identifiants ne correspondent pas à nos enregistrements."],
+        ]);
     }
 }

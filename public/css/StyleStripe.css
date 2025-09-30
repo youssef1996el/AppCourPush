@@ -72,7 +72,6 @@ label{
     position: relative;
     height: 250px;
     width: 100%;
-    margin: 0px 35px;
 }
 
 .container .card-container .front{
@@ -195,25 +194,42 @@ label{
 /* iPad Portrait */
 @media only screen and (min-device-width: 768px)  and (orientation: portrait)
 {
-
+    .container .card-container 
+    {margin: 0px 30px;
+    } 
     .container .card-container .front {
+
+        width: 82%;
+    }
+    .container .card-container .back {
 
         width: 82%;
     }
    
 
 }
+
 @media screen and (min-width: 1024px)
 {
-
+    .container .card-container 
+    {margin: 0px 34px;
+    } 
     .container .card-container .front {
+
+        width: 85%;
+        
+    }
+    .container .card-container .back {
 
         width: 85%;
     }
 }
 @media only screen and (max-width: 576px)
 {
-  
+    .container .card-container 
+    {width: 90%;
+        margin: 0px 16px;
+    } 
     .cvv-input
     {
         margin-top:22px;

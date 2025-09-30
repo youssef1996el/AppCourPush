@@ -112,8 +112,8 @@
                             <p  style="color: gray;" class="mb-3">Liez un compte pour continuer </p>
                             <a href="{{url('auth/google')}}" type="submit" class="btn btn-lg  btn-light btn-google-register" ><i class="fab fa-google me-2"></i></a>
 
-                            <a class="btn btn-lg  btn-primary mb-2 btn-facebook" href="" type="submit">
-                            <i class="fa-brands fa-facebook me-2"></i></a>
+                            <!--a class="btn btn-lg  btn-primary mb-2 btn-facebook" href="" type="submit">
+                            <i class="fa-brands fa-facebook me-2"></i></a-->
                         </div>
 
                     </form>
@@ -197,8 +197,8 @@
                             <p  style="color: gray;" class="mb-2">Liez un compte pour continuer </p>
                             <a href="{{url('auth/google')}}" type="submit" class="btn btn-lg  btn-light btn-google-register" ><i class="fab fa-google me-2"></i></a>
 
-                            <a class="btn btn-lg  btn-primary mb-2 btn-facebook" href="" type="submit">
-                            <i class="fa-brands fa-facebook me-2"></i></a>
+                            <!--a class="btn btn-lg  btn-primary mb-2 btn-facebook" href="" type="submit">
+                            <i class="fa-brands fa-facebook me-2"></i></a-->
                         </div>
 
                         <!--div class="text-center mb-3">

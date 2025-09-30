@@ -55,7 +55,7 @@
                                 <img  class="" src="{{asset('image/cours.png') }}" alt="cours" style="width:200px">
                                 <h5 class="mt-3">Rien de prévu pour le moment</h5>
                                 <p class="text-muted">Vous n'êtes actuellement inscrit dans aucun cours.</p>
-                                <p>Pour commencer, <a href="#"> resever un cours</a></p>
+                                <p>Pour commencer, <a href="{{url('Reserver')}}"> resever un cours</a></p>
                             </div>
                         @endif
                     </div>
@@ -88,7 +88,7 @@
                             <img  class="" src="{{asset('image/nonpris.png')}}" alt="cours" style="width:200px">
                             <h5 class="mt-3">Vous pouvez retrouver tous vos cours terminés ici.</h5>
                             <p class="text-muted">Vous n'avez pas suivi de cours... pour l'instant !</p>
-                            <p>Pour commencer, <a href="#"> resever un cours</a></p>
+                            <p>Pour commencer, <a href="{{url('Reserver')}}"> resever un cours</a></p>
                         @endif
 
                     </div>

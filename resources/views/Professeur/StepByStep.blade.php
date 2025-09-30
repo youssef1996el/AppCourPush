@@ -71,7 +71,7 @@
                         </div>
                         <div class="input-text" style="margin-top: 2.5rem;">
                             <div class="input-div">
-                                <input type="text" id="phone" name="phone" required require>
+                                <input type="text" id="phone" name="phone" required require placeholder=""   oninput="this.value = this.value.replace(/\D/g, '')"  minlength="9" maxlength="15">
                                 <span>Numéro de téléphone</span>
                             </div>
 
@@ -107,7 +107,7 @@
                             </div>
                             <div class="input-text" >
                                 <div class="input-div">
-                                    <input type="text" name="annee[]" >
+                                    <input type="date" name="annee[]" >
                                     <span>Année d'obtention</span>
                                 </div>
                                 <div class="input-div">
@@ -297,12 +297,12 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Voulez-vous sauvegarder vos donnees personnelles ?*</p>
+                                    <p>Voulez-vous sauvegarder vos données personnelles ?*</p>
                                     <input type="checkbox" id="confirmCheckbox">
                                     <label for="confirmCheckbox">Oui, j'accepte </label>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
                                     <button type="submit" class="btn btn-primary" id="btnSaveData">sauvegarder</button>
                                 </div>
                             </div>
@@ -380,8 +380,8 @@
                                                 </div>
                                                 <div class="input-text">
                                                     <div class="input-div">
-                                                        <input type="text" name="annee[]" required require>
-                                                        <span>Année d'obtention</span>
+                                                        <label style="margin-left:6px">Année d'obtention</label>
+                                                        <input type="date" name="annee[]" required require>
                                                     </div>
                                                     <div class="input-div">
                                                         <input type="text" name="ecole[]" required require>

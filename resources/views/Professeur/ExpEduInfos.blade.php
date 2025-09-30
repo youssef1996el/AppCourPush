@@ -27,7 +27,12 @@
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label for="" class="mb-1">Année d'obtention</label>
-                                                <input type="text" class="form-control annee" name="annee[]" placeholder="Année d'obtention" value="{{$item->annee}}">
+                                                @php
+                                                $date = $item->annee;
+                                                $parts = explode('-', $date);
+                                                $justDate = implode('-', array_slice($parts, 0, 3));
+                                                @endphp
+                                                <input type="date" class="form-control annee" name="annee[]" placeholder="Année d'obtention" value="{{$justDate}}">
                                             </div>
 
                                             <div class="form-group mb-3">
@@ -283,7 +288,7 @@ $(document).ready(function ()
                                                     </div>
                                                     <div class="form-group mb-3">
                                                         <label for="" class="mb-1">Année d'obtention</label>
-                                                        <input type="text" class="form-control" name="annee[]" placeholder="Année d'obtention" >
+                                                        <input type="date" class="form-control" name="annee[]" placeholder="Année d'obtention" >
                                                     </div>
 
                                                     <div class="form-group mb-3">
@@ -329,7 +334,7 @@ $(document).ready(function ()
                             </div>\
                             <div class="form-group mb-3">\
                                 <label for="" class="mb-1">Année d\'obtention</label>\
-                                <input type="text" class="form-control" name="annee[]" placeholder="Année d\'obtention">\
+                                <input type="date" class="form-control" name="annee[]" placeholder="Année d\'obtention">\
                             </div>\
                             <div class="form-group mb-3">\
                                 <label for="" class="mb-1">Pays</label>\

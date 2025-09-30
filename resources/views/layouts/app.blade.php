@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Kottab') }}</title>
+    <title>Kottab</title>
     <link rel="icon" href="{{asset('image/faviconnobg.png')}}" type="image/x-icon">
 
     <!-- Font Awesome -->
@@ -45,9 +45,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top " >
             <div class="container">
-                <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('image/hallo.png')}}"  alt="" style="height:50px; width:60px ; ">
+            @if (!Auth::check() || (Auth::check() && Auth::user()->email_verified_at)&& (request()->route()->getName() !== 'StepByStep'))
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('image/hallo.png') }}" alt="" style="height:50px; width:60px;">
                 </a>
+            @endif
                 {{-- <a class="navbar-toggler" href="{{ route('login') }}" aria-label="User Profile">
                     <i class="fa fa-user fa-lg" id="user" aria-hidden="true" style="color:rgb(13, 110, 253)"></i>
                 </a> --}}

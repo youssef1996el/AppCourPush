@@ -20,7 +20,7 @@
                                     <th>Jour</th>
                                     <th>Type cours</th>
                                     <th>Debut</th>
-                                    <th>Fin</th>
+                                    {{-- <th>Fin</th> --}}
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -58,9 +58,9 @@
                                             <td>
                                                 <span class="text-muted mb-1 text-center fin" style="text-align: center">{{$item->times}}</span>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 <span class="text-muted mb-1 text-center timezone" style="text-align: center">{{$item->fin}}</span>
-                                            </td>
+                                            </td> --}}
                                             <td>
 
                                             <span class=" mb-1 text-center timezone" style="text-align: center;font-weight:bold; color: {{ $item->status == 0 ? '#fc0' : ($item->status == 2 ? '#0dcaf0' : '#00b40c') }}">

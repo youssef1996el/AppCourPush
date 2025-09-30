@@ -133,18 +133,11 @@
         } */
 
         $(document).ready(function () {
-            $('#formEleve').on('submit',function()
-            {
-
-
+            $('#formEleve').on('submit', function(e) {
                 var pays = $('#pays').val();
-
-                if(pays === '')
-                {
-
+                if (pays === '') {
+                    e.preventDefault(); // prevent submission
                     $(this).find('.error').css('color','red').text('pays est requis');
-
-                    return false;
                 }
                 else
                 {

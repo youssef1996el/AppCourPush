@@ -14,6 +14,7 @@ use App\Notifications\RegisterNotification;
 use Illuminate\Support\Facades\Notification;
 use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Support\Facades\File;
+use App\Models\FormationProfesseur;
 class HomeController extends Controller
 {
     /**
@@ -29,7 +30,7 @@ class HomeController extends Controller
         ->where('users.role_name','=','professeur')
         ->select('users.name','users.image','users.description','users.telephone','users.id','users.title','users.email')
         ->groupBy('users.id')
-        ->get();
+        ->paginate(6);
 
         return view('welcome')->with('listProf',$listProf);
     }
@@ -47,7 +48,16 @@ class HomeController extends Controller
     {
 
         if (Auth::user()->role_name === 'professeur') {
-            return redirect('StepByStep');
+            $check = FormationProfesseur::where('iduser',Auth::user()->id)->count();
+            if($check == 0)
+            {
+                return redirect('/');
+            }
+            else
+            {
+                return redirect('StepByStep');
+            }
+            
         }
         else if(Auth::user()->role_name === 'eleve')
         {
