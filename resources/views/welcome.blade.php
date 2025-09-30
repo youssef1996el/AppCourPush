@@ -260,15 +260,39 @@
             </div>
         </section>
 
-        <footer class="footer text-dark text-center py-2">
-            <div class="container">
-                <hr>
-                <p>&copy;  Kottab</p>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61581577018096" target="_blank"><i class="fab fa-facebook  p-2 fa-xl " style="color: #1877F2;"></i></a>
-                    <a href="https://www.github.com/yourgithubprofile" target="_blank"><i class="fab fa-instagram  p-2 fa-xl"  style="color: #E4405F;" ></i></a>
+        <footer style="background-color:rgb(248, 249, 250); color: #1f2937; padding:40px 20px; font-family: Arial, sans-serif;box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;">
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
+
+                <!-- À propos -->
+                <div style="flex:1; min-width:200px;">
+                <div class="logo-src"><a href="{{url('/')}}"><img src="{{asset('image/hallo.png')}}" alt="" style="height: 50px;width: 60px;margin-top: -12px;"></a><!-- {{ config('app.name', 'APPSoutien') }} --></div>
+
+                <p>Apprenez à parler l’arabe avec aisance grâce à nos cours en ligne, en direct, en petits groupes ou particuliers, pour tous les niveaux.</p>    </div>
+
+                <!-- Contact -->
+                <div style="flex:1; min-width:200px;">
+                <h4 style="font-weight:bold">Contact</h4>
+                <p>Email: kottab.2024@gmail.com</p>
+                <p>Téléphone: +33 6 68 68 60 70</p>
                 </div>
+
+            <!-- Réseaux sociaux -->
+                
+            <div style="flex:1; min-width:200px;">
+                <h4 style="font-weight:bold">Suivez nos actualités et nouveautés</h4>
+                <a href="#" style="margin:0 10px; color:#1877F2; font-size:24px;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="margin:0 10px; color:#E4405F; font-size:24px;"><i class="fab fa-instagram"></i></a>
             </div>
-        </footer>
+
+            </div>
+
+
+
+            <!-- Copyright -->
+            <div style="margin-top:20px; text-align:center; font-size:14px; color:#9ca3af;">
+                &copy; 2025 Kottab. Tous droits réservés. 
+            </div>
+            </footer>
+        
     </body>
 </html>
