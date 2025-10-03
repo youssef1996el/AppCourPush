@@ -280,8 +280,8 @@
                 
             <div style="flex:1; min-width:200px;">
                 <h4 style="font-weight:bold">Suivez nos actualités et nouveautés</h4>
-                <a href="#" style="margin:0 10px; color:#1877F2; font-size:24px;"><i class="fab fa-facebook"></i></a>
-                <a href="#" style="margin:0 10px; color:#E4405F; font-size:24px;"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61581577018096 " style="margin:0 10px; color:#1877F2; font-size:24px;"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/kottaab2024/" style="margin:0 10px; color:#E4405F; font-size:24px;"><i class="fab fa-instagram"></i></a>
             </div>
 
             </div>
